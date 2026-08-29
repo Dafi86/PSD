@@ -1,0 +1,27 @@
+title: "Penambangan Sains Data"
+author: "Ahmad Dafi Zidni Alfarisi"
+
+logo: "logo.png"
+
+execute:
+  execute_notebooks: "off"
+
+repository:
+  url: "https://github.com/Dafi86/PSD"
+  branch: main
+
+html:
+  use_issues_button: true
+  use_repository_button: true
+  use_download_button: true
+
+launch_buttons:
+  notebook_interface: "jupyterlab"
+
+sphinx:
+  config:
+    html_theme_options:
+      repository_url: "https://github.com/Dafi86/PSD"
+      use_repository_button: true
+      use_issues_button: true
+      use_download_button: true
