@@ -1,0 +1,1212 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>5. Eksplorasi Data &#8212; Penambangan Sains Data</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'minggu-1/eksplorasi-data';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="4. Sumber Polutan" href="sumber-polutan.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Penambangan Sains Data - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Penambangan Sains Data - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Minggu 1 — Analisis Kualitas Udara</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="business-understanding.html">1. Business Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-understanding.html">2. Data Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deskripsi-fitur.html">3. Deskripsi Fitur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sumber-polutan.html">4. Sumber Polutan</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Eksplorasi Data</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Dafi86/PSD" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Dafi86/PSD/issues/new?title=Issue%20on%20page%20%2Fminggu-1/eksplorasi-data.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/minggu-1/eksplorasi-data.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>5. Eksplorasi Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pendahuluan">5.1 Pendahuluan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-yang-digunakan">5.2 Dataset yang Digunakan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-eksplorasi-data">5.3 Tujuan Eksplorasi Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-struktur-dataset">5.4 Pemeriksaan Struktur Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-tipe-data">5.5 Pemeriksaan Tipe Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-missing-value">5.6 Pemeriksaan Missing Value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-data-duplikat">5.7 Pemeriksaan Data Duplikat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-nilai-tidak-valid">5.8 Pemeriksaan Nilai Tidak Valid</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-deskriptif">5.9 Statistik Deskriptif</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rentang-nilai-pm">5.10 Rentang Nilai PM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-pm1">5.11 Distribusi PM1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-pm2-5">5.12 Distribusi PM2.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-pm10">5.13 Distribusi PM10</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-distribusi-pm">5.14 Perbandingan Distribusi PM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-outlier">5.15 Pemeriksaan Outlier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-outlier">5.16 Interpretasi Outlier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-berdasarkan-waktu">5.17 Analisis Berdasarkan Waktu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-time-series">5.18 Visualisasi Time Series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-hubungan-antarparameter">5.19 Analisis Hubungan Antarparameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot-antarparameter">5.20 Scatter Plot Antarparameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-koordinat">5.21 Analisis Koordinat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan-hasil-eksplorasi">5.22 Ringkasan Hasil Eksplorasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-eksplorasi-yang-dilakukan">5.23 Tahapan Eksplorasi yang Dilakukan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keterbatasan-eksplorasi">5.24 Keterbatasan Eksplorasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">5.25 Kesimpulan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan-eksplorasi-data">5.26 Ringkasan Eksplorasi Data</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="eksplorasi-data">
+<h1>5. Eksplorasi Data<a class="headerlink" href="#eksplorasi-data" title="Link to this heading">#</a></h1>
+<section id="pendahuluan">
+<h2>5.1 Pendahuluan<a class="headerlink" href="#pendahuluan" title="Link to this heading">#</a></h2>
+<p>Eksplorasi Data atau <strong>Exploratory Data Analysis (EDA)</strong> merupakan tahap untuk memahami karakteristik dataset secara lebih mendalam.</p>
+<p>Pada project ini, eksplorasi dilakukan terhadap dataset kualitas udara Kabupaten Lamongan yang berisi data:</p>
+<ul class="simple">
+<li><p>PM1;</p></li>
+<li><p>PM2.5;</p></li>
+<li><p>PM10;</p></li>
+<li><p>waktu pengamatan;</p></li>
+<li><p>serta koordinat lokasi.</p></li>
+</ul>
+<p>Tahap ini dilakukan setelah <strong>Business Understanding</strong>, <strong>Data Understanding</strong>, <strong>Deskripsi Fitur</strong>, dan <strong>Sumber Polutan</strong>.</p>
+<p>Tujuan eksplorasi adalah mengetahui pola, distribusi, karakteristik statistik, hubungan antarparameter, serta kemungkinan adanya nilai ekstrem pada data.</p>
+</section>
+<hr class="docutils" />
+<section id="dataset-yang-digunakan">
+<h2>5.2 Dataset yang Digunakan<a class="headerlink" href="#dataset-yang-digunakan" title="Link to this heading">#</a></h2>
+<p>Dataset yang digunakan adalah:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>data_lamongan.csv
+</pre></div>
+</div>
+<p>Dataset memiliki struktur:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Komponen</p></th>
+<th class="head"><p>Keterangan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Jumlah baris</p></td>
+<td><p>1.464</p></td>
+</tr>
+<tr class="row-odd"><td><p>Jumlah kolom</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>Periode awal</p></td>
+<td><p>29 Agustus 2025</p></td>
+</tr>
+<tr class="row-odd"><td><p>Periode akhir</p></td>
+<td><p>29 Agustus 2026</p></td>
+</tr>
+<tr class="row-even"><td><p>Frekuensi</p></td>
+<td><p>4 observasi per hari</p></td>
+</tr>
+<tr class="row-odd"><td><p>Wilayah</p></td>
+<td><p>Kabupaten Lamongan</p></td>
+</tr>
+<tr class="row-even"><td><p>Parameter</p></td>
+<td><p>PM1, PM2.5, PM10</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Kolom dataset:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>valid_time
+latitude
+longitude
+pm1_ug_m3
+pm2p5_ug_m3
+pm10_ug_m3
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="tujuan-eksplorasi-data">
+<h2>5.3 Tujuan Eksplorasi Data<a class="headerlink" href="#tujuan-eksplorasi-data" title="Link to this heading">#</a></h2>
+<p>Eksplorasi data dilakukan untuk menjawab beberapa pertanyaan:</p>
+<ol class="arabic simple">
+<li><p>Bagaimana struktur dataset kualitas udara?</p></li>
+<li><p>Bagaimana distribusi nilai PM1, PM2.5, dan PM10?</p></li>
+<li><p>Berapa nilai minimum, maksimum, dan rata-rata masing-masing parameter?</p></li>
+<li><p>Apakah terdapat missing value?</p></li>
+<li><p>Apakah terdapat data duplikat?</p></li>
+<li><p>Apakah terdapat nilai negatif atau nilai yang tidak valid?</p></li>
+<li><p>Apakah terdapat outlier?</p></li>
+<li><p>Bagaimana perubahan konsentrasi partikulat berdasarkan waktu?</p></li>
+<li><p>Bagaimana hubungan antara PM1, PM2.5, dan PM10?</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="pemeriksaan-struktur-dataset">
+<h2>5.4 Pemeriksaan Struktur Dataset<a class="headerlink" href="#pemeriksaan-struktur-dataset" title="Link to this heading">#</a></h2>
+<p>Pemeriksaan struktur dilakukan untuk memastikan dataset memiliki kolom dan jumlah observasi yang sesuai.</p>
+<p>Dataset memiliki:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Baris  : 1.464
+Kolom  : 6
+</pre></div>
+</div>
+<p>Struktur fitur:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Fitur</p></th>
+<th class="head"><p>Keterangan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">valid_time</span></code></p></td>
+<td><p>Waktu pengamatan</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">latitude</span></code></p></td>
+<td><p>Koordinat lintang</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">longitude</span></code></p></td>
+<td><p>Koordinat bujur</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span></code></p></td>
+<td><p>Konsentrasi PM1</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code></p></td>
+<td><p>Konsentrasi PM2.5</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span></code></p></td>
+<td><p>Konsentrasi PM10</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Struktur tersebut sesuai dengan dataset yang telah dijelaskan pada tahap <strong>Data Understanding</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="pemeriksaan-tipe-data">
+<h2>5.5 Pemeriksaan Tipe Data<a class="headerlink" href="#pemeriksaan-tipe-data" title="Link to this heading">#</a></h2>
+<p>Tipe data setiap kolom diperiksa agar dapat digunakan sesuai fungsinya.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Kolom</p></th>
+<th class="head"><p>Tipe Data</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">valid_time</span></code></p></td>
+<td><p>datetime64</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">latitude</span></code></p></td>
+<td><p>float64</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">longitude</span></code></p></td>
+<td><p>float64</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span></code></p></td>
+<td><p>float64</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code></p></td>
+<td><p>float64</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span></code></p></td>
+<td><p>float64</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Kolom <code class="docutils literal notranslate"><span class="pre">valid_time</span></code> menggunakan tipe datetime sehingga dapat digunakan untuk analisis berdasarkan waktu.</p>
+<p>Kolom PM menggunakan tipe numerik sehingga dapat digunakan untuk statistik deskriptif, visualisasi, dan analisis hubungan antarparameter.</p>
+</section>
+<hr class="docutils" />
+<section id="pemeriksaan-missing-value">
+<h2>5.6 Pemeriksaan Missing Value<a class="headerlink" href="#pemeriksaan-missing-value" title="Link to this heading">#</a></h2>
+<p>Missing value merupakan data yang tidak memiliki nilai atau bernilai kosong.</p>
+<p>Pemeriksaan missing value dilakukan pada seluruh kolom dataset.</p>
+<p>Variabel yang diperiksa meliputi:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>valid_time
+latitude
+longitude
+pm1_ug_m3
+pm2p5_ug_m3
+pm10_ug_m3
+</pre></div>
+</div>
+<p>Hasil pemeriksaan missing value perlu dicatat berdasarkan output notebook yang digunakan saat proses Data Understanding.</p>
+<p>Apabila tidak ditemukan nilai kosong, maka dataset dapat dinyatakan tidak memiliki missing value pada kolom yang diperiksa.</p>
+<p>Jika ditemukan missing value, penanganannya perlu dilakukan sebelum analisis lanjutan.</p>
+</section>
+<hr class="docutils" />
+<section id="pemeriksaan-data-duplikat">
+<h2>5.7 Pemeriksaan Data Duplikat<a class="headerlink" href="#pemeriksaan-data-duplikat" title="Link to this heading">#</a></h2>
+<p>Data duplikat merupakan baris yang memiliki informasi yang sama dengan baris lainnya.</p>
+<p>Pemeriksaan dilakukan untuk mengetahui apakah terdapat observasi yang tercatat lebih dari satu kali.</p>
+<p>Kombinasi yang penting untuk diperhatikan adalah:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>valid_time
+latitude
+longitude
+</pre></div>
+</div>
+<p>serta nilai partikulat pada observasi tersebut.</p>
+<p>Jika terdapat duplikasi, data perlu diperiksa terlebih dahulu sebelum diputuskan untuk dihapus.</p>
+<p>Penghapusan data duplikat tidak dilakukan secara otomatis tanpa mengetahui penyebab munculnya duplikasi.</p>
+</section>
+<hr class="docutils" />
+<section id="pemeriksaan-nilai-tidak-valid">
+<h2>5.8 Pemeriksaan Nilai Tidak Valid<a class="headerlink" href="#pemeriksaan-nilai-tidak-valid" title="Link to this heading">#</a></h2>
+<p>Pada data kualitas udara, nilai konsentrasi partikulat secara fisik tidak seharusnya bernilai negatif.</p>
+<p>Oleh karena itu, pemeriksaan dilakukan terhadap:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pm1_ug_m3
+pm2p5_ug_m3
+pm10_ug_m3
+</pre></div>
+</div>
+<p>Nilai negatif perlu ditandai sebagai nilai yang harus diperiksa lebih lanjut.</p>
+<p>Pemeriksaan ini penting karena nilai ekstrem belum tentu merupakan kesalahan, tetapi nilai negatif pada konsentrasi partikulat perlu mendapatkan perhatian khusus.</p>
+</section>
+<hr class="docutils" />
+<section id="statistik-deskriptif">
+<h2>5.9 Statistik Deskriptif<a class="headerlink" href="#statistik-deskriptif" title="Link to this heading">#</a></h2>
+<p>Statistik deskriptif digunakan untuk mengetahui karakteristik dasar dari variabel partikulat.</p>
+<p>Statistik yang diperiksa meliputi:</p>
+<ul class="simple">
+<li><p>jumlah data;</p></li>
+<li><p>rata-rata;</p></li>
+<li><p>standar deviasi;</p></li>
+<li><p>nilai minimum;</p></li>
+<li><p>kuartil 25%;</p></li>
+<li><p>median;</p></li>
+<li><p>kuartil 75%;</p></li>
+<li><p>nilai maksimum.</p></li>
+</ul>
+<p>Parameter yang dianalisis:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pm1_ug_m3
+pm2p5_ug_m3
+pm10_ug_m3
+</pre></div>
+</div>
+<p>Hasil statistik deskriptif digunakan untuk mengetahui rentang dan penyebaran konsentrasi partikulat selama periode pengamatan.</p>
+<blockquote>
+<div><p><strong>Catatan:</strong> angka statistik detail sebaiknya diambil langsung dari output notebook eksplorasi agar dokumentasi website tetap sama dengan hasil dataset yang digunakan.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="rentang-nilai-pm">
+<h2>5.10 Rentang Nilai PM<a class="headerlink" href="#rentang-nilai-pm" title="Link to this heading">#</a></h2>
+<p>Berdasarkan pemeriksaan data yang telah dilakukan, nilai partikulat perlu dibandingkan berdasarkan nilai minimum dan maksimum.</p>
+<p>Pemeriksaan mencakup:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head text-right"><p>Nilai Minimum</p></th>
+<th class="head text-right"><p>Nilai Maksimum</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PM1</p></td>
+<td class="text-right"><p>Hasil notebook</p></td>
+<td class="text-right"><p>Hasil notebook</p></td>
+</tr>
+<tr class="row-odd"><td><p>PM2.5</p></td>
+<td class="text-right"><p>Hasil notebook</p></td>
+<td class="text-right"><p>Hasil notebook</p></td>
+</tr>
+<tr class="row-even"><td><p>PM10</p></td>
+<td class="text-right"><p>Hasil notebook</p></td>
+<td class="text-right"><p>Hasil notebook</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Rentang nilai digunakan untuk mengetahui seberapa besar variasi konsentrasi partikulat selama periode pengamatan.</p>
+</section>
+<hr class="docutils" />
+<section id="distribusi-pm1">
+<h2>5.11 Distribusi PM1<a class="headerlink" href="#distribusi-pm1" title="Link to this heading">#</a></h2>
+<p>PM1 merupakan partikulat dengan ukuran hingga sekitar 1 µm.</p>
+<p>Distribusi PM1 dapat dianalisis menggunakan:</p>
+<ul class="simple">
+<li><p>histogram;</p></li>
+<li><p>boxplot;</p></li>
+<li><p>statistik deskriptif;</p></li>
+<li><p>dan time series.</p></li>
+</ul>
+<p>Histogram digunakan untuk melihat bagaimana nilai PM1 tersebar.</p>
+<p>Boxplot digunakan untuk melihat median, kuartil, serta kemungkinan nilai ekstrem.</p>
+<p>Analisis distribusi membantu mengetahui apakah nilai PM1 cenderung terkonsentrasi pada rentang tertentu atau memiliki penyebaran yang lebar.</p>
+</section>
+<hr class="docutils" />
+<section id="distribusi-pm2-5">
+<h2>5.12 Distribusi PM2.5<a class="headerlink" href="#distribusi-pm2-5" title="Link to this heading">#</a></h2>
+<p>PM2.5 merupakan partikulat dengan ukuran hingga sekitar 2,5 µm.</p>
+<p>Distribusi PM2.5 dapat dianalisis menggunakan histogram dan boxplot.</p>
+<p>Histogram digunakan untuk mengetahui pola penyebaran nilai, sedangkan boxplot digunakan untuk melihat median, kuartil, dan nilai ekstrem.</p>
+<p>PM2.5 juga dapat dibandingkan dengan PM1 dan PM10 untuk melihat perbedaan karakteristik distribusinya.</p>
+</section>
+<hr class="docutils" />
+<section id="distribusi-pm10">
+<h2>5.13 Distribusi PM10<a class="headerlink" href="#distribusi-pm10" title="Link to this heading">#</a></h2>
+<p>PM10 merupakan partikulat dengan ukuran hingga sekitar 10 µm.</p>
+<p>Distribusi PM10 dapat dianalisis menggunakan:</p>
+<ul class="simple">
+<li><p>histogram;</p></li>
+<li><p>boxplot;</p></li>
+<li><p>statistik deskriptif;</p></li>
+<li><p>dan time series.</p></li>
+</ul>
+<p>Analisis distribusi digunakan untuk mengetahui rentang nilai dan kemungkinan adanya nilai ekstrem.</p>
+</section>
+<hr class="docutils" />
+<section id="perbandingan-distribusi-pm">
+<h2>5.14 Perbandingan Distribusi PM<a class="headerlink" href="#perbandingan-distribusi-pm" title="Link to this heading">#</a></h2>
+<p>Ketiga parameter dapat dibandingkan untuk mengetahui perbedaan karakteristiknya.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head text-right"><p>Ukuran Maksimum</p></th>
+<th class="head"><p>Fokus Analisis</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PM1</p></td>
+<td class="text-right"><p>≤ 1 µm</p></td>
+<td><p>Partikulat sangat halus</p></td>
+</tr>
+<tr class="row-odd"><td><p>PM2.5</p></td>
+<td class="text-right"><p>≤ 2,5 µm</p></td>
+<td><p>Partikulat halus</p></td>
+</tr>
+<tr class="row-even"><td><p>PM10</p></td>
+<td class="text-right"><p>≤ 10 µm</p></td>
+<td><p>Partikulat hingga ukuran 10 µm</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Perbandingan dapat dilakukan melalui:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM1
+PM2.5
+PM10
+</pre></div>
+</div>
+<p>dengan menggunakan statistik deskriptif dan visualisasi.</p>
+</section>
+<hr class="docutils" />
+<section id="pemeriksaan-outlier">
+<h2>5.15 Pemeriksaan Outlier<a class="headerlink" href="#pemeriksaan-outlier" title="Link to this heading">#</a></h2>
+<p>Outlier merupakan nilai yang memiliki karakteristik berbeda secara signifikan dibandingkan sebagian besar observasi.</p>
+<p>Pada pemeriksaan awal dataset, ditemukan adanya nilai yang teridentifikasi sebagai outlier.</p>
+<p>Hasil pemeriksaan sebelumnya menunjukkan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Jumlah outlier: 22
+</pre></div>
+</div>
+<p>Batas bawah yang teridentifikasi pada salah satu pemeriksaan adalah:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>-44.0256375
+</pre></div>
+</div>
+<p>sedangkan batas atas:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>164.6698785
+</pre></div>
+</div>
+<p>Nilai tersebut menunjukkan bahwa terdapat observasi yang perlu diperiksa lebih lanjut.</p>
+<p>Namun, <strong>outlier tidak langsung dihapus</strong>.</p>
+<p>Outlier perlu diperiksa berdasarkan:</p>
+<ul class="simple">
+<li><p>waktu kejadian;</p></li>
+<li><p>parameter yang terkena;</p></li>
+<li><p>nilai konsentrasi;</p></li>
+<li><p>kemungkinan kesalahan data;</p></li>
+<li><p>dan konteks dataset.</p></li>
+</ul>
+<p>Pendekatan ini dilakukan agar informasi penting tidak hilang hanya karena suatu nilai memiliki karakteristik ekstrem.</p>
+</section>
+<hr class="docutils" />
+<section id="interpretasi-outlier">
+<h2>5.16 Interpretasi Outlier<a class="headerlink" href="#interpretasi-outlier" title="Link to this heading">#</a></h2>
+<p>Keberadaan outlier dapat disebabkan oleh beberapa kemungkinan, misalnya:</p>
+<ol class="arabic simple">
+<li><p>variasi konsentrasi yang memang tinggi;</p></li>
+<li><p>kondisi atmosfer tertentu;</p></li>
+<li><p>proses pemodelan atau interpolasi;</p></li>
+<li><p>kesalahan data;</p></li>
+<li><p>atau nilai yang berada di luar pola umum dataset.</p></li>
+</ol>
+<p>Karena dataset berasal dari sistem pemodelan atmosfer, nilai ekstrem tidak dapat langsung dianggap sebagai hasil kesalahan pengukuran sensor.</p>
+<p>Oleh karena itu, observasi yang teridentifikasi sebagai outlier perlu dianalisis lebih lanjut.</p>
+</section>
+<hr class="docutils" />
+<section id="analisis-berdasarkan-waktu">
+<h2>5.17 Analisis Berdasarkan Waktu<a class="headerlink" href="#analisis-berdasarkan-waktu" title="Link to this heading">#</a></h2>
+<p>Variabel:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>valid_time
+</pre></div>
+</div>
+<p>digunakan untuk melakukan analisis temporal.</p>
+<p>Dataset memiliki empat waktu pengamatan dalam satu hari:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>00:00
+06:00
+12:00
+18:00
+</pre></div>
+</div>
+<p>Dengan adanya dimensi waktu, perubahan konsentrasi partikulat dapat diamati sepanjang periode:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>29 Agustus 2025
+        ↓
+29 Agustus 2026
+</pre></div>
+</div>
+<p>Analisis temporal dapat dilakukan pada tingkat:</p>
+<ul class="simple">
+<li><p>harian;</p></li>
+<li><p>mingguan;</p></li>
+<li><p>bulanan;</p></li>
+<li><p>dan keseluruhan periode.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="visualisasi-time-series">
+<h2>5.18 Visualisasi Time Series<a class="headerlink" href="#visualisasi-time-series" title="Link to this heading">#</a></h2>
+<p>Visualisasi time series digunakan untuk melihat perubahan konsentrasi PM1, PM2.5, dan PM10 berdasarkan waktu.</p>
+<p>Contoh bentuk analisis:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Waktu
+  ↓
+PM1
+PM2.5
+PM10
+  ↓
+Perubahan konsentrasi
+</pre></div>
+</div>
+<p>Grafik time series dapat digunakan untuk mengidentifikasi:</p>
+<ul class="simple">
+<li><p>periode dengan konsentrasi tinggi;</p></li>
+<li><p>periode dengan konsentrasi rendah;</p></li>
+<li><p>pola berulang;</p></li>
+<li><p>perubahan mendadak;</p></li>
+<li><p>dan nilai ekstrem.</p></li>
+</ul>
+<p>Interpretasi grafik harus dilakukan berdasarkan pola data yang benar-benar terlihat pada hasil visualisasi.</p>
+</section>
+<hr class="docutils" />
+<section id="analisis-hubungan-antarparameter">
+<h2>5.19 Analisis Hubungan Antarparameter<a class="headerlink" href="#analisis-hubungan-antarparameter" title="Link to this heading">#</a></h2>
+<p>Hubungan antara PM1, PM2.5, dan PM10 dapat diperiksa menggunakan korelasi.</p>
+<p>Tujuannya adalah mengetahui apakah peningkatan salah satu parameter cenderung diikuti peningkatan parameter lainnya.</p>
+<p>Variabel yang dibandingkan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pm1_ug_m3
+pm2p5_ug_m3
+pm10_ug_m3
+</pre></div>
+</div>
+<p>Analisis dapat dilakukan menggunakan:</p>
+<ul class="simple">
+<li><p>matriks korelasi;</p></li>
+<li><p>heatmap;</p></li>
+<li><p>scatter plot.</p></li>
+</ul>
+<p>Korelasi yang tinggi menunjukkan adanya hubungan linear yang kuat, sedangkan korelasi yang rendah menunjukkan hubungan linear yang lebih lemah.</p>
+<p>Korelasi tidak secara otomatis menunjukkan hubungan sebab-akibat.</p>
+</section>
+<hr class="docutils" />
+<section id="scatter-plot-antarparameter">
+<h2>5.20 Scatter Plot Antarparameter<a class="headerlink" href="#scatter-plot-antarparameter" title="Link to this heading">#</a></h2>
+<p>Scatter plot dapat digunakan untuk melihat hubungan pasangan variabel:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM1 vs PM2.5
+PM1 vs PM10
+PM2.5 vs PM10
+</pre></div>
+</div>
+<p>Pola titik pada scatter plot dapat memberikan gambaran apakah terdapat hubungan positif, negatif, atau tidak jelas.</p>
+<p>Jika titik-titik cenderung membentuk pola naik, maka terdapat indikasi hubungan positif.</p>
+<p>Jika pola tidak membentuk kecenderungan tertentu, hubungan linear kemungkinan lebih lemah.</p>
+</section>
+<hr class="docutils" />
+<section id="analisis-koordinat">
+<h2>5.21 Analisis Koordinat<a class="headerlink" href="#analisis-koordinat" title="Link to this heading">#</a></h2>
+<p>Dataset memiliki koordinat:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>latitude  = -7.2
+longitude = 112.4
+</pre></div>
+</div>
+<p>Koordinat digunakan untuk menunjukkan lokasi titik data yang dianalisis.</p>
+<p>Karena dataset menggunakan satu titik koordinat, analisis spasial antarwilayah belum dapat dilakukan menggunakan dataset utama ini.</p>
+<p>Koordinat tetap penting sebagai informasi lokasi dan untuk memastikan konteks wilayah penelitian.</p>
+</section>
+<hr class="docutils" />
+<section id="ringkasan-hasil-eksplorasi">
+<h2>5.22 Ringkasan Hasil Eksplorasi<a class="headerlink" href="#ringkasan-hasil-eksplorasi" title="Link to this heading">#</a></h2>
+<p>Berdasarkan eksplorasi awal, dataset memiliki:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Komponen</p></th>
+<th class="head"><p>Hasil</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Jumlah baris</p></td>
+<td><p>1.464</p></td>
+</tr>
+<tr class="row-odd"><td><p>Jumlah kolom</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>Periode</p></td>
+<td><p>29 Agustus 2025 – 29 Agustus 2026</p></td>
+</tr>
+<tr class="row-odd"><td><p>Frekuensi</p></td>
+<td><p>4 observasi per hari</p></td>
+</tr>
+<tr class="row-even"><td><p>Parameter</p></td>
+<td><p>PM1, PM2.5, PM10</p></td>
+</tr>
+<tr class="row-odd"><td><p>Latitude</p></td>
+<td><p>-7.2</p></td>
+</tr>
+<tr class="row-even"><td><p>Longitude</p></td>
+<td><p>112.4</p></td>
+</tr>
+<tr class="row-odd"><td><p>Outlier teridentifikasi</p></td>
+<td><p>22</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Dataset kemudian dapat digunakan untuk analisis lebih lanjut setelah kualitas data diperiksa.</p>
+</section>
+<hr class="docutils" />
+<section id="tahapan-eksplorasi-yang-dilakukan">
+<h2>5.23 Tahapan Eksplorasi yang Dilakukan<a class="headerlink" href="#tahapan-eksplorasi-yang-dilakukan" title="Link to this heading">#</a></h2>
+<p>Alur eksplorasi data:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Data CSV
+   ↓
+Pemeriksaan Struktur
+   ↓
+Pemeriksaan Tipe Data
+   ↓
+Missing Value
+   ↓
+Data Duplikat
+   ↓
+Nilai Tidak Valid
+   ↓
+Statistik Deskriptif
+   ↓
+Distribusi PM
+   ↓
+Pemeriksaan Outlier
+   ↓
+Analisis Time Series
+   ↓
+Analisis Korelasi
+   ↓
+Visualisasi
+   ↓
+Interpretasi
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="keterbatasan-eksplorasi">
+<h2>5.24 Keterbatasan Eksplorasi<a class="headerlink" href="#keterbatasan-eksplorasi" title="Link to this heading">#</a></h2>
+<p>Eksplorasi data memiliki beberapa keterbatasan.</p>
+<p>Pertama, dataset utama hanya memiliki tiga parameter partikulat, yaitu PM1, PM2.5, dan PM10.</p>
+<p>Kedua, dataset menggunakan satu titik koordinat sehingga analisis spasial antarwilayah belum dapat dilakukan.</p>
+<p>Ketiga, dataset utama tidak mencakup seluruh faktor meteorologi seperti kecepatan angin, arah angin, suhu, dan kelembapan sebagai variabel analisis utama.</p>
+<p>Keempat, hubungan antara sumber polutan dan konsentrasi partikulat tidak dapat dibuktikan secara kausal hanya dari dataset ini.</p>
+<p>Oleh karena itu, hasil eksplorasi digunakan untuk memahami pola dan karakteristik data, bukan untuk menyimpulkan penyebab secara langsung.</p>
+</section>
+<hr class="docutils" />
+<section id="kesimpulan">
+<h2>5.25 Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
+<p>Eksplorasi data dilakukan terhadap dataset kualitas udara Kabupaten Lamongan yang terdiri dari <strong>1.464 baris dan 6 kolom</strong>.</p>
+<p>Dataset mencakup periode <strong>29 Agustus 2025 sampai 29 Agustus 2026</strong> dengan empat waktu pengamatan setiap hari.</p>
+<p>Parameter utama yang dianalisis adalah:</p>
+<ul class="simple">
+<li><p>PM1;</p></li>
+<li><p>PM2.5;</p></li>
+<li><p>PM10.</p></li>
+</ul>
+<p>Eksplorasi meliputi pemeriksaan struktur data, tipe data, missing value, duplikasi, nilai tidak valid, statistik deskriptif, distribusi, outlier, analisis berdasarkan waktu, serta hubungan antarparameter.</p>
+<p>Pada pemeriksaan awal ditemukan <strong>22 outlier</strong> yang perlu ditinjau lebih lanjut. Outlier tersebut tidak langsung dihapus karena nilai ekstrem dapat mengandung informasi yang penting.</p>
+<p>Hasil eksplorasi menjadi dasar untuk melakukan analisis lanjutan, khususnya visualisasi time series, analisis hubungan antarparameter, dan interpretasi pola kualitas udara selama periode pengamatan.</p>
+</section>
+<hr class="docutils" />
+<section id="ringkasan-eksplorasi-data">
+<h2>5.26 Ringkasan Eksplorasi Data<a class="headerlink" href="#ringkasan-eksplorasi-data" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Aspek</p></th>
+<th class="head"><p>Hasil</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Dataset</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data_lamongan.csv</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Wilayah</p></td>
+<td><p>Kabupaten Lamongan</p></td>
+</tr>
+<tr class="row-even"><td><p>Periode</p></td>
+<td><p>29 Agustus 2025 – 29 Agustus 2026</p></td>
+</tr>
+<tr class="row-odd"><td><p>Jumlah observasi</p></td>
+<td><p>1.464</p></td>
+</tr>
+<tr class="row-even"><td><p>Jumlah fitur</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>Variabel waktu</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">valid_time</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Variabel lokasi</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">latitude</span></code>, <code class="docutils literal notranslate"><span class="pre">longitude</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Variabel utama</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span></code>, <code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code>, <code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Waktu pengamatan</p></td>
+<td><p>00:00, 06:00, 12:00, 18:00</p></td>
+</tr>
+<tr class="row-odd"><td><p>Latitude</p></td>
+<td><p>-7.2</p></td>
+</tr>
+<tr class="row-even"><td><p>Longitude</p></td>
+<td><p>112.4</p></td>
+</tr>
+<tr class="row-odd"><td><p>Outlier awal</p></td>
+<td><p>22</p></td>
+</tr>
+<tr class="row-even"><td><p>Analisis utama</p></td>
+<td><p>Statistik, distribusi, time series, korelasi</p></td>
+</tr>
+<tr class="row-odd"><td><p>Output</p></td>
+<td><p>Dasar interpretasi kualitas udara</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Dengan demikian, tahap <strong>Eksplorasi Data</strong> telah memberikan dasar untuk memahami karakteristik dataset sebelum masuk ke analisis dan visualisasi yang lebih mendalam.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./minggu-1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sumber-polutan.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">4. Sumber Polutan</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pendahuluan">5.1 Pendahuluan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-yang-digunakan">5.2 Dataset yang Digunakan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-eksplorasi-data">5.3 Tujuan Eksplorasi Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-struktur-dataset">5.4 Pemeriksaan Struktur Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-tipe-data">5.5 Pemeriksaan Tipe Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-missing-value">5.6 Pemeriksaan Missing Value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-data-duplikat">5.7 Pemeriksaan Data Duplikat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-nilai-tidak-valid">5.8 Pemeriksaan Nilai Tidak Valid</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-deskriptif">5.9 Statistik Deskriptif</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rentang-nilai-pm">5.10 Rentang Nilai PM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-pm1">5.11 Distribusi PM1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-pm2-5">5.12 Distribusi PM2.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-pm10">5.13 Distribusi PM10</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-distribusi-pm">5.14 Perbandingan Distribusi PM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-outlier">5.15 Pemeriksaan Outlier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-outlier">5.16 Interpretasi Outlier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-berdasarkan-waktu">5.17 Analisis Berdasarkan Waktu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-time-series">5.18 Visualisasi Time Series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-hubungan-antarparameter">5.19 Analisis Hubungan Antarparameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot-antarparameter">5.20 Scatter Plot Antarparameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-koordinat">5.21 Analisis Koordinat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan-hasil-eksplorasi">5.22 Ringkasan Hasil Eksplorasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-eksplorasi-yang-dilakukan">5.23 Tahapan Eksplorasi yang Dilakukan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keterbatasan-eksplorasi">5.24 Keterbatasan Eksplorasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">5.25 Kesimpulan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan-eksplorasi-data">5.26 Ringkasan Eksplorasi Data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ahmad Dafi Zidni Alfarisi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
