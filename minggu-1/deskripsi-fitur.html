@@ -1,0 +1,1205 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3. Deskripsi Fitur &#8212; Penambangan Sains Data</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'minggu-1/deskripsi-fitur';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. Sumber Polutan" href="sumber-polutan.html" />
+    <link rel="prev" title="01 — Data Understanding: Kualitas Udara Lamongan" href="data-understanding.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Penambangan Sains Data - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Penambangan Sains Data - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Minggu 1 — Analisis Kualitas Udara</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="business-understanding.html">1. Business Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-understanding.html">2. Data Understanding</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Deskripsi Fitur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sumber-polutan.html">4. Sumber Polutan</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Dafi86/PSD" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Dafi86/PSD/issues/new?title=Issue%20on%20page%20%2Fminggu-1/deskripsi-fitur.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/minggu-1/deskripsi-fitur.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3. Deskripsi Fitur</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pendahuluan">3.1 Pendahuluan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-fitur-dataset">3.2 Struktur Fitur Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-valid-time">3.3 Fitur <code class="docutils literal notranslate"><span class="pre">valid_time</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nama-fitur">Nama Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipe-data">Tipe Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi">Fungsi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#peran-dalam-analisis">Peran dalam Analisis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-latitude">3.4 Fitur <code class="docutils literal notranslate"><span class="pre">latitude</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Nama Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Tipe Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Fungsi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Peran dalam Analisis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-longitude">3.5 Fitur <code class="docutils literal notranslate"><span class="pre">longitude</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Nama Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Tipe Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Fungsi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Peran dalam Analisis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-pm1-ug-m3">3.6 Fitur <code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Nama Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Tipe Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satuan">Satuan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Fungsi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Peran dalam Analisis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-pm2p5-ug-m3">3.7 Fitur <code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Nama Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Tipe Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Satuan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Fungsi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Peran dalam Analisis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-pm10-ug-m3">3.8 Fitur <code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Nama Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Tipe Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Satuan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Fungsi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Peran dalam Analisis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-fitur-partikulat">3.9 Perbandingan Fitur Partikulat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kategori-fitur">3.10 Kategori Fitur</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-waktu">1. Fitur Waktu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-lokasi">2. Fitur Lokasi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-kualitas-udara">3. Fitur Kualitas Udara</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variabel-utama-dan-pendukung">3.11 Variabel Utama dan Pendukung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variabel-utama">Variabel Utama</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variabel-pendukung">Variabel Pendukung</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hubungan-antarfitur">3.12 Hubungan Antarfitur</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#peran-fitur-dalam-analisis-minggu-1">3.13 Peran Fitur dalam Analisis Minggu 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#satuan-data">3.14 Satuan Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kualitas-dan-validitas-fitur">3.15 Kualitas dan Validitas Fitur</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan-deskripsi-fitur">3.16 Ringkasan Deskripsi Fitur</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">3.17 Kesimpulan</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="deskripsi-fitur">
+<h1>3. Deskripsi Fitur<a class="headerlink" href="#deskripsi-fitur" title="Link to this heading">#</a></h1>
+<section id="pendahuluan">
+<h2>3.1 Pendahuluan<a class="headerlink" href="#pendahuluan" title="Link to this heading">#</a></h2>
+<p>Deskripsi fitur merupakan tahap untuk menjelaskan setiap variabel yang terdapat pada dataset kualitas udara Kabupaten Lamongan.</p>
+<p>Dataset yang digunakan memiliki <strong>6 kolom</strong>, yaitu:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">valid_time</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">latitude</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">longitude</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span></code></p></li>
+</ol>
+<p>Setiap fitur memiliki fungsi yang berbeda dalam proses analisis. Variabel waktu digunakan untuk mengetahui perubahan konsentrasi berdasarkan waktu, koordinat digunakan untuk menunjukkan lokasi data, sedangkan variabel PM digunakan untuk menganalisis konsentrasi partikulat.</p>
+</section>
+<hr class="docutils" />
+<section id="struktur-fitur-dataset">
+<h2>3.2 Struktur Fitur Dataset<a class="headerlink" href="#struktur-fitur-dataset" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>No</p></th>
+<th class="head"><p>Nama Fitur</p></th>
+<th class="head"><p>Tipe Data</p></th>
+<th class="head"><p>Keterangan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>1</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">valid_time</span></code></p></td>
+<td><p>datetime64</p></td>
+<td><p>Waktu pengamatan</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>2</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">latitude</span></code></p></td>
+<td><p>float64</p></td>
+<td><p>Koordinat lintang</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>3</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">longitude</span></code></p></td>
+<td><p>float64</p></td>
+<td><p>Koordinat bujur</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>4</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span></code></p></td>
+<td><p>float64</p></td>
+<td><p>Konsentrasi PM1</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>5</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code></p></td>
+<td><p>float64</p></td>
+<td><p>Konsentrasi PM2.5</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>6</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span></code></p></td>
+<td><p>float64</p></td>
+<td><p>Konsentrasi PM10</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Dataset memiliki:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Jumlah baris  : 1.464
+Jumlah kolom  : 6
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="fitur-valid-time">
+<h2>3.3 Fitur <code class="docutils literal notranslate"><span class="pre">valid_time</span></code><a class="headerlink" href="#fitur-valid-time" title="Link to this heading">#</a></h2>
+<section id="nama-fitur">
+<h3>Nama Fitur<a class="headerlink" href="#nama-fitur" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>valid_time
+</pre></div>
+</div>
+</section>
+<section id="tipe-data">
+<h3>Tipe Data<a class="headerlink" href="#tipe-data" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>datetime64
+</pre></div>
+</div>
+</section>
+<section id="fungsi">
+<h3>Fungsi<a class="headerlink" href="#fungsi" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">valid_time</span></code> merupakan variabel yang menyimpan informasi tanggal dan waktu pengamatan data kualitas udara.</p>
+<p>Fitur ini digunakan untuk mengetahui kapan nilai konsentrasi partikulat tercatat atau berlaku.</p>
+<p>Periode data:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>29 Agustus 2025 – 29 Agustus 2026
+</pre></div>
+</div>
+<p>Data tersedia pada empat waktu pengamatan dalam satu hari:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>00:00
+06:00
+12:00
+18:00
+</pre></div>
+</div>
+</section>
+<section id="peran-dalam-analisis">
+<h3>Peran dalam Analisis<a class="headerlink" href="#peran-dalam-analisis" title="Link to this heading">#</a></h3>
+<p>Fitur <code class="docutils literal notranslate"><span class="pre">valid_time</span></code> merupakan fitur penting untuk analisis berbasis waktu atau <strong>time series</strong>.</p>
+<p>Fitur ini dapat digunakan untuk:</p>
+<ul class="simple">
+<li><p>mengurutkan data berdasarkan waktu;</p></li>
+<li><p>melihat perubahan konsentrasi harian;</p></li>
+<li><p>melihat perubahan konsentrasi bulanan;</p></li>
+<li><p>mencari nilai tertinggi berdasarkan waktu;</p></li>
+<li><p>mencari nilai terendah berdasarkan waktu;</p></li>
+<li><p>dan membuat grafik time series.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="fitur-latitude">
+<h2>3.4 Fitur <code class="docutils literal notranslate"><span class="pre">latitude</span></code><a class="headerlink" href="#fitur-latitude" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Nama Fitur<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>latitude
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h3>Tipe Data<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>float64
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h3>Fungsi<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">latitude</span></code> menunjukkan posisi geografis berdasarkan garis lintang.</p>
+<p>Pada dataset yang digunakan, nilai latitude adalah:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>-7.2
+</pre></div>
+</div>
+<p>Nilai tersebut merupakan koordinat lintang dari titik data yang digunakan dalam dataset.</p>
+</section>
+<section id="id4">
+<h3>Peran dalam Analisis<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>Latitude digunakan untuk:</p>
+<ul class="simple">
+<li><p>mengetahui posisi geografis data;</p></li>
+<li><p>memastikan data berada pada wilayah penelitian;</p></li>
+<li><p>memberikan informasi lokasi;</p></li>
+<li><p>dan mendukung analisis spasial apabila diperlukan.</p></li>
+</ul>
+<p>Karena dataset utama menggunakan satu titik koordinat, variasi latitude pada dataset tidak digunakan sebagai variabel analisis utama.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="fitur-longitude">
+<h2>3.5 Fitur <code class="docutils literal notranslate"><span class="pre">longitude</span></code><a class="headerlink" href="#fitur-longitude" title="Link to this heading">#</a></h2>
+<section id="id5">
+<h3>Nama Fitur<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>longitude
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h3>Tipe Data<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>float64
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h3>Fungsi<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">longitude</span></code> menunjukkan posisi geografis berdasarkan garis bujur.</p>
+<p>Pada dataset yang digunakan, nilai longitude adalah:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>112.4
+</pre></div>
+</div>
+<p>Nilai tersebut merupakan koordinat bujur dari titik data yang digunakan dalam dataset.</p>
+</section>
+<section id="id8">
+<h3>Peran dalam Analisis<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>Longitude digunakan untuk:</p>
+<ul class="simple">
+<li><p>mengetahui posisi geografis data;</p></li>
+<li><p>memastikan lokasi data;</p></li>
+<li><p>mendukung informasi wilayah penelitian;</p></li>
+<li><p>dan dapat digunakan dalam analisis spasial.</p></li>
+</ul>
+<p>Sama seperti latitude, longitude bukan merupakan variabel utama dalam analisis konsentrasi partikulat.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="fitur-pm1-ug-m3">
+<h2>3.6 Fitur <code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span></code><a class="headerlink" href="#fitur-pm1-ug-m3" title="Link to this heading">#</a></h2>
+<section id="id9">
+<h3>Nama Fitur<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pm1_ug_m3
+</pre></div>
+</div>
+</section>
+<section id="id10">
+<h3>Tipe Data<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>float64
+</pre></div>
+</div>
+</section>
+<section id="satuan">
+<h3>Satuan<a class="headerlink" href="#satuan" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>µg/m³
+</pre></div>
+</div>
+</section>
+<section id="id11">
+<h3>Fungsi<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span></code> merupakan variabel yang menyimpan konsentrasi partikulat dengan ukuran diameter hingga sekitar <strong>1 mikrometer</strong>.</p>
+<p>PM1 termasuk partikulat berukuran sangat kecil.</p>
+<p>Nama variabel menggunakan akhiran:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>_ug_m3
+</pre></div>
+</div>
+<p>yang menunjukkan bahwa nilai telah dinyatakan dalam satuan mikrogram per meter kubik.</p>
+</section>
+<section id="id12">
+<h3>Peran dalam Analisis<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p>PM1 digunakan untuk:</p>
+<ul class="simple">
+<li><p>mengetahui konsentrasi partikulat sangat halus;</p></li>
+<li><p>melihat perubahan konsentrasi berdasarkan waktu;</p></li>
+<li><p>membandingkan karakteristik dengan PM2.5 dan PM10;</p></li>
+<li><p>dan mengetahui pola distribusi partikulat.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="fitur-pm2p5-ug-m3">
+<h2>3.7 Fitur <code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code><a class="headerlink" href="#fitur-pm2p5-ug-m3" title="Link to this heading">#</a></h2>
+<section id="id13">
+<h3>Nama Fitur<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pm2p5_ug_m3
+</pre></div>
+</div>
+</section>
+<section id="id14">
+<h3>Tipe Data<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>float64
+</pre></div>
+</div>
+</section>
+<section id="id15">
+<h3>Satuan<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>µg/m³
+</pre></div>
+</div>
+</section>
+<section id="id16">
+<h3>Fungsi<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code> merupakan variabel yang menyimpan konsentrasi partikulat dengan ukuran diameter hingga sekitar <strong>2,5 mikrometer</strong>.</p>
+<p>PM2.5 merupakan salah satu parameter penting dalam analisis kualitas udara.</p>
+</section>
+<section id="id17">
+<h3>Peran dalam Analisis<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<p>PM2.5 digunakan untuk:</p>
+<ul class="simple">
+<li><p>mengetahui konsentrasi partikulat halus;</p></li>
+<li><p>melihat perubahan konsentrasi berdasarkan waktu;</p></li>
+<li><p>mengetahui distribusi nilai;</p></li>
+<li><p>membandingkan dengan PM1 dan PM10;</p></li>
+<li><p>dan melakukan analisis korelasi antarparameter.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="fitur-pm10-ug-m3">
+<h2>3.8 Fitur <code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span></code><a class="headerlink" href="#fitur-pm10-ug-m3" title="Link to this heading">#</a></h2>
+<section id="id18">
+<h3>Nama Fitur<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pm10_ug_m3
+</pre></div>
+</div>
+</section>
+<section id="id19">
+<h3>Tipe Data<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>float64
+</pre></div>
+</div>
+</section>
+<section id="id20">
+<h3>Satuan<a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>µg/m³
+</pre></div>
+</div>
+</section>
+<section id="id21">
+<h3>Fungsi<a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span></code> merupakan variabel yang menyimpan konsentrasi partikulat dengan ukuran diameter hingga sekitar <strong>10 mikrometer</strong>.</p>
+<p>PM10 mencakup partikulat dengan ukuran lebih besar dibandingkan PM1 dan PM2.5.</p>
+</section>
+<section id="id22">
+<h3>Peran dalam Analisis<a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<p>PM10 digunakan untuk:</p>
+<ul class="simple">
+<li><p>mengetahui konsentrasi partikulat hingga ukuran 10 µm;</p></li>
+<li><p>melihat perubahan konsentrasi berdasarkan waktu;</p></li>
+<li><p>mengetahui distribusi data;</p></li>
+<li><p>membandingkan karakteristik dengan PM1 dan PM2.5;</p></li>
+<li><p>serta melakukan analisis hubungan antarparameter.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="perbandingan-fitur-partikulat">
+<h2>3.9 Perbandingan Fitur Partikulat<a class="headerlink" href="#perbandingan-fitur-partikulat" title="Link to this heading">#</a></h2>
+<p>Ketiga variabel partikulat memiliki karakteristik ukuran yang berbeda.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Nama Kolom</p></th>
+<th class="head"><p>Ukuran Partikel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PM1</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span></code></p></td>
+<td><p>≤ 1 µm</p></td>
+</tr>
+<tr class="row-odd"><td><p>PM2.5</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code></p></td>
+<td><p>≤ 2,5 µm</p></td>
+</tr>
+<tr class="row-even"><td><p>PM10</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span></code></p></td>
+<td><p>≤ 10 µm</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Secara umum:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM1
+ ↓
+PM2.5
+ ↓
+PM10
+</pre></div>
+</div>
+<p>Ukuran maksimum partikulat meningkat dari PM1 ke PM10.</p>
+</section>
+<hr class="docutils" />
+<section id="kategori-fitur">
+<h2>3.10 Kategori Fitur<a class="headerlink" href="#kategori-fitur" title="Link to this heading">#</a></h2>
+<p>Fitur dataset dapat dikelompokkan menjadi tiga kategori.</p>
+<section id="fitur-waktu">
+<h3>1. Fitur Waktu<a class="headerlink" href="#fitur-waktu" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>valid_time
+</pre></div>
+</div>
+<p>Digunakan untuk analisis berdasarkan waktu.</p>
+</section>
+<section id="fitur-lokasi">
+<h3>2. Fitur Lokasi<a class="headerlink" href="#fitur-lokasi" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>latitude
+longitude
+</pre></div>
+</div>
+<p>Digunakan untuk menunjukkan lokasi geografis data.</p>
+</section>
+<section id="fitur-kualitas-udara">
+<h3>3. Fitur Kualitas Udara<a class="headerlink" href="#fitur-kualitas-udara" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pm1_ug_m3
+pm2p5_ug_m3
+pm10_ug_m3
+</pre></div>
+</div>
+<p>Digunakan sebagai variabel utama untuk menganalisis kualitas udara.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="variabel-utama-dan-pendukung">
+<h2>3.11 Variabel Utama dan Pendukung<a class="headerlink" href="#variabel-utama-dan-pendukung" title="Link to this heading">#</a></h2>
+<p>Berdasarkan tujuan project, variabel dapat dibedakan menjadi:</p>
+<section id="variabel-utama">
+<h3>Variabel Utama<a class="headerlink" href="#variabel-utama" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pm1_ug_m3
+pm2p5_ug_m3
+pm10_ug_m3
+</pre></div>
+</div>
+<p>Ketiga variabel tersebut merupakan parameter yang dianalisis untuk memahami karakteristik partikulat udara.</p>
+</section>
+<section id="variabel-pendukung">
+<h3>Variabel Pendukung<a class="headerlink" href="#variabel-pendukung" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>valid_time
+latitude
+longitude
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">valid_time</span></code> digunakan untuk analisis temporal, sedangkan latitude dan longitude digunakan untuk informasi lokasi.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="hubungan-antarfitur">
+<h2>3.12 Hubungan Antarfitur<a class="headerlink" href="#hubungan-antarfitur" title="Link to this heading">#</a></h2>
+<p>Hubungan antarfitur dalam dataset dapat digambarkan sebagai berikut:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>                  DATASET
+                     │
+          ┌──────────┴──────────┐
+          │                     │
+       WAKTU                  LOKASI
+          │                     │
+    valid_time          latitude + longitude
+          │
+          ↓
+   Analisis Time Series
+          │
+          ↓
+   Kualitas Udara
+          │
+    ┌─────┼─────┐
+    ↓     ↓     ↓
+   PM1   PM2.5  PM10
+</pre></div>
+</div>
+<p>Dengan struktur tersebut, <code class="docutils literal notranslate"><span class="pre">valid_time</span></code> dapat digunakan sebagai dasar untuk melihat bagaimana nilai PM berubah sepanjang periode pengamatan.</p>
+</section>
+<hr class="docutils" />
+<section id="peran-fitur-dalam-analisis-minggu-1">
+<h2>3.13 Peran Fitur dalam Analisis Minggu 1<a class="headerlink" href="#peran-fitur-dalam-analisis-minggu-1" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Fitur</p></th>
+<th class="head"><p>Peran</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">valid_time</span></code></p></td>
+<td><p>Analisis temporal dan time series</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">latitude</span></code></p></td>
+<td><p>Informasi lokasi</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">longitude</span></code></p></td>
+<td><p>Informasi lokasi</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span></code></p></td>
+<td><p>Analisis konsentrasi PM1</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code></p></td>
+<td><p>Analisis konsentrasi PM2.5</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span></code></p></td>
+<td><p>Analisis konsentrasi PM10</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Fitur-fitur tersebut akan digunakan pada tahap eksplorasi data untuk mengetahui karakteristik dataset.</p>
+</section>
+<hr class="docutils" />
+<section id="satuan-data">
+<h2>3.14 Satuan Data<a class="headerlink" href="#satuan-data" title="Link to this heading">#</a></h2>
+<p>Variabel partikulat pada dataset digunakan dalam satuan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>µg/m³
+</pre></div>
+</div>
+<p>atau mikrogram per meter kubik.</p>
+<p>Satuan ini digunakan untuk menyatakan konsentrasi massa partikulat dalam volume udara.</p>
+<p>Kolom yang digunakan dalam dataset telah menggunakan penamaan yang menunjukkan satuan tersebut:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pm1_ug_m3
+pm2p5_ug_m3
+pm10_ug_m3
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="kualitas-dan-validitas-fitur">
+<h2>3.15 Kualitas dan Validitas Fitur<a class="headerlink" href="#kualitas-dan-validitas-fitur" title="Link to this heading">#</a></h2>
+<p>Sebelum digunakan dalam analisis, setiap fitur perlu diperiksa untuk memastikan data dapat digunakan.</p>
+<p>Pemeriksaan yang dilakukan meliputi:</p>
+<ul class="simple">
+<li><p>pemeriksaan tipe data;</p></li>
+<li><p>pemeriksaan nilai kosong;</p></li>
+<li><p>pemeriksaan duplikasi;</p></li>
+<li><p>pemeriksaan nilai negatif;</p></li>
+<li><p>pemeriksaan nilai ekstrem;</p></li>
+<li><p>pemeriksaan konsistensi waktu;</p></li>
+<li><p>dan pemeriksaan koordinat.</p></li>
+</ul>
+<p>Hasil pemeriksaan kualitas data akan dibahas lebih lanjut pada tahap <strong>Data Understanding</strong> dan <strong>Eksplorasi Data</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="ringkasan-deskripsi-fitur">
+<h2>3.16 Ringkasan Deskripsi Fitur<a class="headerlink" href="#ringkasan-deskripsi-fitur" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Fitur</p></th>
+<th class="head"><p>Jenis</p></th>
+<th class="head"><p>Peran</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">valid_time</span></code></p></td>
+<td><p>Waktu</p></td>
+<td><p>Menunjukkan tanggal dan waktu data</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">latitude</span></code></p></td>
+<td><p>Lokasi</p></td>
+<td><p>Menunjukkan koordinat lintang</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">longitude</span></code></p></td>
+<td><p>Lokasi</p></td>
+<td><p>Menunjukkan koordinat bujur</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span></code></p></td>
+<td><p>Polutan</p></td>
+<td><p>Konsentrasi PM1</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code></p></td>
+<td><p>Polutan</p></td>
+<td><p>Konsentrasi PM2.5</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span></code></p></td>
+<td><p>Polutan</p></td>
+<td><p>Konsentrasi PM10</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="kesimpulan">
+<h2>3.17 Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
+<p>Dataset kualitas udara Kabupaten Lamongan memiliki enam fitur utama yang terdiri dari satu fitur waktu, dua fitur lokasi, dan tiga fitur kualitas udara.</p>
+<p>Fitur <code class="docutils literal notranslate"><span class="pre">valid_time</span></code> digunakan untuk mengetahui waktu pengamatan dan menjadi dasar dalam analisis time series.</p>
+<p>Fitur <code class="docutils literal notranslate"><span class="pre">latitude</span></code> dan <code class="docutils literal notranslate"><span class="pre">longitude</span></code> digunakan untuk memberikan informasi mengenai lokasi geografis data.</p>
+<p>Sementara itu, <code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span></code>, <code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code>, dan <code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span></code> merupakan variabel utama yang digunakan untuk menganalisis konsentrasi partikulat udara.</p>
+<p>Pemahaman terhadap fungsi setiap fitur diperlukan sebelum melakukan eksplorasi data, analisis statistik, dan visualisasi.</p>
+<p>Pada tahap berikutnya, fitur-fitur tersebut akan digunakan untuk melakukan <strong>Eksplorasi Data</strong> guna mengetahui distribusi, karakteristik, hubungan antarparameter, serta perubahan konsentrasi partikulat berdasarkan waktu.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./minggu-1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="data-understanding.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">01 — Data Understanding: Kualitas Udara Lamongan</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="sumber-polutan.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">4. Sumber Polutan</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pendahuluan">3.1 Pendahuluan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-fitur-dataset">3.2 Struktur Fitur Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-valid-time">3.3 Fitur <code class="docutils literal notranslate"><span class="pre">valid_time</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nama-fitur">Nama Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipe-data">Tipe Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi">Fungsi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#peran-dalam-analisis">Peran dalam Analisis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-latitude">3.4 Fitur <code class="docutils literal notranslate"><span class="pre">latitude</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Nama Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Tipe Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Fungsi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Peran dalam Analisis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-longitude">3.5 Fitur <code class="docutils literal notranslate"><span class="pre">longitude</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Nama Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Tipe Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Fungsi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Peran dalam Analisis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-pm1-ug-m3">3.6 Fitur <code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Nama Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Tipe Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satuan">Satuan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Fungsi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Peran dalam Analisis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-pm2p5-ug-m3">3.7 Fitur <code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Nama Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Tipe Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Satuan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Fungsi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Peran dalam Analisis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-pm10-ug-m3">3.8 Fitur <code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Nama Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Tipe Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Satuan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Fungsi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Peran dalam Analisis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-fitur-partikulat">3.9 Perbandingan Fitur Partikulat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kategori-fitur">3.10 Kategori Fitur</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-waktu">1. Fitur Waktu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-lokasi">2. Fitur Lokasi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-kualitas-udara">3. Fitur Kualitas Udara</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variabel-utama-dan-pendukung">3.11 Variabel Utama dan Pendukung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variabel-utama">Variabel Utama</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variabel-pendukung">Variabel Pendukung</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hubungan-antarfitur">3.12 Hubungan Antarfitur</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#peran-fitur-dalam-analisis-minggu-1">3.13 Peran Fitur dalam Analisis Minggu 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#satuan-data">3.14 Satuan Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kualitas-dan-validitas-fitur">3.15 Kualitas dan Validitas Fitur</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan-deskripsi-fitur">3.16 Ringkasan Deskripsi Fitur</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">3.17 Kesimpulan</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ahmad Dafi Zidni Alfarisi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
