@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Welcome to your Jupyter Book &#8212; My sample book</title>
+    <title>Penambangan Sains Data &#8212; Penambangan Sains Data</title>
   
   
   
@@ -60,13 +60,11 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Markdown Files" href="markdown.html" />
+    <link rel="next" title="01 — Data Understanding: Kualitas Udara Lamongan" href="minggu-1/data-understanding.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -100,8 +98,8 @@
   <input type="search"
          class="form-control"
          name="q"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
+         placeholder="Search..."
+         aria-label="Search..."
          autocomplete="off"
          autocorrect="off"
          autocapitalize="off"
@@ -154,6 +152,10 @@
   
 
   
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
 </div>
 
     </header>
@@ -196,8 +198,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
+    <img src="_static/logo.png" class="logo__image only-light" alt="Penambangan Sains Data - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="Penambangan Sains Data - Home"/>
   
   
 </a></div>
@@ -210,18 +212,9 @@
 </button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
-                    Welcome to your Jupyter Book
-                </a>
-            </li>
-        </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Minggu 1 — Analisis Kualitas Udara</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="minggu-1/data-understanding.html">2. Data Understanding</a></li>
 </ul>
 
     </div>
@@ -281,7 +274,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/Dafi86/PSD" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -298,7 +291,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Dafi86/PSD/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -391,7 +384,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -402,11 +397,52 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Welcome to your Jupyter Book</h1>
+    <h1>Penambangan Sains Data</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Penambangan Sains Data</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-kualitas-udara-di-lamongan">Analisis Kualitas Udara di Lamongan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-project">Deskripsi Project</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#business-understanding">1. Business Understanding</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latar-belakang">Latar Belakang</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan">Tujuan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manfaat">Manfaat</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pemahaman-kondisi-udara">1. Pemahaman kondisi udara</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identifikasi-kondisi-tidak-normal">2. Identifikasi kondisi tidak normal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dasar-analisis-selanjutnya">3. Dasar analisis selanjutnya</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pembelajaran-penambangan-sains-data">4. Pembelajaran Penambangan Sains Data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding">2. Data Understanding</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wilayah-pengamatan">Wilayah Pengamatan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-data">Sumber Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#periode-data">Periode Data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">3. Dataset</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pemahaman-fitur-polutan">4. Pemahaman Fitur Polutan</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pm1">PM1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pm2-5">PM2.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pm10">PM10</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-awal-data">5. Eksplorasi Awal Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-data">6. Pemeriksaan Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan-minggu-pertama">7. Kesimpulan Minggu Pertama</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -416,19 +452,252 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="welcome-to-your-jupyter-book">
-<h1>Welcome to your Jupyter Book<a class="headerlink" href="#welcome-to-your-jupyter-book" title="Link to this heading">#</a></h1>
-<p>This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out <a class="reference external" href="https://jupyterbook.org">the Jupyter Book documentation</a> for more information.</p>
-<p>Check out the content pages bundled with this sample book to see more.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+  <p>cd /workspaces/PSD</p>
+<p>cat &gt; tugas/intro.md &lt;&lt;’EOF’</p>
+<section class="tex2jax_ignore mathjax_ignore" id="penambangan-sains-data">
+<h1>Penambangan Sains Data<a class="headerlink" href="#penambangan-sains-data" title="Link to this heading">#</a></h1>
+<section id="analisis-kualitas-udara-di-lamongan">
+<h2>Analisis Kualitas Udara di Lamongan<a class="headerlink" href="#analisis-kualitas-udara-di-lamongan" title="Link to this heading">#</a></h2>
+<p><strong>Nama:</strong> Ahmad Dafi Zidni Alfarisi<br />
+<strong>Program Studi:</strong> Teknik Informatika<br />
+<strong>Mata Kuliah:</strong> Penambangan Sains Data (PSD)<br />
+<strong>Universitas:</strong> Universitas Trunojoyo Madura</p>
+</section>
+<hr class="docutils" />
+<section id="deskripsi-project">
+<h2>Deskripsi Project<a class="headerlink" href="#deskripsi-project" title="Link to this heading">#</a></h2>
+<p>Project ini merupakan tugas mata kuliah <strong>Penambangan Sains Data</strong> yang berfokus pada pemahaman kualitas udara di wilayah Lamongan.</p>
+<p>Pada tahap pertama, analisis difokuskan pada:</p>
+<ol class="arabic simple">
+<li><p>Business Understanding</p></li>
+<li><p>Data Understanding</p></li>
+<li><p>Eksplorasi awal dataset</p></li>
+<li><p>Pemeriksaan kualitas data</p></li>
+</ol>
+<p>Tahap analisis lanjutan akan dilakukan pada pertemuan berikutnya sesuai materi yang diberikan.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="business-understanding">
+<h1>1. Business Understanding<a class="headerlink" href="#business-understanding" title="Link to this heading">#</a></h1>
+<section id="latar-belakang">
+<h2>Latar Belakang<a class="headerlink" href="#latar-belakang" title="Link to this heading">#</a></h2>
+<p>Kualitas udara merupakan salah satu faktor yang dapat memengaruhi lingkungan dan kehidupan masyarakat. Konsentrasi partikulat di udara dapat berubah dari waktu ke waktu dan dipengaruhi oleh berbagai aktivitas maupun kondisi lingkungan.</p>
+<p>Oleh karena itu, diperlukan pemahaman terhadap data kualitas udara pada suatu wilayah untuk mengetahui karakteristik dan perubahan konsentrasi polutan dari waktu ke waktu.</p>
+<p>Wilayah yang dipilih dalam project ini adalah <strong>Lamongan, Jawa Timur</strong>.</p>
+</section>
+<section id="tujuan">
+<h2>Tujuan<a class="headerlink" href="#tujuan" title="Link to this heading">#</a></h2>
+<p>Tujuan dari project ini adalah:</p>
+<blockquote>
+<div><p>Mengetahui dan memahami kondisi kualitas udara di wilayah Lamongan berdasarkan data konsentrasi partikulat udara.</p>
+</div></blockquote>
+<p>Secara khusus, tahap pertama bertujuan untuk:</p>
+<ul class="simple">
+<li><p>memahami dataset kualitas udara;</p></li>
+<li><p>mengetahui periode dan cakupan data;</p></li>
+<li><p>memahami setiap fitur yang tersedia;</p></li>
+<li><p>mengetahui satuan pengukuran;</p></li>
+<li><p>mengeksplorasi karakteristik data;</p></li>
+<li><p>menemukan nilai yang tidak wajar;</p></li>
+<li><p>mengetahui adanya missing value;</p></li>
+<li><p>mengetahui adanya data duplikat;</p></li>
+<li><p>mengidentifikasi outlier pada data.</p></li>
 </ul>
+</section>
+<section id="manfaat">
+<h2>Manfaat<a class="headerlink" href="#manfaat" title="Link to this heading">#</a></h2>
+<p>Project ini diharapkan memberikan beberapa manfaat:</p>
+<section id="pemahaman-kondisi-udara">
+<h3>1. Pemahaman kondisi udara<a class="headerlink" href="#pemahaman-kondisi-udara" title="Link to this heading">#</a></h3>
+<p>Data dapat digunakan untuk melihat bagaimana konsentrasi partikulat berubah selama periode pengamatan.</p>
+</section>
+<section id="identifikasi-kondisi-tidak-normal">
+<h3>2. Identifikasi kondisi tidak normal<a class="headerlink" href="#identifikasi-kondisi-tidak-normal" title="Link to this heading">#</a></h3>
+<p>Eksplorasi data dapat membantu menemukan nilai yang sangat tinggi, sangat rendah, atau tidak wajar.</p>
+</section>
+<section id="dasar-analisis-selanjutnya">
+<h3>3. Dasar analisis selanjutnya<a class="headerlink" href="#dasar-analisis-selanjutnya" title="Link to this heading">#</a></h3>
+<p>Dataset yang telah dipahami dan diperiksa dapat menjadi dasar untuk analisis lebih lanjut pada pertemuan berikutnya.</p>
+</section>
+<section id="pembelajaran-penambangan-sains-data">
+<h3>4. Pembelajaran Penambangan Sains Data<a class="headerlink" href="#pembelajaran-penambangan-sains-data" title="Link to this heading">#</a></h3>
+<p>Project ini menjadi latihan dalam proses memperoleh, memahami, membersihkan, mengeksplorasi, dan menganalisis data lingkungan.</p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="data-understanding">
+<h1>2. Data Understanding<a class="headerlink" href="#data-understanding" title="Link to this heading">#</a></h1>
+<section id="wilayah-pengamatan">
+<h2>Wilayah Pengamatan<a class="headerlink" href="#wilayah-pengamatan" title="Link to this heading">#</a></h2>
+<p>Wilayah yang digunakan dalam project adalah:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Keterangan</p></th>
+<th class="head"><p>Informasi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Wilayah</p></td>
+<td><p>Lamongan</p></td>
+</tr>
+<tr class="row-odd"><td><p>Provinsi</p></td>
+<td><p>Jawa Timur</p></td>
+</tr>
+<tr class="row-even"><td><p>Latitude</p></td>
+<td><p>-7.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Longitude</p></td>
+<td><p>112.4</p></td>
+</tr>
+<tr class="row-even"><td><p>Tools wilayah</p></td>
+<td><p><a class="reference external" href="http://GeoJSON.io">GeoJSON.io</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Koordinat tersebut digunakan untuk menentukan lokasi pengambilan data kualitas udara.</p>
+<p>Batas wilayah pengamatan dibuat menggunakan <strong>GeoJSON</strong> sebagai bagian dari proses pembatasan wilayah data.</p>
+</section>
+<section id="sumber-data">
+<h2>Sumber Data<a class="headerlink" href="#sumber-data" title="Link to this heading">#</a></h2>
+<p>Data kualitas udara diperoleh dari:</p>
+<p><strong>Copernicus Atmosphere Monitoring Service (CAMS)</strong></p>
+<p>Dataset yang digunakan berasal dari data kualitas udara atmosfer dan kemudian diekstraksi menjadi format CSV untuk proses analisis.</p>
+</section>
+<section id="periode-data">
+<h2>Periode Data<a class="headerlink" href="#periode-data" title="Link to this heading">#</a></h2>
+<p>Data yang digunakan mencakup sekitar satu tahun:</p>
+<p><strong>29 Agustus 2025 – 29 Agustus 2026</strong></p>
+<p>Periode tersebut memenuhi kebutuhan tugas untuk menggunakan data minimal satu tahun.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="dataset">
+<h1>3. Dataset<a class="headerlink" href="#dataset" title="Link to this heading">#</a></h1>
+<p>Dataset hasil ekstraksi memiliki:</p>
+<ul class="simple">
+<li><p><strong>1.464 baris</strong></p></li>
+<li><p><strong>6 kolom</strong></p></li>
+</ul>
+<p>Kolom yang digunakan adalah:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Fitur</p></th>
+<th class="head"><p>Keterangan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">valid_time</span></code></p></td>
+<td><p>Waktu pengamatan data</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">latitude</span></code></p></td>
+<td><p>Koordinat lintang lokasi</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">longitude</span></code></p></td>
+<td><p>Koordinat bujur lokasi</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span></code></p></td>
+<td><p>Konsentrasi PM1</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code></p></td>
+<td><p>Konsentrasi PM2.5</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span></code></p></td>
+<td><p>Konsentrasi PM10</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="pemahaman-fitur-polutan">
+<h1>4. Pemahaman Fitur Polutan<a class="headerlink" href="#pemahaman-fitur-polutan" title="Link to this heading">#</a></h1>
+<section id="pm1">
+<h2>PM1<a class="headerlink" href="#pm1" title="Link to this heading">#</a></h2>
+<p>PM1 merupakan partikulat dengan diameter aerodinamis kurang dari atau sama dengan <strong>1 mikrometer</strong>.</p>
+<p>Partikel dengan ukuran sangat kecil seperti PM1 dapat berasal dari proses pembakaran dan aktivitas yang menghasilkan partikel halus.</p>
+</section>
+<section id="pm2-5">
+<h2>PM2.5<a class="headerlink" href="#pm2-5" title="Link to this heading">#</a></h2>
+<p>PM2.5 merupakan partikulat dengan diameter aerodinamis kurang dari atau sama dengan <strong>2,5 mikrometer</strong>.</p>
+<p>PM2.5 dapat berasal dari berbagai sumber seperti:</p>
+<ul class="simple">
+<li><p>kendaraan bermotor;</p></li>
+<li><p>pembakaran bahan bakar;</p></li>
+<li><p>aktivitas industri;</p></li>
+<li><p>pembakaran biomassa;</p></li>
+<li><p>proses pembentukan partikulat sekunder di atmosfer.</p></li>
+</ul>
+<p>Karena ukurannya kecil, PM2.5 menjadi salah satu parameter penting dalam analisis kualitas udara.</p>
+</section>
+<section id="pm10">
+<h2>PM10<a class="headerlink" href="#pm10" title="Link to this heading">#</a></h2>
+<p>PM10 merupakan partikulat dengan diameter aerodinamis kurang dari atau sama dengan <strong>10 mikrometer</strong>.</p>
+<p>Sumber PM10 dapat berasal dari:</p>
+<ul class="simple">
+<li><p>debu jalan;</p></li>
+<li><p>aktivitas konstruksi;</p></li>
+<li><p>tanah dan material permukaan;</p></li>
+<li><p>aktivitas industri;</p></li>
+<li><p>pembakaran;</p></li>
+<li><p>transportasi.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="eksplorasi-awal-data">
+<h1>5. Eksplorasi Awal Data<a class="headerlink" href="#eksplorasi-awal-data" title="Link to this heading">#</a></h1>
+<p>Eksplorasi awal dilakukan untuk mengetahui karakteristik dataset sebelum melakukan analisis lebih lanjut.</p>
+<p>Hal yang diperiksa meliputi:</p>
+<ul class="simple">
+<li><p>jumlah baris dan kolom;</p></li>
+<li><p>tipe data;</p></li>
+<li><p>periode pengamatan;</p></li>
+<li><p>nilai minimum;</p></li>
+<li><p>nilai maksimum;</p></li>
+<li><p>nilai rata-rata;</p></li>
+<li><p>missing value;</p></li>
+<li><p>data duplikat;</p></li>
+<li><p>nilai negatif;</p></li>
+<li><p>outlier;</p></li>
+<li><p>distribusi data.</p></li>
+</ul>
+<p>Hasil eksplorasi lengkap ditampilkan pada notebook:</p>
+<p><strong>01 Data Understanding</strong></p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="pemeriksaan-data">
+<h1>6. Pemeriksaan Data<a class="headerlink" href="#pemeriksaan-data" title="Link to this heading">#</a></h1>
+<p>Berdasarkan pemeriksaan awal, ditemukan beberapa nilai yang perlu diperhatikan terutama pada variabel partikulat.</p>
+<p>Untuk PM10 ditemukan nilai:</p>
+<ul class="simple">
+<li><p><strong>Minimum:</strong> sekitar <code class="docutils literal notranslate"><span class="pre">-44.03</span></code></p></li>
+<li><p><strong>Maksimum:</strong> sekitar <code class="docutils literal notranslate"><span class="pre">164.67</span></code></p></li>
+<li><p><strong>Jumlah outlier:</strong> <code class="docutils literal notranslate"><span class="pre">22</span></code></p></li>
+</ul>
+<p>Nilai negatif pada konsentrasi partikulat secara fisik perlu diperiksa karena konsentrasi massa partikulat tidak seharusnya bernilai negatif.</p>
+<p>Nilai tersebut <strong>tidak langsung dihapus pada tahap ini</strong>, tetapi dicatat sebagai temuan pada proses Data Understanding untuk ditangani pada tahap Data Preparation.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="kesimpulan-minggu-pertama">
+<h1>7. Kesimpulan Minggu Pertama<a class="headerlink" href="#kesimpulan-minggu-pertama" title="Link to this heading">#</a></h1>
+<p>Pada tahap pertama, dataset kualitas udara wilayah Lamongan telah berhasil diperoleh dan dipahami.</p>
+<p>Dataset mencakup periode <strong>29 Agustus 2025 sampai 29 Agustus 2026</strong> dengan parameter utama:</p>
+<ul class="simple">
+<li><p>PM1</p></li>
+<li><p>PM2.5</p></li>
+<li><p>PM10</p></li>
+</ul>
+<p>Dataset terdiri dari <strong>1.464 baris dan 6 kolom</strong>.</p>
+<p>Eksplorasi awal juga menemukan adanya nilai yang tidak wajar, termasuk nilai negatif dan beberapa outlier pada data partikulat.</p>
+<p>Temuan tersebut akan menjadi dasar untuk tahap berikutnya, yaitu <strong>Data Preparation dan analisis lanjutan</strong> sesuai materi pertemuan berikutnya.</p>
+<blockquote>
+<div><p><strong>Catatan:</strong> Project ini pada tahap Minggu 1 difokuskan pada Business Understanding dan Data Understanding. Analisis lanjutan tidak dimasukkan agar sesuai dengan materi dan instruksi tugas pertemuan pertama.
+EOF</p>
+</div></blockquote>
+<div class="toctree-wrapper compound">
 </div>
 </section>
 
@@ -463,11 +732,11 @@ It does not go in-depth into any particular topic - check out <a class="referenc
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="markdown.html"
+       href="minggu-1/data-understanding.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Markdown Files</p>
+        <p class="prev-next-title">01 — Data Understanding: Kualitas Udara Lamongan</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -478,6 +747,56 @@ It does not go in-depth into any particular topic - check out <a class="referenc
             
             
               
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Penambangan Sains Data</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-kualitas-udara-di-lamongan">Analisis Kualitas Udara di Lamongan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-project">Deskripsi Project</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#business-understanding">1. Business Understanding</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latar-belakang">Latar Belakang</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan">Tujuan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manfaat">Manfaat</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pemahaman-kondisi-udara">1. Pemahaman kondisi udara</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identifikasi-kondisi-tidak-normal">2. Identifikasi kondisi tidak normal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dasar-analisis-selanjutnya">3. Dasar analisis selanjutnya</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pembelajaran-penambangan-sains-data">4. Pembelajaran Penambangan Sains Data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding">2. Data Understanding</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wilayah-pengamatan">Wilayah Pengamatan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-data">Sumber Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#periode-data">Periode Data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">3. Dataset</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pemahaman-fitur-polutan">4. Pemahaman Fitur Polutan</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pm1">PM1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pm2-5">PM2.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pm10">PM10</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-awal-data">5. Eksplorasi Awal Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-data">6. Pemeriksaan Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan-minggu-pertama">7. Kesimpulan Minggu Pertama</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -487,7 +806,7 @@ It does not go in-depth into any particular topic - check out <a class="referenc
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Ahmad Dafi Zidni Alfarisi
 </p>
 
   </div>
