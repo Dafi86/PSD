@@ -1,0 +1,1512 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1. Business Understanding &#8212; Penambangan Sains Data</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'minggu-1/business-understanding-lengkap';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Penambangan Sains Data - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Penambangan Sains Data - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Minggu 1 — Analisis Kualitas Udara</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="data-understanding.html">2. Data Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sumber-polutan.html">4. Sumber Polutan</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Dafi86/PSD" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Dafi86/PSD/issues/new?title=Issue%20on%20page%20%2Fminggu-1/business-understanding-lengkap.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/minggu-1/business-understanding-lengkap.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>1. Business Understanding</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latar-belakang">1.1 Latar Belakang</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifikasi-masalah">1.2 Identifikasi Masalah</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-project">1.3 Tujuan Project</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-umum">Tujuan Umum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-khusus">Tujuan Khusus</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-analisis">1.4 Pertanyaan Analisis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-utama">Pertanyaan Utama</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-pendukung">Pertanyaan Pendukung</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wilayah-penelitian">1.5 Wilayah Penelitian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penentuan-wilayah-menggunakan-geojson">1.6 Penentuan Wilayah Menggunakan GeoJSON</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-penentuan-wilayah">Proses Penentuan Wilayah</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alur-penentuan-wilayah">Alur Penentuan Wilayah</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-data">1.7 Sumber Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-resmi">Sumber Resmi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informasi-dataset">Informasi Dataset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-pengambilan-data">1.8 Proses Pengambilan Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-1-menentukan-wilayah">Tahap 1 — Menentukan Wilayah</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-2-menentukan-dataset">Tahap 2 — Menentukan Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-3-menentukan-variabel">Tahap 3 — Menentukan Variabel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-4-menentukan-periode">Tahap 4 — Menentukan Periode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-5-ekstraksi-data">Tahap 5 — Ekstraksi Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-6-pengolahan-data">Tahap 6 — Pengolahan Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alur-pengambilan-data">Alur Pengambilan Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#periode-data">1.9 Periode Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frekuensi-data">Frekuensi Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jumlah-data">Jumlah Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-yang-dianalisis">1.10 Parameter yang Dianalisis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pm1">1.10.1 PM1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pm2-5">1.10.2 PM2.5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pm10">1.10.3 PM10</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan-parameter">Ringkasan Parameter</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manfaat-project">1.11 Manfaat Project</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manfaat-akademik">1. Manfaat Akademik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memahami-kualitas-udara">2. Memahami Kualitas Udara</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#melihat-perubahan-berdasarkan-waktu">3. Melihat Perubahan Berdasarkan Waktu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengetahui-karakteristik-dataset">4. Mengetahui Karakteristik Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dasar-analisis-selanjutnya">5. Dasar Analisis Selanjutnya</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output-yang-diharapkan">1.12 Output yang Diharapkan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-wilayah">1. Data Wilayah</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-kualitas-udara">2. Dataset Kualitas Udara</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dokumentasi-business-understanding">3. Dokumentasi Business Understanding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dokumentasi-data-understanding">4. Dokumentasi Data Understanding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-fitur">5. Deskripsi Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-polutan">6. Sumber Polutan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-data">7. Eksplorasi Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-time-series">8. Visualisasi Time Series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#website-statis">9. Website Statis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#batasan-project">1.13 Batasan Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ruang-lingkup-minggu-1">1.14 Ruang Lingkup Minggu 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. Business Understanding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding">2. Data Understanding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3. Deskripsi Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4. Sumber Polutan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">5. Eksplorasi Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alur-project">1.15 Alur Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">1.16 Kesimpulan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan-business-understanding">1.17 Ringkasan Business Understanding</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan-akhir">Ringkasan Akhir</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="business-understanding">
+<h1>1. Business Understanding<a class="headerlink" href="#business-understanding" title="Link to this heading">#</a></h1>
+<section id="latar-belakang">
+<h2>1.1 Latar Belakang<a class="headerlink" href="#latar-belakang" title="Link to this heading">#</a></h2>
+<p>Kualitas udara merupakan salah satu aspek lingkungan yang penting untuk dipahami karena kondisi udara dapat berubah dari waktu ke waktu dan dipengaruhi oleh berbagai aktivitas serta kondisi lingkungan.</p>
+<p>Kabupaten Lamongan merupakan salah satu wilayah di Provinsi Jawa Timur yang memiliki berbagai aktivitas masyarakat seperti transportasi, permukiman, pertanian, kegiatan perdagangan, serta aktivitas lainnya yang berpotensi menghasilkan partikulat udara.</p>
+<p>Untuk memperoleh gambaran mengenai kondisi kualitas udara secara lebih terstruktur, diperlukan pemanfaatan data yang dapat dianalisis berdasarkan waktu dan parameter polutan.</p>
+<p>Pada project Penambangan Sains Data ini dilakukan analisis terhadap data kualitas udara di wilayah Kabupaten Lamongan dengan menggunakan parameter partikulat:</p>
+<ul class="simple">
+<li><p>PM1</p></li>
+<li><p>PM2.5</p></li>
+<li><p>PM10</p></li>
+</ul>
+<p>Data tersebut digunakan untuk memahami karakteristik konsentrasi partikulat selama periode pengamatan sekitar satu tahun.</p>
+</section>
+<hr class="docutils" />
+<section id="identifikasi-masalah">
+<h2>1.2 Identifikasi Masalah<a class="headerlink" href="#identifikasi-masalah" title="Link to this heading">#</a></h2>
+<p>Permasalahan utama dalam project ini adalah bagaimana memahami karakteristik kualitas udara di Kabupaten Lamongan berdasarkan data konsentrasi partikulat.</p>
+<p>Data kualitas udara yang diperoleh perlu dipahami terlebih dahulu sebelum dilakukan analisis lebih lanjut. Oleh karena itu, beberapa permasalahan yang menjadi perhatian adalah:</p>
+<ol class="arabic simple">
+<li><p>Bagaimana karakteristik data kualitas udara di Kabupaten Lamongan?</p></li>
+<li><p>Bagaimana kondisi konsentrasi PM1, PM2.5, dan PM10 selama periode pengamatan?</p></li>
+<li><p>Apakah data memiliki nilai yang hilang?</p></li>
+<li><p>Apakah terdapat data duplikat?</p></li>
+<li><p>Apakah terdapat nilai konsentrasi yang tidak valid?</p></li>
+<li><p>Apakah terdapat nilai ekstrem atau outlier?</p></li>
+<li><p>Bagaimana pola perubahan konsentrasi partikulat berdasarkan waktu?</p></li>
+<li><p>Bagaimana hubungan antara PM1, PM2.5, dan PM10?</p></li>
+</ol>
+<p>Permasalahan tersebut menjadi dasar dalam melakukan tahap <strong>Data Understanding</strong> dan <strong>Exploratory Data Analysis</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="tujuan-project">
+<h2>1.3 Tujuan Project<a class="headerlink" href="#tujuan-project" title="Link to this heading">#</a></h2>
+<section id="tujuan-umum">
+<h3>Tujuan Umum<a class="headerlink" href="#tujuan-umum" title="Link to this heading">#</a></h3>
+<p>Tujuan umum dari project ini adalah:</p>
+<blockquote>
+<div><p><strong>Memahami karakteristik kualitas udara di Kabupaten Lamongan berdasarkan data konsentrasi PM1, PM2.5, dan PM10 selama periode pengamatan.</strong></p>
+</div></blockquote>
+</section>
+<section id="tujuan-khusus">
+<h3>Tujuan Khusus<a class="headerlink" href="#tujuan-khusus" title="Link to this heading">#</a></h3>
+<p>Project ini memiliki beberapa tujuan khusus, yaitu:</p>
+<ol class="arabic simple">
+<li><p>menentukan wilayah pengamatan yang digunakan dalam analisis;</p></li>
+<li><p>memperoleh data kualitas udara untuk wilayah pengamatan;</p></li>
+<li><p>menentukan parameter polutan yang akan dianalisis;</p></li>
+<li><p>memahami struktur dataset kualitas udara;</p></li>
+<li><p>mengetahui karakteristik PM1, PM2.5, dan PM10;</p></li>
+<li><p>memeriksa kualitas data yang diperoleh;</p></li>
+<li><p>mengidentifikasi missing value dan data duplikat;</p></li>
+<li><p>mengidentifikasi nilai yang tidak valid;</p></li>
+<li><p>mengidentifikasi outlier pada data;</p></li>
+<li><p>mengetahui perubahan konsentrasi polutan berdasarkan waktu;</p></li>
+<li><p>menyediakan dataset yang siap digunakan untuk tahap analisis berikutnya.</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="pertanyaan-analisis">
+<h2>1.4 Pertanyaan Analisis<a class="headerlink" href="#pertanyaan-analisis" title="Link to this heading">#</a></h2>
+<p>Berdasarkan tujuan tersebut, pertanyaan yang ingin dijawab melalui project ini adalah:</p>
+<section id="pertanyaan-utama">
+<h3>Pertanyaan Utama<a class="headerlink" href="#pertanyaan-utama" title="Link to this heading">#</a></h3>
+<p><strong>Bagaimana karakteristik kualitas udara di Kabupaten Lamongan berdasarkan konsentrasi PM1, PM2.5, dan PM10 selama periode pengamatan?</strong></p>
+</section>
+<section id="pertanyaan-pendukung">
+<h3>Pertanyaan Pendukung<a class="headerlink" href="#pertanyaan-pendukung" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Berapa nilai konsentrasi PM1, PM2.5, dan PM10?</p></li>
+<li><p>Bagaimana distribusi masing-masing parameter?</p></li>
+<li><p>Apakah terdapat perubahan konsentrasi berdasarkan waktu?</p></li>
+<li><p>Apakah terdapat nilai ekstrem pada dataset?</p></li>
+<li><p>Apakah terdapat masalah kualitas data?</p></li>
+<li><p>Apakah terdapat hubungan antara ketiga parameter partikulat?</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="wilayah-penelitian">
+<h2>1.5 Wilayah Penelitian<a class="headerlink" href="#wilayah-penelitian" title="Link to this heading">#</a></h2>
+<p>Wilayah yang digunakan dalam project adalah:</p>
+<p><strong>Kabupaten Lamongan, Provinsi Jawa Timur.</strong></p>
+<p>Penentuan wilayah dilakukan menggunakan data batas wilayah dalam format <strong>GeoJSON</strong>.</p>
+<p>GeoJSON digunakan untuk membantu menentukan wilayah yang menjadi fokus pengambilan dan analisis data.</p>
+<p>Informasi wilayah:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Komponen</p></th>
+<th class="head"><p>Keterangan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Wilayah</p></td>
+<td><p>Kabupaten Lamongan</p></td>
+</tr>
+<tr class="row-odd"><td><p>Provinsi</p></td>
+<td><p>Jawa Timur</p></td>
+</tr>
+<tr class="row-even"><td><p>Negara</p></td>
+<td><p>Indonesia</p></td>
+</tr>
+<tr class="row-odd"><td><p>Format batas wilayah</p></td>
+<td><p>GeoJSON</p></td>
+</tr>
+<tr class="row-even"><td><p>Tools</p></td>
+<td><p><a class="reference external" href="http://GeoJSON.io">GeoJSON.io</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>File batas wilayah disimpan dalam project:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>data/lamongan.geojson
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="penentuan-wilayah-menggunakan-geojson">
+<h2>1.6 Penentuan Wilayah Menggunakan GeoJSON<a class="headerlink" href="#penentuan-wilayah-menggunakan-geojson" title="Link to this heading">#</a></h2>
+<p>Wilayah penelitian dalam project ini adalah <strong>Kabupaten Lamongan, Provinsi Jawa Timur</strong>.</p>
+<p>Untuk menentukan wilayah pengamatan, digunakan data batas wilayah dalam format <strong>GeoJSON</strong>. GeoJSON merupakan format berbasis JSON yang digunakan untuk menyimpan dan merepresentasikan data geografis.</p>
+<p>Pada project ini, file batas wilayah Kabupaten Lamongan digunakan sebagai acuan dalam menentukan wilayah yang menjadi fokus pengambilan dan analisis data kualitas udara.</p>
+<p>File GeoJSON yang digunakan dalam project disimpan pada:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>data/lamongan.geojson
+</pre></div>
+</div>
+<p>Penggunaan GeoJSON bertujuan agar wilayah penelitian dapat ditentukan secara lebih terstruktur dan jelas.</p>
+<section id="proses-penentuan-wilayah">
+<h3>Proses Penentuan Wilayah<a class="headerlink" href="#proses-penentuan-wilayah" title="Link to this heading">#</a></h3>
+<p>Tahapan penentuan wilayah dilakukan sebagai berikut:</p>
+<ol class="arabic simple">
+<li><p>Menentukan Kabupaten Lamongan sebagai wilayah penelitian.</p></li>
+<li><p>Menyiapkan data batas wilayah Kabupaten Lamongan.</p></li>
+<li><p>Menyimpan batas wilayah dalam format GeoJSON.</p></li>
+<li><p>Memeriksa struktur dan koordinat GeoJSON.</p></li>
+<li><p>Menggunakan GeoJSON sebagai acuan wilayah penelitian.</p></li>
+</ol>
+</section>
+<section id="alur-penentuan-wilayah">
+<h3>Alur Penentuan Wilayah<a class="headerlink" href="#alur-penentuan-wilayah" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Menentukan Kabupaten Lamongan
+            ↓
+Menyiapkan Batas Wilayah
+            ↓
+Membuat/Memeriksa GeoJSON
+            ↓
+Menyimpan lamongan.geojson
+            ↓
+Menentukan Wilayah Pengamatan
+            ↓
+Pengambilan Data Kualitas Udara
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="sumber-data">
+<h2>1.7 Sumber Data<a class="headerlink" href="#sumber-data" title="Link to this heading">#</a></h2>
+<p>Data kualitas udara yang digunakan dalam project ini berasal dari <strong>Copernicus Atmosphere Monitoring Service (CAMS)</strong>.</p>
+<p>CAMS merupakan layanan yang menyediakan informasi mengenai komposisi atmosfer dan kualitas udara berdasarkan sistem pemodelan atmosfer.</p>
+<p>Dataset yang digunakan dalam project adalah:</p>
+<blockquote>
+<div><p><strong>CAMS Global Atmospheric Composition Forecasts</strong></p>
+</div></blockquote>
+<p>Dataset tersebut menyediakan berbagai variabel atmosfer, termasuk beberapa parameter partikulat yang digunakan dalam penelitian ini.</p>
+<p>Parameter yang dipilih adalah:</p>
+<ul class="simple">
+<li><p><strong>Particulate Matter d &lt; 1 µm (PM1)</strong></p></li>
+<li><p><strong>Particulate Matter d &lt; 2.5 µm (PM2.5)</strong></p></li>
+<li><p><strong>Particulate Matter d &lt; 10 µm (PM10)</strong></p></li>
+</ul>
+<p>Data awal diperoleh dalam format <strong>GRIB</strong>. Selanjutnya data dibaca dan diolah menggunakan Python sehingga dapat digunakan dalam bentuk tabel dan CSV.</p>
+<section id="sumber-resmi">
+<h3>Sumber Resmi<a class="headerlink" href="#sumber-resmi" title="Link to this heading">#</a></h3>
+<p>Data diperoleh melalui Copernicus Atmosphere Data Store (ADS):</p>
+<p><a class="reference external" href="https://ads.atmosphere.copernicus.eu/">https://ads.atmosphere.copernicus.eu/</a></p>
+</section>
+<section id="informasi-dataset">
+<h3>Informasi Dataset<a class="headerlink" href="#informasi-dataset" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Komponen</p></th>
+<th class="head"><p>Keterangan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Penyedia</p></td>
+<td><p>Copernicus Atmosphere Monitoring Service</p></td>
+</tr>
+<tr class="row-odd"><td><p>Platform</p></td>
+<td><p>Copernicus Atmosphere Data Store</p></td>
+</tr>
+<tr class="row-even"><td><p>Dataset</p></td>
+<td><p>CAMS Global Atmospheric Composition Forecasts</p></td>
+</tr>
+<tr class="row-odd"><td><p>Jenis Data</p></td>
+<td><p>Data komposisi atmosfer</p></td>
+</tr>
+<tr class="row-even"><td><p>Parameter Utama</p></td>
+<td><p>PM1, PM2.5, PM10</p></td>
+</tr>
+<tr class="row-odd"><td><p>Format Awal</p></td>
+<td><p>GRIB</p></td>
+</tr>
+<tr class="row-even"><td><p>Format Analisis</p></td>
+<td><p>CSV</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="proses-pengambilan-data">
+<h2>1.8 Proses Pengambilan Data<a class="headerlink" href="#proses-pengambilan-data" title="Link to this heading">#</a></h2>
+<p>Pengambilan data dilakukan dengan menentukan terlebih dahulu wilayah, periode, dan parameter yang dibutuhkan.</p>
+<p>Proses pengambilan data dilakukan melalui beberapa tahap.</p>
+<section id="tahap-1-menentukan-wilayah">
+<h3>Tahap 1 — Menentukan Wilayah<a class="headerlink" href="#tahap-1-menentukan-wilayah" title="Link to this heading">#</a></h3>
+<p>Wilayah penelitian ditentukan yaitu Kabupaten Lamongan, Jawa Timur.</p>
+<p>Batas wilayah disimpan dalam file:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>data/lamongan.geojson
+</pre></div>
+</div>
+</section>
+<section id="tahap-2-menentukan-dataset">
+<h3>Tahap 2 — Menentukan Dataset<a class="headerlink" href="#tahap-2-menentukan-dataset" title="Link to this heading">#</a></h3>
+<p>Dataset yang digunakan adalah:</p>
+<blockquote>
+<div><p><strong>CAMS Global Atmospheric Composition Forecasts</strong></p>
+</div></blockquote>
+</section>
+<section id="tahap-3-menentukan-variabel">
+<h3>Tahap 3 — Menentukan Variabel<a class="headerlink" href="#tahap-3-menentukan-variabel" title="Link to this heading">#</a></h3>
+<p>Variabel yang dipilih:</p>
+<ul class="simple">
+<li><p>PM1</p></li>
+<li><p>PM2.5</p></li>
+<li><p>PM10</p></li>
+</ul>
+</section>
+<section id="tahap-4-menentukan-periode">
+<h3>Tahap 4 — Menentukan Periode<a class="headerlink" href="#tahap-4-menentukan-periode" title="Link to this heading">#</a></h3>
+<p>Periode pengamatan ditentukan selama sekitar satu tahun:</p>
+<blockquote>
+<div><p><strong>29 Agustus 2025 – 29 Agustus 2026</strong></p>
+</div></blockquote>
+</section>
+<section id="tahap-5-ekstraksi-data">
+<h3>Tahap 5 — Ekstraksi Data<a class="headerlink" href="#tahap-5-ekstraksi-data" title="Link to this heading">#</a></h3>
+<p>Data kemudian diekstraksi berdasarkan parameter dan wilayah pengamatan yang telah ditentukan.</p>
+<p>Data hasil ekstraksi kemudian diunduh dan diproses menggunakan Python.</p>
+</section>
+<section id="tahap-6-pengolahan-data">
+<h3>Tahap 6 — Pengolahan Data<a class="headerlink" href="#tahap-6-pengolahan-data" title="Link to this heading">#</a></h3>
+<p>Data GRIB dibaca menggunakan Python dan kemudian diubah menjadi bentuk tabel.</p>
+<p>Selanjutnya dilakukan:</p>
+<ul class="simple">
+<li><p>pemilihan variabel;</p></li>
+<li><p>penyusunan waktu;</p></li>
+<li><p>penggabungan data;</p></li>
+<li><p>konversi satuan;</p></li>
+<li><p>pemeriksaan data;</p></li>
+<li><p>dan penyimpanan dalam CSV.</p></li>
+</ul>
+</section>
+<section id="alur-pengambilan-data">
+<h3>Alur Pengambilan Data<a class="headerlink" href="#alur-pengambilan-data" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Kabupaten Lamongan
+        ↓
+Batas Wilayah GeoJSON
+        ↓
+Menentukan Area Pengamatan
+        ↓
+CAMS Global Atmospheric Composition Forecasts
+        ↓
+Memilih PM1, PM2.5, PM10
+        ↓
+Menentukan Periode
+        ↓
+Ekstraksi Data
+        ↓
+Data GRIB
+        ↓
+Pengolahan Python
+        ↓
+Penyusunan Dataset
+        ↓
+Konversi Satuan
+        ↓
+CSV
+        ↓
+Data Cleaning
+        ↓
+Data Understanding
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="periode-data">
+<h2>1.9 Periode Data<a class="headerlink" href="#periode-data" title="Link to this heading">#</a></h2>
+<p>Dataset yang digunakan memiliki periode pengamatan:</p>
+<blockquote>
+<div><p><strong>29 Agustus 2025 – 29 Agustus 2026</strong></p>
+</div></blockquote>
+<p>Periode tersebut mencakup sekitar satu tahun data.</p>
+<p>Tanggal awal:</p>
+<blockquote>
+<div><p><strong>29 Agustus 2025</strong></p>
+</div></blockquote>
+<p>Tanggal akhir:</p>
+<blockquote>
+<div><p><strong>29 Agustus 2026</strong></p>
+</div></blockquote>
+<p>Periode ini dipilih karena tugas membutuhkan data terkini dengan periode minimal satu tahun sampai dengan sekitar <strong>31 Agustus 2026</strong>.</p>
+<section id="frekuensi-data">
+<h3>Frekuensi Data<a class="headerlink" href="#frekuensi-data" title="Link to this heading">#</a></h3>
+<p>Dataset memiliki data pada empat waktu pengamatan dalam satu hari:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Waktu</p></th>
+<th class="head"><p>Keterangan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>00:00</p></td>
+<td><p>Pengamatan pertama</p></td>
+</tr>
+<tr class="row-odd"><td><p>06:00</p></td>
+<td><p>Pengamatan kedua</p></td>
+</tr>
+<tr class="row-even"><td><p>12:00</p></td>
+<td><p>Pengamatan ketiga</p></td>
+</tr>
+<tr class="row-odd"><td><p>18:00</p></td>
+<td><p>Pengamatan keempat</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Dengan demikian terdapat:</p>
+<blockquote>
+<div><p><strong>4 observasi per hari</strong></p>
+</div></blockquote>
+</section>
+<section id="jumlah-data">
+<h3>Jumlah Data<a class="headerlink" href="#jumlah-data" title="Link to this heading">#</a></h3>
+<p>Dataset yang telah diolah memiliki:</p>
+<blockquote>
+<div><p><strong>1.464 baris data</strong></p>
+</div></blockquote>
+<p>dan:</p>
+<blockquote>
+<div><p><strong>6 kolom</strong></p>
+</div></blockquote>
+<p>Perhitungan jumlah observasi:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>366 hari × 4 waktu pengamatan
+= 1.464 observasi
+</pre></div>
+</div>
+<p>Periode tersebut mencakup tahun 2025–2026 dan digunakan sebagai dataset utama untuk analisis kualitas udara.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="parameter-yang-dianalisis">
+<h2>1.10 Parameter yang Dianalisis<a class="headerlink" href="#parameter-yang-dianalisis" title="Link to this heading">#</a></h2>
+<p>Terdapat tiga parameter utama yang digunakan dalam project ini:</p>
+<ul class="simple">
+<li><p>PM1</p></li>
+<li><p>PM2.5</p></li>
+<li><p>PM10</p></li>
+</ul>
+<p>Ketiga parameter tersebut merupakan partikulat dengan ukuran diameter yang berbeda.</p>
+<section id="pm1">
+<h3>1.10.1 PM1<a class="headerlink" href="#pm1" title="Link to this heading">#</a></h3>
+<p>PM1 adalah partikulat dengan ukuran diameter hingga sekitar 1 mikrometer.</p>
+<p>Dalam dataset, variabel ini disimpan sebagai:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pm1_ug_m3
+</pre></div>
+</div>
+<p>PM1 digunakan untuk menggambarkan konsentrasi partikulat berukuran sangat kecil.</p>
+</section>
+<section id="pm2-5">
+<h3>1.10.2 PM2.5<a class="headerlink" href="#pm2-5" title="Link to this heading">#</a></h3>
+<p>PM2.5 adalah partikulat dengan ukuran diameter hingga sekitar 2,5 mikrometer.</p>
+<p>Dalam dataset, variabel ini disimpan sebagai:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pm2p5_ug_m3
+</pre></div>
+</div>
+<p>PM2.5 digunakan sebagai salah satu parameter utama dalam pengamatan kualitas udara.</p>
+</section>
+<section id="pm10">
+<h3>1.10.3 PM10<a class="headerlink" href="#pm10" title="Link to this heading">#</a></h3>
+<p>PM10 adalah partikulat dengan ukuran diameter hingga sekitar 10 mikrometer.</p>
+<p>Dalam dataset, variabel ini disimpan sebagai:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pm10_ug_m3
+</pre></div>
+</div>
+<p>PM10 digunakan untuk menggambarkan konsentrasi partikulat dengan ukuran hingga 10 mikrometer.</p>
+</section>
+<section id="ringkasan-parameter">
+<h3>Ringkasan Parameter<a class="headerlink" href="#ringkasan-parameter" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Nama Kolom</p></th>
+<th class="head"><p>Keterangan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PM1</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span></code></p></td>
+<td><p>Partikulat hingga sekitar 1 µm</p></td>
+</tr>
+<tr class="row-odd"><td><p>PM2.5</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code></p></td>
+<td><p>Partikulat hingga sekitar 2,5 µm</p></td>
+</tr>
+<tr class="row-even"><td><p>PM10</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span></code></p></td>
+<td><p>Partikulat hingga sekitar 10 µm</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ketiga parameter tersebut dianalisis secara bersamaan untuk mendapatkan gambaran karakteristik partikulat udara di wilayah penelitian.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="manfaat-project">
+<h2>1.11 Manfaat Project<a class="headerlink" href="#manfaat-project" title="Link to this heading">#</a></h2>
+<p>Project analisis kualitas udara ini memiliki beberapa manfaat.</p>
+<section id="manfaat-akademik">
+<h3>1. Manfaat Akademik<a class="headerlink" href="#manfaat-akademik" title="Link to this heading">#</a></h3>
+<p>Project ini menjadi penerapan konsep <strong>Penambangan Sains Data</strong> pada data lingkungan.</p>
+<p>Melalui project ini, proses pengumpulan, pembersihan, pemahaman, eksplorasi, dan visualisasi data dapat diterapkan secara langsung.</p>
+</section>
+<section id="memahami-kualitas-udara">
+<h3>2. Memahami Kualitas Udara<a class="headerlink" href="#memahami-kualitas-udara" title="Link to this heading">#</a></h3>
+<p>Data PM1, PM2.5, dan PM10 dapat digunakan untuk memahami karakteristik konsentrasi partikulat di Kabupaten Lamongan.</p>
+</section>
+<section id="melihat-perubahan-berdasarkan-waktu">
+<h3>3. Melihat Perubahan Berdasarkan Waktu<a class="headerlink" href="#melihat-perubahan-berdasarkan-waktu" title="Link to this heading">#</a></h3>
+<p>Karena dataset memiliki informasi waktu, perubahan konsentrasi partikulat dapat diamati dari waktu ke waktu.</p>
+</section>
+<section id="mengetahui-karakteristik-dataset">
+<h3>4. Mengetahui Karakteristik Dataset<a class="headerlink" href="#mengetahui-karakteristik-dataset" title="Link to this heading">#</a></h3>
+<p>Tahap Data Understanding dapat digunakan untuk mengetahui:</p>
+<ul class="simple">
+<li><p>jumlah data;</p></li>
+<li><p>jumlah variabel;</p></li>
+<li><p>tipe data;</p></li>
+<li><p>periode data;</p></li>
+<li><p>missing value;</p></li>
+<li><p>data duplikat;</p></li>
+<li><p>nilai tidak valid;</p></li>
+<li><p>outlier;</p></li>
+<li><p>nilai minimum;</p></li>
+<li><p>nilai maksimum;</p></li>
+<li><p>rata-rata;</p></li>
+<li><p>dan distribusi data.</p></li>
+</ul>
+</section>
+<section id="dasar-analisis-selanjutnya">
+<h3>5. Dasar Analisis Selanjutnya<a class="headerlink" href="#dasar-analisis-selanjutnya" title="Link to this heading">#</a></h3>
+<p>Dataset yang telah dipahami dan dibersihkan dapat digunakan sebagai dasar untuk melakukan analisis lebih lanjut.</p>
+<p>Analisis tersebut dapat berupa:</p>
+<ul class="simple">
+<li><p>eksplorasi statistik;</p></li>
+<li><p>visualisasi;</p></li>
+<li><p>analisis hubungan antarvariabel;</p></li>
+<li><p>dan analisis time series.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="output-yang-diharapkan">
+<h2>1.12 Output yang Diharapkan<a class="headerlink" href="#output-yang-diharapkan" title="Link to this heading">#</a></h2>
+<p>Output yang diharapkan dari project ini adalah:</p>
+<section id="data-wilayah">
+<h3>1. Data Wilayah<a class="headerlink" href="#data-wilayah" title="Link to this heading">#</a></h3>
+<p>File batas wilayah Kabupaten Lamongan dalam format:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>lamongan.geojson
+</pre></div>
+</div>
+</section>
+<section id="dataset-kualitas-udara">
+<h3>2. Dataset Kualitas Udara<a class="headerlink" href="#dataset-kualitas-udara" title="Link to this heading">#</a></h3>
+<p>Dataset hasil pengolahan dalam format:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>data_lamongan.csv
+</pre></div>
+</div>
+</section>
+<section id="dokumentasi-business-understanding">
+<h3>3. Dokumentasi Business Understanding<a class="headerlink" href="#dokumentasi-business-understanding" title="Link to this heading">#</a></h3>
+<p>Dokumentasi mengenai:</p>
+<ul class="simple">
+<li><p>latar belakang;</p></li>
+<li><p>permasalahan;</p></li>
+<li><p>tujuan;</p></li>
+<li><p>wilayah;</p></li>
+<li><p>sumber data;</p></li>
+<li><p>parameter;</p></li>
+<li><p>manfaat;</p></li>
+<li><p>dan batasan penelitian.</p></li>
+</ul>
+</section>
+<section id="dokumentasi-data-understanding">
+<h3>4. Dokumentasi Data Understanding<a class="headerlink" href="#dokumentasi-data-understanding" title="Link to this heading">#</a></h3>
+<p>Dokumentasi mengenai:</p>
+<ul class="simple">
+<li><p>struktur data;</p></li>
+<li><p>periode;</p></li>
+<li><p>jumlah data;</p></li>
+<li><p>tipe data;</p></li>
+<li><p>missing value;</p></li>
+<li><p>duplikasi;</p></li>
+<li><p>outlier;</p></li>
+<li><p>dan kualitas dataset.</p></li>
+</ul>
+</section>
+<section id="deskripsi-fitur">
+<h3>5. Deskripsi Fitur<a class="headerlink" href="#deskripsi-fitur" title="Link to this heading">#</a></h3>
+<p>Penjelasan mengenai setiap variabel yang digunakan.</p>
+</section>
+<section id="sumber-polutan">
+<h3>6. Sumber Polutan<a class="headerlink" href="#sumber-polutan" title="Link to this heading">#</a></h3>
+<p>Pembahasan mengenai sumber yang berpotensi menghasilkan PM1, PM2.5, dan PM10.</p>
+</section>
+<section id="eksplorasi-data">
+<h3>7. Eksplorasi Data<a class="headerlink" href="#eksplorasi-data" title="Link to this heading">#</a></h3>
+<p>Eksplorasi terhadap karakteristik data menggunakan statistik dan visualisasi.</p>
+</section>
+<section id="visualisasi-time-series">
+<h3>8. Visualisasi Time Series<a class="headerlink" href="#visualisasi-time-series" title="Link to this heading">#</a></h3>
+<p>Membuat grafik perubahan konsentrasi:</p>
+<ul class="simple">
+<li><p>PM1;</p></li>
+<li><p>PM2.5;</p></li>
+<li><p>PM10;</p></li>
+</ul>
+<p>berdasarkan waktu.</p>
+</section>
+<section id="website-statis">
+<h3>9. Website Statis<a class="headerlink" href="#website-statis" title="Link to this heading">#</a></h3>
+<p>Seluruh dokumentasi dan hasil analisis akan dipublikasikan menggunakan:</p>
+<blockquote>
+<div><p><strong>Jupyter Book + GitHub Pages</strong></p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section id="batasan-project">
+<h2>1.13 Batasan Project<a class="headerlink" href="#batasan-project" title="Link to this heading">#</a></h2>
+<p>Untuk menjaga agar project tetap terarah, terdapat beberapa batasan penelitian.</p>
+<ol class="arabic simple">
+<li><p>Wilayah penelitian difokuskan pada Kabupaten Lamongan, Jawa Timur.</p></li>
+<li><p>Parameter utama yang dianalisis adalah PM1, PM2.5, dan PM10.</p></li>
+<li><p>Periode data adalah 29 Agustus 2025 sampai 29 Agustus 2026.</p></li>
+<li><p>Data kualitas udara diperoleh dari CAMS.</p></li>
+<li><p>Data yang digunakan merupakan data atmosfer berbasis model/grid dan bukan pengukuran langsung menggunakan sensor lapangan.</p></li>
+<li><p>Analisis dilakukan berdasarkan data yang tersedia dalam dataset.</p></li>
+<li><p>Nilai ekstrem tidak langsung dianggap sebagai kesalahan.</p></li>
+<li><p>Nilai outlier akan diperiksa terlebih dahulu sebelum menentukan apakah nilai tersebut perlu dipertahankan atau ditangani.</p></li>
+<li><p>Project tidak melakukan diagnosis kesehatan terhadap individu.</p></li>
+<li><p>Hasil analisis digunakan untuk memahami pola dan karakteristik data kualitas udara.</p></li>
+<li><p>Analisis pada tahap awal difokuskan pada Data Understanding dan Exploratory Data Analysis.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="ruang-lingkup-minggu-1">
+<h2>1.14 Ruang Lingkup Minggu 1<a class="headerlink" href="#ruang-lingkup-minggu-1" title="Link to this heading">#</a></h2>
+<p>Sesuai dengan instruksi tugas, kegiatan pada minggu pertama difokuskan pada pemahaman data dan lingkungan penelitian.</p>
+<p>Tahapan yang dilakukan meliputi:</p>
+<section id="id1">
+<h3>1. Business Understanding<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Menentukan:</p>
+<ul class="simple">
+<li><p>latar belakang;</p></li>
+<li><p>permasalahan;</p></li>
+<li><p>tujuan;</p></li>
+<li><p>pertanyaan analisis;</p></li>
+<li><p>manfaat;</p></li>
+<li><p>wilayah penelitian;</p></li>
+<li><p>sumber data;</p></li>
+<li><p>dan batasan project.</p></li>
+</ul>
+</section>
+<section id="data-understanding">
+<h3>2. Data Understanding<a class="headerlink" href="#data-understanding" title="Link to this heading">#</a></h3>
+<p>Memahami:</p>
+<ul class="simple">
+<li><p>sumber data;</p></li>
+<li><p>periode data;</p></li>
+<li><p>jumlah data;</p></li>
+<li><p>jumlah kolom;</p></li>
+<li><p>struktur dataset;</p></li>
+<li><p>tipe data;</p></li>
+<li><p>missing value;</p></li>
+<li><p>data duplikat;</p></li>
+<li><p>nilai tidak valid;</p></li>
+<li><p>dan outlier.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>3. Deskripsi Fitur<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Menjelaskan setiap fitur dalam dataset:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>valid_time
+latitude
+longitude
+pm1_ug_m3
+pm2p5_ug_m3
+pm10_ug_m3
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h3>4. Sumber Polutan<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Mengidentifikasi sumber yang berpotensi menghasilkan partikulat.</p>
+<p>Contohnya:</p>
+<ul class="simple">
+<li><p>transportasi;</p></li>
+<li><p>aktivitas industri;</p></li>
+<li><p>pembakaran bahan bakar;</p></li>
+<li><p>pembakaran terbuka;</p></li>
+<li><p>aktivitas pertanian;</p></li>
+<li><p>debu jalan;</p></li>
+<li><p>dan sumber alami.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>5. Eksplorasi Data<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>Melakukan eksplorasi awal menggunakan:</p>
+<ul class="simple">
+<li><p>statistik deskriptif;</p></li>
+<li><p>distribusi data;</p></li>
+<li><p>pemeriksaan nilai ekstrem;</p></li>
+<li><p>hubungan antarparameter;</p></li>
+<li><p>dan visualisasi time series.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="alur-project">
+<h2>1.15 Alur Project<a class="headerlink" href="#alur-project" title="Link to this heading">#</a></h2>
+<p>Secara keseluruhan, project dilakukan melalui tahapan berikut:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Business Understanding
+          ↓
+Penentuan Wilayah
+          ↓
+GeoJSON Kabupaten Lamongan
+          ↓
+Pengambilan Data CAMS
+          ↓
+Data GRIB
+          ↓
+Pengolahan Python
+          ↓
+Konversi ke CSV
+          ↓
+Data Cleaning
+          ↓
+Data Understanding
+          ↓
+Deskripsi Fitur
+          ↓
+Identifikasi Sumber Polutan
+          ↓
+Eksplorasi Data
+          ↓
+Visualisasi
+          ↓
+Time Series
+          ↓
+Interpretasi Hasil
+          ↓
+Publikasi Website
+</pre></div>
+</div>
+<p>Tahapan tersebut dilakukan secara berurutan agar setiap tahap menghasilkan informasi yang dapat digunakan pada tahap berikutnya.</p>
+</section>
+<hr class="docutils" />
+<section id="kesimpulan">
+<h2>1.16 Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
+<p>Project ini berfokus pada analisis kualitas udara di <strong>Kabupaten Lamongan, Provinsi Jawa Timur</strong> menggunakan data konsentrasi partikulat PM1, PM2.5, dan PM10.</p>
+<p>Wilayah penelitian ditentukan menggunakan batas wilayah dalam format GeoJSON. File tersebut digunakan sebagai acuan dalam menentukan wilayah pengamatan.</p>
+<p>Data kualitas udara diperoleh dari <strong>Copernicus Atmosphere Monitoring Service (CAMS)</strong> melalui dataset <strong>CAMS Global Atmospheric Composition Forecasts</strong>.</p>
+<p>Data yang digunakan memiliki periode:</p>
+<blockquote>
+<div><p><strong>29 Agustus 2025 – 29 Agustus 2026</strong></p>
+</div></blockquote>
+<p>Dataset memiliki empat waktu pengamatan dalam satu hari, yaitu:</p>
+<ul class="simple">
+<li><p>00:00;</p></li>
+<li><p>06:00;</p></li>
+<li><p>12:00;</p></li>
+<li><p>18:00.</p></li>
+</ul>
+<p>Setelah dilakukan pengolahan, dataset memiliki:</p>
+<blockquote>
+<div><p><strong>1.464 baris dan 6 kolom</strong></p>
+</div></blockquote>
+<p>Enam kolom tersebut terdiri dari:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>valid_time
+latitude
+longitude
+pm1_ug_m3
+pm2p5_ug_m3
+pm10_ug_m3
+</pre></div>
+</div>
+<p>Dataset kemudian digunakan untuk memahami karakteristik kualitas udara, melakukan pemeriksaan kualitas data, mendeskripsikan fitur, mengidentifikasi sumber polutan, serta melakukan eksplorasi data.</p>
+<p>Tahap berikutnya adalah melakukan analisis eksploratif dan membuat visualisasi <strong>time series</strong> untuk melihat perubahan konsentrasi PM1, PM2.5, dan PM10 selama periode pengamatan.</p>
+</section>
+<hr class="docutils" />
+<section id="ringkasan-business-understanding">
+<h2>1.17 Ringkasan Business Understanding<a class="headerlink" href="#ringkasan-business-understanding" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Komponen</p></th>
+<th class="head"><p>Keterangan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Topik</p></td>
+<td><p>Analisis Kualitas Udara</p></td>
+</tr>
+<tr class="row-odd"><td><p>Wilayah Penelitian</p></td>
+<td><p>Kabupaten Lamongan</p></td>
+</tr>
+<tr class="row-even"><td><p>Provinsi</p></td>
+<td><p>Jawa Timur</p></td>
+</tr>
+<tr class="row-odd"><td><p>Negara</p></td>
+<td><p>Indonesia</p></td>
+</tr>
+<tr class="row-even"><td><p>Sumber Data</p></td>
+<td><p>Copernicus Atmosphere Monitoring Service (CAMS)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Platform Data</p></td>
+<td><p>Copernicus Atmosphere Data Store</p></td>
+</tr>
+<tr class="row-even"><td><p>Dataset</p></td>
+<td><p>CAMS Global Atmospheric Composition Forecasts</p></td>
+</tr>
+<tr class="row-odd"><td><p>Parameter</p></td>
+<td><p>PM1, PM2.5, PM10</p></td>
+</tr>
+<tr class="row-even"><td><p>Periode Awal</p></td>
+<td><p>29 Agustus 2025</p></td>
+</tr>
+<tr class="row-odd"><td><p>Periode Akhir</p></td>
+<td><p>29 Agustus 2026</p></td>
+</tr>
+<tr class="row-even"><td><p>Lama Pengamatan</p></td>
+<td><p>Sekitar 1 tahun</p></td>
+</tr>
+<tr class="row-odd"><td><p>Frekuensi</p></td>
+<td><p>4 observasi per hari</p></td>
+</tr>
+<tr class="row-even"><td><p>Jumlah Baris</p></td>
+<td><p>1.464</p></td>
+</tr>
+<tr class="row-odd"><td><p>Jumlah Kolom</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>Variabel Waktu</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">valid_time</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Variabel Lokasi</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">latitude</span></code>, <code class="docutils literal notranslate"><span class="pre">longitude</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Variabel PM1</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Variabel PM2.5</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Variabel PM10</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Format Data Awal</p></td>
+<td><p>GRIB</p></td>
+</tr>
+<tr class="row-even"><td><p>Format Data Analisis</p></td>
+<td><p>CSV</p></td>
+</tr>
+<tr class="row-odd"><td><p>Batas Wilayah</p></td>
+<td><p>GeoJSON</p></td>
+</tr>
+<tr class="row-even"><td><p>File GeoJSON</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data/lamongan.geojson</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>File Dataset</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data_lamongan.csv</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Analisis Awal</p></td>
+<td><p>Data Understanding</p></td>
+</tr>
+<tr class="row-odd"><td><p>Analisis Berikutnya</p></td>
+<td><p>Exploratory Data Analysis</p></td>
+</tr>
+<tr class="row-even"><td><p>Visualisasi</p></td>
+<td><p>Time Series</p></td>
+</tr>
+<tr class="row-odd"><td><p>Platform Publikasi</p></td>
+<td><p>Jupyter Book</p></td>
+</tr>
+<tr class="row-even"><td><p>Hosting</p></td>
+<td><p>GitHub Pages</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="ringkasan-akhir">
+<h3>Ringkasan Akhir<a class="headerlink" href="#ringkasan-akhir" title="Link to this heading">#</a></h3>
+<p>Project ini menggunakan data kualitas udara dari CAMS untuk menganalisis karakteristik partikulat PM1, PM2.5, dan PM10 di Kabupaten Lamongan.</p>
+<p>Data wilayah ditentukan menggunakan GeoJSON, sedangkan data kualitas udara diperoleh dari dataset CAMS Global Atmospheric Composition Forecasts.</p>
+<p>Dataset yang digunakan mencakup periode sekitar satu tahun, yaitu 29 Agustus 2025 sampai 29 Agustus 2026, dengan empat waktu pengamatan setiap hari.</p>
+<p>Hasil pengolahan menghasilkan dataset dengan <strong>1.464 observasi dan 6 variabel</strong> yang terdiri dari informasi waktu, koordinat, PM1, PM2.5, dan PM10.</p>
+<p>Dataset tersebut menjadi dasar untuk tahap berikutnya, yaitu <strong>Data Understanding, Deskripsi Fitur, Sumber Polutan, dan Eksplorasi Data</strong>.</p>
+<p>Hasil akhir project akan disajikan dalam bentuk dokumentasi dan visualisasi pada website statis menggunakan <strong>Jupyter Book dan GitHub Pages</strong>.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./minggu-1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latar-belakang">1.1 Latar Belakang</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifikasi-masalah">1.2 Identifikasi Masalah</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-project">1.3 Tujuan Project</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-umum">Tujuan Umum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-khusus">Tujuan Khusus</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-analisis">1.4 Pertanyaan Analisis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-utama">Pertanyaan Utama</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-pendukung">Pertanyaan Pendukung</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wilayah-penelitian">1.5 Wilayah Penelitian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penentuan-wilayah-menggunakan-geojson">1.6 Penentuan Wilayah Menggunakan GeoJSON</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-penentuan-wilayah">Proses Penentuan Wilayah</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alur-penentuan-wilayah">Alur Penentuan Wilayah</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-data">1.7 Sumber Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-resmi">Sumber Resmi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informasi-dataset">Informasi Dataset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-pengambilan-data">1.8 Proses Pengambilan Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-1-menentukan-wilayah">Tahap 1 — Menentukan Wilayah</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-2-menentukan-dataset">Tahap 2 — Menentukan Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-3-menentukan-variabel">Tahap 3 — Menentukan Variabel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-4-menentukan-periode">Tahap 4 — Menentukan Periode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-5-ekstraksi-data">Tahap 5 — Ekstraksi Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-6-pengolahan-data">Tahap 6 — Pengolahan Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alur-pengambilan-data">Alur Pengambilan Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#periode-data">1.9 Periode Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frekuensi-data">Frekuensi Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jumlah-data">Jumlah Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-yang-dianalisis">1.10 Parameter yang Dianalisis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pm1">1.10.1 PM1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pm2-5">1.10.2 PM2.5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pm10">1.10.3 PM10</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan-parameter">Ringkasan Parameter</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manfaat-project">1.11 Manfaat Project</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manfaat-akademik">1. Manfaat Akademik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memahami-kualitas-udara">2. Memahami Kualitas Udara</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#melihat-perubahan-berdasarkan-waktu">3. Melihat Perubahan Berdasarkan Waktu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengetahui-karakteristik-dataset">4. Mengetahui Karakteristik Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dasar-analisis-selanjutnya">5. Dasar Analisis Selanjutnya</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output-yang-diharapkan">1.12 Output yang Diharapkan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-wilayah">1. Data Wilayah</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-kualitas-udara">2. Dataset Kualitas Udara</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dokumentasi-business-understanding">3. Dokumentasi Business Understanding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dokumentasi-data-understanding">4. Dokumentasi Data Understanding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-fitur">5. Deskripsi Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-polutan">6. Sumber Polutan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-data">7. Eksplorasi Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-time-series">8. Visualisasi Time Series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#website-statis">9. Website Statis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#batasan-project">1.13 Batasan Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ruang-lingkup-minggu-1">1.14 Ruang Lingkup Minggu 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. Business Understanding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding">2. Data Understanding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3. Deskripsi Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4. Sumber Polutan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">5. Eksplorasi Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alur-project">1.15 Alur Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">1.16 Kesimpulan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan-business-understanding">1.17 Ringkasan Business Understanding</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan-akhir">Ringkasan Akhir</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ahmad Dafi Zidni Alfarisi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

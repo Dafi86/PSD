@@ -1,0 +1,909 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4. Sumber Polutan &#8212; Penambangan Sains Data</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'minggu-1/sumber-polutan';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="01 — Data Understanding: Kualitas Udara Lamongan" href="data-understanding.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Penambangan Sains Data - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Penambangan Sains Data - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Minggu 1 — Analisis Kualitas Udara</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="data-understanding.html">2. Data Understanding</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Sumber Polutan</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Dafi86/PSD" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Dafi86/PSD/issues/new?title=Issue%20on%20page%20%2Fminggu-1/sumber-polutan.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/minggu-1/sumber-polutan.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>4. Sumber Polutan</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pendahuluan">4.1 Pendahuluan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jenis-partikulat-yang-dianalisis">4.2 Jenis Partikulat yang Dianalisis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-polutan-dari-transportasi">4.3 Sumber Polutan dari Transportasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-polutan-dari-aktivitas-industri">4.4 Sumber Polutan dari Aktivitas Industri</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-polutan-dari-pembakaran">4.5 Sumber Polutan dari Pembakaran</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-polutan-dari-aktivitas-pertanian">4.6 Sumber Polutan dari Aktivitas Pertanian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debu-jalan-dan-debu-permukaan">4.7 Debu Jalan dan Debu Permukaan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-alami">4.8 Sumber Alami</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengaruh-kondisi-meteorologi">4.9 Pengaruh Kondisi Meteorologi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angin">1. Angin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hujan">2. Hujan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suhu">3. Suhu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kelembapan">4. Kelembapan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hubungan-sumber-polutan-dengan-pm1-pm2-5-dan-pm10">4.10 Hubungan Sumber Polutan dengan PM1, PM2.5, dan PM10</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan-sumber-polutan">4.11 Ringkasan Sumber Polutan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-antropogenik">Sumber Antropogenik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Sumber Alami</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keterbatasan-identifikasi-sumber-polutan">4.12 Keterbatasan Identifikasi Sumber Polutan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-identifikasi-sumber-polutan">4.13 Tujuan Identifikasi Sumber Polutan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alur-identifikasi-sumber-polutan">4.14 Alur Identifikasi Sumber Polutan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">4.15 Kesimpulan</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sumber-polutan">
+<h1>4. Sumber Polutan<a class="headerlink" href="#sumber-polutan" title="Link to this heading">#</a></h1>
+<section id="pendahuluan">
+<h2>4.1 Pendahuluan<a class="headerlink" href="#pendahuluan" title="Link to this heading">#</a></h2>
+<p>Partikulat udara merupakan salah satu komponen penting dalam analisis kualitas udara. Pada project ini, parameter yang dianalisis adalah <strong>PM1, PM2.5, dan PM10</strong>.</p>
+<p>Konsentrasi partikulat di udara dapat dipengaruhi oleh berbagai sumber, baik yang berasal dari aktivitas manusia maupun sumber alami.</p>
+<p>Identifikasi sumber polutan dilakukan untuk memberikan konteks terhadap data yang dianalisis. Dengan mengetahui sumber yang berpotensi menghasilkan partikulat, perubahan konsentrasi PM1, PM2.5, dan PM10 dapat lebih mudah diinterpretasikan pada tahap analisis berikutnya.</p>
+<p>Namun, pada project ini tidak dilakukan pengukuran langsung terhadap sumber emisi tertentu. Oleh karena itu, pembahasan sumber polutan digunakan sebagai <strong>informasi pendukung</strong> dan bukan sebagai bukti bahwa suatu sumber tertentu secara langsung menyebabkan nilai konsentrasi pada dataset.</p>
+</section>
+<hr class="docutils" />
+<section id="jenis-partikulat-yang-dianalisis">
+<h2>4.2 Jenis Partikulat yang Dianalisis<a class="headerlink" href="#jenis-partikulat-yang-dianalisis" title="Link to this heading">#</a></h2>
+<p>Terdapat tiga parameter partikulat yang digunakan dalam dataset:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Ukuran Partikel</p></th>
+<th class="head"><p>Nama Variabel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PM1</p></td>
+<td><p>≤ 1 µm</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>PM2.5</p></td>
+<td><p>≤ 2,5 µm</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>PM10</p></td>
+<td><p>≤ 10 µm</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ketiga parameter memiliki ukuran partikel yang berbeda.</p>
+<p>Secara umum, partikulat yang berukuran lebih kecil dapat berasal dari proses pembakaran dan proses atmosfer, sedangkan partikulat berukuran lebih besar juga dapat berasal dari debu dan material yang tersuspensi kembali ke udara.</p>
+</section>
+<hr class="docutils" />
+<section id="sumber-polutan-dari-transportasi">
+<h2>4.3 Sumber Polutan dari Transportasi<a class="headerlink" href="#sumber-polutan-dari-transportasi" title="Link to this heading">#</a></h2>
+<p>Transportasi merupakan salah satu sumber partikulat yang dapat berasal dari aktivitas kendaraan bermotor.</p>
+<p>Sumber partikulat dari transportasi dapat berasal dari:</p>
+<ul class="simple">
+<li><p>emisi pembakaran bahan bakar kendaraan;</p></li>
+<li><p>emisi gas buang kendaraan;</p></li>
+<li><p>keausan ban;</p></li>
+<li><p>keausan rem;</p></li>
+<li><p>debu jalan yang kembali tersuspensi akibat pergerakan kendaraan.</p></li>
+</ul>
+<p>Aktivitas kendaraan yang tinggi dapat meningkatkan jumlah partikulat di udara, terutama pada wilayah dengan kepadatan lalu lintas yang tinggi.</p>
+<p>Di Kabupaten Lamongan, aktivitas transportasi dapat menjadi salah satu faktor yang perlu diperhatikan ketika menginterpretasikan perubahan konsentrasi partikulat.</p>
+<p>Namun, dataset yang digunakan dalam project ini tidak memiliki variabel jumlah kendaraan atau volume lalu lintas. Oleh karena itu, hubungan langsung antara lalu lintas dan konsentrasi partikulat tidak dapat dibuktikan hanya menggunakan dataset ini.</p>
+</section>
+<hr class="docutils" />
+<section id="sumber-polutan-dari-aktivitas-industri">
+<h2>4.4 Sumber Polutan dari Aktivitas Industri<a class="headerlink" href="#sumber-polutan-dari-aktivitas-industri" title="Link to this heading">#</a></h2>
+<p>Aktivitas industri juga dapat menjadi salah satu sumber partikulat udara.</p>
+<p>Partikulat dapat dihasilkan dari berbagai aktivitas industri seperti:</p>
+<ul class="simple">
+<li><p>proses pembakaran;</p></li>
+<li><p>penggunaan bahan bakar;</p></li>
+<li><p>proses produksi;</p></li>
+<li><p>pengolahan material;</p></li>
+<li><p>aktivitas pemindahan bahan;</p></li>
+<li><p>dan proses industri lainnya.</p></li>
+</ul>
+<p>Besarnya kontribusi aktivitas industri terhadap konsentrasi partikulat bergantung pada jenis industri, teknologi yang digunakan, bahan bakar, sistem pengendalian emisi, serta kondisi atmosfer.</p>
+<p>Dalam project ini, informasi mengenai lokasi dan intensitas aktivitas industri tidak menjadi variabel utama dataset. Oleh karena itu, aktivitas industri hanya digunakan sebagai salah satu kemungkinan sumber polutan.</p>
+</section>
+<hr class="docutils" />
+<section id="sumber-polutan-dari-pembakaran">
+<h2>4.5 Sumber Polutan dari Pembakaran<a class="headerlink" href="#sumber-polutan-dari-pembakaran" title="Link to this heading">#</a></h2>
+<p>Pembakaran dapat menghasilkan partikulat dalam jumlah tertentu.</p>
+<p>Sumber pembakaran dapat berasal dari:</p>
+<ul class="simple">
+<li><p>pembakaran bahan bakar;</p></li>
+<li><p>pembakaran biomassa;</p></li>
+<li><p>pembakaran sampah;</p></li>
+<li><p>pembakaran terbuka;</p></li>
+<li><p>dan aktivitas lainnya yang menghasilkan asap.</p></li>
+</ul>
+<p>Proses pembakaran dapat menghasilkan partikulat berukuran kecil yang dapat berkontribusi terhadap konsentrasi PM1 dan PM2.5.</p>
+<p>Pembakaran terbuka juga berpotensi menghasilkan campuran berbagai jenis partikulat dan gas yang kemudian dapat mengalami perubahan di atmosfer.</p>
+</section>
+<hr class="docutils" />
+<section id="sumber-polutan-dari-aktivitas-pertanian">
+<h2>4.6 Sumber Polutan dari Aktivitas Pertanian<a class="headerlink" href="#sumber-polutan-dari-aktivitas-pertanian" title="Link to this heading">#</a></h2>
+<p>Kabupaten Lamongan memiliki aktivitas pertanian yang cukup luas. Aktivitas pertanian dapat berkontribusi terhadap partikulat melalui beberapa proses.</p>
+<p>Contohnya:</p>
+<ul class="simple">
+<li><p>pengolahan tanah;</p></li>
+<li><p>aktivitas kendaraan pertanian;</p></li>
+<li><p>perpindahan material;</p></li>
+<li><p>debu dari lahan;</p></li>
+<li><p>pembakaran sisa tanaman;</p></li>
+<li><p>dan aktivitas pertanian lainnya.</p></li>
+</ul>
+<p>Debu dari permukaan tanah dapat berkontribusi terhadap partikulat berukuran lebih besar, sedangkan proses pembakaran biomassa dapat menghasilkan partikulat yang lebih halus.</p>
+<p>Pada dataset yang digunakan, tidak terdapat variabel khusus mengenai aktivitas pertanian. Oleh karena itu, pengaruh aktivitas pertanian tidak dapat dihitung secara langsung.</p>
+</section>
+<hr class="docutils" />
+<section id="debu-jalan-dan-debu-permukaan">
+<h2>4.7 Debu Jalan dan Debu Permukaan<a class="headerlink" href="#debu-jalan-dan-debu-permukaan" title="Link to this heading">#</a></h2>
+<p>Debu jalan merupakan salah satu sumber partikulat yang dapat meningkat akibat aktivitas kendaraan dan angin.</p>
+<p>Partikel yang berada di permukaan jalan dapat kembali tersuspensi ke udara ketika mendapatkan gangguan mekanis.</p>
+<p>Beberapa faktor yang dapat memengaruhi resuspensi debu antara lain:</p>
+<ul class="simple">
+<li><p>jumlah kendaraan;</p></li>
+<li><p>kecepatan kendaraan;</p></li>
+<li><p>kondisi permukaan jalan;</p></li>
+<li><p>kondisi cuaca;</p></li>
+<li><p>dan kelembapan permukaan.</p></li>
+</ul>
+<p>Sumber ini lebih berkaitan dengan partikulat yang berukuran relatif lebih besar, meskipun sebagian partikel yang lebih kecil juga dapat ikut tersuspensi.</p>
+</section>
+<hr class="docutils" />
+<section id="sumber-alami">
+<h2>4.8 Sumber Alami<a class="headerlink" href="#sumber-alami" title="Link to this heading">#</a></h2>
+<p>Selain aktivitas manusia, partikulat juga dapat berasal dari sumber alami.</p>
+<p>Contoh sumber alami antara lain:</p>
+<ul class="simple">
+<li><p>debu tanah;</p></li>
+<li><p>material permukaan;</p></li>
+<li><p>aerosol laut;</p></li>
+<li><p>aktivitas atmosfer;</p></li>
+<li><p>dan partikel alami lainnya.</p></li>
+</ul>
+<p>Kontribusi sumber alami dapat berubah berdasarkan kondisi cuaca, arah angin, kelembapan, dan kondisi lingkungan.</p>
+<p>Karena data yang digunakan berasal dari sistem pemodelan atmosfer, keberadaan partikulat dalam dataset dapat merupakan hasil dari berbagai proses emisi dan transportasi atmosfer.</p>
+</section>
+<hr class="docutils" />
+<section id="pengaruh-kondisi-meteorologi">
+<h2>4.9 Pengaruh Kondisi Meteorologi<a class="headerlink" href="#pengaruh-kondisi-meteorologi" title="Link to this heading">#</a></h2>
+<p>Kondisi meteorologi memiliki peran penting terhadap konsentrasi partikulat di atmosfer.</p>
+<p>Beberapa faktor meteorologi yang dapat memengaruhi konsentrasi partikulat antara lain:</p>
+<section id="angin">
+<h3>1. Angin<a class="headerlink" href="#angin" title="Link to this heading">#</a></h3>
+<p>Angin dapat menyebabkan partikulat berpindah dari satu lokasi ke lokasi lainnya.</p>
+<p>Kecepatan dan arah angin dapat memengaruhi proses:</p>
+<ul class="simple">
+<li><p>penyebaran;</p></li>
+<li><p>transportasi;</p></li>
+<li><p>dan pengenceran partikulat.</p></li>
+</ul>
+</section>
+<section id="hujan">
+<h3>2. Hujan<a class="headerlink" href="#hujan" title="Link to this heading">#</a></h3>
+<p>Hujan dapat membantu menghilangkan sebagian partikulat dari atmosfer melalui proses deposisi basah.</p>
+<p>Kondisi setelah hujan dapat menyebabkan konsentrasi partikulat berbeda dibandingkan kondisi kering.</p>
+</section>
+<section id="suhu">
+<h3>3. Suhu<a class="headerlink" href="#suhu" title="Link to this heading">#</a></h3>
+<p>Suhu dapat memengaruhi kondisi atmosfer dan proses pembentukan maupun penyebaran polutan.</p>
+</section>
+<section id="kelembapan">
+<h3>4. Kelembapan<a class="headerlink" href="#kelembapan" title="Link to this heading">#</a></h3>
+<p>Kelembapan dapat memengaruhi karakteristik aerosol dan kondisi atmosfer.</p>
+<p>Pada dataset awal CAMS tersedia berbagai variabel atmosfer. Namun, dataset utama yang digunakan pada project ini difokuskan pada PM1, PM2.5, dan PM10.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="hubungan-sumber-polutan-dengan-pm1-pm2-5-dan-pm10">
+<h2>4.10 Hubungan Sumber Polutan dengan PM1, PM2.5, dan PM10<a class="headerlink" href="#hubungan-sumber-polutan-dengan-pm1-pm2-5-dan-pm10" title="Link to this heading">#</a></h2>
+<p>Secara umum, berbagai sumber dapat menghasilkan ukuran partikulat yang berbeda.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Sumber</p></th>
+<th class="head text-center"><p>PM1</p></th>
+<th class="head text-center"><p>PM2.5</p></th>
+<th class="head text-center"><p>PM10</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Pembakaran</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+</tr>
+<tr class="row-odd"><td><p>Emisi kendaraan</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+</tr>
+<tr class="row-even"><td><p>Aktivitas industri</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pembakaran biomassa</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+</tr>
+<tr class="row-even"><td><p>Debu jalan</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+</tr>
+<tr class="row-odd"><td><p>Debu tanah</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+</tr>
+<tr class="row-even"><td><p>Aktivitas pertanian</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sumber alami</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Tabel tersebut digunakan sebagai gambaran umum mengenai kemungkinan sumber partikulat.</p>
+<p>Tabel tersebut <strong>bukan hasil pengukuran kontribusi sumber polutan di Kabupaten Lamongan</strong>. Dataset yang digunakan tidak menyediakan informasi source apportionment, sehingga kontribusi masing-masing sumber tidak dapat dihitung secara langsung.</p>
+</section>
+<hr class="docutils" />
+<section id="ringkasan-sumber-polutan">
+<h2>4.11 Ringkasan Sumber Polutan<a class="headerlink" href="#ringkasan-sumber-polutan" title="Link to this heading">#</a></h2>
+<p>Berdasarkan pembahasan di atas, sumber yang berpotensi berhubungan dengan keberadaan partikulat di wilayah penelitian dapat dikelompokkan menjadi dua kategori.</p>
+<section id="sumber-antropogenik">
+<h3>Sumber Antropogenik<a class="headerlink" href="#sumber-antropogenik" title="Link to this heading">#</a></h3>
+<p>Sumber yang berkaitan dengan aktivitas manusia:</p>
+<ul class="simple">
+<li><p>transportasi;</p></li>
+<li><p>aktivitas industri;</p></li>
+<li><p>pembakaran bahan bakar;</p></li>
+<li><p>pembakaran terbuka;</p></li>
+<li><p>aktivitas pertanian;</p></li>
+<li><p>dan aktivitas permukiman.</p></li>
+</ul>
+</section>
+<section id="id1">
+<h3>Sumber Alami<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Sumber yang berasal dari proses alami:</p>
+<ul class="simple">
+<li><p>debu tanah;</p></li>
+<li><p>aerosol alami;</p></li>
+<li><p>material permukaan;</p></li>
+<li><p>dan proses atmosfer.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="keterbatasan-identifikasi-sumber-polutan">
+<h2>4.12 Keterbatasan Identifikasi Sumber Polutan<a class="headerlink" href="#keterbatasan-identifikasi-sumber-polutan" title="Link to this heading">#</a></h2>
+<p>Identifikasi sumber polutan pada project ini memiliki beberapa keterbatasan.</p>
+<p>Dataset utama hanya memiliki informasi:</p>
+<ul class="simple">
+<li><p>waktu;</p></li>
+<li><p>latitude;</p></li>
+<li><p>longitude;</p></li>
+<li><p>PM1;</p></li>
+<li><p>PM2.5;</p></li>
+<li><p>PM10.</p></li>
+</ul>
+<p>Dataset tidak memiliki informasi langsung mengenai:</p>
+<ul class="simple">
+<li><p>jumlah kendaraan;</p></li>
+<li><p>lokasi industri;</p></li>
+<li><p>jumlah pembakaran;</p></li>
+<li><p>luas lahan terbakar;</p></li>
+<li><p>volume emisi;</p></li>
+<li><p>arah dan kecepatan angin pada dataset utama;</p></li>
+<li><p>atau kontribusi masing-masing sumber emisi.</p></li>
+</ul>
+<p>Oleh karena itu, project ini tidak melakukan <strong>source apportionment</strong> atau perhitungan kontribusi setiap sumber polutan.</p>
+<p>Pembahasan sumber polutan digunakan untuk memberikan konteks ketika melakukan interpretasi hasil eksplorasi data.</p>
+</section>
+<hr class="docutils" />
+<section id="tujuan-identifikasi-sumber-polutan">
+<h2>4.13 Tujuan Identifikasi Sumber Polutan<a class="headerlink" href="#tujuan-identifikasi-sumber-polutan" title="Link to this heading">#</a></h2>
+<p>Identifikasi sumber polutan dilakukan untuk mendukung analisis pada tahap berikutnya.</p>
+<p>Informasi ini dapat membantu ketika ditemukan:</p>
+<ul class="simple">
+<li><p>peningkatan konsentrasi PM;</p></li>
+<li><p>penurunan konsentrasi PM;</p></li>
+<li><p>nilai ekstrem;</p></li>
+<li><p>pola tertentu berdasarkan waktu;</p></li>
+<li><p>atau perbedaan karakteristik PM1, PM2.5, dan PM10.</p></li>
+</ul>
+<p>Sebagai contoh, apabila ditemukan peningkatan konsentrasi partikulat pada periode tertentu, hasil tersebut dapat dibahas dengan mempertimbangkan kemungkinan faktor aktivitas manusia maupun kondisi lingkungan.</p>
+<p>Namun, interpretasi tersebut tetap harus dibedakan antara <strong>indikasi</strong> dan <strong>bukti kausal</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="alur-identifikasi-sumber-polutan">
+<h2>4.14 Alur Identifikasi Sumber Polutan<a class="headerlink" href="#alur-identifikasi-sumber-polutan" title="Link to this heading">#</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Data PM1, PM2.5, PM10
+          ↓
+Identifikasi Karakteristik Partikulat
+          ↓
+Identifikasi Sumber Antropogenik
+          ↓
+Transportasi
+          ↓
+Industri
+          ↓
+Pembakaran
+          ↓
+Pertanian
+          ↓
+Identifikasi Sumber Alami
+          ↓
+Debu / Aerosol Alami
+          ↓
+Pertimbangan Kondisi Meteorologi
+          ↓
+Interpretasi Hasil Eksplorasi Data
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="kesimpulan">
+<h2>4.15 Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
+<p>PM1, PM2.5, dan PM10 dapat berasal dari berbagai sumber, baik sumber antropogenik maupun sumber alami.</p>
+<p>Sumber antropogenik yang berpotensi menghasilkan partikulat meliputi transportasi, aktivitas industri, pembakaran, aktivitas pertanian, serta aktivitas manusia lainnya.</p>
+<p>Sementara itu, sumber alami dapat berasal dari debu tanah, material permukaan, aerosol alami, dan proses atmosfer.</p>
+<p>Selain sumber emisi, kondisi meteorologi juga dapat memengaruhi penyebaran dan konsentrasi partikulat di atmosfer.</p>
+<p>Pada project ini, identifikasi sumber polutan digunakan sebagai informasi pendukung untuk memahami data kualitas udara Kabupaten Lamongan. Karena dataset tidak memiliki informasi kontribusi emisi masing-masing sumber, project ini tidak melakukan perhitungan kontribusi sumber polutan secara langsung.</p>
+<p>Hasil identifikasi sumber polutan selanjutnya dapat digunakan sebagai konteks dalam melakukan <strong>Eksplorasi Data</strong> dan interpretasi pola <strong>PM1, PM2.5, dan PM10</strong> berdasarkan waktu.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./minggu-1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="data-understanding.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">01 — Data Understanding: Kualitas Udara Lamongan</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pendahuluan">4.1 Pendahuluan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jenis-partikulat-yang-dianalisis">4.2 Jenis Partikulat yang Dianalisis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-polutan-dari-transportasi">4.3 Sumber Polutan dari Transportasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-polutan-dari-aktivitas-industri">4.4 Sumber Polutan dari Aktivitas Industri</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-polutan-dari-pembakaran">4.5 Sumber Polutan dari Pembakaran</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-polutan-dari-aktivitas-pertanian">4.6 Sumber Polutan dari Aktivitas Pertanian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debu-jalan-dan-debu-permukaan">4.7 Debu Jalan dan Debu Permukaan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-alami">4.8 Sumber Alami</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengaruh-kondisi-meteorologi">4.9 Pengaruh Kondisi Meteorologi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angin">1. Angin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hujan">2. Hujan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suhu">3. Suhu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kelembapan">4. Kelembapan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hubungan-sumber-polutan-dengan-pm1-pm2-5-dan-pm10">4.10 Hubungan Sumber Polutan dengan PM1, PM2.5, dan PM10</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan-sumber-polutan">4.11 Ringkasan Sumber Polutan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-antropogenik">Sumber Antropogenik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Sumber Alami</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keterbatasan-identifikasi-sumber-polutan">4.12 Keterbatasan Identifikasi Sumber Polutan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-identifikasi-sumber-polutan">4.13 Tujuan Identifikasi Sumber Polutan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alur-identifikasi-sumber-polutan">4.14 Alur Identifikasi Sumber Polutan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">4.15 Kesimpulan</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ahmad Dafi Zidni Alfarisi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
