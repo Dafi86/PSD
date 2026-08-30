@@ -1,6 +1,3 @@
-cd /workspaces/PSD
-
-cat > tugas/intro.md <<'EOF'
 # Penambangan Sains Data
 
 ## Analisis Kualitas Udara di Lamongan
