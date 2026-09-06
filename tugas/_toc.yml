@@ -19,3 +19,62 @@ parts:
 
       - file: minggu-1/eksplorasi-data
         title: "5. Eksplorasi Data"
+
+  - caption: "Minggu 2 — PostgreSQL Aiven dan KNIME"
+    chapters:
+      - file: minggu-2/pemindahan-data-postgresql
+        title: "1. Pemindahan Data Time Series ke PostgreSQL Aiven"
+
+      - file: minggu-2/persiapan-database
+        title: "2. Persiapan Database PostgreSQL Aiven"
+
+      - file: minggu-2/pembuatan-tabel
+        title: "3. Pembuatan Tabel"
+
+      - file: minggu-2/import-data
+        title: "4. Import Data Time Series"
+
+      - file: minggu-2/verifikasi-data
+        title: "5. Verifikasi Data"
+
+      - file: minggu-2/menarik-data-knime
+        title: "6. Menarik Data dari PostgreSQL ke KNIME"
+
+      - file: minggu-2/workflow-knime
+        title: "7. Workflow KNIME"
+
+      - file: minggu-2/postgresql-connector
+        title: "8. PostgreSQL Connector"
+
+      - file: minggu-2/db-table-selector
+        title: "9. DB Table Selector"
+
+      - file: minggu-2/db-reader
+        title: "10. DB Reader"
+
+      - file: minggu-2/statistics
+        title: "11. Node Statistics"
+
+      - file: minggu-2/analisis-statistik
+        title: "12. Hasil Analisis Statistik"
+
+      - file: minggu-2/rumus-statistik
+        title: "13. Rumus Statistik"
+
+      - file: minggu-2/contoh-perhitungan
+        title: "14. Contoh Perhitungan"
+
+      - file: minggu-2/analisis-pm1
+        title: "15. Analisis PM1"
+
+      - file: minggu-2/analisis-pm25
+        title: "16. Analisis PM2.5"
+
+      - file: minggu-2/analisis-pm10
+        title: "17. Analisis PM10"
+
+      - file: minggu-2/analisis-time-series
+        title: "18. Analisis Time Series"
+
+      - file: minggu-2/kesimpulan
+        title: "19. Kesimpulan Minggu 2"
