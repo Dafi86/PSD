@@ -1,0 +1,1289 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1. Pemindahan Data ke PostgreSQL Aiven &#8212; Penambangan Sains Data</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'minggu-1/Pemindahan_Data_PostgreSQL_Aiven';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Penambangan Sains Data - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Penambangan Sains Data - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Minggu 1 — Analisis Kualitas Udara</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="business-understanding.html">1. Business Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-understanding.html">2. Data Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deskripsi-fitur.html">3. Deskripsi Fitur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sumber-polutan.html">4. Sumber Polutan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eksplorasi-data.html">5. Eksplorasi Data</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Dafi86/PSD" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Dafi86/PSD/issues/new?title=Issue%20on%20page%20%2Fminggu-1/Pemindahan_Data_PostgreSQL_Aiven.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/minggu-1/Pemindahan_Data_PostgreSQL_Aiven.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>1. Pemindahan Data ke PostgreSQL Aiven</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Pemindahan Data ke PostgreSQL Aiven</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latar-belakang">1.1 Latar Belakang</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persiapan-database">1.2 Persiapan Database</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-data-sumber">Struktur Data Sumber</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perancangan-struktur-tabel">1.3 Perancangan Struktur Tabel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembuatan-tabel-postgresql">1.4 Pembuatan Tabel PostgreSQL</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-perintah-sql">Penjelasan Perintah SQL</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id-serial-primary-key">1. <code class="docutils literal notranslate"><span class="pre">id</span> <span class="pre">SERIAL</span> <span class="pre">PRIMARY</span> <span class="pre">KEY</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#valid-time-timestamp-not-null">2. <code class="docutils literal notranslate"><span class="pre">valid_time</span> <span class="pre">TIMESTAMP</span> <span class="pre">NOT</span> <span class="pre">NULL</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#latitude-double-precision">3. <code class="docutils literal notranslate"><span class="pre">latitude</span> <span class="pre">DOUBLE</span> <span class="pre">PRECISION</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#longitude-double-precision">4. <code class="docutils literal notranslate"><span class="pre">longitude</span> <span class="pre">DOUBLE</span> <span class="pre">PRECISION</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pm1-ug-m3-double-precision">5. <code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span> <span class="pre">DOUBLE</span> <span class="pre">PRECISION</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pm2p5-ug-m3-double-precision">6. <code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span> <span class="pre">DOUBLE</span> <span class="pre">PRECISION</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pm10-ug-m3-double-precision">7. <code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span> <span class="pre">DOUBLE</span> <span class="pre">PRECISION</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesesuaian-struktur-csv-dengan-postgresql">1.5 Kesesuaian Struktur CSV dengan PostgreSQL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-data-csv-menggunakan-pgadmin-4">1.6 Import Data CSV Menggunakan pgAdmin 4</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengaturan-import">Pengaturan Import</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-pengaturan">Penjelasan Pengaturan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kolom-yang-diimport">1.7 Kolom yang Diimport</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-setelah-import">1.8 Pemeriksaan Setelah Import</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-sampel-data">1.9 Pemeriksaan Sampel Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-struktur-tabel">1.10 Pemeriksaan Struktur Tabel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-data-time-series">1.11 Pemeriksaan Data Time Series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-nilai-kosong">1.12 Pemeriksaan Nilai Kosong</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-data-duplikat">1.13 Pemeriksaan Data Duplikat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verifikasi-jumlah-data">1.14 Verifikasi Jumlah Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#postgresql-sebagai-sumber-data-knime">1.15 PostgreSQL sebagai Sumber Data KNIME</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keuntungan-penggunaan-postgresql-aiven">1.16 Keuntungan Penggunaan PostgreSQL Aiven</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penyimpanan-data-terstruktur">1. Penyimpanan Data Terstruktur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengelolaan-data-menggunakan-sql">2. Pengelolaan Data Menggunakan SQL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-terpusat">3. Data Terpusat</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mendukung-analisis-time-series">4. Mendukung Analisis Time Series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integrasi-dengan-knime">5. Integrasi dengan KNIME</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-query-pengambilan-data">1.17 Contoh Query Pengambilan Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dokumentasi-hasil-pemindahan-data">1.18 Dokumentasi Hasil Pemindahan Data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">2. Kesimpulan</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pemindahan-data-ke-postgresql-aiven">
+<h1>1. Pemindahan Data ke PostgreSQL Aiven<a class="headerlink" href="#pemindahan-data-ke-postgresql-aiven" title="Link to this heading">#</a></h1>
+<section id="latar-belakang">
+<h2>1.1 Latar Belakang<a class="headerlink" href="#latar-belakang" title="Link to this heading">#</a></h2>
+<p>Data time series kualitas udara Kabupaten Lamongan pada awalnya tersimpan dalam format <strong>Comma-Separated Values (CSV)</strong>. Format CSV cukup praktis untuk penyimpanan dan pertukaran data, tetapi untuk proses pengolahan dan analisis yang lebih terstruktur, data perlu dipindahkan ke dalam sebuah sistem manajemen basis data.</p>
+<p>Pada tahap ini digunakan <strong>PostgreSQL pada Aiven</strong> sebagai basis data terpusat. PostgreSQL dipilih karena mendukung pengelolaan data tabular secara terstruktur, bahasa SQL untuk pengambilan dan pemeriksaan data, serta dapat digunakan sebagai sumber data yang terhubung dengan perangkat lunak analisis seperti <strong>KNIME</strong>.</p>
+<p>Proses pemindahan data dilakukan melalui beberapa tahapan, yaitu:</p>
+<ol class="arabic simple">
+<li><p>Menyiapkan database PostgreSQL pada Aiven.</p></li>
+<li><p>Membuat tabel <code class="docutils literal notranslate"><span class="pre">air_quality</span></code>.</p></li>
+<li><p>Menyesuaikan struktur tabel dengan struktur file CSV.</p></li>
+<li><p>Mengimpor data CSV menggunakan <strong>pgAdmin 4</strong>.</p></li>
+<li><p>Melakukan verifikasi jumlah data yang berhasil masuk.</p></li>
+<li><p>Memastikan data siap digunakan sebagai sumber proses analisis di KNIME.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="persiapan-database">
+<h2>1.2 Persiapan Database<a class="headerlink" href="#persiapan-database" title="Link to this heading">#</a></h2>
+<p>Database yang digunakan adalah <strong>PostgreSQL yang disediakan melalui Aiven</strong>.</p>
+<p><strong>Nama database:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>defaultdb
+</pre></div>
+</div>
+<p><strong>Schema:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>public
+</pre></div>
+</div>
+<p><strong>Nama tabel:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>air_quality
+</pre></div>
+</div>
+<p>Sehingga nama tabel secara lengkap adalah:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>public.air_quality
+</pre></div>
+</div>
+<p>Database ini digunakan sebagai tempat penyimpanan data kualitas udara yang sebelumnya berada pada file CSV.</p>
+<p>File sumber data yang digunakan adalah:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>data_lamongan_clean(1).csv
+</pre></div>
+</div>
+<p>File tersebut berisi <strong>1.464 baris data</strong> dan memiliki enam variabel utama yang akan dimasukkan ke dalam tabel PostgreSQL.</p>
+<section id="struktur-data-sumber">
+<h3>Struktur Data Sumber<a class="headerlink" href="#struktur-data-sumber" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>No.</p></th>
+<th class="head"><p>Kolom</p></th>
+<th class="head"><p>Tipe Data PostgreSQL</p></th>
+<th class="head"><p>Keterangan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>1</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">valid_time</span></code></p></td>
+<td><p>TIMESTAMP</p></td>
+<td><p>Waktu pengamatan</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>2</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">latitude</span></code></p></td>
+<td><p>DOUBLE PRECISION</p></td>
+<td><p>Koordinat lintang</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>3</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">longitude</span></code></p></td>
+<td><p>DOUBLE PRECISION</p></td>
+<td><p>Koordinat bujur</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>4</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span></code></p></td>
+<td><p>DOUBLE PRECISION</p></td>
+<td><p>Konsentrasi PM1 dalam µg/m³</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>5</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code></p></td>
+<td><p>DOUBLE PRECISION</p></td>
+<td><p>Konsentrasi PM2.5 dalam µg/m³</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>6</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span></code></p></td>
+<td><p>DOUBLE PRECISION</p></td>
+<td><p>Konsentrasi PM10 dalam µg/m³</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Selain enam variabel yang berasal dari CSV, tabel PostgreSQL memiliki satu kolom tambahan yaitu <code class="docutils literal notranslate"><span class="pre">id</span></code>.</p>
+<p>Kolom <code class="docutils literal notranslate"><span class="pre">id</span></code> digunakan sebagai identitas unik untuk setiap baris data dan nilainya dibuat secara otomatis oleh PostgreSQL.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="perancangan-struktur-tabel">
+<h2>1.3 Perancangan Struktur Tabel<a class="headerlink" href="#perancangan-struktur-tabel" title="Link to this heading">#</a></h2>
+<p>Sebelum melakukan import data, struktur tabel perlu dibuat terlebih dahulu. Struktur tabel dibuat agar tipe data pada PostgreSQL sesuai dengan karakteristik masing-masing kolom pada file CSV.</p>
+<p>Tabel yang digunakan adalah:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>public.air_quality
+</pre></div>
+</div>
+<p>Struktur tabel terdiri dari tujuh kolom, yaitu:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">valid_time</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">latitude</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">longitude</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span></code></p></li>
+</ul>
+<p>Kolom <code class="docutils literal notranslate"><span class="pre">id</span></code> tidak berasal dari file CSV. Kolom tersebut dibuat pada sisi database untuk memberikan identitas unik pada setiap record.</p>
+</section>
+<hr class="docutils" />
+<section id="pembuatan-tabel-postgresql">
+<h2>1.4 Pembuatan Tabel PostgreSQL<a class="headerlink" href="#pembuatan-tabel-postgresql" title="Link to this heading">#</a></h2>
+<p>Tabel <code class="docutils literal notranslate"><span class="pre">air_quality</span></code> dibuat menggunakan perintah SQL berikut:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">air_quality</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">SERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">valid_time</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">latitude</span><span class="w"> </span><span class="n">DOUBLE</span><span class="w"> </span><span class="k">PRECISION</span><span class="p">,</span>
+<span class="w">    </span><span class="n">longitude</span><span class="w"> </span><span class="n">DOUBLE</span><span class="w"> </span><span class="k">PRECISION</span><span class="p">,</span>
+<span class="w">    </span><span class="n">pm1_ug_m3</span><span class="w"> </span><span class="n">DOUBLE</span><span class="w"> </span><span class="k">PRECISION</span><span class="p">,</span>
+<span class="w">    </span><span class="n">pm2p5_ug_m3</span><span class="w"> </span><span class="n">DOUBLE</span><span class="w"> </span><span class="k">PRECISION</span><span class="p">,</span>
+<span class="w">    </span><span class="n">pm10_ug_m3</span><span class="w"> </span><span class="n">DOUBLE</span><span class="w"> </span><span class="k">PRECISION</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<section id="penjelasan-perintah-sql">
+<h3>Penjelasan Perintah SQL<a class="headerlink" href="#penjelasan-perintah-sql" title="Link to this heading">#</a></h3>
+<section id="id-serial-primary-key">
+<h4>1. <code class="docutils literal notranslate"><span class="pre">id</span> <span class="pre">SERIAL</span> <span class="pre">PRIMARY</span> <span class="pre">KEY</span></code><a class="headerlink" href="#id-serial-primary-key" title="Link to this heading">#</a></h4>
+<p>Kolom <code class="docutils literal notranslate"><span class="pre">id</span></code> digunakan sebagai identitas unik setiap record.</p>
+<p>Tipe <code class="docutils literal notranslate"><span class="pre">SERIAL</span></code> memungkinkan PostgreSQL memberikan nilai angka secara otomatis ketika data baru dimasukkan. Sementara itu, <code class="docutils literal notranslate"><span class="pre">PRIMARY</span> <span class="pre">KEY</span></code> memastikan bahwa setiap nilai <code class="docutils literal notranslate"><span class="pre">id</span></code> bersifat unik dan tidak boleh kosong.</p>
+<p>Contoh nilai yang dihasilkan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+4
+...
+1464
+</pre></div>
+</div>
+<p>Dengan demikian, kolom <code class="docutils literal notranslate"><span class="pre">id</span></code> tidak perlu disediakan pada file CSV.</p>
+</section>
+<section id="valid-time-timestamp-not-null">
+<h4>2. <code class="docutils literal notranslate"><span class="pre">valid_time</span> <span class="pre">TIMESTAMP</span> <span class="pre">NOT</span> <span class="pre">NULL</span></code><a class="headerlink" href="#valid-time-timestamp-not-null" title="Link to this heading">#</a></h4>
+<p>Kolom <code class="docutils literal notranslate"><span class="pre">valid_time</span></code> menyimpan waktu ketika pengamatan dilakukan.</p>
+<p>Tipe <code class="docutils literal notranslate"><span class="pre">TIMESTAMP</span></code> digunakan karena data memiliki informasi tanggal dan waktu. Constraint <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code> digunakan untuk memastikan setiap record memiliki informasi waktu pengamatan.</p>
+<p>Kolom ini penting karena data yang dianalisis merupakan <strong>data time series</strong>.</p>
+</section>
+<section id="latitude-double-precision">
+<h4>3. <code class="docutils literal notranslate"><span class="pre">latitude</span> <span class="pre">DOUBLE</span> <span class="pre">PRECISION</span></code><a class="headerlink" href="#latitude-double-precision" title="Link to this heading">#</a></h4>
+<p>Kolom <code class="docutils literal notranslate"><span class="pre">latitude</span></code> menyimpan koordinat lintang lokasi pengamatan.</p>
+<p>Tipe <code class="docutils literal notranslate"><span class="pre">DOUBLE</span> <span class="pre">PRECISION</span></code> digunakan karena koordinat geografis dapat memiliki nilai desimal dengan tingkat ketelitian yang cukup tinggi.</p>
+</section>
+<section id="longitude-double-precision">
+<h4>4. <code class="docutils literal notranslate"><span class="pre">longitude</span> <span class="pre">DOUBLE</span> <span class="pre">PRECISION</span></code><a class="headerlink" href="#longitude-double-precision" title="Link to this heading">#</a></h4>
+<p>Kolom <code class="docutils literal notranslate"><span class="pre">longitude</span></code> menyimpan koordinat bujur lokasi pengamatan.</p>
+<p>Sama seperti <code class="docutils literal notranslate"><span class="pre">latitude</span></code>, tipe <code class="docutils literal notranslate"><span class="pre">DOUBLE</span> <span class="pre">PRECISION</span></code> digunakan untuk mempertahankan nilai desimal koordinat.</p>
+</section>
+<section id="pm1-ug-m3-double-precision">
+<h4>5. <code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span> <span class="pre">DOUBLE</span> <span class="pre">PRECISION</span></code><a class="headerlink" href="#pm1-ug-m3-double-precision" title="Link to this heading">#</a></h4>
+<p>Kolom <code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span></code> menyimpan konsentrasi partikel <strong>PM1</strong>.</p>
+<p>Satuan yang digunakan adalah:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>µg/m³
+</pre></div>
+</div>
+<p>atau mikrogram per meter kubik.</p>
+</section>
+<section id="pm2p5-ug-m3-double-precision">
+<h4>6. <code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span> <span class="pre">DOUBLE</span> <span class="pre">PRECISION</span></code><a class="headerlink" href="#pm2p5-ug-m3-double-precision" title="Link to this heading">#</a></h4>
+<p>Kolom <code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code> menyimpan konsentrasi <strong>PM2.5</strong> dalam satuan µg/m³.</p>
+<p>PM2.5 merupakan salah satu parameter penting dalam analisis kualitas udara karena merepresentasikan partikel berukuran sangat kecil yang dapat berada di udara.</p>
+</section>
+<section id="pm10-ug-m3-double-precision">
+<h4>7. <code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span> <span class="pre">DOUBLE</span> <span class="pre">PRECISION</span></code><a class="headerlink" href="#pm10-ug-m3-double-precision" title="Link to this heading">#</a></h4>
+<p>Kolom <code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span></code> menyimpan konsentrasi <strong>PM10</strong> dalam satuan µg/m³.</p>
+<p>Parameter ini digunakan bersama PM1 dan PM2.5 untuk melihat kondisi konsentrasi partikulat pada lokasi pengamatan.</p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="kesesuaian-struktur-csv-dengan-postgresql">
+<h2>1.5 Kesesuaian Struktur CSV dengan PostgreSQL<a class="headerlink" href="#kesesuaian-struktur-csv-dengan-postgresql" title="Link to this heading">#</a></h2>
+<p>Struktur kolom pada file CSV disesuaikan dengan struktur tabel PostgreSQL.</p>
+<p>Pemetaan kolom dilakukan sebagai berikut:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Kolom CSV</p></th>
+<th class="head"><p>Kolom PostgreSQL</p></th>
+<th class="head"><p>Tipe Data</p></th>
+<th class="head"><p>Keterangan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">valid_time</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">valid_time</span></code></p></td>
+<td><p>TIMESTAMP</p></td>
+<td><p>Waktu pengamatan</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">latitude</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">latitude</span></code></p></td>
+<td><p>DOUBLE PRECISION</p></td>
+<td><p>Lintang</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">longitude</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">longitude</span></code></p></td>
+<td><p>DOUBLE PRECISION</p></td>
+<td><p>Bujur</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span></code></p></td>
+<td><p>DOUBLE PRECISION</p></td>
+<td><p>PM1</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code></p></td>
+<td><p>DOUBLE PRECISION</p></td>
+<td><p>PM2.5</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span></code></p></td>
+<td><p>DOUBLE PRECISION</p></td>
+<td><p>PM10</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Kolom <code class="docutils literal notranslate"><span class="pre">id</span></code> tidak dipetakan dari CSV karena dibuat otomatis oleh PostgreSQL.</p>
+<p>Dengan pemetaan tersebut, jumlah kolom yang diambil dari CSV adalah <strong>enam kolom</strong>, sedangkan tabel PostgreSQL memiliki <strong>tujuh kolom</strong> termasuk kolom <code class="docutils literal notranslate"><span class="pre">id</span></code>.</p>
+</section>
+<hr class="docutils" />
+<section id="import-data-csv-menggunakan-pgadmin-4">
+<h2>1.6 Import Data CSV Menggunakan pgAdmin 4<a class="headerlink" href="#import-data-csv-menggunakan-pgadmin-4" title="Link to this heading">#</a></h2>
+<p>Setelah tabel berhasil dibuat, tahap berikutnya adalah memasukkan data dari file CSV ke dalam tabel PostgreSQL.</p>
+<p>Proses import dilakukan menggunakan <strong>pgAdmin 4</strong>.</p>
+<p>File yang digunakan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>data_lamongan_clean(1).csv
+</pre></div>
+</div>
+<p>Tabel tujuan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>public.air_quality
+</pre></div>
+</div>
+<section id="pengaturan-import">
+<h3>Pengaturan Import<a class="headerlink" href="#pengaturan-import" title="Link to this heading">#</a></h3>
+<p>Pengaturan yang digunakan pada proses import adalah:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pengaturan</p></th>
+<th class="head"><p>Nilai</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Format</p></td>
+<td><p>CSV</p></td>
+</tr>
+<tr class="row-odd"><td><p>Header</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>Delimiter</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">,</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Quote</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Escape</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="penjelasan-pengaturan">
+<h3>Penjelasan Pengaturan<a class="headerlink" href="#penjelasan-pengaturan" title="Link to this heading">#</a></h3>
+<p><strong>Format CSV</strong></p>
+<p>Menunjukkan bahwa sumber data yang digunakan memiliki format Comma-Separated Values.</p>
+<p><strong>Header: Yes</strong></p>
+<p>Baris pertama file CSV berisi nama kolom. Oleh karena itu, baris pertama tidak dianggap sebagai record data.</p>
+<p>Contoh header:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>valid_time,latitude,longitude,pm1_ug_m3,pm2p5_ug_m3,pm10_ug_m3
+</pre></div>
+</div>
+<p><strong>Delimiter: <code class="docutils literal notranslate"><span class="pre">,</span></code></strong></p>
+<p>Tanda koma digunakan sebagai pemisah antar kolom.</p>
+<p><strong>Quote: <code class="docutils literal notranslate"><span class="pre">&quot;</span></code></strong></p>
+<p>Tanda petik ganda digunakan sebagai karakter pembungkus nilai apabila diperlukan.</p>
+<p><strong>Escape: <code class="docutils literal notranslate"><span class="pre">&quot;</span></code></strong></p>
+<p>Karakter escape digunakan untuk menangani tanda petik yang terdapat di dalam nilai CSV.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="kolom-yang-diimport">
+<h2>1.7 Kolom yang Diimport<a class="headerlink" href="#kolom-yang-diimport" title="Link to this heading">#</a></h2>
+<p>Kolom yang dimasukkan dari file CSV adalah:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>valid_time
+latitude
+longitude
+pm1_ug_m3
+pm2p5_ug_m3
+pm10_ug_m3
+</pre></div>
+</div>
+<p>Sedangkan kolom:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>id
+</pre></div>
+</div>
+<p>tidak diikutsertakan dalam proses import.</p>
+<p>Hal tersebut dilakukan karena PostgreSQL akan menghasilkan nilai <code class="docutils literal notranslate"><span class="pre">id</span></code> secara otomatis berdasarkan mekanisme <code class="docutils literal notranslate"><span class="pre">SERIAL</span></code>.</p>
+<p>Secara konseptual, proses import dapat digambarkan sebagai berikut:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>data_lamongan_clean(1).csv
+            |
+            v
+     Proses Import CSV
+            |
+            v
+     public.air_quality
+            |
+            +--&gt; id dibuat otomatis PostgreSQL
+            |
+            +--&gt; valid_time
+            +--&gt; latitude
+            +--&gt; longitude
+            +--&gt; pm1_ug_m3
+            +--&gt; pm2p5_ug_m3
+            +--&gt; pm10_ug_m3
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="pemeriksaan-setelah-import">
+<h2>1.8 Pemeriksaan Setelah Import<a class="headerlink" href="#pemeriksaan-setelah-import" title="Link to this heading">#</a></h2>
+<p>Setelah proses import selesai, perlu dilakukan pemeriksaan untuk memastikan data telah berhasil masuk ke database.</p>
+<p>Pemeriksaan pertama dilakukan dengan menghitung jumlah baris pada tabel.</p>
+<p>Query yang digunakan:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">jumlah_data</span>
+<span class="k">FROM</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">air_quality</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Hasil yang diperoleh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>jumlah_data
+-----------
+1464
+</pre></div>
+</div>
+<p>Hasil tersebut menunjukkan bahwa tabel <code class="docutils literal notranslate"><span class="pre">public.air_quality</span></code> memiliki <strong>1.464 baris data</strong>.</p>
+<p>Jumlah tersebut sesuai dengan jumlah data pada file CSV, sehingga dapat disimpulkan bahwa seluruh record telah berhasil dimasukkan ke PostgreSQL.</p>
+</section>
+<hr class="docutils" />
+<section id="pemeriksaan-sampel-data">
+<h2>1.9 Pemeriksaan Sampel Data<a class="headerlink" href="#pemeriksaan-sampel-data" title="Link to this heading">#</a></h2>
+<p>Selain menghitung jumlah baris, data dapat diperiksa secara langsung menggunakan query:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">air_quality</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Query tersebut digunakan untuk menampilkan sepuluh record pertama dari tabel.</p>
+<p>Pemeriksaan ini bertujuan untuk memastikan bahwa:</p>
+<ol class="arabic simple">
+<li><p>Data telah masuk ke tabel yang benar.</p></li>
+<li><p>Kolom memiliki nama yang sesuai.</p></li>
+<li><p>Nilai <code class="docutils literal notranslate"><span class="pre">id</span></code> telah dibuat secara otomatis.</p></li>
+<li><p>Nilai waktu tersimpan pada kolom <code class="docutils literal notranslate"><span class="pre">valid_time</span></code>.</p></li>
+<li><p>Koordinat tersimpan pada kolom <code class="docutils literal notranslate"><span class="pre">latitude</span></code> dan <code class="docutils literal notranslate"><span class="pre">longitude</span></code>.</p></li>
+<li><p>Nilai PM1, PM2.5, dan PM10 tersimpan pada kolom yang sesuai.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="pemeriksaan-struktur-tabel">
+<h2>1.10 Pemeriksaan Struktur Tabel<a class="headerlink" href="#pemeriksaan-struktur-tabel" title="Link to this heading">#</a></h2>
+<p>Struktur tabel juga dapat diperiksa melalui PostgreSQL untuk memastikan tipe data yang digunakan sudah sesuai.</p>
+<p>Secara konseptual, struktur tabel yang diharapkan adalah:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Kolom</p></th>
+<th class="head"><p>Tipe</p></th>
+<th class="head"><p>Constraint</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p>SERIAL / integer</p></td>
+<td><p>PRIMARY KEY</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">valid_time</span></code></p></td>
+<td><p>TIMESTAMP</p></td>
+<td><p>NOT NULL</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">latitude</span></code></p></td>
+<td><p>DOUBLE PRECISION</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">longitude</span></code></p></td>
+<td><p>DOUBLE PRECISION</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span></code></p></td>
+<td><p>DOUBLE PRECISION</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code></p></td>
+<td><p>DOUBLE PRECISION</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span></code></p></td>
+<td><p>DOUBLE PRECISION</p></td>
+<td><p>-</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Struktur tersebut memungkinkan data numerik kualitas udara disimpan sebagai tipe numerik sehingga dapat digunakan untuk operasi statistik dan analisis lebih lanjut.</p>
+</section>
+<hr class="docutils" />
+<section id="pemeriksaan-data-time-series">
+<h2>1.11 Pemeriksaan Data Time Series<a class="headerlink" href="#pemeriksaan-data-time-series" title="Link to this heading">#</a></h2>
+<p>Karena data yang digunakan merupakan data time series, kolom <code class="docutils literal notranslate"><span class="pre">valid_time</span></code> menjadi salah satu kolom penting yang perlu diperiksa.</p>
+<p>Data dapat diurutkan berdasarkan waktu menggunakan query:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">air_quality</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">valid_time</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Query tersebut menampilkan data berdasarkan urutan waktu dari yang paling awal.</p>
+<p>Untuk melihat rentang waktu data, dapat digunakan query:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span>
+<span class="w">    </span><span class="k">MIN</span><span class="p">(</span><span class="n">valid_time</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">waktu_awal</span><span class="p">,</span>
+<span class="w">    </span><span class="k">MAX</span><span class="p">(</span><span class="n">valid_time</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">waktu_akhir</span>
+<span class="k">FROM</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">air_quality</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Query tersebut digunakan untuk mengetahui periode pengamatan yang terdapat di dalam database.</p>
+</section>
+<hr class="docutils" />
+<section id="pemeriksaan-nilai-kosong">
+<h2>1.12 Pemeriksaan Nilai Kosong<a class="headerlink" href="#pemeriksaan-nilai-kosong" title="Link to this heading">#</a></h2>
+<p>Sebelum data digunakan untuk analisis di KNIME, pemeriksaan nilai kosong atau <code class="docutils literal notranslate"><span class="pre">NULL</span></code> juga penting dilakukan.</p>
+<p>Contoh query untuk memeriksa jumlah nilai kosong pada masing-masing parameter adalah:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">FILTER</span><span class="w"> </span><span class="p">(</span><span class="k">WHERE</span><span class="w"> </span><span class="n">valid_time</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">null_valid_time</span><span class="p">,</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">FILTER</span><span class="w"> </span><span class="p">(</span><span class="k">WHERE</span><span class="w"> </span><span class="n">latitude</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">null_latitude</span><span class="p">,</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">FILTER</span><span class="w"> </span><span class="p">(</span><span class="k">WHERE</span><span class="w"> </span><span class="n">longitude</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">null_longitude</span><span class="p">,</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">FILTER</span><span class="w"> </span><span class="p">(</span><span class="k">WHERE</span><span class="w"> </span><span class="n">pm1_ug_m3</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">null_pm1</span><span class="p">,</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">FILTER</span><span class="w"> </span><span class="p">(</span><span class="k">WHERE</span><span class="w"> </span><span class="n">pm2p5_ug_m3</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">null_pm2p5</span><span class="p">,</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">FILTER</span><span class="w"> </span><span class="p">(</span><span class="k">WHERE</span><span class="w"> </span><span class="n">pm10_ug_m3</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">null_pm10</span>
+<span class="k">FROM</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">air_quality</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Pemeriksaan ini dapat digunakan untuk mengetahui apakah terdapat data yang kosong pada masing-masing kolom.</p>
+<p>Khusus kolom <code class="docutils literal notranslate"><span class="pre">valid_time</span></code>, tabel telah menggunakan <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code>, sehingga setiap record harus memiliki waktu pengamatan.</p>
+</section>
+<hr class="docutils" />
+<section id="pemeriksaan-data-duplikat">
+<h2>1.13 Pemeriksaan Data Duplikat<a class="headerlink" href="#pemeriksaan-data-duplikat" title="Link to this heading">#</a></h2>
+<p>Pemeriksaan duplikasi juga dapat dilakukan, khususnya apabila satu kombinasi waktu dan lokasi seharusnya hanya memiliki satu record.</p>
+<p>Contoh query:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span>
+<span class="w">    </span><span class="n">valid_time</span><span class="p">,</span>
+<span class="w">    </span><span class="n">latitude</span><span class="p">,</span>
+<span class="w">    </span><span class="n">longitude</span><span class="p">,</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">jumlah</span>
+<span class="k">FROM</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">air_quality</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span>
+<span class="w">    </span><span class="n">valid_time</span><span class="p">,</span>
+<span class="w">    </span><span class="n">latitude</span><span class="p">,</span>
+<span class="w">    </span><span class="n">longitude</span>
+<span class="k">HAVING</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Query tersebut menampilkan kombinasi waktu dan lokasi yang muncul lebih dari satu kali.</p>
+<p>Pemeriksaan ini dapat membantu memastikan kualitas data sebelum digunakan untuk analisis time series.</p>
+</section>
+<hr class="docutils" />
+<section id="verifikasi-jumlah-data">
+<h2>1.14 Verifikasi Jumlah Data<a class="headerlink" href="#verifikasi-jumlah-data" title="Link to this heading">#</a></h2>
+<p>Berdasarkan proses import dan verifikasi yang telah dilakukan, diperoleh jumlah data sebagai berikut:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Keterangan</p></th>
+<th class="head text-right"><p>Jumlah</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Jumlah baris pada file CSV</p></td>
+<td class="text-right"><p>1.464</p></td>
+</tr>
+<tr class="row-odd"><td><p>Jumlah baris pada PostgreSQL</p></td>
+<td class="text-right"><p>1.464</p></td>
+</tr>
+<tr class="row-even"><td><p>Kolom dari CSV</p></td>
+<td class="text-right"><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>Kolom tambahan PostgreSQL</p></td>
+<td class="text-right"><p>1 (<code class="docutils literal notranslate"><span class="pre">id</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p>Total kolom tabel PostgreSQL</p></td>
+<td class="text-right"><p>7</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Jumlah data pada file CSV dan database memiliki nilai yang sama, yaitu <strong>1.464 baris</strong>.</p>
+<p>Hal tersebut menunjukkan bahwa proses pemindahan data telah berhasil dilakukan.</p>
+</section>
+<hr class="docutils" />
+<section id="postgresql-sebagai-sumber-data-knime">
+<h2>1.15 PostgreSQL sebagai Sumber Data KNIME<a class="headerlink" href="#postgresql-sebagai-sumber-data-knime" title="Link to this heading">#</a></h2>
+<p>Setelah data berhasil disimpan dan diverifikasi pada PostgreSQL Aiven, database dapat digunakan sebagai sumber data untuk proses analisis menggunakan <strong>KNIME</strong>.</p>
+<p>Alur pengolahan data secara umum adalah:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>File CSV
+   |
+   v
+PostgreSQL Aiven
+   |
+   v
+public.air_quality
+   |
+   v
+Koneksi Database
+   |
+   v
+KNIME
+   |
+   v
+Data Cleaning / Preprocessing
+   |
+   v
+Analisis Statistik
+   |
+   v
+Visualisasi / Interpretasi
+</pre></div>
+</div>
+<p>Dengan menggunakan PostgreSQL sebagai sumber data, KNIME tidak perlu menjadikan file CSV sebagai sumber utama. Data dapat diambil langsung dari database melalui koneksi PostgreSQL.</p>
+<p>Hal ini juga membuat penyimpanan data menjadi lebih terstruktur dan memudahkan penggunaan data yang sama untuk beberapa tahap analisis.</p>
+</section>
+<hr class="docutils" />
+<section id="keuntungan-penggunaan-postgresql-aiven">
+<h2>1.16 Keuntungan Penggunaan PostgreSQL Aiven<a class="headerlink" href="#keuntungan-penggunaan-postgresql-aiven" title="Link to this heading">#</a></h2>
+<p>Penggunaan PostgreSQL Aiven memberikan beberapa keuntungan dalam pengelolaan dataset kualitas udara, antara lain:</p>
+<section id="penyimpanan-data-terstruktur">
+<h3>1. Penyimpanan Data Terstruktur<a class="headerlink" href="#penyimpanan-data-terstruktur" title="Link to this heading">#</a></h3>
+<p>Data disimpan dalam bentuk tabel dengan tipe data yang jelas. Hal ini membuat setiap variabel memiliki format yang sesuai dengan karakteristik datanya.</p>
+</section>
+<section id="pengelolaan-data-menggunakan-sql">
+<h3>2. Pengelolaan Data Menggunakan SQL<a class="headerlink" href="#pengelolaan-data-menggunakan-sql" title="Link to this heading">#</a></h3>
+<p>PostgreSQL memungkinkan proses pemeriksaan dan pengolahan data menggunakan SQL, seperti:</p>
+<ul class="simple">
+<li><p>menghitung jumlah data;</p></li>
+<li><p>mengambil data berdasarkan waktu;</p></li>
+<li><p>melakukan penyaringan data;</p></li>
+<li><p>menghitung statistik;</p></li>
+<li><p>memeriksa nilai kosong;</p></li>
+<li><p>memeriksa data duplikat;</p></li>
+<li><p>mengurutkan data.</p></li>
+</ul>
+</section>
+<section id="data-terpusat">
+<h3>3. Data Terpusat<a class="headerlink" href="#data-terpusat" title="Link to this heading">#</a></h3>
+<p>Data disimpan pada satu database sehingga dapat digunakan oleh aplikasi atau proses analisis yang membutuhkan sumber data yang sama.</p>
+</section>
+<section id="mendukung-analisis-time-series">
+<h3>4. Mendukung Analisis Time Series<a class="headerlink" href="#mendukung-analisis-time-series" title="Link to this heading">#</a></h3>
+<p>Kolom <code class="docutils literal notranslate"><span class="pre">valid_time</span></code> menggunakan tipe <code class="docutils literal notranslate"><span class="pre">TIMESTAMP</span></code>, sehingga data dapat diurutkan dan dikelompokkan berdasarkan waktu untuk kebutuhan analisis time series.</p>
+</section>
+<section id="integrasi-dengan-knime">
+<h3>5. Integrasi dengan KNIME<a class="headerlink" href="#integrasi-dengan-knime" title="Link to this heading">#</a></h3>
+<p>PostgreSQL dapat digunakan sebagai sumber data untuk workflow KNIME sehingga proses analisis dapat dilakukan secara lebih terstruktur.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="contoh-query-pengambilan-data">
+<h2>1.17 Contoh Query Pengambilan Data<a class="headerlink" href="#contoh-query-pengambilan-data" title="Link to this heading">#</a></h2>
+<p>Untuk mengambil seluruh data:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">air_quality</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Untuk mengambil kolom tertentu:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span>
+<span class="w">    </span><span class="n">valid_time</span><span class="p">,</span>
+<span class="w">    </span><span class="n">latitude</span><span class="p">,</span>
+<span class="w">    </span><span class="n">longitude</span><span class="p">,</span>
+<span class="w">    </span><span class="n">pm1_ug_m3</span><span class="p">,</span>
+<span class="w">    </span><span class="n">pm2p5_ug_m3</span><span class="p">,</span>
+<span class="w">    </span><span class="n">pm10_ug_m3</span>
+<span class="k">FROM</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">air_quality</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Untuk mengambil data berdasarkan urutan waktu:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">air_quality</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">valid_time</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Untuk mengambil data dengan konsentrasi PM10 tertentu, misalnya lebih dari 50 µg/m³:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">air_quality</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">pm10_ug_m3</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">50</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Query-query tersebut dapat menjadi dasar untuk proses eksplorasi data sebelum data diteruskan ke KNIME.</p>
+</section>
+<hr class="docutils" />
+<section id="dokumentasi-hasil-pemindahan-data">
+<h2>1.18 Dokumentasi Hasil Pemindahan Data<a class="headerlink" href="#dokumentasi-hasil-pemindahan-data" title="Link to this heading">#</a></h2>
+<p>Hasil akhir dari proses pemindahan data dapat dirangkum sebagai berikut:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Sumber Data
+    |
+    +-- data_lamongan_clean(1).csv
+    |
+    +-- 1.464 baris
+    |
+    +-- 6 kolom data utama
+            |
+            v
+PostgreSQL Aiven
+    |
+    +-- Database: defaultdb
+    |
+    +-- Schema: public
+    |
+    +-- Table: air_quality
+    |
+    +-- 7 kolom termasuk id
+            |
+            v
+Verifikasi
+    |
+    +-- COUNT(*) = 1.464
+    |
+    +-- Data siap digunakan
+            |
+            v
+KNIME
+    |
+    +-- Preprocessing
+    +-- Analisis statistik
+    +-- Visualisasi
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="kesimpulan">
+<h1>2. Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h1>
+<p>Data time series kualitas udara Kabupaten Lamongan yang sebelumnya tersimpan dalam file <code class="docutils literal notranslate"><span class="pre">data_lamongan_clean(1).csv</span></code> telah dipindahkan ke database <strong>PostgreSQL Aiven</strong>.</p>
+<p>Database yang digunakan adalah <code class="docutils literal notranslate"><span class="pre">defaultdb</span></code>, dengan tabel <code class="docutils literal notranslate"><span class="pre">public.air_quality</span></code>. Tabel tersebut memiliki tujuh kolom, yaitu <code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">valid_time</span></code>, <code class="docutils literal notranslate"><span class="pre">latitude</span></code>, <code class="docutils literal notranslate"><span class="pre">longitude</span></code>, <code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span></code>, <code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code>, dan <code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span></code>.</p>
+<p>Enam kolom utama berasal dari file CSV, sedangkan kolom <code class="docutils literal notranslate"><span class="pre">id</span></code> ditambahkan pada sisi PostgreSQL sebagai identitas unik setiap record. Kolom <code class="docutils literal notranslate"><span class="pre">id</span></code> menggunakan <code class="docutils literal notranslate"><span class="pre">SERIAL</span> <span class="pre">PRIMARY</span> <span class="pre">KEY</span></code> sehingga nilainya dapat dibuat secara otomatis oleh PostgreSQL.</p>
+<p>Proses import dilakukan menggunakan <strong>pgAdmin 4</strong> dengan format CSV, menggunakan header, delimiter koma, serta quote dan escape berupa tanda petik ganda.</p>
+<p>Berdasarkan proses verifikasi menggunakan query:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">jumlah_data</span>
+<span class="k">FROM</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">air_quality</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>diperoleh hasil:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>jumlah_data
+-----------
+1464
+</pre></div>
+</div>
+<p>Hasil tersebut sesuai dengan jumlah baris pada file sumber, yaitu <strong>1.464 data</strong>. Dengan demikian, proses pemindahan data dari file CSV ke PostgreSQL Aiven dapat dinyatakan berhasil.</p>
+<p>Database PostgreSQL selanjutnya dapat digunakan sebagai sumber data terpusat untuk proses analisis menggunakan <strong>KNIME</strong>, termasuk tahap pemeriksaan kualitas data, preprocessing, analisis statistik, analisis time series, serta visualisasi data kualitas udara Kabupaten Lamongan.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./minggu-1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Pemindahan Data ke PostgreSQL Aiven</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latar-belakang">1.1 Latar Belakang</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persiapan-database">1.2 Persiapan Database</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-data-sumber">Struktur Data Sumber</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perancangan-struktur-tabel">1.3 Perancangan Struktur Tabel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembuatan-tabel-postgresql">1.4 Pembuatan Tabel PostgreSQL</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-perintah-sql">Penjelasan Perintah SQL</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id-serial-primary-key">1. <code class="docutils literal notranslate"><span class="pre">id</span> <span class="pre">SERIAL</span> <span class="pre">PRIMARY</span> <span class="pre">KEY</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#valid-time-timestamp-not-null">2. <code class="docutils literal notranslate"><span class="pre">valid_time</span> <span class="pre">TIMESTAMP</span> <span class="pre">NOT</span> <span class="pre">NULL</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#latitude-double-precision">3. <code class="docutils literal notranslate"><span class="pre">latitude</span> <span class="pre">DOUBLE</span> <span class="pre">PRECISION</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#longitude-double-precision">4. <code class="docutils literal notranslate"><span class="pre">longitude</span> <span class="pre">DOUBLE</span> <span class="pre">PRECISION</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pm1-ug-m3-double-precision">5. <code class="docutils literal notranslate"><span class="pre">pm1_ug_m3</span> <span class="pre">DOUBLE</span> <span class="pre">PRECISION</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pm2p5-ug-m3-double-precision">6. <code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span> <span class="pre">DOUBLE</span> <span class="pre">PRECISION</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pm10-ug-m3-double-precision">7. <code class="docutils literal notranslate"><span class="pre">pm10_ug_m3</span> <span class="pre">DOUBLE</span> <span class="pre">PRECISION</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesesuaian-struktur-csv-dengan-postgresql">1.5 Kesesuaian Struktur CSV dengan PostgreSQL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-data-csv-menggunakan-pgadmin-4">1.6 Import Data CSV Menggunakan pgAdmin 4</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengaturan-import">Pengaturan Import</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-pengaturan">Penjelasan Pengaturan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kolom-yang-diimport">1.7 Kolom yang Diimport</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-setelah-import">1.8 Pemeriksaan Setelah Import</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-sampel-data">1.9 Pemeriksaan Sampel Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-struktur-tabel">1.10 Pemeriksaan Struktur Tabel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-data-time-series">1.11 Pemeriksaan Data Time Series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-nilai-kosong">1.12 Pemeriksaan Nilai Kosong</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-data-duplikat">1.13 Pemeriksaan Data Duplikat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verifikasi-jumlah-data">1.14 Verifikasi Jumlah Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#postgresql-sebagai-sumber-data-knime">1.15 PostgreSQL sebagai Sumber Data KNIME</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keuntungan-penggunaan-postgresql-aiven">1.16 Keuntungan Penggunaan PostgreSQL Aiven</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penyimpanan-data-terstruktur">1. Penyimpanan Data Terstruktur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengelolaan-data-menggunakan-sql">2. Pengelolaan Data Menggunakan SQL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-terpusat">3. Data Terpusat</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mendukung-analisis-time-series">4. Mendukung Analisis Time Series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integrasi-dengan-knime">5. Integrasi dengan KNIME</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-query-pengambilan-data">1.17 Contoh Query Pengambilan Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dokumentasi-hasil-pemindahan-data">1.18 Dokumentasi Hasil Pemindahan Data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">2. Kesimpulan</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ahmad Dafi Zidni Alfarisi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
