@@ -1,0 +1,2201 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>5. Analisis PM1, PM2.5, dan PM10 &#8212; Penambangan Sains Data</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'minggu-2/Analisis-PM1-PM2.5-dan-PM10';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Penambangan Sains Data - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Penambangan Sains Data - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Minggu 1 — Analisis Kualitas Udara</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../minggu-1/business-understanding.html">1. Business Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../minggu-1/data-understanding.html">2. Data Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../minggu-1/deskripsi-fitur.html">3. Deskripsi Fitur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../minggu-1/sumber-polutan.html">4. Sumber Polutan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../minggu-1/eksplorasi-data.html">5. Eksplorasi Data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Minggu 2 — PostgreSQL Aiven dan KNIME</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pengolahan-knime.html">2. Pengolahan Data dengan KNIME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analisis-time-series.html">6. Analisis Time Series dan Kesimpulan</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Dafi86/PSD" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Dafi86/PSD/issues/new?title=Issue%20on%20page%20%2Fminggu-2/Analisis-PM1-PM2.5-dan-PM10.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/minggu-2/Analisis-PM1-PM2.5-dan-PM10.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>5. Analisis PM1, PM2.5, dan PM10</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">5. Analisis PM1, PM2.5, dan PM10</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pendahuluan">5.1 Pendahuluan</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#apa-itu-pm">5.2 Apa Itu PM?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perbedaan-pm1-pm2-5-dan-pm10">5.3 Perbedaan PM1, PM2.5, dan PM10</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pm1">5.4 PM1</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi">Definisi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#karakteristik">Karakteristik</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pm2-5">5.5 PM2.5</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Definisi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengapa-pm2-5-penting">Mengapa PM2.5 Penting?</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pm10">5.6 PM10</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Definisi</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#satuan-pm">5.7 Satuan PM</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-statistics-node-pada-pm">5.8 Analisis Statistics Node pada PM</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-pm1">5.9 Analisis PM1</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rentang">5.9.1 Rentang</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean">5.9.2 Mean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">5.9.3 Standard Deviation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skewness">5.9.4 Skewness</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-pm2-5">5.10 Analisis PM2.5</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#range">5.10.1 Range</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.10.2 Mean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">5.10.3 Standard Deviation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">5.10.4 Skewness</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-pm10">5.11 Analisis PM10</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">5.11.1 Range</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">5.11.2 Mean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">5.11.3 Standard Deviation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">5.11.4 Skewness</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-pm1-pm2-5-dan-pm10">5.12 Perbandingan PM1, PM2.5, dan PM10</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan-awal">Kesimpulan awal</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membandingkan-mean">5.13 Membandingkan Mean</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membandingkan-maximum">5.14 Membandingkan Maximum</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membandingkan-standard-deviation">5.15 Membandingkan Standard Deviation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-variation-pm">5.16 Coefficient of Variation PM</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">PM1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">PM2.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">PM10</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#skewness-ketiga-variabel">5.17 Skewness Ketiga Variabel</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-penting">Interpretasi penting</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hubungan-pm1-pm2-5-pm10">5.18 Hubungan PM1 → PM2.5 → PM10</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#korelasi-pm1-pm2-5-dan-pm10">5.19 Korelasi PM1, PM2.5, dan PM10</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengapa-pm2-5-dan-pm10-bisa-berkorelasi">5.20 Mengapa PM2.5 dan PM10 Bisa Berkorelasi?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot-pm2-5-vs-pm10">5.21 Scatter Plot PM2.5 vs PM10</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-pm">5.22 Time Series PM</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pola-harian">5.23 Pola Harian</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-average">5.24 Moving Average</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-outlier-pm">5.25 Analisis Outlier PM</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-yang-disarankan">Pemeriksaan yang disarankan</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#validasi-outlier-dengan-variabel-lain">5.26 Validasi Outlier dengan Variabel Lain</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-konsistensi-antar-pm">5.27 Pemeriksaan Konsistensi Antar-PM</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-rule-engine-untuk-qc">5.28 Contoh Rule Engine untuk QC</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram-pm">5.29 Histogram PM</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#box-plot-pm">5.30 Box Plot PM</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-interpretasi-box-plot">5.31 Contoh Interpretasi Box Plot</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-median-dan-skewness">5.32 Mean, Median, dan Skewness</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengapa-tidak-cukup-menggunakan-mean">5.33 Mengapa Tidak Cukup Menggunakan Mean?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-perbandingan-dengan-range">5.34 Analisis Perbandingan dengan Range</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-variance">5.35 Analisis Variance</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membandingkan-variabilitas-absolut-dan-relatif">5.36 Membandingkan Variabilitas Absolut dan Relatif</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variabilitas-absolut">Variabilitas absolut</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variabilitas-relatif">Variabilitas relatif</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-pertanyaan-analisis">5.37 Contoh Pertanyaan Analisis</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-1">Pertanyaan 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-2">Pertanyaan 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-3">Pertanyaan 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-4">Pertanyaan 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-5">Pertanyaan 5</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-knime-yang-disarankan">5.38 Workflow KNIME yang Disarankan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#node-yang-dapat-digunakan-untuk-analisis-pm">5.39 Node yang Dapat Digunakan untuk Analisis PM</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-perhitungan-range-dengan-knime">5.40 Contoh Perhitungan Range dengan KNIME</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-perhitungan-cv">5.41 Contoh Perhitungan CV</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-analisis-nilai-tinggi">5.42 Contoh Analisis Nilai Tinggi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score-nilai-maksimum">5.43 Z-Score Nilai Maksimum</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">PM10</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">PM2.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">PM1</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#apakah-nilai-maksimum-harus-dihapus">5.44 Apakah Nilai Maksimum Harus Dihapus?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hubungan-dengan-analisis-kualitas-udara">5.45 Hubungan dengan Analisis Kualitas Udara</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-narasi-untuk-laporan">5.46 Contoh Narasi untuk Laporan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-narasi-yang-lebih-singkat">5.47 Contoh Narasi yang Lebih Singkat</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hal-yang-perlu-diperhatikan">5.48 Hal yang Perlu Diperhatikan</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jangan-membandingkan-nilai-pm-tanpa-konteks">1. Jangan membandingkan nilai PM tanpa konteks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jangan-langsung-menghapus-nilai-maksimum">2. Jangan langsung menghapus nilai maksimum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jangan-menggunakan-threshold-tanpa-sumber">3. Jangan menggunakan threshold tanpa sumber</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perhatikan-periode-waktu">4. Perhatikan periode waktu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perhatikan-kalibrasi-sensor">5. Perhatikan kalibrasi sensor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#periksa-missing-value">6. Periksa missing value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perhatikan-kelembapan">7. Perhatikan kelembapan</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#checklist-analisis-pm">5.49 Checklist Analisis PM</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan-hasil-dataset-contoh">5.50 Ringkasan Hasil Dataset Contoh</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temuan-utama">Temuan utama</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">5.51 Kesimpulan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hubungan-dengan-materi-sebelumnya">5.52 Hubungan dengan Materi Sebelumnya</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan-akhir">5.53 Kesimpulan Akhir</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="analisis-pm1-pm2-5-dan-pm10">
+<h1>5. Analisis PM1, PM2.5, dan PM10<a class="headerlink" href="#analisis-pm1-pm2-5-dan-pm10" title="Link to this heading">#</a></h1>
+<section id="pendahuluan">
+<h2>5.1 Pendahuluan<a class="headerlink" href="#pendahuluan" title="Link to this heading">#</a></h2>
+<p><strong>Particulate Matter (PM)</strong> adalah istilah yang digunakan untuk partikel
+padat atau cair yang tersuspensi di udara. Dalam analisis kualitas
+udara, ukuran partikel menjadi salah satu karakteristik penting karena
+ukuran memengaruhi perilaku partikel di atmosfer dan kemampuan partikel
+untuk masuk ke saluran pernapasan.</p>
+<p>Tiga variabel yang sering dianalisis adalah:</p>
+<ul class="simple">
+<li><p><strong>PM1</strong> — partikel dengan diameter aerodinamis sekitar 1 µm atau
+lebih kecil;</p></li>
+<li><p><strong>PM2.5</strong> — partikel halus dengan diameter aerodinamis sekitar 2.5
+µm atau lebih kecil;</p></li>
+<li><p><strong>PM10</strong> — partikel inhalabel dengan diameter aerodinamis sekitar
+10 µm atau lebih kecil.</p></li>
+</ul>
+<p>Dalam dataset KNIME pada materi ini, nama kolom yang terlihat antara
+lain:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pm1_ug_m3
+pm2p5_ug_m3
+pm10_ug_m3
+</pre></div>
+</div>
+<p>Suffix:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>_ug_m3
+</pre></div>
+</div>
+<p>mengindikasikan satuan konsentrasi <strong>µg/m³ (mikrogram per meter
+kubik)</strong>.</p>
+<p>Analisis PM1, PM2.5, dan PM10 penting untuk:</p>
+<ol class="arabic simple">
+<li><p>memahami tingkat konsentrasi partikulat;</p></li>
+<li><p>membandingkan karakteristik ketiga ukuran partikel;</p></li>
+<li><p>melihat variasi dan distribusi data;</p></li>
+<li><p>mendeteksi nilai ekstrem;</p></li>
+<li><p>memahami hubungan antarvariabel;</p></li>
+<li><p>menjadi dasar visualisasi dan analisis lanjutan.</p></li>
+</ol>
+<blockquote>
+<div><p><strong>Catatan:</strong> nilai ambang kualitas udara dan klasifikasi “baik”,
+“sedang”, “tidak sehat”, dan sebagainya bergantung pada
+standar/regulasi, lokasi, periode averaging, dan tujuan analisis.
+Jangan menggunakan satu threshold universal tanpa menyebutkan standar
+yang menjadi acuan.</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="apa-itu-pm">
+<h1>5.2 Apa Itu PM?<a class="headerlink" href="#apa-itu-pm" title="Link to this heading">#</a></h1>
+<p>PM adalah campuran partikel yang berada di udara dalam bentuk padat
+maupun cair.</p>
+<p>Sumber PM dapat berasal dari:</p>
+<ul class="simple">
+<li><p>emisi kendaraan;</p></li>
+<li><p>pembakaran;</p></li>
+<li><p>aktivitas industri;</p></li>
+<li><p>konstruksi;</p></li>
+<li><p>debu jalan;</p></li>
+<li><p>kebakaran;</p></li>
+<li><p>proses alam;</p></li>
+<li><p>reaksi kimia di atmosfer.</p></li>
+</ul>
+<p>Ukuran partikel biasanya dinyatakan dalam mikrometer (µm).</p>
+<p>Perbandingan sederhana:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM1       ≤ sekitar 1 µm
+PM2.5     ≤ sekitar 2.5 µm
+PM10      ≤ sekitar 10 µm
+</pre></div>
+</div>
+<p>Semakin kecil ukuran partikelnya, semakin kecil diameter partikelnya dan
+secara umum semakin mudah partikel tersebut masuk lebih jauh ke saluran
+pernapasan.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="perbedaan-pm1-pm2-5-dan-pm10">
+<h1>5.3 Perbedaan PM1, PM2.5, dan PM10<a class="headerlink" href="#perbedaan-pm1-pm2-5-dan-pm10" title="Link to this heading">#</a></h1>
+<p>Secara konseptual:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM10
+├── PM2.5
+│   └── PM1
+</pre></div>
+</div>
+<p>Namun, hubungan ini perlu dipahami dengan hati-hati.</p>
+<p>PM2.5 merupakan bagian dari fraksi PM10 berdasarkan ukuran aerodinamis,
+dan PM1 merupakan fraksi yang lebih kecil. Tetapi <strong>nilai pengukuran
+sensor untuk masing-masing kanal tidak selalu memenuhi hubungan numerik
+sederhana secara sempurna</strong>, karena:</p>
+<ul class="simple">
+<li><p>definisi instrumen dapat berbeda;</p></li>
+<li><p>sensor memiliki karakteristik pengukuran sendiri;</p></li>
+<li><p>pembacaan dapat dipengaruhi kelembapan;</p></li>
+<li><p>proses sampling dan kalibrasi berbeda;</p></li>
+<li><p>data dapat memiliki noise.</p></li>
+</ul>
+<p>Secara fisik, jika ketiga variabel merepresentasikan fraksi massa yang
+konsisten, nilai konsentrasi kumulatif dengan cutoff yang lebih besar
+umumnya tidak lebih kecil daripada fraksi yang lebih sempit. Tetapi
+output sensor perlu diperiksa sebelum memberlakukan constraint matematis
+tertentu.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="pm1">
+<h1>5.4 PM1<a class="headerlink" href="#pm1" title="Link to this heading">#</a></h1>
+<section id="definisi">
+<h2>Definisi<a class="headerlink" href="#definisi" title="Link to this heading">#</a></h2>
+<p>PM1 adalah fraksi partikulat dengan diameter aerodinamis sekitar <strong>1 µm
+atau lebih kecil</strong>.</p>
+<p>Karena ukurannya sangat kecil, PM1 termasuk partikel halus.</p>
+<p>Sumber PM1 dapat mencakup:</p>
+<ul class="simple">
+<li><p>pembakaran;</p></li>
+<li><p>emisi kendaraan;</p></li>
+<li><p>proses industri;</p></li>
+<li><p>aerosol sekunder;</p></li>
+<li><p>aktivitas pembakaran biomassa.</p></li>
+</ul>
+</section>
+<section id="karakteristik">
+<h2>Karakteristik<a class="headerlink" href="#karakteristik" title="Link to this heading">#</a></h2>
+<p>PM1 cenderung berkaitan dengan partikel yang sangat halus dan dapat
+menjadi indikator penting untuk mempelajari aerosol halus.</p>
+<p>Namun, PM1 tidak selalu tersedia pada semua dataset atau semua stasiun
+pemantauan.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="pm2-5">
+<h1>5.5 PM2.5<a class="headerlink" href="#pm2-5" title="Link to this heading">#</a></h1>
+<section id="id1">
+<h2>Definisi<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>PM2.5 adalah partikel dengan diameter aerodinamis sekitar <strong>2.5 µm atau
+lebih kecil</strong>.</p>
+<p>PM2.5 banyak digunakan dalam analisis kualitas udara karena merupakan
+salah satu indikator penting polusi partikulat halus.</p>
+<p>Sumber PM2.5 dapat berasal dari:</p>
+<ul class="simple">
+<li><p>kendaraan;</p></li>
+<li><p>pembakaran bahan bakar;</p></li>
+<li><p>pembakaran biomassa;</p></li>
+<li><p>aktivitas industri;</p></li>
+<li><p>pembentukan aerosol sekunder;</p></li>
+<li><p>kebakaran.</p></li>
+</ul>
+</section>
+<section id="mengapa-pm2-5-penting">
+<h2>Mengapa PM2.5 Penting?<a class="headerlink" href="#mengapa-pm2-5-penting" title="Link to this heading">#</a></h2>
+<p>Ukuran yang kecil membuat PM2.5 dapat masuk lebih jauh ke dalam sistem
+pernapasan dibandingkan partikel yang lebih besar.</p>
+<p>Dalam analisis data, PM2.5 dapat digunakan untuk:</p>
+<ul class="simple">
+<li><p>pemantauan kualitas udara;</p></li>
+<li><p>analisis tren waktu;</p></li>
+<li><p>perbandingan antar lokasi;</p></li>
+<li><p>analisis korelasi dengan PM10;</p></li>
+<li><p>deteksi episode polusi;</p></li>
+<li><p>pemodelan kualitas udara.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="pm10">
+<h1>5.6 PM10<a class="headerlink" href="#pm10" title="Link to this heading">#</a></h1>
+<section id="id2">
+<h2>Definisi<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>PM10 merupakan partikulat dengan diameter aerodinamis sekitar <strong>10 µm
+atau lebih kecil</strong>.</p>
+<p>PM10 dapat berasal dari:</p>
+<ul class="simple">
+<li><p>debu;</p></li>
+<li><p>aktivitas konstruksi;</p></li>
+<li><p>debu jalan;</p></li>
+<li><p>tanah;</p></li>
+<li><p>kendaraan;</p></li>
+<li><p>industri;</p></li>
+<li><p>pembakaran.</p></li>
+</ul>
+<p>Karena cutoff-nya lebih besar dibanding PM2.5, PM10 mencakup fraksi
+partikel yang lebih luas.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="satuan-pm">
+<h1>5.7 Satuan PM<a class="headerlink" href="#satuan-pm" title="Link to this heading">#</a></h1>
+<p>Pada dataset:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pm1_ug_m3
+pm2p5_ug_m3
+pm10_ug_m3
+</pre></div>
+</div>
+<p>satuan yang digunakan adalah:</p>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\mu</span> </code>{=tex}g/m^3 ]</p>
+<p>dibaca:</p>
+<blockquote>
+<div><p>mikrogram per meter kubik.</p>
+</div></blockquote>
+<p>Artinya, konsentrasi menunjukkan jumlah massa partikulat dalam volume
+udara tertentu.</p>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM2.5 = 50 µg/m³
+</pre></div>
+</div>
+<p>berarti terdapat konsentrasi partikulat PM2.5 sebesar 50 mikrogram per
+meter kubik udara pada kondisi pengukuran tersebut.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="analisis-statistics-node-pada-pm">
+<h1>5.8 Analisis Statistics Node pada PM<a class="headerlink" href="#analisis-statistics-node-pada-pm" title="Link to this heading">#</a></h1>
+<p>Dari contoh output <strong>Statistics Node</strong> pada workflow, diperoleh
+ringkasan:</p>
+<p>Variabel        Min       Max     Mean   Std. deviation   Variance   Skewness</p>
+<hr class="docutils" />
+<p>PM1            8.04   193.528   57.529           33.979   1,154.57      0.967
+PM2.5        10.248   204.640   62.028           35.869   1,286.60      0.968
+PM10         10.407   207.295   63.610           36.421   1,326.47      0.958</p>
+<p>Nilai tersebut merupakan contoh hasil yang terlihat pada screenshot
+workflow.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="analisis-pm1">
+<h1>5.9 Analisis PM1<a class="headerlink" href="#analisis-pm1" title="Link to this heading">#</a></h1>
+<p>Berdasarkan output:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Min       = 8.04
+Max       = 193.528
+Mean      = 57.529
+Std Dev   = 33.979
+Variance  = 1,154.57
+Skewness  = 0.967
+</pre></div>
+</div>
+<section id="rentang">
+<h2>5.9.1 Rentang<a class="headerlink" href="#rentang" title="Link to this heading">#</a></h2>
+<p>[ Range = Max-Min ]</p>
+<p>[ Range = 193.528-8.04 ]</p>
+<p>[ Range=185.488 ]</p>
+<p>Jadi rentang PM1 sekitar:</p>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\boxed{185.488\</span> <span class="pre">\mu</span> <span class="pre">g/m^3}</span></code>{=tex} ]</p>
+<p>Rentang yang besar menunjukkan bahwa konsentrasi PM1 pada data memiliki
+variasi yang cukup luas.</p>
+</section>
+<section id="mean">
+<h2>5.9.2 Mean<a class="headerlink" href="#mean" title="Link to this heading">#</a></h2>
+<p>Mean:</p>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\bar</span></code>{=tex}{x}=57.529 ]</p>
+<p>Artinya, rata-rata konsentrasi PM1 pada data contoh sekitar:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>57.529 µg/m³
+</pre></div>
+</div>
+</section>
+<section id="standard-deviation">
+<h2>5.9.3 Standard Deviation<a class="headerlink" href="#standard-deviation" title="Link to this heading">#</a></h2>
+<p>Standard deviation:</p>
+<p>[ s<code class="docutils literal notranslate"><span class="pre">\approx33.979</span></code>{=tex} ]</p>
+<p>Nilai ini menunjukkan adanya penyebaran yang cukup besar dari rata-rata.</p>
+</section>
+<section id="skewness">
+<h2>5.9.4 Skewness<a class="headerlink" href="#skewness" title="Link to this heading">#</a></h2>
+<p>Skewness:</p>
+<p>[ 0.967 ]</p>
+<p>bernilai positif.</p>
+<p>Interpretasi awal:</p>
+<blockquote>
+<div><p>Distribusi PM1 cenderung <strong>positively skewed/right-skewed</strong>.</p>
+</div></blockquote>
+<p>Artinya, terdapat kecenderungan ekor distribusi ke arah nilai PM1 yang
+lebih tinggi.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="analisis-pm2-5">
+<h1>5.10 Analisis PM2.5<a class="headerlink" href="#analisis-pm2-5" title="Link to this heading">#</a></h1>
+<p>Berdasarkan output:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Min       = 10.248
+Max       = 204.640
+Mean      = 62.028
+Std Dev   = 35.869
+Variance  = 1,286.60
+Skewness  = 0.968
+</pre></div>
+</div>
+<section id="range">
+<h2>5.10.1 Range<a class="headerlink" href="#range" title="Link to this heading">#</a></h2>
+<p>[ Range=204.640-10.248 ]</p>
+<p>[ Range=194.392 ]</p>
+<p>Jadi rentangnya:</p>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\boxed{194.392\</span> <span class="pre">\mu</span> <span class="pre">g/m^3}</span></code>{=tex} ]</p>
+</section>
+<section id="id3">
+<h2>5.10.2 Mean<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>[ Mean=62.028 <code class="docutils literal notranslate"><span class="pre">\mu</span> </code>{=tex}g/m^3 ]</p>
+<p>Ini merupakan rata-rata konsentrasi PM2.5 pada data contoh.</p>
+</section>
+<section id="id4">
+<h2>5.10.3 Standard Deviation<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>[ Std. deviation=35.869 ]</p>
+<p>Penyebaran PM2.5 cukup besar dibandingkan rata-ratanya.</p>
+</section>
+<section id="id5">
+<h2>5.10.4 Skewness<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<p>[ Skewness=0.968 ]</p>
+<p>Distribusi cenderung positif skewed.</p>
+<p>Hal ini mengindikasikan bahwa sejumlah observasi dengan konsentrasi
+lebih tinggi dapat menarik distribusi ke arah kanan.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="analisis-pm10">
+<h1>5.11 Analisis PM10<a class="headerlink" href="#analisis-pm10" title="Link to this heading">#</a></h1>
+<p>Berdasarkan output:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Min       = 10.407
+Max       = 207.295
+Mean      = 63.610
+Std Dev   = 36.421
+Variance  = 1,326.47
+Skewness  = 0.958
+</pre></div>
+</div>
+<section id="id6">
+<h2>5.11.1 Range<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<p>[ Range=207.295-10.407 ]</p>
+<p>[ Range=196.888 ]</p>
+<p>Jadi:</p>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\boxed{Range=196.888\</span> <span class="pre">\mu</span> <span class="pre">g/m^3}</span></code>{=tex} ]</p>
+</section>
+<section id="id7">
+<h2>5.11.2 Mean<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<p>[ Mean=63.610 <code class="docutils literal notranslate"><span class="pre">\mu</span> </code>{=tex}g/m^3 ]</p>
+</section>
+<section id="id8">
+<h2>5.11.3 Standard Deviation<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<p>[ Std. deviation=36.421 ]</p>
+<p>Nilai ini menunjukkan penyebaran yang cukup besar.</p>
+</section>
+<section id="id9">
+<h2>5.11.4 Skewness<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<p>[ Skewness=0.958 ]</p>
+<p>Distribusi PM10 juga cenderung positif skewed.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="perbandingan-pm1-pm2-5-dan-pm10">
+<h1>5.12 Perbandingan PM1, PM2.5, dan PM10<a class="headerlink" href="#perbandingan-pm1-pm2-5-dan-pm10" title="Link to this heading">#</a></h1>
+<p>Berdasarkan statistik deskriptif:</p>
+<p>Statistik               PM1      PM2.5       PM10</p>
+<hr class="docutils" />
+<p>Minimum                8.04     10.248     10.407
+Maximum             193.528    204.640    207.295
+Mean                 57.529     62.028     63.610
+Std. deviation       33.979     35.869     36.421
+Variance           1,154.57   1,286.60   1,326.47
+Skewness              0.967      0.968      0.958</p>
+<section id="kesimpulan-awal">
+<h2>Kesimpulan awal<a class="headerlink" href="#kesimpulan-awal" title="Link to this heading">#</a></h2>
+<p>Dari angka tersebut:</p>
+<ol class="arabic simple">
+<li><p><strong>PM10 memiliki mean tertinggi</strong>.</p></li>
+<li><p><strong>PM10 memiliki standard deviation tertinggi</strong>.</p></li>
+<li><p><strong>PM10 memiliki variance tertinggi</strong>.</p></li>
+<li><p>PM2.5 dan PM10 memiliki skewness yang sangat mirip.</p></li>
+<li><p>Ketiga variabel memiliki skewness positif.</p></li>
+<li><p>Ketiganya menunjukkan variasi yang cukup besar.</p></li>
+</ol>
+<p>Namun, perbedaan angka tidak boleh langsung diartikan sebagai perbedaan
+tingkat bahaya karena ketiga variabel mewakili fraksi ukuran partikel
+yang berbeda.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="membandingkan-mean">
+<h1>5.13 Membandingkan Mean<a class="headerlink" href="#membandingkan-mean" title="Link to this heading">#</a></h1>
+<p>Mean:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM1    = 57.529
+PM2.5  = 62.028
+PM10   = 63.610
+</pre></div>
+</div>
+<p>Urutan mean:</p>
+<p>[ PM10 &gt; PM2.5 &gt; PM1 ]</p>
+<p>Dengan demikian, berdasarkan dataset contoh, konsentrasi rata-rata yang
+tercatat adalah:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM10  → tertinggi
+PM2.5 → menengah
+PM1   → terendah
+</pre></div>
+</div>
+<p>Jika ketiga kanal sensor memang mengukur fraksi massa yang konsisten,
+pola tersebut secara umum masuk akal karena cutoff PM10 mencakup fraksi
+yang lebih luas. Namun, validasi karakteristik sensor tetap diperlukan.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="membandingkan-maximum">
+<h1>5.14 Membandingkan Maximum<a class="headerlink" href="#membandingkan-maximum" title="Link to this heading">#</a></h1>
+<p>Nilai maksimum:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM1    = 193.528
+PM2.5  = 204.640
+PM10   = 207.295
+</pre></div>
+</div>
+<p>Urutannya:</p>
+<p>[ PM10 &gt; PM2.5 &gt; PM1 ]</p>
+<p>PM10 memiliki nilai maksimum paling tinggi pada data contoh.</p>
+<p>Hal ini menunjukkan bahwa episode konsentrasi partikulat tertinggi pada
+kanal PM10 mencapai sekitar:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>207.295 µg/m³
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="membandingkan-standard-deviation">
+<h1>5.15 Membandingkan Standard Deviation<a class="headerlink" href="#membandingkan-standard-deviation" title="Link to this heading">#</a></h1>
+<p>Standard deviation:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM1    = 33.979
+PM2.5  = 35.869
+PM10   = 36.421
+</pre></div>
+</div>
+<p>Urutan:</p>
+<p>[ PM10 &gt; PM2.5 &gt; PM1 ]</p>
+<p>PM10 memiliki penyebaran absolut terbesar.</p>
+<p>Namun, untuk membandingkan <strong>variabilitas relatif</strong>, standard deviation
+saja belum cukup. Gunakan coefficient of variation.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="coefficient-of-variation-pm">
+<h1>5.16 Coefficient of Variation PM<a class="headerlink" href="#coefficient-of-variation-pm" title="Link to this heading">#</a></h1>
+<p>Rumus:</p>
+<p>[ CV=<code class="docutils literal notranslate"><span class="pre">\frac{Std.Dev}{Mean}</span></code>{=tex}<code class="docutils literal notranslate"><span class="pre">\times100</span></code>{=tex}% ]</p>
+<section id="id10">
+<h2>PM1<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<p>[ CV_{PM1} = <code class="docutils literal notranslate"><span class="pre">\frac{33.979}{57.529}</span></code>{=tex}<code class="docutils literal notranslate"><span class="pre">\times100</span></code>{=tex}% ]</p>
+<p>[ CV_{=tex}% ]</p>
+</section>
+<section id="id11">
+<h2>PM2.5<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<p>[ CV_{PM2.5} = <code class="docutils literal notranslate"><span class="pre">\frac{35.869}{62.028}</span></code>{=tex}<code class="docutils literal notranslate"><span class="pre">\times100</span></code>{=tex}% ]</p>
+<p>[ CV_{PM2.5}<code class="docutils literal notranslate"><span class="pre">\approx57.83</span></code>{=tex}% ]</p>
+</section>
+<section id="id12">
+<h2>PM10<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+<p>[ CV_{PM10} = <code class="docutils literal notranslate"><span class="pre">\frac{36.421}{63.610}</span></code>{=tex}<code class="docutils literal notranslate"><span class="pre">\times100</span></code>{=tex}% ]</p>
+<p>[ CV_{=tex}% ]</p>
+<p>Ringkasan:</p>
+<p>Variabel       Mean   Std. Dev.        CV</p>
+<hr class="docutils" />
+<p>PM1          57.529      33.979   ≈59.06%
+PM2.5        62.028      35.869   ≈57.83%
+PM10         63.610      36.421   ≈57.26%</p>
+<p>Interpretasi:</p>
+<ul class="simple">
+<li><p>PM1 memiliki variasi relatif paling tinggi;</p></li>
+<li><p>PM10 memiliki variasi absolut paling tinggi;</p></li>
+<li><p>perbedaan CV ketiganya relatif kecil.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="skewness-ketiga-variabel">
+<h1>5.17 Skewness Ketiga Variabel<a class="headerlink" href="#skewness-ketiga-variabel" title="Link to this heading">#</a></h1>
+<p>Nilai:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM1    = 0.967
+PM2.5  = 0.968
+PM10   = 0.958
+</pre></div>
+</div>
+<p>Ketiganya:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt; 0
+</pre></div>
+</div>
+<p>sehingga distribusi cenderung right-skewed.</p>
+<p>PM2.5 memiliki skewness sedikit lebih tinggi pada contoh:</p>
+<p>[ 0.968 ]</p>
+<p>sedangkan PM10:</p>
+<p>[ 0.958 ]</p>
+<p>Perbedaannya kecil.</p>
+<section id="interpretasi-penting">
+<h2>Interpretasi penting<a class="headerlink" href="#interpretasi-penting" title="Link to this heading">#</a></h2>
+<p>Jangan menyimpulkan bahwa PM2.5 “jauh lebih skewed” daripada PM10 hanya
+karena perbedaan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>0.968 - 0.958 = 0.010
+</pre></div>
+</div>
+<p>Perbedaan ini sangat kecil dan perlu dipertimbangkan bersama ukuran
+sampel dan distribusi sebenarnya.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="hubungan-pm1-pm2-5-pm10">
+<h1>5.18 Hubungan PM1 → PM2.5 → PM10<a class="headerlink" href="#hubungan-pm1-pm2-5-pm10" title="Link to this heading">#</a></h1>
+<p>Secara konseptual, ketiga variabel memiliki hubungan berdasarkan ukuran
+partikel.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM1
+ ↓
+bagian partikel sangat halus
+
+PM2.5
+ ↓
+fraksi yang lebih luas
+
+PM10
+ ↓
+fraksi yang lebih luas lagi
+</pre></div>
+</div>
+<p>Karena itu, pada data yang benar-benar merepresentasikan massa kumulatif
+berdasarkan cutoff ukuran, diharapkan terdapat hubungan positif yang
+kuat.</p>
+<p>Tetapi hubungan tersebut <strong>harus diuji dari data</strong>, bukan hanya
+diasumsikan.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="korelasi-pm1-pm2-5-dan-pm10">
+<h1>5.19 Korelasi PM1, PM2.5, dan PM10<a class="headerlink" href="#korelasi-pm1-pm2-5-dan-pm10" title="Link to this heading">#</a></h1>
+<p>Salah satu cara menguji hubungan adalah menggunakan korelasi.</p>
+<p>Korelasi Pearson:</p>
+<p>[ r= <code class="docutils literal notranslate"><span class="pre">\frac{</span> <span class="pre">\sum(x_i-\bar{x})(y_i-\bar{y})</span> <span class="pre">}{</span> <span class="pre">\sqrt{</span> <span class="pre">\sum(x_i-\bar{x})^2</span> <span class="pre">\sum(y_i-\bar{y})^2</span> <span class="pre">}</span> <span class="pre">}</span></code>{=tex} ]</p>
+<p>Nilai (r) berada antara:</p>
+<p>[ -1<code class="docutils literal notranslate"><span class="pre">\le</span> </code>{=tex}r<code class="docutils literal notranslate"><span class="pre">\le1</span></code>{=tex} ]</p>
+<p>Interpretasi umum:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>           r Interpretasi
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mendekati +1 hubungan linear positif kuat
+ mendekati 0 hubungan linear lemah/tidak ada
+mendekati -1 hubungan linear negatif kuat
+</pre></div>
+</div>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>r(PM2.5, PM10) = 0.95
+</pre></div>
+</div>
+<p>menunjukkan hubungan linear positif yang sangat kuat.</p>
+<p>Namun, korelasi <strong>tidak sama dengan sebab-akibat</strong>.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="mengapa-pm2-5-dan-pm10-bisa-berkorelasi">
+<h1>5.20 Mengapa PM2.5 dan PM10 Bisa Berkorelasi?<a class="headerlink" href="#mengapa-pm2-5-dan-pm10-bisa-berkorelasi" title="Link to this heading">#</a></h1>
+<p>Konsentrasi PM2.5 dan PM10 dapat meningkat bersamaan karena keduanya
+dipengaruhi oleh kondisi lingkungan yang sama.</p>
+<p>Contohnya:</p>
+<ul class="simple">
+<li><p>aktivitas lalu lintas;</p></li>
+<li><p>pembakaran;</p></li>
+<li><p>kondisi meteorologi;</p></li>
+<li><p>sumber emisi lokal;</p></li>
+<li><p>kebakaran.</p></li>
+</ul>
+<p>Ketika terjadi episode polusi partikulat, beberapa fraksi ukuran
+partikel dapat meningkat secara bersamaan.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="scatter-plot-pm2-5-vs-pm10">
+<h1>5.21 Scatter Plot PM2.5 vs PM10<a class="headerlink" href="#scatter-plot-pm2-5-vs-pm10" title="Link to this heading">#</a></h1>
+<p>Untuk memeriksa hubungan secara visual, gunakan scatter plot.</p>
+<p>Konsep:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM10
+ ^
+ |                    *
+ |                *
+ |             *
+ |         *
+ |      *
+ |   *
+ +--------------------------&gt; PM2.5
+</pre></div>
+</div>
+<p>Jika titik-titik cenderung membentuk garis naik, terdapat indikasi
+hubungan positif.</p>
+<p>Dalam KNIME, scatter plot dapat digunakan untuk:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>X-axis = PM2.5
+Y-axis = PM10
+</pre></div>
+</div>
+<p>Kemudian tambahkan scatter plot untuk:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM1 vs PM2.5
+PM1 vs PM10
+PM2.5 vs PM10
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="time-series-pm">
+<h1>5.22 Time Series PM<a class="headerlink" href="#time-series-pm" title="Link to this heading">#</a></h1>
+<p>Karena dataset kualitas udara biasanya memiliki timestamp, analisis
+tidak hanya dilakukan berdasarkan distribusi keseluruhan.</p>
+<p>Pertanyaan penting:</p>
+<blockquote>
+<div><p>Bagaimana PM berubah terhadap waktu?</p>
+</div></blockquote>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM2.5
+ ^
+ |        /\          /\
+ |       /  \        /  \
+ |  /\  /    \  /\  /    \
+ |_/  \/      \/  \/      \__
+ +----------------------------&gt; waktu
+</pre></div>
+</div>
+<p>Time series dapat menunjukkan:</p>
+<ul class="simple">
+<li><p>jam dengan konsentrasi tinggi;</p></li>
+<li><p>pola harian;</p></li>
+<li><p>tren;</p></li>
+<li><p>episode polusi;</p></li>
+<li><p>perubahan musiman;</p></li>
+<li><p>hubungan dengan aktivitas manusia.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="pola-harian">
+<h1>5.23 Pola Harian<a class="headerlink" href="#pola-harian" title="Link to this heading">#</a></h1>
+<p>Jika timestamp tersedia, data dapat dikelompokkan berdasarkan jam.</p>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>00:00
+01:00
+02:00
+...
+23:00
+</pre></div>
+</div>
+<p>Kemudian hitung:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Mean PM2.5 per jam
+</pre></div>
+</div>
+<p>Hasil dapat digunakan untuk mencari pola seperti:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pagi       → tinggi
+siang      → menurun
+sore       → meningkat
+malam      → menurun
+</pre></div>
+</div>
+<p>Pola tersebut hanya contoh. Jangan menganggap pola tertentu sebagai
+fakta sebelum dihitung dari dataset.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="moving-average">
+<h1>5.24 Moving Average<a class="headerlink" href="#moving-average" title="Link to this heading">#</a></h1>
+<p>Untuk mengurangi noise pada time series, dapat digunakan moving average.</p>
+<p>Contoh moving average 3 periode:</p>
+<p>[ MA_t = <code class="docutils literal notranslate"><span class="pre">\frac{x_t+x_{t-1}+x_{t-2}}{3}</span></code>{=tex} ]</p>
+<p>Misalkan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>t-2 = 20
+t-1 = 30
+t   = 40
+</pre></div>
+</div>
+<p>maka:</p>
+<p>[ MA_t=<code class="docutils literal notranslate"><span class="pre">\frac{20+30+40}{3}</span></code>{=tex} ]</p>
+<p>[ MA_t=30 ]</p>
+<p>Moving average membantu melihat tren umum, tetapi dapat menghaluskan
+lonjakan penting.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="analisis-outlier-pm">
+<h1>5.25 Analisis Outlier PM<a class="headerlink" href="#analisis-outlier-pm" title="Link to this heading">#</a></h1>
+<p>Nilai maksimum yang jauh lebih tinggi daripada mean dapat menjadi
+kandidat outlier.</p>
+<p>Contoh PM2.5:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Mean = 62.028
+Max  = 204.640
+</pre></div>
+</div>
+<p>Perbedaan:</p>
+<p>[ 204.640-62.028=142.612 ]</p>
+<p>Nilai maksimum cukup jauh dari rata-rata.</p>
+<p>Namun, nilai tersebut tidak boleh langsung dihapus.</p>
+<section id="pemeriksaan-yang-disarankan">
+<h2>Pemeriksaan yang disarankan<a class="headerlink" href="#pemeriksaan-yang-disarankan" title="Link to this heading">#</a></h2>
+<p>Periksa:</p>
+<ol class="arabic simple">
+<li><p>timestamp;</p></li>
+<li><p>sensor;</p></li>
+<li><p>lokasi;</p></li>
+<li><p>nilai PM1 dan PM10 pada timestamp yang sama;</p></li>
+<li><p>kelembapan;</p></li>
+<li><p>temperatur;</p></li>
+<li><p>kondisi lingkungan;</p></li>
+<li><p>data mentah/sumber sensor.</p></li>
+</ol>
+<p>Jika PM2.5, PM10, dan variabel lain semuanya meningkat pada waktu yang
+sama, lonjakan tersebut mungkin merupakan kejadian nyata.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="validasi-outlier-dengan-variabel-lain">
+<h1>5.26 Validasi Outlier dengan Variabel Lain<a class="headerlink" href="#validasi-outlier-dengan-variabel-lain" title="Link to this heading">#</a></h1>
+<p>Misalnya pada satu timestamp:</p>
+<p>Variabel     Nilai</p>
+<hr class="docutils" />
+<p>PM1            180
+PM2.5          195
+PM10           205</p>
+<p>Jika ketiga kanal meningkat bersamaan, lebih masuk akal untuk
+menganggapnya sebagai <strong>episode partikulat tinggi yang perlu
+diverifikasi</strong>, bukan langsung sebagai kesalahan PM2.5.</p>
+<p>Sebaliknya, jika:</p>
+<p>Variabel     Nilai</p>
+<hr class="docutils" />
+<p>PM1             20
+PM2.5          200
+PM10            25</p>
+<p>maka data tersebut lebih patut diperiksa karena hubungan antarfraksi
+terlihat tidak biasa.</p>
+<p>Tetapi keputusan akhir tetap bergantung pada karakteristik instrumen dan
+kualitas data.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="pemeriksaan-konsistensi-antar-pm">
+<h1>5.27 Pemeriksaan Konsistensi Antar-PM<a class="headerlink" href="#pemeriksaan-konsistensi-antar-pm" title="Link to this heading">#</a></h1>
+<p>Dalam dataset partikulat, kita dapat membuat beberapa pemeriksaan
+kualitas data.</p>
+<p>Contoh aturan pemeriksaan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM1 &lt;= PM2.5
+PM2.5 &lt;= PM10
+</pre></div>
+</div>
+<p>Aturan ini dapat digunakan sebagai <strong>quality-control check</strong> jika ketiga
+kolom memang memiliki definisi fraksi massa kumulatif yang konsisten.</p>
+<p>Jangan menerapkan aturan ini secara otomatis pada semua dataset tanpa
+memeriksa dokumentasi sensor, karena metode pengukuran dapat berbeda.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="contoh-rule-engine-untuk-qc">
+<h1>5.28 Contoh Rule Engine untuk QC<a class="headerlink" href="#contoh-rule-engine-untuk-qc" title="Link to this heading">#</a></h1>
+<p>Jika aturan konsistensi sesuai dengan definisi dataset, dapat dibuat
+aturan konseptual:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM1 &lt;= PM2.5 AND PM2.5 &lt;= PM10
+    → Valid
+
+Selain itu
+    → Check
+</pre></div>
+</div>
+<p>Di KNIME, pemeriksaan semacam ini dapat dilakukan menggunakan:</p>
+<ul class="simple">
+<li><p>Rule Engine;</p></li>
+<li><p>Rule-based Row Filter;</p></li>
+<li><p>Column Expressions;</p></li>
+<li><p>atau node lain yang sesuai.</p></li>
+</ul>
+<p>Contoh output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PM1   PM2.5   PM10 QC
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> 20      30     40 Valid
+ 50      45     60 Check
+ 30      50     45 Check
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="histogram-pm">
+<h1>5.29 Histogram PM<a class="headerlink" href="#histogram-pm" title="Link to this heading">#</a></h1>
+<p>Histogram digunakan untuk melihat distribusi.</p>
+<p>Contoh konsep:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Frekuensi
+ ^
+ |        ███
+ |       █████
+ |     ███████
+ |   █████████
+ | ███████████
+ +--------------------&gt; PM2.5
+</pre></div>
+</div>
+<p>Histogram dapat membantu melihat:</p>
+<ul class="simple">
+<li><p>pusat distribusi;</p></li>
+<li><p>penyebaran;</p></li>
+<li><p>skewness;</p></li>
+<li><p>beberapa puncak distribusi;</p></li>
+<li><p>nilai ekstrem.</p></li>
+</ul>
+<p>Karena ketiga variabel memiliki skewness positif pada contoh, histogram
+kemungkinan menunjukkan ekor ke arah nilai tinggi.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="box-plot-pm">
+<h1>5.30 Box Plot PM<a class="headerlink" href="#box-plot-pm" title="Link to this heading">#</a></h1>
+<p>Box plot dapat digunakan untuk membandingkan distribusi PM1, PM2.5, dan
+PM10.</p>
+<p>Komponen:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Maximum
+   |
+   |
+ ┌─────┐
+ │     │
+ ├─────┤ ← Median
+ │     │
+ └─────┘
+   |
+   |
+Minimum
+</pre></div>
+</div>
+<p>Box plot dapat membantu melihat:</p>
+<ul class="simple">
+<li><p>median;</p></li>
+<li><p>Q1;</p></li>
+<li><p>Q3;</p></li>
+<li><p>IQR;</p></li>
+<li><p>outlier.</p></li>
+</ul>
+<p>Jika beberapa box plot diletakkan berdampingan, perbandingan distribusi
+menjadi lebih mudah.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="contoh-interpretasi-box-plot">
+<h1>5.31 Contoh Interpretasi Box Plot<a class="headerlink" href="#contoh-interpretasi-box-plot" title="Link to this heading">#</a></h1>
+<p>Misalnya hasil menunjukkan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM1    → median lebih rendah
+PM2.5  → median lebih tinggi
+PM10   → median paling tinggi
+</pre></div>
+</div>
+<p>Interpretasinya:</p>
+<blockquote>
+<div><p>Pada dataset tersebut, pusat distribusi PM10 lebih tinggi daripada
+PM2.5 dan PM1.</p>
+</div></blockquote>
+<p>Namun, interpretasi harus menggunakan nilai aktual hasil analisis, bukan
+hanya bentuk grafik.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="mean-median-dan-skewness">
+<h1>5.32 Mean, Median, dan Skewness<a class="headerlink" href="#mean-median-dan-skewness" title="Link to this heading">#</a></h1>
+<p>Ketiga ukuran dapat digunakan bersama.</p>
+<p>Contoh pola:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Mean &gt; Median
+Skewness &gt; 0
+</pre></div>
+</div>
+<p>Hal ini konsisten dengan distribusi yang cenderung right-skewed.</p>
+<p>Pada data contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM1    → skewness ≈ 0.967
+PM2.5  → skewness ≈ 0.968
+PM10   → skewness ≈ 0.958
+</pre></div>
+</div>
+<p>Semua positif.</p>
+<p>Jika median dihitung, bandingkan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Mean vs Median
+</pre></div>
+</div>
+<p>untuk mendapatkan gambaran tambahan tentang pusat distribusi.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="mengapa-tidak-cukup-menggunakan-mean">
+<h1>5.33 Mengapa Tidak Cukup Menggunakan Mean?<a class="headerlink" href="#mengapa-tidak-cukup-menggunakan-mean" title="Link to this heading">#</a></h1>
+<p>Misalkan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM2.5:
+Mean = 62.028
+</pre></div>
+</div>
+<p>Angka tersebut tidak memberi tahu:</p>
+<ul class="simple">
+<li><p>apakah sebagian besar data berada dekat 62;</p></li>
+<li><p>apakah ada banyak nilai sangat rendah;</p></li>
+<li><p>apakah terdapat nilai sangat tinggi;</p></li>
+<li><p>apakah distribusi simetris;</p></li>
+<li><p>apakah terdapat beberapa kelompok data.</p></li>
+</ul>
+<p>Karena itu, analisis perlu dilengkapi dengan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Median
+Std. deviation
+Quartile
+IQR
+Skewness
+Histogram
+Box plot
+Time series
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="analisis-perbandingan-dengan-range">
+<h1>5.34 Analisis Perbandingan dengan Range<a class="headerlink" href="#analisis-perbandingan-dengan-range" title="Link to this heading">#</a></h1>
+<p>Range:</p>
+<p>Variabel       Range</p>
+<hr class="docutils" />
+<p>PM1          185.488
+PM2.5        194.392
+PM10         196.888</p>
+<p>Urutan:</p>
+<p>[ PM10 &gt; PM2.5 &gt; PM1 ]</p>
+<p>PM10 mempunyai rentang paling besar pada data contoh.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="analisis-variance">
+<h1>5.35 Analisis Variance<a class="headerlink" href="#analisis-variance" title="Link to this heading">#</a></h1>
+<p>Variance:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM1    = 1,154.57
+PM2.5  = 1,286.60
+PM10   = 1,326.47
+</pre></div>
+</div>
+<p>Urutan:</p>
+<p>[ PM10 &gt; PM2.5 &gt; PM1 ]</p>
+<p>Variance terbesar terdapat pada PM10.</p>
+<p>Karena variance menggunakan kuadrat satuan, standard deviation biasanya
+lebih mudah digunakan untuk interpretasi langsung.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="membandingkan-variabilitas-absolut-dan-relatif">
+<h1>5.36 Membandingkan Variabilitas Absolut dan Relatif<a class="headerlink" href="#membandingkan-variabilitas-absolut-dan-relatif" title="Link to this heading">#</a></h1>
+<p>Penting membedakan:</p>
+<section id="variabilitas-absolut">
+<h2>Variabilitas absolut<a class="headerlink" href="#variabilitas-absolut" title="Link to this heading">#</a></h2>
+<p>Gunakan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Standard deviation
+Variance
+Range
+</pre></div>
+</div>
+</section>
+<section id="variabilitas-relatif">
+<h2>Variabilitas relatif<a class="headerlink" href="#variabilitas-relatif" title="Link to this heading">#</a></h2>
+<p>Gunakan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Coefficient of Variation
+</pre></div>
+</div>
+<p>Dalam contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM10
+→ Std Dev tertinggi
+→ Variance tertinggi
+
+PM1
+→ CV tertinggi
+</pre></div>
+</div>
+<p>Artinya PM10 memiliki penyebaran absolut terbesar, tetapi PM1 memiliki
+penyebaran relatif terhadap mean yang sedikit lebih tinggi.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="contoh-pertanyaan-analisis">
+<h1>5.37 Contoh Pertanyaan Analisis<a class="headerlink" href="#contoh-pertanyaan-analisis" title="Link to this heading">#</a></h1>
+<p>Setelah Statistics Node dijalankan, gunakan pertanyaan berikut:</p>
+<section id="pertanyaan-1">
+<h2>Pertanyaan 1<a class="headerlink" href="#pertanyaan-1" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Variabel PM mana yang memiliki mean paling tinggi?</p>
+</div></blockquote>
+<p>Jawaban dari contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM10
+</pre></div>
+</div>
+</section>
+<section id="pertanyaan-2">
+<h2>Pertanyaan 2<a class="headerlink" href="#pertanyaan-2" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Variabel mana yang memiliki standard deviation terbesar?</p>
+</div></blockquote>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM10
+</pre></div>
+</div>
+</section>
+<section id="pertanyaan-3">
+<h2>Pertanyaan 3<a class="headerlink" href="#pertanyaan-3" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Apakah distribusi PM cenderung simetris?</p>
+</div></blockquote>
+<p>Tidak sepenuhnya. Ketiganya memiliki skewness positif.</p>
+</section>
+<section id="pertanyaan-4">
+<h2>Pertanyaan 4<a class="headerlink" href="#pertanyaan-4" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Apakah terdapat indikasi nilai ekstrem?</p>
+</div></blockquote>
+<p>Ya, rentang yang luas dan skewness positif menunjukkan perlunya
+pemeriksaan lebih lanjut terhadap nilai tinggi.</p>
+</section>
+<section id="pertanyaan-5">
+<h2>Pertanyaan 5<a class="headerlink" href="#pertanyaan-5" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Apakah PM2.5 dan PM10 berhubungan?</p>
+</div></blockquote>
+<p>Kemungkinan memiliki hubungan positif, tetapi perlu diuji menggunakan
+korelasi dan scatter plot.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="workflow-knime-yang-disarankan">
+<h1>5.38 Workflow KNIME yang Disarankan<a class="headerlink" href="#workflow-knime-yang-disarankan" title="Link to this heading">#</a></h1>
+<p>Contoh workflow:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>                    +-------------+
+                    |  CSV Reader |
+                    +------+------+
+                           |
+                           v
+                    +-------------+
+                    | Data Cleaner|
+                    +------+------+
+                           |
+                           v
+                    +-------------+
+                    |  Statistics |
+                    +------+------+
+                           |
+            +--------------+--------------+
+            |              |              |
+            v              v              v
+       Statistics      Histogram     Occurrences
+         Table
+            |
+            v
+      +-------------+
+      |  Filtering  |
+      +------+------+
+             |
+             v
+      +-------------+
+      | Correlation |
+      +------+------+
+             |
+             v
+      +-------------+
+      | Visualization|
+      +-------------+
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="node-yang-dapat-digunakan-untuk-analisis-pm">
+<h1>5.39 Node yang Dapat Digunakan untuk Analisis PM<a class="headerlink" href="#node-yang-dapat-digunakan-untuk-analisis-pm" title="Link to this heading">#</a></h1>
+<p>Beberapa node KNIME yang dapat mendukung analisis:</p>
+<p>Kebutuhan               Node/pendekatan</p>
+<hr class="docutils" />
+<p>Statistik deskriptif    Statistics
+Visualisasi statistik   Statistics View
+Distribusi              Histogram / visualization
+Korelasi                Linear Correlation / Correlation tools
+Filter baris            Row Filter
+Validasi aturan         Rule Engine
+Perhitungan kolom       Math Formula / Column Expressions
+Time series             Date&amp;Time + visualization/time-series nodes
+Missing value           Missing Value
+Outlier                 Rule Engine / statistik / visualisasi
+Scatter plot            Scatter Plot / visualization
+Box plot                Box Plot / visualization</p>
+<p>Nama node dapat berbeda menurut versi KNIME dan extension yang
+terpasang.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="contoh-perhitungan-range-dengan-knime">
+<h1>5.40 Contoh Perhitungan Range dengan KNIME<a class="headerlink" href="#contoh-perhitungan-range-dengan-knime" title="Link to this heading">#</a></h1>
+<p>Jika kolom:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pm2p5_ug_m3
+</pre></div>
+</div>
+<p>memiliki:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Min = 10.248
+Max = 204.640
+</pre></div>
+</div>
+<p>maka:</p>
+<p>[ Range=204.640-10.248 ]</p>
+<p>[ Range=194.392 ]</p>
+<p>Jika ingin membuat kolom range menggunakan KNIME, konsepnya adalah:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Max - Min
+</pre></div>
+</div>
+<p>Untuk statistik keseluruhan kolom, nilai Min dan Max biasanya berasal
+dari output Statistics dan bukan dihitung per baris.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="contoh-perhitungan-cv">
+<h1>5.41 Contoh Perhitungan CV<a class="headerlink" href="#contoh-perhitungan-cv" title="Link to this heading">#</a></h1>
+<p>Untuk PM10:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Mean = 63.610
+Std Dev = 36.421
+</pre></div>
+</div>
+<p>[ CV= <code class="docutils literal notranslate"><span class="pre">\frac{36.421}{63.610}</span></code>{=tex}<code class="docutils literal notranslate"><span class="pre">\times100</span></code>{=tex}% ]</p>
+<p>[ CV<code class="docutils literal notranslate"><span class="pre">\approx57.26</span></code>{=tex}% ]</p>
+<p>Interpretasi:</p>
+<blockquote>
+<div><p>Standard deviation PM10 sekitar 57% dari nilai mean.</p>
+</div></blockquote>
+<p>Ini menunjukkan variabilitas relatif yang cukup besar.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="contoh-analisis-nilai-tinggi">
+<h1>5.42 Contoh Analisis Nilai Tinggi<a class="headerlink" href="#contoh-analisis-nilai-tinggi" title="Link to this heading">#</a></h1>
+<p>Untuk PM10:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Mean = 63.610
+Maximum = 207.295
+</pre></div>
+</div>
+<p>Rasio maximum terhadap mean:</p>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\frac{207.295}{63.610}</span></code>{=tex}<code class="docutils literal notranslate"><span class="pre">\approx3.26</span></code>{=tex} ]</p>
+<p>Artinya nilai maksimum sekitar 3.26 kali mean.</p>
+<p>Ini menunjukkan bahwa terdapat pengamatan dengan konsentrasi jauh lebih
+tinggi daripada rata-rata.</p>
+<p>Namun, rasio ini bukan ukuran outlier formal. Untuk itu dapat digunakan
+IQR atau z-score.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="z-score-nilai-maksimum">
+<h1>5.43 Z-Score Nilai Maksimum<a class="headerlink" href="#z-score-nilai-maksimum" title="Link to this heading">#</a></h1>
+<p>Jika menggunakan standard deviation yang ditampilkan:</p>
+<section id="id13">
+<h2>PM10<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
+<p>[ z= <code class="docutils literal notranslate"><span class="pre">\frac{207.295-63.610}{36.421}</span></code>{=tex} ]</p>
+<p>[ z<code class="docutils literal notranslate"><span class="pre">\approx3.95</span></code>{=tex} ]</p>
+<p>Nilai maksimum PM10 sekitar 3.95 standard deviation di atas mean
+berdasarkan angka ringkasan tersebut.</p>
+</section>
+<section id="id14">
+<h2>PM2.5<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
+<p>[ z= <code class="docutils literal notranslate"><span class="pre">\frac{204.640-62.028}{35.869}</span></code>{=tex} ]</p>
+<p>[ z<code class="docutils literal notranslate"><span class="pre">\approx3.97</span></code>{=tex} ]</p>
+</section>
+<section id="id15">
+<h2>PM1<a class="headerlink" href="#id15" title="Link to this heading">#</a></h2>
+<p>[ z= <code class="docutils literal notranslate"><span class="pre">\frac{193.528-57.529}{33.979}</span></code>{=tex} ]</p>
+<p>[ z<code class="docutils literal notranslate"><span class="pre">\approx4.00</span></code>{=tex} ]</p>
+<p>Ketiganya menunjukkan bahwa nilai maksimum cukup jauh dari mean.</p>
+<blockquote>
+<div><p><strong>Peringatan:</strong> z-score di atas dihitung dari ringkasan yang
+dibulatkan pada screenshot, sehingga hasilnya merupakan pendekatan.
+Untuk perhitungan final gunakan nilai statistik dengan presisi penuh.</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="apakah-nilai-maksimum-harus-dihapus">
+<h1>5.44 Apakah Nilai Maksimum Harus Dihapus?<a class="headerlink" href="#apakah-nilai-maksimum-harus-dihapus" title="Link to this heading">#</a></h1>
+<p>Tidak.</p>
+<p>Proses yang benar:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Temukan nilai ekstrem
+        ↓
+Periksa timestamp
+        ↓
+Periksa sensor
+        ↓
+Bandingkan PM1/PM2.5/PM10
+        ↓
+Periksa variabel lingkungan
+        ↓
+Validasi dengan sumber data
+        ↓
+Putuskan apakah valid/error
+</pre></div>
+</div>
+<p>Jika valid:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Pertahankan
+</pre></div>
+</div>
+<p>Jika terbukti error:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Perbaiki / hapus / imputasi
+</pre></div>
+</div>
+<p>Dokumentasikan keputusan tersebut.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="hubungan-dengan-analisis-kualitas-udara">
+<h1>5.45 Hubungan dengan Analisis Kualitas Udara<a class="headerlink" href="#hubungan-dengan-analisis-kualitas-udara" title="Link to this heading">#</a></h1>
+<p>Analisis PM tidak berhenti pada statistik deskriptif.</p>
+<p>Setelah mengetahui distribusi PM, langkah berikutnya dapat berupa:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM Analysis
+    |
+    +--&gt; Trend waktu
+    |
+    +--&gt; Perbandingan lokasi
+    |
+    +--&gt; Korelasi
+    |
+    +--&gt; Outlier
+    |
+    +--&gt; Klasifikasi kualitas udara
+    |
+    +--&gt; Forecasting
+    |
+    +--&gt; Machine Learning
+</pre></div>
+</div>
+<p>Statistics Node menjadi fondasi untuk memahami data sebelum analisis
+tersebut dilakukan.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="contoh-narasi-untuk-laporan">
+<h1>5.46 Contoh Narasi untuk Laporan<a class="headerlink" href="#contoh-narasi-untuk-laporan" title="Link to this heading">#</a></h1>
+<p>Berikut contoh narasi yang dapat digunakan dalam laporan:</p>
+<blockquote>
+<div><p>Berdasarkan analisis statistik deskriptif, konsentrasi rata-rata PM1,
+PM2.5, dan PM10 masing-masing sebesar 57.529, 62.028, dan 63.610
+µg/m³. PM10 memiliki nilai rata-rata, standar deviasi, dan rentang
+tertinggi dibandingkan kedua variabel lainnya. Ketiga variabel
+menunjukkan skewness positif, masing-masing sekitar 0.967 untuk PM1,
+0.968 untuk PM2.5, dan 0.958 untuk PM10, yang mengindikasikan
+distribusi cenderung miring ke kanan. Nilai maksimum yang relatif jauh
+dari mean menunjukkan perlunya pemeriksaan terhadap observasi ekstrem.
+Namun, nilai ekstrem tidak langsung dianggap sebagai kesalahan dan
+perlu divalidasi menggunakan timestamp, sensor, variabel partikulat
+lainnya, serta informasi kondisi lingkungan.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="contoh-narasi-yang-lebih-singkat">
+<h1>5.47 Contoh Narasi yang Lebih Singkat<a class="headerlink" href="#contoh-narasi-yang-lebih-singkat" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>Hasil Statistics Node menunjukkan bahwa PM10 memiliki konsentrasi
+rata-rata tertinggi sebesar 63.610 µg/m³, diikuti PM2.5 sebesar 62.028
+µg/m³ dan PM1 sebesar 57.529 µg/m³. Ketiga variabel memiliki skewness
+positif sekitar 0.96, sehingga distribusinya cenderung right-skewed.
+PM10 juga memiliki standar deviasi terbesar, yaitu 36.421, yang
+menunjukkan penyebaran absolut tertinggi pada dataset contoh.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="hal-yang-perlu-diperhatikan">
+<h1>5.48 Hal yang Perlu Diperhatikan<a class="headerlink" href="#hal-yang-perlu-diperhatikan" title="Link to this heading">#</a></h1>
+<section id="jangan-membandingkan-nilai-pm-tanpa-konteks">
+<h2>1. Jangan membandingkan nilai PM tanpa konteks<a class="headerlink" href="#jangan-membandingkan-nilai-pm-tanpa-konteks" title="Link to this heading">#</a></h2>
+<p>PM1, PM2.5, dan PM10 bukan variabel yang identik.</p>
+</section>
+<section id="jangan-langsung-menghapus-nilai-maksimum">
+<h2>2. Jangan langsung menghapus nilai maksimum<a class="headerlink" href="#jangan-langsung-menghapus-nilai-maksimum" title="Link to this heading">#</a></h2>
+<p>Nilai ekstrem dapat merupakan kejadian nyata.</p>
+</section>
+<section id="jangan-menggunakan-threshold-tanpa-sumber">
+<h2>3. Jangan menggunakan threshold tanpa sumber<a class="headerlink" href="#jangan-menggunakan-threshold-tanpa-sumber" title="Link to this heading">#</a></h2>
+<p>Jika ingin menentukan kategori kualitas udara, sebutkan standar/regulasi
+yang digunakan.</p>
+</section>
+<section id="perhatikan-periode-waktu">
+<h2>4. Perhatikan periode waktu<a class="headerlink" href="#perhatikan-periode-waktu" title="Link to this heading">#</a></h2>
+<p>Nilai hourly, daily average, dan annual average tidak dapat dibandingkan
+secara sembarangan.</p>
+</section>
+<section id="perhatikan-kalibrasi-sensor">
+<h2>5. Perhatikan kalibrasi sensor<a class="headerlink" href="#perhatikan-kalibrasi-sensor" title="Link to this heading">#</a></h2>
+<p>Sensor yang berbeda dapat menghasilkan karakteristik pengukuran berbeda.</p>
+</section>
+<section id="periksa-missing-value">
+<h2>6. Periksa missing value<a class="headerlink" href="#periksa-missing-value" title="Link to this heading">#</a></h2>
+<p>Missing value dapat memengaruhi mean dan statistik lainnya.</p>
+</section>
+<section id="perhatikan-kelembapan">
+<h2>7. Perhatikan kelembapan<a class="headerlink" href="#perhatikan-kelembapan" title="Link to this heading">#</a></h2>
+<p>Sensor partikulat tertentu dapat dipengaruhi oleh kelembapan relatif.
+Jika data kelembapan tersedia, pertimbangkan dalam quality control.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="checklist-analisis-pm">
+<h1>5.49 Checklist Analisis PM<a class="headerlink" href="#checklist-analisis-pm" title="Link to this heading">#</a></h1>
+<p>Gunakan checklist berikut:</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Kolom PM1 sudah bertipe numerik.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Kolom PM2.5 sudah bertipe numerik.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Kolom PM10 sudah bertipe numerik.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Satuan µg/m³ sudah diketahui.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Missing value sudah diperiksa.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Min sudah diperiksa.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Max sudah diperiksa.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Mean sudah dihitung.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Median sudah diperiksa.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Standard deviation sudah diperiksa.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Skewness sudah diperiksa.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Histogram sudah dibuat bila diperlukan.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Box plot sudah diperiksa bila diperlukan.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Outlier sudah divalidasi.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Hubungan PM1–PM2.5–PM10 sudah diperiksa.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Korelasi sudah dianalisis bila diperlukan.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Timestamp sudah digunakan untuk analisis tren.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Threshold kualitas udara memiliki sumber yang jelas.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Karakteristik sensor sudah dipertimbangkan.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="ringkasan-hasil-dataset-contoh">
+<h1>5.50 Ringkasan Hasil Dataset Contoh<a class="headerlink" href="#ringkasan-hasil-dataset-contoh" title="Link to this heading">#</a></h1>
+<p>Parameter               PM1      PM2.5       PM10</p>
+<hr class="docutils" />
+<p>Min                   8.040     10.248     10.407
+Max                 193.528    204.640    207.295
+Range               185.488    194.392    196.888
+Mean                 57.529     62.028     63.610
+Std. deviation       33.979     35.869     36.421
+Variance           1,154.57   1,286.60   1,326.47
+Skewness              0.967      0.968      0.958
+CV                  ≈59.06%    ≈57.83%    ≈57.26%</p>
+<section id="temuan-utama">
+<h2>Temuan utama<a class="headerlink" href="#temuan-utama" title="Link to this heading">#</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Mean:
+PM10 &gt; PM2.5 &gt; PM1
+
+Std. deviation:
+PM10 &gt; PM2.5 &gt; PM1
+
+Variance:
+PM10 &gt; PM2.5 &gt; PM1
+
+Range:
+PM10 &gt; PM2.5 &gt; PM1
+
+Skewness:
+PM1 ≈ PM2.5 ≈ PM10
+dan semuanya positif.
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="kesimpulan">
+<h1>5.51 Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h1>
+<p>Analisis PM1, PM2.5, dan PM10 memberikan gambaran penting mengenai
+karakteristik partikulat dalam dataset kualitas udara.</p>
+<p>Pada contoh hasil Statistics Node:</p>
+<ul class="simple">
+<li><p>PM10 mempunyai mean tertinggi;</p></li>
+<li><p>PM10 mempunyai maximum tertinggi;</p></li>
+<li><p>PM10 mempunyai standard deviation dan variance tertinggi;</p></li>
+<li><p>PM1 mempunyai CV sedikit lebih tinggi;</p></li>
+<li><p>ketiga variabel mempunyai skewness positif;</p></li>
+<li><p>ketiga variabel menunjukkan variasi yang cukup besar;</p></li>
+<li><p>terdapat nilai maksimum yang jauh dari mean dan perlu diperiksa
+lebih lanjut.</p></li>
+</ul>
+<p>Analisis statistik deskriptif sebaiknya menjadi <strong>langkah awal</strong>, bukan
+akhir. Untuk memperoleh pemahaman yang lebih kuat, hasil tersebut perlu
+dilanjutkan dengan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Histogram
+      ↓
+Box Plot
+      ↓
+Time Series
+      ↓
+Correlation
+      ↓
+Outlier Validation
+      ↓
+Quality Control
+      ↓
+Analisis lanjutan
+</pre></div>
+</div>
+<p>Hal yang paling penting adalah membedakan <strong>nilai ekstrem yang valid</strong>
+dari <strong>kesalahan pengukuran</strong>. Pada data kualitas udara, lonjakan PM
+dapat benar-benar mencerminkan episode polusi sehingga tidak boleh
+dihapus hanya karena nilainya tinggi.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="hubungan-dengan-materi-sebelumnya">
+<h1>5.52 Hubungan dengan Materi Sebelumnya<a class="headerlink" href="#hubungan-dengan-materi-sebelumnya" title="Link to this heading">#</a></h1>
+<p>Materi ini merupakan kelanjutan dari:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>3. Statistics Node
+        ↓
+4. Rumus dan Contoh Perhitungan Statistik
+        ↓
+5. Analisis PM1, PM2.5, dan PM10
+</pre></div>
+</div>
+<p>Materi 3 menjelaskan <strong>cara mendapatkan statistik menggunakan KNIME</strong>.</p>
+<p>Materi 4 menjelaskan <strong>rumus dan cara menghitung statistik secara
+manual</strong>.</p>
+<p>Materi 5 menerapkan statistik tersebut pada <strong>variabel kualitas udara
+PM1, PM2.5, dan PM10</strong>.</p>
+<p>Dengan demikian, alur pembelajaran menjadi:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Data Air Quality
+      ↓
+Statistics Node
+      ↓
+Min / Max / Mean / Std / Variance / Skewness
+      ↓
+Perhitungan &amp; Verifikasi
+      ↓
+Analisis PM1 / PM2.5 / PM10
+      ↓
+Interpretasi
+      ↓
+Visualisasi &amp; Analisis Lanjutan
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="kesimpulan-akhir">
+<h1>5.53 Kesimpulan Akhir<a class="headerlink" href="#kesimpulan-akhir" title="Link to this heading">#</a></h1>
+<p><strong>PM1, PM2.5, dan PM10 merupakan tiga indikator penting untuk
+menganalisis partikulat udara dengan ukuran yang berbeda.</strong></p>
+<p>Statistics Node membantu menghasilkan ringkasan numerik, sedangkan
+analisis lanjutan membantu memahami:</p>
+<ul class="simple">
+<li><p>tingkat konsentrasi;</p></li>
+<li><p>variasi;</p></li>
+<li><p>distribusi;</p></li>
+<li><p>nilai ekstrem;</p></li>
+<li><p>hubungan antarfraksi;</p></li>
+<li><p>perubahan terhadap waktu.</p></li>
+</ul>
+<p>Untuk dataset contoh, hasil utama adalah:</p>
+<p>[ Mean_{PM10}&gt;Mean_{PM2.5}&gt;Mean_{PM1} ]</p>
+<p>dan:</p>
+<p>[ Std_{PM10}&gt;Std_{PM2.5}&gt;Std_{PM1} ]</p>
+<p>sementara:</p>
+<p>[ Skewness_{PM1}, Skewness_{PM2.5}, Skewness_{PM10}&gt;0 ]</p>
+<p>sehingga ketiga distribusi cenderung <strong>positively skewed</strong>.</p>
+<p>Interpretasi tersebut menjadi dasar untuk tahap berikutnya seperti
+visualisasi, korelasi, pemeriksaan kualitas data, analisis time series,
+dan pemodelan.</p>
+<blockquote>
+<div><p><strong>Catatan akhir:</strong> angka statistik dalam dokumen ini mengikuti contoh
+yang terlihat pada screenshot workflow. Untuk laporan resmi, gunakan
+hasil eksekusi langsung pada dataset final dan simpan presisi angka
+yang sesuai dengan kebutuhan analisis.</p>
+</div></blockquote>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./minggu-2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">5. Analisis PM1, PM2.5, dan PM10</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pendahuluan">5.1 Pendahuluan</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#apa-itu-pm">5.2 Apa Itu PM?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perbedaan-pm1-pm2-5-dan-pm10">5.3 Perbedaan PM1, PM2.5, dan PM10</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pm1">5.4 PM1</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi">Definisi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#karakteristik">Karakteristik</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pm2-5">5.5 PM2.5</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Definisi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengapa-pm2-5-penting">Mengapa PM2.5 Penting?</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pm10">5.6 PM10</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Definisi</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#satuan-pm">5.7 Satuan PM</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-statistics-node-pada-pm">5.8 Analisis Statistics Node pada PM</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-pm1">5.9 Analisis PM1</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rentang">5.9.1 Rentang</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean">5.9.2 Mean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">5.9.3 Standard Deviation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skewness">5.9.4 Skewness</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-pm2-5">5.10 Analisis PM2.5</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#range">5.10.1 Range</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.10.2 Mean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">5.10.3 Standard Deviation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">5.10.4 Skewness</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-pm10">5.11 Analisis PM10</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">5.11.1 Range</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">5.11.2 Mean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">5.11.3 Standard Deviation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">5.11.4 Skewness</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-pm1-pm2-5-dan-pm10">5.12 Perbandingan PM1, PM2.5, dan PM10</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan-awal">Kesimpulan awal</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membandingkan-mean">5.13 Membandingkan Mean</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membandingkan-maximum">5.14 Membandingkan Maximum</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membandingkan-standard-deviation">5.15 Membandingkan Standard Deviation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-variation-pm">5.16 Coefficient of Variation PM</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">PM1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">PM2.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">PM10</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#skewness-ketiga-variabel">5.17 Skewness Ketiga Variabel</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-penting">Interpretasi penting</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hubungan-pm1-pm2-5-pm10">5.18 Hubungan PM1 → PM2.5 → PM10</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#korelasi-pm1-pm2-5-dan-pm10">5.19 Korelasi PM1, PM2.5, dan PM10</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengapa-pm2-5-dan-pm10-bisa-berkorelasi">5.20 Mengapa PM2.5 dan PM10 Bisa Berkorelasi?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot-pm2-5-vs-pm10">5.21 Scatter Plot PM2.5 vs PM10</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-pm">5.22 Time Series PM</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pola-harian">5.23 Pola Harian</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-average">5.24 Moving Average</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-outlier-pm">5.25 Analisis Outlier PM</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-yang-disarankan">Pemeriksaan yang disarankan</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#validasi-outlier-dengan-variabel-lain">5.26 Validasi Outlier dengan Variabel Lain</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-konsistensi-antar-pm">5.27 Pemeriksaan Konsistensi Antar-PM</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-rule-engine-untuk-qc">5.28 Contoh Rule Engine untuk QC</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram-pm">5.29 Histogram PM</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#box-plot-pm">5.30 Box Plot PM</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-interpretasi-box-plot">5.31 Contoh Interpretasi Box Plot</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-median-dan-skewness">5.32 Mean, Median, dan Skewness</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengapa-tidak-cukup-menggunakan-mean">5.33 Mengapa Tidak Cukup Menggunakan Mean?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-perbandingan-dengan-range">5.34 Analisis Perbandingan dengan Range</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-variance">5.35 Analisis Variance</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membandingkan-variabilitas-absolut-dan-relatif">5.36 Membandingkan Variabilitas Absolut dan Relatif</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variabilitas-absolut">Variabilitas absolut</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variabilitas-relatif">Variabilitas relatif</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-pertanyaan-analisis">5.37 Contoh Pertanyaan Analisis</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-1">Pertanyaan 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-2">Pertanyaan 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-3">Pertanyaan 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-4">Pertanyaan 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-5">Pertanyaan 5</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-knime-yang-disarankan">5.38 Workflow KNIME yang Disarankan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#node-yang-dapat-digunakan-untuk-analisis-pm">5.39 Node yang Dapat Digunakan untuk Analisis PM</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-perhitungan-range-dengan-knime">5.40 Contoh Perhitungan Range dengan KNIME</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-perhitungan-cv">5.41 Contoh Perhitungan CV</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-analisis-nilai-tinggi">5.42 Contoh Analisis Nilai Tinggi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score-nilai-maksimum">5.43 Z-Score Nilai Maksimum</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">PM10</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">PM2.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">PM1</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#apakah-nilai-maksimum-harus-dihapus">5.44 Apakah Nilai Maksimum Harus Dihapus?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hubungan-dengan-analisis-kualitas-udara">5.45 Hubungan dengan Analisis Kualitas Udara</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-narasi-untuk-laporan">5.46 Contoh Narasi untuk Laporan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-narasi-yang-lebih-singkat">5.47 Contoh Narasi yang Lebih Singkat</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hal-yang-perlu-diperhatikan">5.48 Hal yang Perlu Diperhatikan</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jangan-membandingkan-nilai-pm-tanpa-konteks">1. Jangan membandingkan nilai PM tanpa konteks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jangan-langsung-menghapus-nilai-maksimum">2. Jangan langsung menghapus nilai maksimum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jangan-menggunakan-threshold-tanpa-sumber">3. Jangan menggunakan threshold tanpa sumber</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perhatikan-periode-waktu">4. Perhatikan periode waktu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perhatikan-kalibrasi-sensor">5. Perhatikan kalibrasi sensor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#periksa-missing-value">6. Periksa missing value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perhatikan-kelembapan">7. Perhatikan kelembapan</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#checklist-analisis-pm">5.49 Checklist Analisis PM</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan-hasil-dataset-contoh">5.50 Ringkasan Hasil Dataset Contoh</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temuan-utama">Temuan utama</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">5.51 Kesimpulan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hubungan-dengan-materi-sebelumnya">5.52 Hubungan dengan Materi Sebelumnya</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan-akhir">5.53 Kesimpulan Akhir</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ahmad Dafi Zidni Alfarisi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

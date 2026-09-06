@@ -1,0 +1,2180 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4. Rumus dan Contoh Perhitungan Statistik &#8212; Penambangan Sains Data</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'minggu-2/Rumus-dan-Contoh-Perhitungan-Statistik';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Penambangan Sains Data - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Penambangan Sains Data - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Minggu 1 — Analisis Kualitas Udara</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../minggu-1/business-understanding.html">1. Business Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../minggu-1/data-understanding.html">2. Data Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../minggu-1/deskripsi-fitur.html">3. Deskripsi Fitur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../minggu-1/sumber-polutan.html">4. Sumber Polutan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../minggu-1/eksplorasi-data.html">5. Eksplorasi Data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Minggu 2 — PostgreSQL Aiven dan KNIME</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pengolahan-knime.html">2. Pengolahan Data dengan KNIME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analisis-time-series.html">6. Analisis Time Series dan Kesimpulan</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Dafi86/PSD" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Dafi86/PSD/issues/new?title=Issue%20on%20page%20%2Fminggu-2/Rumus-dan-Contoh-Perhitungan-Statistik.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/minggu-2/Rumus-dan-Contoh-Perhitungan-Statistik.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>4. Rumus dan Contoh Perhitungan Statistik</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">4. Rumus dan Contoh Perhitungan Statistik</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pendahuluan">4.1 Pendahuluan</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-contoh">4.2 Dataset Contoh</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#notasi-yang-digunakan">4.3 Notasi yang Digunakan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#minimum">4.4 Minimum</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus">Rumus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh">Contoh</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi">Interpretasi</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum">4.5 Maximum</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Rumus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Contoh</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Interpretasi</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#range">4.6 Range</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Rumus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Contoh</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Interpretasi</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mean">4.7 Mean</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-sampel">Rumus Sampel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-jumlahkan-seluruh-nilai">Langkah 1 — Jumlahkan seluruh nilai</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-2-bagi-dengan-jumlah-data">Langkah 2 — Bagi dengan jumlah data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Interpretasi</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-dan-pengaruh-outlier">4.8 Mean dan Pengaruh Outlier</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-a">Dataset A</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-b">Dataset B</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#median">4.9 Median</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-untuk-n-genap">Rumus untuk n genap</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#median-untuk-jumlah-data-ganjil">4.10 Median untuk Jumlah Data Ganjil</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-vs-median">4.11 Mean vs Median</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mode">4.12 Mode</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Interpretasi</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#variance">4.13 Variance</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-perhitungan-variance-sampel">4.14 Contoh Perhitungan Variance Sampel</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">4.15 Standard Deviation</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Rumus Sampel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Interpretasi</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hubungan-variance-dan-standard-deviation">4.16 Hubungan Variance dan Standard Deviation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#population-vs-sample">4.17 Population vs Sample</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#population">Population</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample">Sample</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengapa-sampel-menggunakan-n-1">4.18 Mengapa Sampel Menggunakan n - 1?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quartile">4.19 Quartile</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-quartile">4.20 Contoh Quartile</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bagian-bawah">Bagian bawah</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bagian-atas">Bagian atas</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interquartile-range-iqr">4.21 Interquartile Range (IQR)</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Rumus</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-outlier-menggunakan-iqr">4.22 Deteksi Outlier Menggunakan IQR</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lower-fence">Lower Fence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#upper-fence">Upper Fence</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#outlier-bukan-berarti-kesalahan">4.23 Outlier Bukan Berarti Kesalahan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#percentile">4.24 Percentile</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score">4.25 Z-Score</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Rumus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Contoh</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-z-score">4.26 Interpretasi Z-Score</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#skewness">4.27 Skewness</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-umum">Interpretasi umum</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#right-skewed">4.28 Right-Skewed</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#left-skewed">4.29 Left-Skewed</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-variation-cv">4.30 Coefficient of Variation (CV)</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Rumus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Contoh</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Interpretasi</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sum">4.31 Sum</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Rumus</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#count">4.32 Count</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value-rate">4.33 Missing Value Rate</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-perhitungan-statistik-dengan-dataset-air-quality">4.34 Contoh Perhitungan Statistik dengan Dataset Air Quality</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-dataset-contoh">4.35 Interpretasi Dataset Contoh</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pusat-data">1. Pusat data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penyebaran">2. Penyebaran</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outlier">3. Outlier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nilai-ekstrem">4. Nilai ekstrem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">5. Kesimpulan</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hubungan-statistik-dengan-statistics-node-di-knime">4.36 Hubungan Statistik dengan Statistics Node di KNIME</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-menghubungkan-hasil-manual-dengan-knime">4.37 Contoh Menghubungkan Hasil Manual dengan KNIME</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-perhitungan-menggunakan-python">4.38 Contoh Perhitungan Menggunakan Python</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-perhitungan-di-excel">4.39 Contoh Perhitungan di Excel</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Mean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Median</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Minimum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Maximum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-variance">Sample Variance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#population-variance">Population Variance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-standard-deviation">Sample Standard Deviation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#population-standard-deviation">Population Standard Deviation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Quartile</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-perhitungan-dengan-kalkulator">4.40 Contoh Perhitungan dengan Kalkulator</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">Mean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">Range</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">Sample Variance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">Sample Standard Deviation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perbedaan-statistik-deskriptif-dan-inferensial">4.41 Perbedaan Statistik Deskriptif dan Inferensial</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-deskriptif">Statistik Deskriptif</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-inferensial">Statistik Inferensial</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengapa-rumus-harus-dipahami">4.42 Mengapa Rumus Harus Dipahami?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-verifikasi-dari-screenshot-statistics-node">4.43 Contoh Verifikasi dari Screenshot Statistics Node</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan-rumus">4.44 Ringkasan Rumus</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cheat-sheet">4.45 Cheat Sheet</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#checklist-perhitungan-statistik">4.46 Checklist Perhitungan Statistik</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">4.47 Kesimpulan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hubungan-dengan-materi-sebelumnya">4.48 Hubungan dengan Materi Sebelumnya</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referensi-konsep">Referensi Konsep</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="rumus-dan-contoh-perhitungan-statistik">
+<h1>4. Rumus dan Contoh Perhitungan Statistik<a class="headerlink" href="#rumus-dan-contoh-perhitungan-statistik" title="Link to this heading">#</a></h1>
+<section id="pendahuluan">
+<h2>4.1 Pendahuluan<a class="headerlink" href="#pendahuluan" title="Link to this heading">#</a></h2>
+<p>Statistik deskriptif digunakan untuk merangkum dan memahami
+karakteristik suatu kumpulan data. Pada analisis data kualitas udara,
+statistik deskriptif dapat digunakan untuk memahami nilai konsentrasi
+polutan seperti <strong>PM1, PM2.5, dan PM10</strong> sebelum dilakukan analisis
+lebih lanjut.</p>
+<p>Beberapa ukuran statistik yang paling umum digunakan adalah:</p>
+<ol class="arabic simple">
+<li><p>Minimum</p></li>
+<li><p>Maximum</p></li>
+<li><p>Range</p></li>
+<li><p>Mean</p></li>
+<li><p>Median</p></li>
+<li><p>Mode</p></li>
+<li><p>Variance</p></li>
+<li><p>Standard deviation</p></li>
+<li><p>Quartile</p></li>
+<li><p>Interquartile Range (IQR)</p></li>
+<li><p>Skewness</p></li>
+<li><p>Z-score</p></li>
+<li><p>Coefficient of Variation (CV)</p></li>
+</ol>
+<p>Dokumen ini menjelaskan rumus, langkah perhitungan manual, contoh
+numerik, dan interpretasi setiap ukuran statistik.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="dataset-contoh">
+<h1>4.2 Dataset Contoh<a class="headerlink" href="#dataset-contoh" title="Link to this heading">#</a></h1>
+<p>Untuk mempermudah perhitungan manual, gunakan dataset kecil berikut.</p>
+<p>Misalkan terdapat data konsentrasi PM2.5:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>10, 12, 15, 18, 20, 20, 22, 25, 30, 50
+</pre></div>
+</div>
+<p>Jumlah data:</p>
+<p>[ n = 10 ]</p>
+<p>Data sudah diurutkan dari nilai terkecil sampai terbesar.</p>
+<p>Kita akan menggunakan dataset ini untuk menghitung sebagian besar
+statistik secara manual.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="notasi-yang-digunakan">
+<h1>4.3 Notasi yang Digunakan<a class="headerlink" href="#notasi-yang-digunakan" title="Link to this heading">#</a></h1>
+<p>Dalam rumus statistik, simbol berikut sering digunakan:</p>
+<p>Simbol              Arti</p>
+<hr class="docutils" />
+<p>(x_i)               Nilai pengamatan ke-i
+(n)               Jumlah observasi
+(<code class="docutils literal notranslate"><span class="pre">\bar</span></code>{=tex}{x})   Mean/rata-rata sampel
+(<code class="docutils literal notranslate"><span class="pre">\mu</span></code>{=tex})       Mean populasi
+(s)               Standard deviation sampel
+(<code class="docutils literal notranslate"><span class="pre">\sigma</span></code>{=tex})    Standard deviation populasi
+(Q_1)               Kuartil pertama
+(Q_2)               Kuartil kedua/median
+(Q_3)               Kuartil ketiga
+(IQR)               Interquartile Range</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="minimum">
+<h1>4.4 Minimum<a class="headerlink" href="#minimum" title="Link to this heading">#</a></h1>
+<section id="rumus">
+<h2>Rumus<a class="headerlink" href="#rumus" title="Link to this heading">#</a></h2>
+<p>Minimum adalah nilai terkecil dalam dataset:</p>
+<p>[ Min(X) = <code class="docutils literal notranslate"><span class="pre">\min</span></code>{=tex}(x_1,x_2,<code class="docutils literal notranslate"><span class="pre">\ldots</span></code>{=tex},x_n) ]</p>
+</section>
+<section id="contoh">
+<h2>Contoh<a class="headerlink" href="#contoh" title="Link to this heading">#</a></h2>
+<p>Dataset:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>10, 12, 15, 18, 20, 20, 22, 25, 30, 50
+</pre></div>
+</div>
+<p>Nilai terkecil adalah:</p>
+<p>[ Min = 10 ]</p>
+</section>
+<section id="interpretasi">
+<h2>Interpretasi<a class="headerlink" href="#interpretasi" title="Link to this heading">#</a></h2>
+<p>Nilai minimum PM2.5 pada contoh adalah <strong>10</strong>.</p>
+<p>Jika satuannya µg/m³, maka konsentrasi terendah yang tercatat adalah:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>10 µg/m³
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="maximum">
+<h1>4.5 Maximum<a class="headerlink" href="#maximum" title="Link to this heading">#</a></h1>
+<section id="id1">
+<h2>Rumus<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>[ Max(X) = <code class="docutils literal notranslate"><span class="pre">\max</span></code>{=tex}(x_1,x_2,<code class="docutils literal notranslate"><span class="pre">\ldots</span></code>{=tex},x_n) ]</p>
+</section>
+<section id="id2">
+<h2>Contoh<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>Nilai terbesar dari:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>10, 12, 15, 18, 20, 20, 22, 25, 30, 50
+</pre></div>
+</div>
+<p>adalah:</p>
+<p>[ Max = 50 ]</p>
+</section>
+<section id="id3">
+<h2>Interpretasi<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>Nilai PM2.5 tertinggi dalam contoh adalah <strong>50 µg/m³</strong> jika data
+menggunakan satuan µg/m³.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="range">
+<h1>4.6 Range<a class="headerlink" href="#range" title="Link to this heading">#</a></h1>
+<p>Range menunjukkan jarak antara nilai maksimum dan minimum.</p>
+<section id="id4">
+<h2>Rumus<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>[ Range = Max - Min ]</p>
+</section>
+<section id="id5">
+<h2>Contoh<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<p>[ Range = 50 - 10 ]</p>
+<p>[ Range = 40 ]</p>
+</section>
+<section id="id6">
+<h2>Interpretasi<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<p>Data memiliki rentang sebesar <strong>40 satuan</strong>.</p>
+<p>Range memberikan gambaran awal tentang seberapa luas penyebaran data,
+tetapi hanya menggunakan dua nilai sehingga cukup sensitif terhadap
+nilai ekstrem.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="mean">
+<h1>4.7 Mean<a class="headerlink" href="#mean" title="Link to this heading">#</a></h1>
+<p>Mean adalah rata-rata aritmetika.</p>
+<section id="rumus-sampel">
+<h2>Rumus Sampel<a class="headerlink" href="#rumus-sampel" title="Link to this heading">#</a></h2>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\bar</span></code>{=tex}{x} = <code class="docutils literal notranslate"><span class="pre">\frac{\sum_{i=1}^{n}x_i}{n}</span></code>{=tex} ]</p>
+</section>
+<section id="langkah-1-jumlahkan-seluruh-nilai">
+<h2>Langkah 1 — Jumlahkan seluruh nilai<a class="headerlink" href="#langkah-1-jumlahkan-seluruh-nilai" title="Link to this heading">#</a></h2>
+<p>[ 10+12+15+18+20+20+22+25+30+50 ]</p>
+<p>[ =222 ]</p>
+</section>
+<section id="langkah-2-bagi-dengan-jumlah-data">
+<h2>Langkah 2 — Bagi dengan jumlah data<a class="headerlink" href="#langkah-2-bagi-dengan-jumlah-data" title="Link to this heading">#</a></h2>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\bar</span></code>{=tex}{x} = <code class="docutils literal notranslate"><span class="pre">\frac{222}{10}</span></code>{=tex} ]</p>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\bar</span></code>{=tex}{x}=22.2 ]</p>
+<p>Jadi:</p>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\boxed{\bar{x}=22.2}</span></code>{=tex} ]</p>
+</section>
+<section id="id7">
+<h2>Interpretasi<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<p>Rata-rata konsentrasi PM2.5 pada dataset contoh adalah <strong>22.2 µg/m³</strong>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="mean-dan-pengaruh-outlier">
+<h1>4.8 Mean dan Pengaruh Outlier<a class="headerlink" href="#mean-dan-pengaruh-outlier" title="Link to this heading">#</a></h1>
+<p>Mean sangat mudah dipengaruhi oleh nilai ekstrem.</p>
+<p>Bandingkan dua dataset berikut:</p>
+<section id="dataset-a">
+<h2>Dataset A<a class="headerlink" href="#dataset-a" title="Link to this heading">#</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>10, 12, 15, 18, 20, 20, 22, 25, 30, 50
+</pre></div>
+</div>
+<p>Mean:</p>
+<p>[ 22.2 ]</p>
+</section>
+<section id="dataset-b">
+<h2>Dataset B<a class="headerlink" href="#dataset-b" title="Link to this heading">#</a></h2>
+<p>Jika nilai 50 diganti menjadi 200:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>10, 12, 15, 18, 20, 20, 22, 25, 30, 200
+</pre></div>
+</div>
+<p>Jumlah:</p>
+<p>[ 372 ]</p>
+<p>Mean:</p>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\frac{372}{10}</span></code>{=tex}=37.2 ]</p>
+<p>Satu nilai ekstrem menyebabkan mean meningkat dari:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>22.2 → 37.2
+</pre></div>
+</div>
+<p>Hal ini menunjukkan mengapa mean perlu dianalisis bersama median dan
+statistik lainnya.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="median">
+<h1>4.9 Median<a class="headerlink" href="#median" title="Link to this heading">#</a></h1>
+<p>Median adalah nilai tengah setelah data diurutkan.</p>
+<p>Dataset:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>10, 12, 15, 18, 20, 20, 22, 25, 30, 50
+</pre></div>
+</div>
+<p>Jumlah data:</p>
+<p>[ n=10 ]</p>
+<p>Karena jumlah data genap, median adalah rata-rata dua nilai tengah.</p>
+<p>Posisi tengah:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Posisi 5 = 20
+Posisi 6 = 20
+</pre></div>
+</div>
+<section id="rumus-untuk-n-genap">
+<h2>Rumus untuk n genap<a class="headerlink" href="#rumus-untuk-n-genap" title="Link to this heading">#</a></h2>
+<p>[ Median=<code class="docutils literal notranslate"><span class="pre">\frac{x_{n/2}+x_{n/2+1}}{2}</span></code>{=tex} ]</p>
+<p>Maka:</p>
+<p>[ Median=<code class="docutils literal notranslate"><span class="pre">\frac{20+20}{2}</span></code>{=tex} ]</p>
+<p>[ Median=20 ]</p>
+<p>Jadi:</p>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\boxed{Median=20}</span></code>{=tex} ]</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="median-untuk-jumlah-data-ganjil">
+<h1>4.10 Median untuk Jumlah Data Ganjil<a class="headerlink" href="#median-untuk-jumlah-data-ganjil" title="Link to this heading">#</a></h1>
+<p>Misalkan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>10, 15, 20, 25, 30
+</pre></div>
+</div>
+<p>Jumlah data:</p>
+<p>[ n=5 ]</p>
+<p>Posisi median:</p>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\frac{n+1}{2}</span></code>{=tex} = <code class="docutils literal notranslate"><span class="pre">\frac{5+1}{2}</span></code>{=tex} =3 ]</p>
+<p>Maka median adalah nilai pada posisi ke-3:</p>
+<p>[ Median=20 ]</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="mean-vs-median">
+<h1>4.11 Mean vs Median<a class="headerlink" href="#mean-vs-median" title="Link to this heading">#</a></h1>
+<p>Untuk dataset contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Mean   = 22.2
+Median = 20
+</pre></div>
+</div>
+<p>Mean lebih besar daripada median.</p>
+<p>Hal tersebut dapat menjadi indikasi bahwa beberapa nilai yang lebih
+tinggi, terutama <strong>50</strong>, menarik mean ke arah kanan.</p>
+<p>Jika:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Mean &gt; Median
+</pre></div>
+</div>
+<p>dan terdapat nilai tinggi yang relatif jauh dari sebagian besar data,
+distribusi dapat cenderung <strong>positively skewed/right-skewed</strong>.</p>
+<p>Namun, mean &gt; median saja <strong>tidak cukup</strong> untuk membuktikan bentuk
+distribusi. Sebaiknya periksa histogram dan skewness.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="mode">
+<h1>4.12 Mode<a class="headerlink" href="#mode" title="Link to this heading">#</a></h1>
+<p>Mode adalah nilai yang paling sering muncul.</p>
+<p>Dataset:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>10, 12, 15, 18, 20, 20, 22, 25, 30, 50
+</pre></div>
+</div>
+<p>Nilai:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>20
+</pre></div>
+</div>
+<p>muncul dua kali.</p>
+<p>Nilai lainnya muncul satu kali.</p>
+<p>Maka:</p>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\boxed{Mode=20}</span></code>{=tex} ]</p>
+<section id="id8">
+<h2>Interpretasi<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<p>Mode menunjukkan nilai yang paling sering muncul.</p>
+<p>Mode sangat berguna untuk data kategorikal.</p>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Good
+Good
+Moderate
+Good
+Unhealthy
+</pre></div>
+</div>
+<p>Mode:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Good
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="variance">
+<h1>4.13 Variance<a class="headerlink" href="#variance" title="Link to this heading">#</a></h1>
+<p>Variance mengukur penyebaran data terhadap mean.</p>
+<p>Untuk <strong>sampel</strong>, rumusnya:</p>
+<p>[ s^2 = <code class="docutils literal notranslate"><span class="pre">\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}</span></code>{=tex} ]</p>
+<p>Untuk <strong>populasi</strong>:</p>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\sigma</span></code>{=tex}^2 = <code class="docutils literal notranslate"><span class="pre">\frac{\sum_{i=1}^{N}(x_i-\mu)^2}{N}</span></code>{=tex} ]</p>
+<p>Perbedaan utama adalah penyebut:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Sampel    → n - 1
+Populasi  → N
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="contoh-perhitungan-variance-sampel">
+<h1>4.14 Contoh Perhitungan Variance Sampel<a class="headerlink" href="#contoh-perhitungan-variance-sampel" title="Link to this heading">#</a></h1>
+<p>Dataset:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>10, 12, 15, 18, 20, 20, 22, 25, 30, 50
+</pre></div>
+</div>
+<p>Mean:</p>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\bar</span></code>{=tex}{x}=22.2 ]</p>
+<p>Buat tabel:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> x   x - mean   (x - mean)²
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10      -12.2        148.84
+12      -10.2        104.04
+15       -7.2         51.84
+18       -4.2         17.64
+20       -2.2          4.84
+20       -2.2          4.84
+22       -0.2          0.04
+25        2.8          7.84
+30        7.8         60.84
+50       27.8        772.84
+</pre></div>
+</div>
+<p>Jumlah kuadrat deviasi:</p>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\sum</span></code>{=tex}(x_i-<code class="docutils literal notranslate"><span class="pre">\bar</span></code>{=tex}{x})^2=1173.6 ]</p>
+<p>Karena ini contoh <strong>sampel</strong>:</p>
+<p>[ s^2= <code class="docutils literal notranslate"><span class="pre">\frac{1173.6}{10-1}</span></code>{=tex} ]</p>
+<p>[ s^2= <code class="docutils literal notranslate"><span class="pre">\frac{1173.6}{9}</span></code>{=tex} ]</p>
+<p>[ s^2=130.4 ]</p>
+<p>Jadi:</p>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\boxed{s^2=130.4}</span></code>{=tex} ]</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="standard-deviation">
+<h1>4.15 Standard Deviation<a class="headerlink" href="#standard-deviation" title="Link to this heading">#</a></h1>
+<p>Standard deviation adalah akar kuadrat variance.</p>
+<section id="id9">
+<h2>Rumus Sampel<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<p>[ s=<code class="docutils literal notranslate"><span class="pre">\sqrt{s^2}</span></code>{=tex} ]</p>
+<p>Dengan variance:</p>
+<p>[ s^2=130.4 ]</p>
+<p>maka:</p>
+<p>[ s=<code class="docutils literal notranslate"><span class="pre">\sqrt{130.4}</span></code>{=tex} ]</p>
+<p>[ s<code class="docutils literal notranslate"><span class="pre">\approx11.42</span></code>{=tex} ]</p>
+<p>Jadi:</p>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\boxed{s\approx11.42}</span></code>{=tex} ]</p>
+</section>
+<section id="id10">
+<h2>Interpretasi<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<p>Standard deviation sekitar <strong>11.42</strong> berarti data memiliki penyebaran
+yang cukup besar di sekitar mean 22.2.</p>
+<p>Standard deviation menggunakan satuan yang sama dengan data asli,
+sehingga biasanya lebih mudah diinterpretasikan daripada variance.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="hubungan-variance-dan-standard-deviation">
+<h1>4.16 Hubungan Variance dan Standard Deviation<a class="headerlink" href="#hubungan-variance-dan-standard-deviation" title="Link to this heading">#</a></h1>
+<p>Hubungannya:</p>
+<p>[ Standard Deviation = <code class="docutils literal notranslate"><span class="pre">\sqrt{Variance}</span></code>{=tex} ]</p>
+<p>dan:</p>
+<p>[ Variance = (Standard Deviation)^2 ]</p>
+<p>Pada contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Variance ≈ 130.4
+Std. deviation ≈ 11.42
+</pre></div>
+</div>
+<p>Karena:</p>
+<p>[ 11.42^2<code class="docutils literal notranslate"><span class="pre">\approx130.4</span></code>{=tex} ]</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="population-vs-sample">
+<h1>4.17 Population vs Sample<a class="headerlink" href="#population-vs-sample" title="Link to this heading">#</a></h1>
+<p>Ini merupakan konsep penting dalam perhitungan statistik.</p>
+<section id="population">
+<h2>Population<a class="headerlink" href="#population" title="Link to this heading">#</a></h2>
+<p>Populasi adalah seluruh objek yang ingin diteliti.</p>
+<p>Contoh:</p>
+<blockquote>
+<div><p>Seluruh pengukuran kualitas udara selama satu tahun pada semua sensor
+yang menjadi target penelitian.</p>
+</div></blockquote>
+<p>Gunakan:</p>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\sigma</span></code>{=tex}^2 = <code class="docutils literal notranslate"><span class="pre">\frac{\sum(x_i-\mu)^2}{N}</span></code>{=tex} ]</p>
+</section>
+<section id="sample">
+<h2>Sample<a class="headerlink" href="#sample" title="Link to this heading">#</a></h2>
+<p>Sampel adalah sebagian data yang digunakan untuk merepresentasikan
+populasi.</p>
+<p>Contoh:</p>
+<blockquote>
+<div><p>1.464 pengukuran yang dipilih sebagai sampel dari periode pengamatan
+yang lebih besar.</p>
+</div></blockquote>
+<p>Gunakan:</p>
+<p>[ s^2 = <code class="docutils literal notranslate"><span class="pre">\frac{\sum(x_i-\bar{x})^2}{n-1}</span></code>{=tex} ]</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="mengapa-sampel-menggunakan-n-1">
+<h1>4.18 Mengapa Sampel Menggunakan n - 1?<a class="headerlink" href="#mengapa-sampel-menggunakan-n-1" title="Link to this heading">#</a></h1>
+<p>Pembagian dengan (n-1) dikenal sebagai <strong>Bessel’s correction</strong>.</p>
+<p>Ketika mean populasi tidak diketahui dan mean sampel digunakan untuk
+memperkirakan pusat data, pembagian dengan (n-1) membantu menghasilkan
+estimator variance populasi yang tidak bias.</p>
+<p>Secara praktis:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Jika data dianggap sampel → gunakan n - 1
+Jika data mencakup seluruh populasi → gunakan N
+</pre></div>
+</div>
+<p>Dalam software, pastikan memahami definisi statistik yang digunakan
+sebelum membandingkan hasil dengan perhitungan manual.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="quartile">
+<h1>4.19 Quartile<a class="headerlink" href="#quartile" title="Link to this heading">#</a></h1>
+<p>Quartile membagi data terurut menjadi empat bagian.</p>
+<p>Tiga kuartil utama:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Q1 = 25th percentile
+Q2 = 50th percentile = Median
+Q3 = 75th percentile
+</pre></div>
+</div>
+<p>Secara visual:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Minimum ---- Q1 ---- Q2 ---- Q3 ---- Maximum
+              25%    50%    75%
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="contoh-quartile">
+<h1>4.20 Contoh Quartile<a class="headerlink" href="#contoh-quartile" title="Link to this heading">#</a></h1>
+<p>Dataset:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>10, 12, 15, 18, 20, 20, 22, 25, 30, 50
+</pre></div>
+</div>
+<p>Karena terdapat 10 data, salah satu metode sederhana adalah membagi data
+menjadi dua bagian.</p>
+<section id="bagian-bawah">
+<h2>Bagian bawah<a class="headerlink" href="#bagian-bawah" title="Link to this heading">#</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>10, 12, 15, 18, 20
+</pre></div>
+</div>
+<p>Median bagian bawah:</p>
+<p>[ Q_1=15 ]</p>
+</section>
+<section id="bagian-atas">
+<h2>Bagian atas<a class="headerlink" href="#bagian-atas" title="Link to this heading">#</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>20, 22, 25, 30, 50
+</pre></div>
+</div>
+<p>Median bagian atas:</p>
+<p>[ Q_3=25 ]</p>
+<p>Sedangkan:</p>
+<p>[ Q_2=20 ]</p>
+<p>Jadi:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Q1 = 15
+Q2 = 20
+Q3 = 25
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Catatan penting:</strong> terdapat beberapa metode perhitungan
+percentile/quartile. Software yang berbeda dapat menghasilkan Q1 dan
+Q3 yang sedikit berbeda karena menggunakan definisi interpolasi yang
+berbeda. Untuk laporan, sebutkan metode jika presisi metode kuartil
+penting.</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="interquartile-range-iqr">
+<h1>4.21 Interquartile Range (IQR)<a class="headerlink" href="#interquartile-range-iqr" title="Link to this heading">#</a></h1>
+<p>IQR mengukur penyebaran 50% data bagian tengah.</p>
+<section id="id11">
+<h2>Rumus<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<p>[ IQR=Q_3-Q_1 ]</p>
+<p>Dengan:</p>
+<p>[ Q_1=15 ]</p>
+<p>dan:</p>
+<p>[ Q_3=25 ]</p>
+<p>maka:</p>
+<p>[ IQR=25-15 ]</p>
+<p>[ IQR=10 ]</p>
+<p>Jadi:</p>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\boxed{IQR=10}</span></code>{=tex} ]</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="deteksi-outlier-menggunakan-iqr">
+<h1>4.22 Deteksi Outlier Menggunakan IQR<a class="headerlink" href="#deteksi-outlier-menggunakan-iqr" title="Link to this heading">#</a></h1>
+<p>Aturan umum:</p>
+<section id="lower-fence">
+<h2>Lower Fence<a class="headerlink" href="#lower-fence" title="Link to this heading">#</a></h2>
+<p>[ Lower=Q_1-1.5(IQR) ]</p>
+</section>
+<section id="upper-fence">
+<h2>Upper Fence<a class="headerlink" href="#upper-fence" title="Link to this heading">#</a></h2>
+<p>[ Upper=Q_3+1.5(IQR) ]</p>
+<p>Dengan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Q1 = 15
+Q3 = 25
+IQR = 10
+</pre></div>
+</div>
+<p>maka:</p>
+<p>[ Lower=15-1.5(10) ]</p>
+<p>[ Lower=0 ]</p>
+<p>dan:</p>
+<p>[ Upper=25+1.5(10) ]</p>
+<p>[ Upper=40 ]</p>
+<p>Jadi nilai yang berada:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>x &lt; 0
+</pre></div>
+</div>
+<p>atau:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>x &gt; 40
+</pre></div>
+</div>
+<p>dapat dianggap kandidat outlier menurut aturan IQR.</p>
+<p>Pada dataset contoh terdapat:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>50
+</pre></div>
+</div>
+<p>Karena:</p>
+<p>[ 50&gt;40 ]</p>
+<p>maka 50 merupakan <strong>kandidat outlier</strong>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="outlier-bukan-berarti-kesalahan">
+<h1>4.23 Outlier Bukan Berarti Kesalahan<a class="headerlink" href="#outlier-bukan-berarti-kesalahan" title="Link to this heading">#</a></h1>
+<p>Sangat penting untuk membedakan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Outlier
+≠
+Data salah
+</pre></div>
+</div>
+<p>Contoh PM2.5 = 200 µg/m³ dapat disebabkan oleh:</p>
+<ul class="simple">
+<li><p>kejadian polusi;</p></li>
+<li><p>kebakaran;</p></li>
+<li><p>aktivitas industri;</p></li>
+<li><p>kondisi cuaca tertentu;</p></li>
+<li><p>sensor error.</p></li>
+</ul>
+<p>Sebelum menghapus outlier, lakukan validasi berdasarkan:</p>
+<ul class="simple">
+<li><p>waktu;</p></li>
+<li><p>lokasi;</p></li>
+<li><p>sensor;</p></li>
+<li><p>kondisi lingkungan;</p></li>
+<li><p>variabel terkait;</p></li>
+<li><p>sumber data.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="percentile">
+<h1>4.24 Percentile<a class="headerlink" href="#percentile" title="Link to this heading">#</a></h1>
+<p>Percentile menunjukkan posisi relatif suatu nilai dalam distribusi.</p>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>P25 = Q1
+P50 = Median
+P75 = Q3
+</pre></div>
+</div>
+<p>Jika PM2.5 memiliki:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>P75 = 80 µg/m³
+</pre></div>
+</div>
+<p>maka sekitar 75% observasi berada pada atau di bawah nilai tersebut
+menurut definisi percentile yang digunakan.</p>
+<p>Percentile berguna untuk:</p>
+<ul class="simple">
+<li><p>memahami distribusi;</p></li>
+<li><p>menentukan threshold;</p></li>
+<li><p>membandingkan lokasi;</p></li>
+<li><p>membuat kategori;</p></li>
+<li><p>analisis risiko.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="z-score">
+<h1>4.25 Z-Score<a class="headerlink" href="#z-score" title="Link to this heading">#</a></h1>
+<p>Z-score menunjukkan berapa standard deviation suatu nilai berada dari
+mean.</p>
+<section id="id12">
+<h2>Rumus<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+<p>Untuk data dengan mean (<code class="docutils literal notranslate"><span class="pre">\mu</span></code>{=tex}) dan standard deviation
+(<code class="docutils literal notranslate"><span class="pre">\sigma</span></code>{=tex}):</p>
+<p>[ z=<code class="docutils literal notranslate"><span class="pre">\frac{x-\mu}{\sigma}</span></code>{=tex} ]</p>
+</section>
+<section id="id13">
+<h2>Contoh<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
+<p>Misalkan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Mean = 22.2
+Std Dev = 11.42
+</pre></div>
+</div>
+<p>Untuk nilai:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>x = 50
+</pre></div>
+</div>
+<p>maka:</p>
+<p>[ z=<code class="docutils literal notranslate"><span class="pre">\frac{50-22.2}{11.42}</span></code>{=tex} ]</p>
+<p>[ z<code class="docutils literal notranslate"><span class="pre">\approx2.43</span></code>{=tex} ]</p>
+<p>Jadi nilai 50 berada sekitar:</p>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\boxed{2.43}</span></code>{=tex} ]</p>
+<p>standard deviation di atas mean.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="interpretasi-z-score">
+<h1>4.26 Interpretasi Z-Score<a class="headerlink" href="#interpretasi-z-score" title="Link to this heading">#</a></h1>
+<p>Secara umum:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>z = 0
+    → tepat pada mean
+
+z &gt; 0
+    → di atas mean
+
+z &lt; 0
+    → di bawah mean
+</pre></div>
+</div>
+<p>Semakin besar nilai absolut:</p>
+<p>[ |z| ]</p>
+<p>semakin jauh observasi dari mean.</p>
+<p>Sebagai aturan praktis yang sering digunakan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>|z| &gt; 2  → perlu diperhatikan
+|z| &gt; 3  → kandidat outlier yang kuat
+</pre></div>
+</div>
+<p>Namun threshold tersebut bukan hukum universal. Distribusi data dan
+konteks domain tetap harus diperhatikan.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="skewness">
+<h1>4.27 Skewness<a class="headerlink" href="#skewness" title="Link to this heading">#</a></h1>
+<p>Skewness mengukur ketidaksimetrian distribusi.</p>
+<p>Secara konseptual, skewness sampel dapat ditulis dalam beberapa bentuk.
+Salah satu bentuk koefisien momen adalah:</p>
+<p>[ g_1 = <code class="docutils literal notranslate"><span class="pre">\frac{\frac{1}{n}\sum(x_i-\bar{x})^3}</span></code>{=tex}
+{<code class="docutils literal notranslate"><span class="pre">\left</span></code>{=tex}(<code class="docutils literal notranslate"><span class="pre">\frac{1}{n}</span></code>{=tex}<code class="docutils literal notranslate"><span class="pre">\sum</span></code>{=tex}(x_i-<code class="docutils literal notranslate"><span class="pre">\bar</span></code>{=tex}{x})^2<code class="docutils literal notranslate"><span class="pre">\right</span></code>{=tex})^{3/2}}
+]</p>
+<p>Software statistik dapat menggunakan versi <strong>bias-corrected sample
+skewness</strong>, sehingga hasil manual dapat berbeda jika rumus yang
+digunakan tidak sama.</p>
+<section id="interpretasi-umum">
+<h2>Interpretasi umum<a class="headerlink" href="#interpretasi-umum" title="Link to this heading">#</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Skewness ≈ 0
+    → relatif simetris
+
+Skewness &gt; 0
+    → right-skewed
+
+Skewness &lt; 0
+    → left-skewed
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="right-skewed">
+<h1>4.28 Right-Skewed<a class="headerlink" href="#right-skewed" title="Link to this heading">#</a></h1>
+<p>Distribusi right-skewed memiliki ekor yang lebih panjang ke arah nilai
+besar.</p>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>10 12 15 18 20 20 22 25 30 -------- 50
+</pre></div>
+</div>
+<p>Nilai 50 relatif jauh dari mayoritas data sehingga ekor distribusi
+memanjang ke kanan.</p>
+<p>Pada data kualitas udara, kondisi ini dapat terjadi ketika:</p>
+<ul class="simple">
+<li><p>sebagian besar waktu kualitas udara relatif normal;</p></li>
+<li><p>tetapi pada beberapa waktu tertentu terjadi lonjakan konsentrasi
+polutan.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="left-skewed">
+<h1>4.29 Left-Skewed<a class="headerlink" href="#left-skewed" title="Link to this heading">#</a></h1>
+<p>Distribusi left-skewed memiliki ekor yang lebih panjang ke arah nilai
+kecil.</p>
+<p>Secara umum:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nilai rendah ---- 10
+                |
+             mayoritas data
+</pre></div>
+</div>
+<p>Skewness:</p>
+<p>[ &lt;0 ]</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="coefficient-of-variation-cv">
+<h1>4.30 Coefficient of Variation (CV)<a class="headerlink" href="#coefficient-of-variation-cv" title="Link to this heading">#</a></h1>
+<p>Coefficient of Variation digunakan untuk membandingkan tingkat variasi
+relatif antara variabel dengan skala atau satuan yang berbeda.</p>
+<section id="id14">
+<h2>Rumus<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
+<p>[ CV=<code class="docutils literal notranslate"><span class="pre">\frac{s}{\bar{x}}</span></code>{=tex}<code class="docutils literal notranslate"><span class="pre">\times100</span></code>{=tex}% ]</p>
+</section>
+<section id="id15">
+<h2>Contoh<a class="headerlink" href="#id15" title="Link to this heading">#</a></h2>
+<p>Dengan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Mean = 22.2
+Std Dev = 11.42
+</pre></div>
+</div>
+<p>maka:</p>
+<p>[ CV=<code class="docutils literal notranslate"><span class="pre">\frac{11.42}{22.2}</span></code>{=tex}<code class="docutils literal notranslate"><span class="pre">\times100</span></code>{=tex}% ]</p>
+<p>[ CV<code class="docutils literal notranslate"><span class="pre">\approx51.44</span></code>{=tex}% ]</p>
+<p>Jadi:</p>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\boxed{CV\approx51.44\%}</span></code>{=tex} ]</p>
+</section>
+<section id="id16">
+<h2>Interpretasi<a class="headerlink" href="#id16" title="Link to this heading">#</a></h2>
+<p>CV sekitar 51.44% menunjukkan standard deviation cukup besar
+dibandingkan mean.</p>
+<p>CV berguna untuk membandingkan <strong>variabilitas relatif</strong>, bukan untuk
+menggantikan standard deviation.</p>
+<blockquote>
+<div><p>CV paling bermakna untuk variabel yang mean-nya positif dan tidak
+mendekati nol. Jika mean mendekati nol, CV dapat menjadi sangat besar
+dan menyesatkan.</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="sum">
+<h1>4.31 Sum<a class="headerlink" href="#sum" title="Link to this heading">#</a></h1>
+<p>Sum adalah jumlah seluruh observasi.</p>
+<section id="id17">
+<h2>Rumus<a class="headerlink" href="#id17" title="Link to this heading">#</a></h2>
+<p>[ Sum=<code class="docutils literal notranslate"><span class="pre">\sum</span></code>{=tex}_{i=1}^{n}x_i ]</p>
+<p>Pada dataset:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>10, 12, 15, 18, 20, 20, 22, 25, 30, 50
+</pre></div>
+</div>
+<p>jumlahnya:</p>
+<p>[ Sum=222 ]</p>
+<p>Hubungan dengan mean:</p>
+<p>[ Mean=<code class="docutils literal notranslate"><span class="pre">\frac{Sum}{n}</span></code>{=tex} ]</p>
+<p>sehingga:</p>
+<p>[ 22.2=<code class="docutils literal notranslate"><span class="pre">\frac{222}{10}</span></code>{=tex} ]</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="count">
+<h1>4.32 Count<a class="headerlink" href="#count" title="Link to this heading">#</a></h1>
+<p>Count menunjukkan jumlah observasi yang dihitung.</p>
+<p>Untuk dataset contoh:</p>
+<p>[ n=10 ]</p>
+<p>Jadi:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Count = 10
+</pre></div>
+</div>
+<p>Count harus dibedakan dari:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Missing Count
+</pre></div>
+</div>
+<p>Jika dataset memiliki 1.000 baris tetapi 50 nilai PM2.5 missing, jumlah
+nilai PM2.5 yang tersedia dapat menjadi 950, tergantung definisi/count
+yang digunakan oleh node.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="missing-value-rate">
+<h1>4.33 Missing Value Rate<a class="headerlink" href="#missing-value-rate" title="Link to this heading">#</a></h1>
+<p>Persentase missing value dapat dihitung dengan:</p>
+<p>[ Missing Rate=
+<code class="docutils literal notranslate"><span class="pre">\frac{Missing\</span> <span class="pre">Count}{Total\</span> <span class="pre">Count}</span></code>{=tex}<code class="docutils literal notranslate"><span class="pre">\times100</span></code>{=tex}% ]</p>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Total data = 1,000
+Missing = 50
+</pre></div>
+</div>
+<p>maka:</p>
+<p>[ Missing Rate= <code class="docutils literal notranslate"><span class="pre">\frac{50}{1000}</span></code>{=tex}<code class="docutils literal notranslate"><span class="pre">\times100</span></code>{=tex}% ]</p>
+<p>[ =5% ]</p>
+<p>Jadi 5% data pada kolom tersebut missing.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="contoh-perhitungan-statistik-dengan-dataset-air-quality">
+<h1>4.34 Contoh Perhitungan Statistik dengan Dataset Air Quality<a class="headerlink" href="#contoh-perhitungan-statistik-dengan-dataset-air-quality" title="Link to this heading">#</a></h1>
+<p>Misalkan diperoleh 10 pengukuran PM2.5:</p>
+<p>Waktu     PM2.5</p>
+<hr class="docutils" />
+<p>01:00        10
+02:00        12
+03:00        15
+04:00        18
+05:00        20
+06:00        20
+07:00        22
+08:00        25
+09:00        30
+10:00        50</p>
+<p>Ringkasan:</p>
+<p>Statistik                   Nilai</p>
+<hr class="docutils" />
+<p>Count                          10
+Sum                           222
+Min                            10
+Max                            50
+Range                          40
+Mean                         22.2
+Median                         20
+Mode                           20
+Sample Variance             130.4
+Sample Std. deviation      ≈11.42
+Q1*                           15
+Q2*                           20
+Q3*                           25
+IQR*                          10
+CV                        ≈51.44%
+Z-score nilai 50            ≈2.43</p>
+<p>*Menggunakan metode kuartil sederhana yang dijelaskan pada bagian
+sebelumnya.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="interpretasi-dataset-contoh">
+<h1>4.35 Interpretasi Dataset Contoh<a class="headerlink" href="#interpretasi-dataset-contoh" title="Link to this heading">#</a></h1>
+<p>Berdasarkan perhitungan:</p>
+<section id="pusat-data">
+<h2>1. Pusat data<a class="headerlink" href="#pusat-data" title="Link to this heading">#</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Mean   = 22.2
+Median = 20
+Mode   = 20
+</pre></div>
+</div>
+<p>Mean lebih tinggi daripada median.</p>
+</section>
+<section id="penyebaran">
+<h2>2. Penyebaran<a class="headerlink" href="#penyebaran" title="Link to this heading">#</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Range ≈ 40
+Std Dev ≈ 11.42
+</pre></div>
+</div>
+<p>Data memiliki variasi yang cukup terlihat.</p>
+</section>
+<section id="outlier">
+<h2>3. Outlier<a class="headerlink" href="#outlier" title="Link to this heading">#</a></h2>
+<p>Dengan aturan IQR:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Upper Fence = 40
+</pre></div>
+</div>
+<p>Nilai:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>50
+</pre></div>
+</div>
+<p>merupakan kandidat outlier.</p>
+</section>
+<section id="nilai-ekstrem">
+<h2>4. Nilai ekstrem<a class="headerlink" href="#nilai-ekstrem" title="Link to this heading">#</a></h2>
+<p>Z-score nilai 50 sekitar:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>2.43
+</pre></div>
+</div>
+<p>Nilai ini cukup jauh dari mean dan layak diperiksa lebih lanjut.</p>
+</section>
+<section id="kesimpulan">
+<h2>5. Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
+<p>Distribusi contoh cenderung memiliki nilai tinggi yang menarik mean ke
+atas. Nilai 50 perlu diperiksa apakah merupakan pengukuran valid atau
+error.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="hubungan-statistik-dengan-statistics-node-di-knime">
+<h1>4.36 Hubungan Statistik dengan Statistics Node di KNIME<a class="headerlink" href="#hubungan-statistik-dengan-statistics-node-di-knime" title="Link to this heading">#</a></h1>
+<p>Dalam node <strong>Statistics</strong>, beberapa statistik pada output dapat
+diperoleh secara otomatis.</p>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Data
+ |
+ v
++----------------+
+|   Statistics   |
++----------------+
+ |
+ v
+Statistics Table
+</pre></div>
+</div>
+<p>Kolom statistik yang umum terlihat antara lain:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Min
+Max
+Mean
+Std. deviation
+Variance
+Skewness
+</pre></div>
+</div>
+<p>Jika median diaktifkan, node juga dapat menghitung:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Median
+</pre></div>
+</div>
+<p>Tergantung versi dan konfigurasi node, informasi tambahan seperti count,
+missing values, dan statistik nominal juga dapat tersedia.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="contoh-menghubungkan-hasil-manual-dengan-knime">
+<h1>4.37 Contoh Menghubungkan Hasil Manual dengan KNIME<a class="headerlink" href="#contoh-menghubungkan-hasil-manual-dengan-knime" title="Link to this heading">#</a></h1>
+<p>Misalkan perhitungan manual memberikan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM2.5
+
+Min      = 10
+Max      = 50
+Mean     = 22.2
+Variance = 130.4
+Std Dev  = 11.42
+</pre></div>
+</div>
+<p>Setelah data dimasukkan ke KNIME Statistics Node, hasil pada Statistics
+Table seharusnya konsisten dengan definisi statistik yang digunakan.</p>
+<p>Namun, jika hasil berbeda, periksa:</p>
+<ol class="arabic simple">
+<li><p>apakah variance yang digunakan sample atau population;</p></li>
+<li><p>apakah ada missing values;</p></li>
+<li><p>apakah data yang dihitung sama;</p></li>
+<li><p>apakah ada filter baris;</p></li>
+<li><p>apakah tipe kolom benar;</p></li>
+<li><p>apakah metode median/percentile berbeda;</p></li>
+<li><p>apakah node menggunakan definisi skewness yang berbeda.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="contoh-perhitungan-menggunakan-python">
+<h1>4.38 Contoh Perhitungan Menggunakan Python<a class="headerlink" href="#contoh-perhitungan-menggunakan-python" title="Link to this heading">#</a></h1>
+<p>Untuk memverifikasi hasil secara programatis, contoh berikut dapat
+digunakan:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
+
+<span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">median</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">minimum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">maximum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">variance_sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">std_sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Mean:"</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Median:"</span><span class="p">,</span> <span class="n">median</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Minimum:"</span><span class="p">,</span> <span class="n">minimum</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Maximum:"</span><span class="p">,</span> <span class="n">maximum</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Sample Variance:"</span><span class="p">,</span> <span class="n">variance_sample</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Sample Std:"</span><span class="p">,</span> <span class="n">std_sample</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Hasil penting:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Mean             = 22.2
+Median           = 20.0
+Minimum          = 10
+Maximum          = 50
+Sample Variance  = 130.4
+Sample Std       ≈ 11.42
+</pre></div>
+</div>
+<p>Parameter:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>digunakan untuk sample variance dan sample standard deviation.</p>
+<p>Jika ingin variance populasi:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="contoh-perhitungan-di-excel">
+<h1>4.39 Contoh Perhitungan di Excel<a class="headerlink" href="#contoh-perhitungan-di-excel" title="Link to this heading">#</a></h1>
+<p>Misalkan data PM2.5 berada pada:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>A2:A11
+</pre></div>
+</div>
+<section id="id18">
+<h2>Mean<a class="headerlink" href="#id18" title="Link to this heading">#</a></h2>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=AVERAGE(A2:A11)
+</pre></div>
+</div>
+</section>
+<section id="id19">
+<h2>Median<a class="headerlink" href="#id19" title="Link to this heading">#</a></h2>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=MEDIAN(A2:A11)
+</pre></div>
+</div>
+</section>
+<section id="id20">
+<h2>Minimum<a class="headerlink" href="#id20" title="Link to this heading">#</a></h2>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=MIN(A2:A11)
+</pre></div>
+</div>
+</section>
+<section id="id21">
+<h2>Maximum<a class="headerlink" href="#id21" title="Link to this heading">#</a></h2>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=MAX(A2:A11)
+</pre></div>
+</div>
+</section>
+<section id="sample-variance">
+<h2>Sample Variance<a class="headerlink" href="#sample-variance" title="Link to this heading">#</a></h2>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=VAR.S(A2:A11)
+</pre></div>
+</div>
+</section>
+<section id="population-variance">
+<h2>Population Variance<a class="headerlink" href="#population-variance" title="Link to this heading">#</a></h2>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=VAR.P(A2:A11)
+</pre></div>
+</div>
+</section>
+<section id="sample-standard-deviation">
+<h2>Sample Standard Deviation<a class="headerlink" href="#sample-standard-deviation" title="Link to this heading">#</a></h2>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=STDEV.S(A2:A11)
+</pre></div>
+</div>
+</section>
+<section id="population-standard-deviation">
+<h2>Population Standard Deviation<a class="headerlink" href="#population-standard-deviation" title="Link to this heading">#</a></h2>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=STDEV.P(A2:A11)
+</pre></div>
+</div>
+</section>
+<section id="id22">
+<h2>Quartile<a class="headerlink" href="#id22" title="Link to this heading">#</a></h2>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=QUARTILE.INC(A2:A11,1)
+</pre></div>
+</div>
+<p>untuk Q1 dan:</p>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=QUARTILE.INC(A2:A11,3)
+</pre></div>
+</div>
+<p>untuk Q3.</p>
+<blockquote>
+<div><p>Excel memiliki beberapa fungsi percentile/quartile. Pastikan fungsi
+yang digunakan konsisten dengan metode yang dipakai dalam analisis.</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="contoh-perhitungan-dengan-kalkulator">
+<h1>4.40 Contoh Perhitungan dengan Kalkulator<a class="headerlink" href="#contoh-perhitungan-dengan-kalkulator" title="Link to this heading">#</a></h1>
+<p>Untuk perhitungan manual sederhana:</p>
+<section id="id23">
+<h2>Mean<a class="headerlink" href="#id23" title="Link to this heading">#</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(10 + 12 + 15 + 18 + 20 + 20 + 22 + 25 + 30 + 50) / 10
+= 22.2
+</pre></div>
+</div>
+</section>
+<section id="id24">
+<h2>Range<a class="headerlink" href="#id24" title="Link to this heading">#</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>50 - 10
+= 40
+</pre></div>
+</div>
+</section>
+<section id="id25">
+<h2>Sample Variance<a class="headerlink" href="#id25" title="Link to this heading">#</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>1173.6 / 9
+= 130.4
+</pre></div>
+</div>
+</section>
+<section id="id26">
+<h2>Sample Standard Deviation<a class="headerlink" href="#id26" title="Link to this heading">#</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>√130.4
+≈ 11.42
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="perbedaan-statistik-deskriptif-dan-inferensial">
+<h1>4.41 Perbedaan Statistik Deskriptif dan Inferensial<a class="headerlink" href="#perbedaan-statistik-deskriptif-dan-inferensial" title="Link to this heading">#</a></h1>
+<section id="statistik-deskriptif">
+<h2>Statistik Deskriptif<a class="headerlink" href="#statistik-deskriptif" title="Link to this heading">#</a></h2>
+<p>Digunakan untuk menjelaskan data yang tersedia.</p>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Mean
+Median
+Min
+Max
+Std. deviation
+Variance
+Quartile
+Skewness
+</pre></div>
+</div>
+</section>
+<section id="statistik-inferensial">
+<h2>Statistik Inferensial<a class="headerlink" href="#statistik-inferensial" title="Link to this heading">#</a></h2>
+<p>Digunakan untuk membuat kesimpulan atau estimasi mengenai populasi
+berdasarkan sampel.</p>
+<p>Contoh:</p>
+<ul class="simple">
+<li><p>confidence interval;</p></li>
+<li><p>hypothesis testing;</p></li>
+<li><p>t-test;</p></li>
+<li><p>ANOVA;</p></li>
+<li><p>regression;</p></li>
+<li><p>correlation testing.</p></li>
+</ul>
+<p>Statistics Node terutama digunakan untuk <strong>statistik deskriptif</strong> dan
+eksplorasi awal.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="mengapa-rumus-harus-dipahami">
+<h1>4.42 Mengapa Rumus Harus Dipahami?<a class="headerlink" href="#mengapa-rumus-harus-dipahami" title="Link to this heading">#</a></h1>
+<p>Software seperti KNIME dapat menghitung statistik secara otomatis.</p>
+<p>Namun, pengguna tetap perlu memahami rumus karena:</p>
+<ol class="arabic simple">
+<li><p>dapat memeriksa apakah hasil masuk akal;</p></li>
+<li><p>dapat menjelaskan hasil dalam laporan;</p></li>
+<li><p>dapat mengetahui perbedaan sample dan population;</p></li>
+<li><p>dapat memahami efek outlier;</p></li>
+<li><p>dapat memilih statistik yang sesuai;</p></li>
+<li><p>dapat menghindari kesalahan interpretasi.</p></li>
+</ol>
+<p>Contohnya, melihat:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Variance = 1,154.57
+</pre></div>
+</div>
+<p>tidak cukup.</p>
+<p>Kita juga harus memahami bahwa:</p>
+<p>[ Std. deviation <code class="docutils literal notranslate"><span class="pre">\approx</span> </code>{=tex}<code class="docutils literal notranslate"><span class="pre">\sqrt{Variance}</span></code>{=tex} ]</p>
+<p>sehingga:</p>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\sqrt{1154.57}</span></code>{=tex}<code class="docutils literal notranslate"><span class="pre">\approx33.98</span></code>{=tex} ]</p>
+<p>Hal ini sesuai dengan nilai standard deviation yang terlihat pada contoh
+Statistics Table.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="contoh-verifikasi-dari-screenshot-statistics-node">
+<h1>4.43 Contoh Verifikasi dari Screenshot Statistics Node<a class="headerlink" href="#contoh-verifikasi-dari-screenshot-statistics-node" title="Link to this heading">#</a></h1>
+<p>Pada contoh hasil Statistics Node, untuk PM1 terlihat kira-kira:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Std. deviation = 33.979
+Variance       = 1,154.57
+</pre></div>
+</div>
+<p>Kita dapat melakukan verifikasi:</p>
+<p>[ 33.979^2<code class="docutils literal notranslate"><span class="pre">\approx1154.57</span></code>{=tex} ]</p>
+<p>Hasil tersebut menunjukkan hubungan variance dan standard deviation
+konsisten.</p>
+<p>Untuk PM2.5:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Std. deviation ≈ 35.869
+Variance ≈ 1,286.6
+</pre></div>
+</div>
+<p>Verifikasi:</p>
+<p>[ 35.869^2<code class="docutils literal notranslate"><span class="pre">\approx1286.6</span></code>{=tex} ]</p>
+<p>Untuk PM10:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Std. deviation ≈ 36.421
+Variance ≈ 1,326.47
+</pre></div>
+</div>
+<p>Verifikasi:</p>
+<p>[ 36.421^2<code class="docutils literal notranslate"><span class="pre">\approx1326.47</span></code>{=tex} ]</p>
+<p>Dengan demikian, nilai variance pada output dapat diperiksa dengan
+mengkuadratkan standard deviation, dengan perbedaan kecil yang mungkin
+berasal dari pembulatan tampilan.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="ringkasan-rumus">
+<h1>4.44 Ringkasan Rumus<a class="headerlink" href="#ringkasan-rumus" title="Link to this heading">#</a></h1>
+<p>Statistik              Rumus</p>
+<hr class="docutils" />
+<p>Minimum                (<code class="docutils literal notranslate"><span class="pre">\min</span></code>{=tex}(x_i))
+Maximum                (<code class="docutils literal notranslate"><span class="pre">\max</span></code>{=tex}(x_i))
+Range                  (Max-Min)
+Mean                   (<code class="docutils literal notranslate"><span class="pre">\frac{\sum</span> <span class="pre">x_i}{n}</span></code>{=tex})
+Median                 Nilai tengah
+Mode                   Nilai paling sering
+Sample Variance        (<code class="docutils literal notranslate"><span class="pre">\frac{\sum(x_i-\bar{x})^2}{n-1}</span></code>{=tex})
+Population Variance    (<code class="docutils literal notranslate"><span class="pre">\frac{\sum(x_i-\mu)^2}{N}</span></code>{=tex})
+Sample Std. Dev.       (<code class="docutils literal notranslate"><span class="pre">\sqrt{s^2}</span></code>{=tex})
+Population Std. Dev.   (<code class="docutils literal notranslate"><span class="pre">\sqrt{\sigma^2}</span></code>{=tex})
+IQR                    (Q_3-Q_1)
+Lower Fence            (Q_1-1.5(IQR))
+Upper Fence            (Q_3+1.5(IQR))
+Z-score                (<code class="docutils literal notranslate"><span class="pre">\frac{x-\mu}{\sigma}</span></code>{=tex})
+CV                     (<code class="docutils literal notranslate"><span class="pre">\frac{s}{\bar{x}}</span></code>{=tex}<code class="docutils literal notranslate"><span class="pre">\times100</span></code>{=tex}%)
+Missing Rate           (<code class="docutils literal notranslate"><span class="pre">\frac{Missing}{Total}</span></code>{=tex}<code class="docutils literal notranslate"><span class="pre">\times100</span></code>{=tex}%)</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="cheat-sheet">
+<h1>4.45 Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Link to this heading">#</a></h1>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>MIN
+↓
+Nilai paling kecil
+
+MAX
+↓
+Nilai paling besar
+
+RANGE
+↓
+MAX - MIN
+
+MEAN
+↓
+Jumlah semua nilai / jumlah data
+
+MEDIAN
+↓
+Nilai tengah setelah data diurutkan
+
+MODE
+↓
+Nilai yang paling sering muncul
+
+VARIANCE
+↓
+Ukuran penyebaran kuadrat
+
+STANDARD DEVIATION
+↓
+√Variance
+
+Q1
+↓
+25% percentile
+
+Q2
+↓
+50% percentile / Median
+
+Q3
+↓
+75% percentile
+
+IQR
+↓
+Q3 - Q1
+
+SKEWNESS
+↓
+Kemencengan distribusi
+
+Z-SCORE
+↓
+Jarak observasi dari mean dalam satuan standard deviation
+
+CV
+↓
+Variasi relatif terhadap mean
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="checklist-perhitungan-statistik">
+<h1>4.46 Checklist Perhitungan Statistik<a class="headerlink" href="#checklist-perhitungan-statistik" title="Link to this heading">#</a></h1>
+<p>Sebelum menyimpulkan hasil statistik, periksa:</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Data sudah diurutkan ketika menghitung median/quartile secara
+manual.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Jumlah observasi (n) sudah benar.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Mean dihitung dari data yang benar.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Sample dan population variance tidak tertukar.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Standard deviation merupakan akar variance.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Satuan data diketahui.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Missing value diperiksa.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Outlier tidak langsung dihapus tanpa validasi.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Metode quartile/percentile diketahui.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Skewness dipahami berdasarkan definisi software yang digunakan.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Hasil manual dibandingkan dengan hasil KNIME jika diperlukan.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="id27">
+<h1>4.47 Kesimpulan<a class="headerlink" href="#id27" title="Link to this heading">#</a></h1>
+<p>Rumus statistik merupakan dasar penting untuk memahami output dari
+<strong>Statistics Node</strong> pada KNIME.</p>
+<p>Ukuran yang paling penting untuk analisis awal adalah:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Min
+Max
+Mean
+Median
+Variance
+Standard Deviation
+Skewness
+</pre></div>
+</div>
+<p>Untuk analisis penyebaran dan outlier, tambahkan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Q1
+Q3
+IQR
+Z-score
+</pre></div>
+</div>
+<p>Contoh dataset:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>10, 12, 15, 18, 20, 20, 22, 25, 30, 50
+</pre></div>
+</div>
+<p>menghasilkan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Mean              = 22.2
+Median            = 20
+Mode              = 20
+Minimum           = 10
+Maximum           = 50
+Range             = 40
+Sample Variance   = 130.4
+Sample Std. Dev.  ≈ 11.42
+IQR*              = 10
+CV                ≈ 51.44%
+</pre></div>
+</div>
+<p>Nilai 50 menjadi kandidat outlier berdasarkan aturan IQR dan memiliki
+z-score sekitar 2.43.</p>
+<p>Hal terpenting adalah <strong>statistik tidak hanya dihitung, tetapi juga
+diinterpretasikan</strong>. Dalam analisis kualitas udara, nilai ekstrem harus
+divalidasi karena dapat merupakan error sensor maupun kejadian polusi
+yang benar-benar terjadi.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="hubungan-dengan-materi-sebelumnya">
+<h1>4.48 Hubungan dengan Materi Sebelumnya<a class="headerlink" href="#hubungan-dengan-materi-sebelumnya" title="Link to this heading">#</a></h1>
+<p>Materi ini merupakan kelanjutan dari:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>3. Statistics Node
+</pre></div>
+</div>
+<p>Pada materi sebelumnya, kita mempelajari cara menggunakan node
+Statistics untuk menghasilkan tabel statistik.</p>
+<p>Pada materi ini, kita mempelajari <strong>bagaimana angka-angka tersebut
+diperoleh dan bagaimana menginterpretasikannya</strong>.</p>
+<p>Alurnya:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Data
+  ↓
+Statistics Node
+  ↓
+Statistics Table
+  ↓
+Rumus Statistik
+  ↓
+Verifikasi
+  ↓
+Interpretasi
+  ↓
+Kesimpulan
+</pre></div>
+</div>
+<p>Dengan memahami rumus, pengguna KNIME tidak hanya mengetahui cara
+menjalankan node, tetapi juga memahami makna statistik yang dihasilkan.</p>
+<hr class="docutils" />
+<section id="referensi-konsep">
+<h2>Referensi Konsep<a class="headerlink" href="#referensi-konsep" title="Link to this heading">#</a></h2>
+<p>Materi ini menggunakan konsep umum statistik deskriptif dan definisi
+sample/population variance, standard deviation, quartile, IQR, z-score,
+dan skewness yang umum digunakan dalam analisis data.</p>
+<p>Untuk implementasi praktis, selalu periksa dokumentasi versi software
+yang digunakan karena detail algoritma—terutama percentile, quartile,
+dan skewness—dapat berbeda antarperangkat lunak.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./minggu-2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">4. Rumus dan Contoh Perhitungan Statistik</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pendahuluan">4.1 Pendahuluan</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-contoh">4.2 Dataset Contoh</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#notasi-yang-digunakan">4.3 Notasi yang Digunakan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#minimum">4.4 Minimum</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus">Rumus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh">Contoh</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi">Interpretasi</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum">4.5 Maximum</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Rumus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Contoh</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Interpretasi</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#range">4.6 Range</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Rumus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Contoh</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Interpretasi</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mean">4.7 Mean</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-sampel">Rumus Sampel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-jumlahkan-seluruh-nilai">Langkah 1 — Jumlahkan seluruh nilai</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-2-bagi-dengan-jumlah-data">Langkah 2 — Bagi dengan jumlah data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Interpretasi</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-dan-pengaruh-outlier">4.8 Mean dan Pengaruh Outlier</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-a">Dataset A</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-b">Dataset B</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#median">4.9 Median</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-untuk-n-genap">Rumus untuk n genap</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#median-untuk-jumlah-data-ganjil">4.10 Median untuk Jumlah Data Ganjil</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-vs-median">4.11 Mean vs Median</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mode">4.12 Mode</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Interpretasi</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#variance">4.13 Variance</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-perhitungan-variance-sampel">4.14 Contoh Perhitungan Variance Sampel</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">4.15 Standard Deviation</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Rumus Sampel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Interpretasi</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hubungan-variance-dan-standard-deviation">4.16 Hubungan Variance dan Standard Deviation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#population-vs-sample">4.17 Population vs Sample</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#population">Population</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample">Sample</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengapa-sampel-menggunakan-n-1">4.18 Mengapa Sampel Menggunakan n - 1?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quartile">4.19 Quartile</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-quartile">4.20 Contoh Quartile</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bagian-bawah">Bagian bawah</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bagian-atas">Bagian atas</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interquartile-range-iqr">4.21 Interquartile Range (IQR)</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Rumus</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-outlier-menggunakan-iqr">4.22 Deteksi Outlier Menggunakan IQR</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lower-fence">Lower Fence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#upper-fence">Upper Fence</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#outlier-bukan-berarti-kesalahan">4.23 Outlier Bukan Berarti Kesalahan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#percentile">4.24 Percentile</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score">4.25 Z-Score</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Rumus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Contoh</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-z-score">4.26 Interpretasi Z-Score</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#skewness">4.27 Skewness</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-umum">Interpretasi umum</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#right-skewed">4.28 Right-Skewed</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#left-skewed">4.29 Left-Skewed</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-variation-cv">4.30 Coefficient of Variation (CV)</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Rumus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Contoh</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Interpretasi</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sum">4.31 Sum</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Rumus</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#count">4.32 Count</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value-rate">4.33 Missing Value Rate</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-perhitungan-statistik-dengan-dataset-air-quality">4.34 Contoh Perhitungan Statistik dengan Dataset Air Quality</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-dataset-contoh">4.35 Interpretasi Dataset Contoh</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pusat-data">1. Pusat data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penyebaran">2. Penyebaran</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outlier">3. Outlier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nilai-ekstrem">4. Nilai ekstrem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">5. Kesimpulan</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hubungan-statistik-dengan-statistics-node-di-knime">4.36 Hubungan Statistik dengan Statistics Node di KNIME</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-menghubungkan-hasil-manual-dengan-knime">4.37 Contoh Menghubungkan Hasil Manual dengan KNIME</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-perhitungan-menggunakan-python">4.38 Contoh Perhitungan Menggunakan Python</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-perhitungan-di-excel">4.39 Contoh Perhitungan di Excel</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Mean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Median</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Minimum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Maximum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-variance">Sample Variance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#population-variance">Population Variance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-standard-deviation">Sample Standard Deviation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#population-standard-deviation">Population Standard Deviation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Quartile</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-perhitungan-dengan-kalkulator">4.40 Contoh Perhitungan dengan Kalkulator</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">Mean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">Range</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">Sample Variance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">Sample Standard Deviation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perbedaan-statistik-deskriptif-dan-inferensial">4.41 Perbedaan Statistik Deskriptif dan Inferensial</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-deskriptif">Statistik Deskriptif</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-inferensial">Statistik Inferensial</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengapa-rumus-harus-dipahami">4.42 Mengapa Rumus Harus Dipahami?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-verifikasi-dari-screenshot-statistics-node">4.43 Contoh Verifikasi dari Screenshot Statistics Node</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan-rumus">4.44 Ringkasan Rumus</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cheat-sheet">4.45 Cheat Sheet</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#checklist-perhitungan-statistik">4.46 Checklist Perhitungan Statistik</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">4.47 Kesimpulan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hubungan-dengan-materi-sebelumnya">4.48 Hubungan dengan Materi Sebelumnya</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referensi-konsep">Referensi Konsep</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ahmad Dafi Zidni Alfarisi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

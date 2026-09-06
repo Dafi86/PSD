@@ -1,0 +1,1879 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3. Statistics Node &#8212; Penambangan Sains Data</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'minggu-2/Statistics-Node';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Penambangan Sains Data - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Penambangan Sains Data - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Minggu 1 — Analisis Kualitas Udara</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../minggu-1/business-understanding.html">1. Business Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../minggu-1/data-understanding.html">2. Data Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../minggu-1/deskripsi-fitur.html">3. Deskripsi Fitur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../minggu-1/sumber-polutan.html">4. Sumber Polutan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../minggu-1/eksplorasi-data.html">5. Eksplorasi Data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Minggu 2 — PostgreSQL Aiven dan KNIME</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pengolahan-knime.html">2. Pengolahan Data dengan KNIME</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analisis-time-series.html">6. Analisis Time Series dan Kesimpulan</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Dafi86/PSD" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Dafi86/PSD/issues/new?title=Issue%20on%20page%20%2Fminggu-2/Statistics-Node.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/minggu-2/Statistics-Node.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3. Statistics Node</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3. Statistics Node</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian">3.1 Pengertian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-penggunaan">3.2 Tujuan Penggunaan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#posisi-statistics-dalam-workflow">3.3 Posisi Statistics dalam Workflow</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#input-dan-output">3.4 Input dan Output</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-port">Input Port</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output">Output</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics-table">1. Statistics Table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nominal-histogram-table">2. Nominal Histogram Table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#occurrences-table">3. Occurrences Table</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cara-menambahkan-statistics-node">3.5 Cara Menambahkan Statistics Node</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-siapkan-data">Langkah 1 — Siapkan Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-2-cari-node-statistics">Langkah 2 — Cari Node Statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-3-hubungkan-data">Langkah 3 — Hubungkan Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-4-buka-konfigurasi">Langkah 4 — Buka Konfigurasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-5-execute">Langkah 5 — Execute</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#konfigurasi-statistics">3.6 Konfigurasi Statistics</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-median-values">3.6.1 Calculate Median Values</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengapa-median-bersifat-computationally-expensive">Mengapa median bersifat computationally expensive?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kapan-median-perlu-diaktifkan">Kapan median perlu diaktifkan?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#column-filter-pada-nominal-values">3.7 Column Filter pada Nominal Values</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#max-number-of-most-frequent-and-infrequent-values">3.8 Max Number of Most Frequent and Infrequent Values</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#max-number-of-possible-values-per-column">3.9 Max Number of Possible Values per Column</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-pada-output-table">3.10 Statistik pada Output Table</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-statistik-pada-screenshot">3.11 Interpretasi Statistik pada Screenshot</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id">3.11.1 ID</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latitude">3.11.2 Latitude</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#longitude">3.11.3 Longitude</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pm1">3.11.4 PM1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pm2-5">3.11.5 PM2.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pm10">3.11.6 PM10</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-setiap-statistik">3.12 Penjelasan Setiap Statistik</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimum">Minimum</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kegunaan">Kegunaan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum">Maximum</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Kegunaan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean">Mean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#median">Median</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">Standard Deviation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variance">Variance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skewness">Skewness</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengapa-statistik-penting-untuk-data-kualitas-udara">3.13 Mengapa Statistik Penting untuk Data Kualitas Udara?</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-1">Pertanyaan 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-2">Pertanyaan 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-3">Pertanyaan 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-4">Pertanyaan 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-5">Pertanyaan 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-6">Pertanyaan 6</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-analisis-pm2-5">3.14 Contoh Analisis PM2.5</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-hitung-range">Langkah 1 — Hitung range</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-2-bandingkan-mean-dengan-median">Langkah 2 — Bandingkan mean dengan median</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-3-evaluasi-standar-deviasi">Langkah 3 — Evaluasi standar deviasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-4-evaluasi-skewness">Langkah 4 — Evaluasi skewness</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan-contoh">Kesimpulan contoh</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-values">3.15 Missing Values</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tindakan-lanjutan">Tindakan lanjutan</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics-dan-outlier">3.16 Statistics dan Outlier</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perbedaan-statistics-node-dan-statistics-view">3.17 Perbedaan Statistics Node dan Statistics View</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics">Statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics-view">Statistics View</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesalahan-umum">3.18 Kesalahan Umum</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesalahan-1-menganggap-id-sebagai-variabel-numerik">Kesalahan 1 — Menganggap ID sebagai variabel numerik</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solusi">Solusi</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesalahan-2-menganggap-mean-sebagai-kondisi-tipikal">Kesalahan 2 — Menganggap mean sebagai kondisi tipikal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesalahan-3-menganggap-nilai-maksimum-pasti-error">Kesalahan 3 — Menganggap nilai maksimum pasti error</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesalahan-4-mengabaikan-satuan">Kesalahan 4 — Mengabaikan satuan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesalahan-5-membandingkan-variance-tanpa-memperhatikan-satuan">Kesalahan 5 — Membandingkan variance tanpa memperhatikan satuan</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rekomendasi-workflow-untuk-dataset-air-quality">3.19 Rekomendasi Workflow untuk Dataset Air Quality</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#checklist-setelah-menjalankan-statistics">3.20 Checklist Setelah Menjalankan Statistics</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan">3.21 Ringkasan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">3.22 Kesimpulan</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referensi">Referensi</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="statistics-node">
+<h1>3. Statistics Node<a class="headerlink" href="#statistics-node" title="Link to this heading">#</a></h1>
+<section id="pengertian">
+<h2>3.1 Pengertian<a class="headerlink" href="#pengertian" title="Link to this heading">#</a></h2>
+<p><strong>Statistics</strong> adalah node pada KNIME Analytics Platform yang digunakan
+untuk melakukan <strong>eksplorasi dan ringkasan statistik awal</strong> terhadap
+data. Node ini membantu melihat karakteristik setiap kolom secara cepat,
+terutama untuk kolom numerik dan kolom kategorikal/nominal.</p>
+<p>Pada workflow analisis kualitas udara, node <strong>Statistics</strong> dapat
+digunakan untuk mengetahui:</p>
+<ul class="simple">
+<li><p>jumlah baris data;</p></li>
+<li><p>nilai minimum dan maksimum;</p></li>
+<li><p>nilai rata-rata (<em>mean</em>);</p></li>
+<li><p>standar deviasi;</p></li>
+<li><p>varians;</p></li>
+<li><p>skewness;</p></li>
+<li><p>median, jika diaktifkan;</p></li>
+<li><p>jumlah/nilai yang hilang (<em>missing values</em>);</p></li>
+<li><p>jumlah atau frekuensi nilai pada kolom nominal;</p></li>
+<li><p>distribusi nilai kategorikal melalui output occurrence/histogram
+pada versi node yang mendukungnya.</p></li>
+</ul>
+<blockquote>
+<div><p><strong>Catatan versi:</strong> Tampilan dan jumlah output pada node Statistics
+dapat berbeda antarversi KNIME. Pada versi yang lebih baru, node
+Statistics dapat menyediakan <strong>Statistics Table</strong>, <strong>Nominal Histogram
+Table</strong>, dan <strong>Occurrences Table</strong>. Pada versi tertentu atau node
+Statistics lama, output yang tersedia dapat lebih sedikit.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="tujuan-penggunaan">
+<h2>3.2 Tujuan Penggunaan<a class="headerlink" href="#tujuan-penggunaan" title="Link to this heading">#</a></h2>
+<p>Node Statistics biasanya digunakan pada tahap <strong>Exploratory Data
+Analysis (EDA)</strong> sebelum analisis lanjutan atau pemodelan.</p>
+<p>Tujuan utamanya adalah:</p>
+<ol class="arabic simple">
+<li><p><strong>Memahami struktur data</strong></p>
+<ul class="simple">
+<li><p>mengetahui jumlah baris dan kolom;</p></li>
+<li><p>mengetahui tipe data setiap kolom;</p></li>
+<li><p>mengetahui rentang nilai setiap variabel.</p></li>
+</ul>
+</li>
+<li><p><strong>Mengetahui karakteristik numerik</strong></p>
+<ul class="simple">
+<li><p>nilai minimum;</p></li>
+<li><p>nilai maksimum;</p></li>
+<li><p>rata-rata;</p></li>
+<li><p>standar deviasi;</p></li>
+<li><p>varians;</p></li>
+<li><p>skewness;</p></li>
+<li><p>median jika diperlukan.</p></li>
+</ul>
+</li>
+<li><p><strong>Mendeteksi masalah kualitas data</strong></p>
+<ul class="simple">
+<li><p>missing value;</p></li>
+<li><p>nilai yang tidak wajar;</p></li>
+<li><p>rentang nilai yang terlalu besar atau terlalu kecil;</p></li>
+<li><p>distribusi yang sangat tidak simetris.</p></li>
+</ul>
+</li>
+<li><p><strong>Memahami variabel kategorikal</strong></p>
+<ul class="simple">
+<li><p>nilai-nilai yang muncul;</p></li>
+<li><p>frekuensi kemunculan setiap nilai;</p></li>
+<li><p>nilai yang paling sering dan paling jarang muncul.</p></li>
+</ul>
+</li>
+<li><p><strong>Menjadi dasar pemilihan metode analisis berikutnya</strong></p>
+<ul class="simple">
+<li><p>transformasi data;</p></li>
+<li><p>penanganan outlier;</p></li>
+<li><p>imputasi missing value;</p></li>
+<li><p>normalisasi/standardisasi;</p></li>
+<li><p>visualisasi;</p></li>
+<li><p>pemodelan statistik atau machine learning.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="posisi-statistics-dalam-workflow">
+<h2>3.3 Posisi Statistics dalam Workflow<a class="headerlink" href="#posisi-statistics-dalam-workflow" title="Link to this heading">#</a></h2>
+<p>Contoh alur sederhana:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Data Reader
+    |
+    v
+Data Preparation
+    |
+    v
+Statistics
+    |
+    +--------------------+
+    |                    |
+    v                    v
+Statistics Table     Occurrences /
+                     Histogram Table
+    |
+    v
+Interpretasi Data
+    |
+    v
+Preprocessing / Analisis Lanjutan
+</pre></div>
+</div>
+<p>Untuk dataset kualitas udara, contoh workflow dapat berupa:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>CSV Reader
+   |
+   v
+Column Rename / Type Conversion
+   |
+   v
+Missing Value
+   |
+   v
+Statistics
+   |
+   +--&gt; Statistics Table
+   |
+   +--&gt; Nominal Histogram Table
+   |
+   +--&gt; Occurrences Table
+   |
+   v
+Visualization / Analysis
+</pre></div>
+</div>
+<p>Statistics sebaiknya digunakan pada tahap awal agar kondisi data dapat
+diketahui sebelum mengambil keputusan analitis.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="input-dan-output">
+<h1>3.4 Input dan Output<a class="headerlink" href="#input-dan-output" title="Link to this heading">#</a></h1>
+<section id="input-port">
+<h2>Input Port<a class="headerlink" href="#input-port" title="Link to this heading">#</a></h2>
+<p>Statistics menerima:</p>
+<p><strong>Input Port 0 — Data Table</strong></p>
+<p>Input berupa tabel KNIME yang terdiri dari baris dan kolom.</p>
+<p>Contoh:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>id   latitude   longitude   pm1_ug_m3   pm2p5_ug_m3   pm10_ug_m3
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> 1       -7.2       112.4        8.04        10.248       10.407
+ 2       -7.2       112.4       15.20        18.350       21.100
+ 3       -7.2       112.4       42.10        48.700       55.200
+</pre></div>
+</div>
+<p>Kolom numerik akan digunakan untuk perhitungan statistik numerik,
+sedangkan kolom nominal/kategorikal dapat digunakan untuk menghitung
+kemunculan nilai.</p>
+</section>
+<hr class="docutils" />
+<section id="output">
+<h2>Output<a class="headerlink" href="#output" title="Link to this heading">#</a></h2>
+<p>Pada versi Statistics yang menyediakan tiga output, output utamanya
+adalah:</p>
+<section id="statistics-table">
+<h3>1. Statistics Table<a class="headerlink" href="#statistics-table" title="Link to this heading">#</a></h3>
+<p>Berisi ringkasan statistik untuk kolom yang dianalisis.</p>
+<p>Contoh statistik:</p>
+<p>Statistik        Keterangan</p>
+<hr class="docutils" />
+<p>Min              Nilai minimum
+Max              Nilai maksimum
+Mean             Nilai rata-rata
+Std. deviation   Standar deviasi
+Variance         Varians
+Median           Nilai tengah, jika diaktifkan
+Missing values   Jumlah data yang hilang
+Row count        Jumlah baris
+Skewness         Kemencengan distribusi
+Sum              Jumlah keseluruhan, jika tersedia</p>
+</section>
+<section id="nominal-histogram-table">
+<h3>2. Nominal Histogram Table<a class="headerlink" href="#nominal-histogram-table" title="Link to this heading">#</a></h3>
+<p>Berisi informasi histogram/distribusi untuk kolom nominal yang dipilih,
+pada versi node yang menyediakan output ini.</p>
+</section>
+<section id="occurrences-table">
+<h3>3. Occurrences Table<a class="headerlink" href="#occurrences-table" title="Link to this heading">#</a></h3>
+<p>Berisi nilai-nilai nominal dan jumlah kemunculannya.</p>
+<p>Contoh:</p>
+<p>Category      Count</p>
+<hr class="docutils" />
+<p>Good            120
+Moderate         85
+Unhealthy        30</p>
+<blockquote>
+<div><p>Jika versi KNIME yang digunakan hanya menyediakan sebagian output,
+gunakan output yang tersedia pada node tersebut.</p>
+</div></blockquote>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="cara-menambahkan-statistics-node">
+<h1>3.5 Cara Menambahkan Statistics Node<a class="headerlink" href="#cara-menambahkan-statistics-node" title="Link to this heading">#</a></h1>
+<section id="langkah-1-siapkan-data">
+<h2>Langkah 1 — Siapkan Data<a class="headerlink" href="#langkah-1-siapkan-data" title="Link to this heading">#</a></h2>
+<p>Pastikan data sudah masuk ke workflow melalui node seperti:</p>
+<ul class="simple">
+<li><p>CSV Reader;</p></li>
+<li><p>Excel Reader;</p></li>
+<li><p>File Reader;</p></li>
+<li><p>Database Reader;</p></li>
+<li><p>atau node pembaca data lainnya.</p></li>
+</ul>
+</section>
+<section id="langkah-2-cari-node-statistics">
+<h2>Langkah 2 — Cari Node Statistics<a class="headerlink" href="#langkah-2-cari-node-statistics" title="Link to this heading">#</a></h2>
+<p>Pada panel <strong>Nodes</strong>:</p>
+<ol class="arabic simple">
+<li><p>klik kotak pencarian;</p></li>
+<li><p>ketik <code class="docutils literal notranslate"><span class="pre">Statistics</span></code>;</p></li>
+<li><p>pilih node <strong>Statistics</strong>;</p></li>
+<li><p>drag-and-drop node ke workflow.</p></li>
+</ol>
+<p>Contoh tampilan pencarian pada KNIME:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Nodes
++---------------------------+
+| Search: Statistics        |
++---------------------------+
+
+Statistics
+Statistics View
+Tree Ensemble Statistics
+...
+</pre></div>
+</div>
+</section>
+<section id="langkah-3-hubungkan-data">
+<h2>Langkah 3 — Hubungkan Data<a class="headerlink" href="#langkah-3-hubungkan-data" title="Link to this heading">#</a></h2>
+<p>Hubungkan output dari node pembaca data ke input Statistics.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[CSV Reader]
+      |
+      v
+[Statistics]
+</pre></div>
+</div>
+<p>Garis koneksi harus berasal dari <strong>output data port</strong> node sebelumnya
+menuju <strong>input data port</strong> Statistics.</p>
+</section>
+<section id="langkah-4-buka-konfigurasi">
+<h2>Langkah 4 — Buka Konfigurasi<a class="headerlink" href="#langkah-4-buka-konfigurasi" title="Link to this heading">#</a></h2>
+<p>Klik dua kali node Statistics atau klik kanan kemudian pilih
+konfigurasi.</p>
+<p>Atur opsi yang diperlukan.</p>
+</section>
+<section id="langkah-5-execute">
+<h2>Langkah 5 — Execute<a class="headerlink" href="#langkah-5-execute" title="Link to this heading">#</a></h2>
+<p>Setelah konfigurasi selesai:</p>
+<ol class="arabic simple">
+<li><p>klik <strong>Apply and Execute</strong>, atau</p></li>
+<li><p>klik <strong>Execute</strong> pada toolbar.</p></li>
+</ol>
+<p>Setelah berhasil dijalankan, node akan berubah menjadi status executed
+dan output dapat dibuka.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="konfigurasi-statistics">
+<h1>3.6 Konfigurasi Statistics<a class="headerlink" href="#konfigurasi-statistics" title="Link to this heading">#</a></h1>
+<p>Tampilan konfigurasi dapat berbeda tergantung versi KNIME. Secara umum
+terdapat beberapa pengaturan penting.</p>
+<section id="calculate-median-values">
+<h2>3.6.1 Calculate Median Values<a class="headerlink" href="#calculate-median-values" title="Link to this heading">#</a></h2>
+<p>Opsi:</p>
+<p><strong>Calculate median values (computationally expensive)</strong></p>
+<p>Jika diaktifkan, KNIME akan menghitung median untuk kolom numerik.</p>
+<p>Median adalah nilai tengah setelah data diurutkan.</p>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Data:
+10, 20, 30, 40, 50
+
+Median = 30
+</pre></div>
+</div>
+<p>Untuk jumlah data genap:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>10, 20, 30, 40
+
+Median = (20 + 30) / 2
+       = 25
+</pre></div>
+</div>
+<section id="mengapa-median-bersifat-computationally-expensive">
+<h3>Mengapa median bersifat computationally expensive?<a class="headerlink" href="#mengapa-median-bersifat-computationally-expensive" title="Link to this heading">#</a></h3>
+<p>Perhitungan median memerlukan proses pengurutan nilai pada kolom. Pada
+dataset yang sangat besar, proses ini dapat membutuhkan sumber daya
+lebih besar dibanding statistik sederhana seperti mean atau minimum.</p>
+</section>
+<section id="kapan-median-perlu-diaktifkan">
+<h3>Kapan median perlu diaktifkan?<a class="headerlink" href="#kapan-median-perlu-diaktifkan" title="Link to this heading">#</a></h3>
+<p>Median berguna ketika:</p>
+<ul class="simple">
+<li><p>data memiliki outlier;</p></li>
+<li><p>distribusi sangat miring (<em>skewed</em>);</p></li>
+<li><p>mean dianggap kurang representatif;</p></li>
+<li><p>ingin membandingkan mean dan median.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="column-filter-pada-nominal-values">
+<h1>3.7 Column Filter pada Nominal Values<a class="headerlink" href="#column-filter-pada-nominal-values" title="Link to this heading">#</a></h1>
+<p>Statistics dapat memiliki pengaturan <strong>Column filter</strong> untuk menentukan
+kolom mana yang digunakan dalam analisis nilai nominal.</p>
+<p>Contoh data:</p>
+<p>city       status       pm2p5_ug_m3</p>
+<hr class="docutils" />
+<p>Surabaya   Good                10.2
+Surabaya   Moderate            35.4
+Malang     Good                12.1</p>
+<p>Kolom yang dapat dipilih untuk analisis nominal:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">city</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code></p></li>
+</ul>
+<p>Sedangkan:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pm2p5_ug_m3</span></code></p></li>
+</ul>
+<p>merupakan kolom numerik.</p>
+<p>Column filter berguna agar perhitungan nilai kategorikal hanya dilakukan
+pada kolom yang memang relevan.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="max-number-of-most-frequent-and-infrequent-values">
+<h1>3.8 Max Number of Most Frequent and Infrequent Values<a class="headerlink" href="#max-number-of-most-frequent-and-infrequent-values" title="Link to this heading">#</a></h1>
+<p>Pada versi Statistics yang lebih baru, terdapat pengaturan jumlah nilai
+yang akan ditampilkan sebagai:</p>
+<ul class="simple">
+<li><p>nilai paling sering (<em>most frequent</em>);</p></li>
+<li><p>nilai paling jarang (<em>infrequent</em>).</p></li>
+</ul>
+<p>Misalnya diatur menjadi:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+<p>Maka node dapat menampilkan hingga 5 nilai paling sering dan 5 nilai
+paling jarang pada tampilan statistik, tergantung data dan konfigurasi.</p>
+<p>Pengaturan ini terutama berguna untuk data kategorikal dengan banyak
+kategori.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="max-number-of-possible-values-per-column">
+<h1>3.9 Max Number of Possible Values per Column<a class="headerlink" href="#max-number-of-possible-values-per-column" title="Link to this heading">#</a></h1>
+<p>Pengaturan ini menentukan batas jumlah nilai nominal yang dimasukkan ke
+output.</p>
+<p>Misalnya:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Max no. of possible values per column = 100
+</pre></div>
+</div>
+<p>Artinya output nominal dibatasi hingga jumlah nilai yang ditentukan.</p>
+<p>Pengaturan ini penting pada dataset dengan kolom kategorikal yang
+memiliki jumlah kategori sangat besar.</p>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>id_pengguna
+A00001
+A00002
+A00003
+...
+A99999
+</pre></div>
+</div>
+<p>Kolom seperti ID dapat memiliki banyak nilai unik dan biasanya tidak
+terlalu berguna untuk analisis distribusi kategorikal.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="statistik-pada-output-table">
+<h1>3.10 Statistik pada Output Table<a class="headerlink" href="#statistik-pada-output-table" title="Link to this heading">#</a></h1>
+<p>Pada screenshot workflow, terlihat <strong>Statistics Table</strong> dengan beberapa
+kolom statistik.</p>
+<p>Contoh hasil:</p>
+<p>Column             Min       Max     Mean   Std. deviation   Variance   Skewness</p>
+<hr class="docutils" />
+<p>id                   1      1464    732.5          422.765    178,730          0
+latitude          -7.2      -7.2     -7.2                0          0          0
+longitude        112.4     112.4    112.4                0          0          0
+pm1_ug_m3         8.04   193.528   57.529           33.979   1,154.57      0.967
+pm2p5_ug_m3     10.248    204.64   62.028           35.869    1,286.6      0.968
+pm10_ug_m3      10.407   207.295    63.61           36.421   1,326.47      0.958</p>
+<blockquote>
+<div><p>Nilai di atas mengikuti angka yang terlihat pada screenshot contoh.
+Untuk analisis dataset sebenarnya, gunakan hasil eksekusi node pada
+data yang digunakan.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="interpretasi-statistik-pada-screenshot">
+<h1>3.11 Interpretasi Statistik pada Screenshot<a class="headerlink" href="#interpretasi-statistik-pada-screenshot" title="Link to this heading">#</a></h1>
+<section id="id">
+<h2>3.11.1 ID<a class="headerlink" href="#id" title="Link to this heading">#</a></h2>
+<p>Dari contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Min  = 1
+Max  = 1464
+Mean = 732.5
+</pre></div>
+</div>
+<p>Hal ini menunjukkan ID berada pada rentang 1 sampai 1464.</p>
+<p>Karena ID merupakan identifier, nilai seperti mean dan standar deviasi
+biasanya <strong>tidak memiliki makna statistik substantif</strong>.</p>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mean(id) = 732.5
+</pre></div>
+</div>
+<p>Tidak berarti bahwa “nilai ID rata-rata” memiliki arti terhadap kualitas
+udara.</p>
+<p><strong>Kesimpulan:</strong> kolom ID biasanya tidak digunakan sebagai variabel
+prediktor atau variabel analisis numerik.</p>
+</section>
+<hr class="docutils" />
+<section id="latitude">
+<h2>3.11.2 Latitude<a class="headerlink" href="#latitude" title="Link to this heading">#</a></h2>
+<p>Pada contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Min  = -7.2
+Max  = -7.2
+Mean = -7.2
+Std. deviation = 0
+Variance = 0
+</pre></div>
+</div>
+<p>Karena nilai minimum dan maksimum sama, seluruh data kemungkinan
+menggunakan satu nilai latitude.</p>
+<p>Secara matematis:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>x₁ = x₂ = ... = xₙ = -7.2
+</pre></div>
+</div>
+<p>Maka:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Mean = -7.2
+Variance = 0
+Std. deviation = 0
+</pre></div>
+</div>
+<p>Hal ini menunjukkan tidak terdapat variasi latitude pada data contoh.</p>
+</section>
+<hr class="docutils" />
+<section id="longitude">
+<h2>3.11.3 Longitude<a class="headerlink" href="#longitude" title="Link to this heading">#</a></h2>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Min  = 112.4
+Max  = 112.4
+Mean = 112.4
+Std. deviation = 0
+Variance = 0
+</pre></div>
+</div>
+<p>Interpretasinya sama seperti latitude: nilai longitude tidak berubah
+pada data contoh.</p>
+<p>Jika latitude dan longitude selalu konstan, kedua kolom tersebut tidak
+memberikan variasi lokasi untuk analisis statistik pada dataset
+tersebut.</p>
+</section>
+<hr class="docutils" />
+<section id="pm1">
+<h2>3.11.4 PM1<a class="headerlink" href="#pm1" title="Link to this heading">#</a></h2>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Min = 8.04
+Max = 193.528
+Mean = 57.529
+Std. deviation = 33.979
+Variance = 1,154.57
+Skewness = 0.967
+</pre></div>
+</div>
+<p>Rentang nilai cukup besar:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Range = Max - Min
+      = 193.528 - 8.04
+      = 185.488
+</pre></div>
+</div>
+<p>Skewness bernilai positif:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Skewness ≈ 0.967
+</pre></div>
+</div>
+<p>Hal ini menunjukkan distribusi PM1 cenderung <strong>right-skewed / positively
+skewed</strong>, yaitu terdapat ekor distribusi ke arah nilai yang lebih
+tinggi.</p>
+</section>
+<hr class="docutils" />
+<section id="pm2-5">
+<h2>3.11.5 PM2.5<a class="headerlink" href="#pm2-5" title="Link to this heading">#</a></h2>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Min = 10.248
+Max = 204.64
+Mean = 62.028
+Std. deviation = 35.869
+Variance = 1,286.6
+Skewness = 0.968
+</pre></div>
+</div>
+<p>Skewness positif menunjukkan bahwa distribusi PM2.5 cenderung memiliki
+ekor ke kanan.</p>
+<p>Artinya, terdapat sebagian pengamatan dengan konsentrasi PM2.5 yang jauh
+lebih tinggi dibanding sebagian besar data.</p>
+<p>Perlu diperhatikan bahwa <strong>skewness positif tidak otomatis berarti data
+salah</strong>. Nilai tersebut dapat mencerminkan kondisi polusi yang memang
+sesekali meningkat tajam.</p>
+</section>
+<hr class="docutils" />
+<section id="pm10">
+<h2>3.11.6 PM10<a class="headerlink" href="#pm10" title="Link to this heading">#</a></h2>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Min = 10.407
+Max = 207.295
+Mean = 63.61
+Std. deviation = 36.421
+Variance = 1,326.47
+Skewness = 0.958
+</pre></div>
+</div>
+<p>Interpretasinya:</p>
+<ul class="simple">
+<li><p>nilai PM10 memiliki variasi yang cukup besar;</p></li>
+<li><p>terdapat rentang nilai yang luas;</p></li>
+<li><p>distribusi cenderung positif skewed;</p></li>
+<li><p>terdapat kemungkinan sejumlah observasi dengan konsentrasi tinggi.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="penjelasan-setiap-statistik">
+<h1>3.12 Penjelasan Setiap Statistik<a class="headerlink" href="#penjelasan-setiap-statistik" title="Link to this heading">#</a></h1>
+<section id="minimum">
+<h2>Minimum<a class="headerlink" href="#minimum" title="Link to this heading">#</a></h2>
+<p>Minimum adalah nilai terkecil dalam suatu kolom.</p>
+<p>Rumus sederhana:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Min(X) = nilai X terkecil
+</pre></div>
+</div>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Data = 10, 20, 30, 40
+
+Min = 10
+</pre></div>
+</div>
+<section id="kegunaan">
+<h3>Kegunaan<a class="headerlink" href="#kegunaan" title="Link to this heading">#</a></h3>
+<p>Minimum berguna untuk:</p>
+<ul class="simple">
+<li><p>mengetahui batas bawah data;</p></li>
+<li><p>mendeteksi nilai tidak wajar;</p></li>
+<li><p>memeriksa rentang pengukuran.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="maximum">
+<h2>Maximum<a class="headerlink" href="#maximum" title="Link to this heading">#</a></h2>
+<p>Maximum adalah nilai terbesar.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Max(X) = nilai X terbesar
+</pre></div>
+</div>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Data = 10, 20, 30, 40
+
+Max = 40
+</pre></div>
+</div>
+<section id="id1">
+<h3>Kegunaan<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Maximum berguna untuk:</p>
+<ul class="simple">
+<li><p>mengetahui nilai tertinggi;</p></li>
+<li><p>mendeteksi kemungkinan outlier;</p></li>
+<li><p>mengecek batas alat ukur atau batas domain data.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="mean">
+<h2>Mean<a class="headerlink" href="#mean" title="Link to this heading">#</a></h2>
+<p>Mean atau rata-rata:</p>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\bar</span></code>{=tex}{x} = <code class="docutils literal notranslate"><span class="pre">\frac{\sum_{i=1}^{n}x_i}{n}</span></code>{=tex} ]</p>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Data = 10, 20, 30
+
+Mean = (10 + 20 + 30) / 3
+     = 20
+</pre></div>
+</div>
+<p>Mean sensitif terhadap outlier.</p>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>10, 20, 30, 100
+</pre></div>
+</div>
+<p>Nilai 100 akan meningkatkan mean secara signifikan.</p>
+</section>
+<hr class="docutils" />
+<section id="median">
+<h2>Median<a class="headerlink" href="#median" title="Link to this heading">#</a></h2>
+<p>Median adalah nilai tengah data yang sudah diurutkan.</p>
+<p>Median lebih tahan terhadap outlier dibandingkan mean.</p>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>10, 20, 30, 100, 200
+
+Median = 30
+</pre></div>
+</div>
+<p>Sedangkan mean:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Mean = 72
+</pre></div>
+</div>
+<p>Karena itu, membandingkan mean dan median dapat membantu memahami bentuk
+distribusi.</p>
+</section>
+<hr class="docutils" />
+<section id="standard-deviation">
+<h2>Standard Deviation<a class="headerlink" href="#standard-deviation" title="Link to this heading">#</a></h2>
+<p>Standard deviation atau standar deviasi mengukur seberapa jauh data
+tersebar dari rata-rata.</p>
+<p>Secara umum:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Std. deviation kecil
+    -&gt; data relatif dekat dengan mean
+
+Std. deviation besar
+    -&gt; data lebih tersebar
+</pre></div>
+</div>
+<p>Untuk populasi, salah satu bentuk rumusnya:</p>
+<p>[ <code class="docutils literal notranslate"><span class="pre">\sigma</span> </code>{=tex}= <code class="docutils literal notranslate"><span class="pre">\sqrt{\frac{\sum</span> <span class="pre">(x_i-\mu)^2}{N}}</span></code>{=tex} ]</p>
+<p>Untuk sampel:</p>
+<p>[ s = <code class="docutils literal notranslate"><span class="pre">\sqrt{\frac{\sum</span> <span class="pre">(x_i-\bar{x})^2}{n-1}}</span></code>{=tex} ]</p>
+<p>Interpretasi harus mempertimbangkan satuan variabel.</p>
+</section>
+<hr class="docutils" />
+<section id="variance">
+<h2>Variance<a class="headerlink" href="#variance" title="Link to this heading">#</a></h2>
+<p>Variance adalah kuadrat dari standar deviasi.</p>
+<p>Secara umum:</p>
+<p>[ Variance = (Std. deviation)^2 ]</p>
+<p>Contoh dari screenshot:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Std. deviation PM1 ≈ 33.979
+
+Variance ≈ 33.979²
+         ≈ 1,154.57
+</pre></div>
+</div>
+<p>Variance memiliki satuan yang dikuadratkan, sehingga standar deviasi
+biasanya lebih mudah diinterpretasikan secara langsung.</p>
+</section>
+<hr class="docutils" />
+<section id="skewness">
+<h2>Skewness<a class="headerlink" href="#skewness" title="Link to this heading">#</a></h2>
+<p>Skewness mengukur tingkat kemencengan distribusi.</p>
+<p>Secara umum:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Skewness ≈ 0
+    -&gt; distribusi relatif simetris
+
+Skewness &gt; 0
+    -&gt; right-skewed / ekor ke kanan
+
+Skewness &lt; 0
+    -&gt; left-skewed / ekor ke kiri
+</pre></div>
+</div>
+<p>Pada contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM1    ≈ 0.967
+PM2.5  ≈ 0.968
+PM10   ≈ 0.958
+</pre></div>
+</div>
+<p>Ketiganya positif dan mendekati 1, sehingga distribusi cenderung
+<strong>miring ke kanan</strong>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="mengapa-statistik-penting-untuk-data-kualitas-udara">
+<h1>3.13 Mengapa Statistik Penting untuk Data Kualitas Udara?<a class="headerlink" href="#mengapa-statistik-penting-untuk-data-kualitas-udara" title="Link to this heading">#</a></h1>
+<p>Data kualitas udara biasanya memiliki variasi yang cukup besar.</p>
+<p>Contoh variabel:</p>
+<ul class="simple">
+<li><p>PM1;</p></li>
+<li><p>PM2.5;</p></li>
+<li><p>PM10;</p></li>
+<li><p>CO;</p></li>
+<li><p>NO₂;</p></li>
+<li><p>SO₂;</p></li>
+<li><p>O₃;</p></li>
+<li><p>temperatur;</p></li>
+<li><p>kelembapan;</p></li>
+<li><p>tekanan;</p></li>
+<li><p>kecepatan angin.</p></li>
+</ul>
+<p>Statistics membantu menjawab pertanyaan awal seperti:</p>
+<section id="pertanyaan-1">
+<h2>Pertanyaan 1<a class="headerlink" href="#pertanyaan-1" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Berapa konsentrasi PM2.5 terendah?</p>
+</div></blockquote>
+<p>Gunakan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Minimum
+</pre></div>
+</div>
+</section>
+<section id="pertanyaan-2">
+<h2>Pertanyaan 2<a class="headerlink" href="#pertanyaan-2" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Berapa konsentrasi PM2.5 tertinggi?</p>
+</div></blockquote>
+<p>Gunakan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Maximum
+</pre></div>
+</div>
+</section>
+<section id="pertanyaan-3">
+<h2>Pertanyaan 3<a class="headerlink" href="#pertanyaan-3" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Berapa rata-rata konsentrasi PM2.5?</p>
+</div></blockquote>
+<p>Gunakan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Mean
+</pre></div>
+</div>
+</section>
+<section id="pertanyaan-4">
+<h2>Pertanyaan 4<a class="headerlink" href="#pertanyaan-4" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Apakah konsentrasi PM2.5 sangat bervariasi?</p>
+</div></blockquote>
+<p>Periksa:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Standard deviation
+Variance
+Range
+</pre></div>
+</div>
+</section>
+<section id="pertanyaan-5">
+<h2>Pertanyaan 5<a class="headerlink" href="#pertanyaan-5" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Apakah distribusinya simetris?</p>
+</div></blockquote>
+<p>Periksa:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Skewness
+</pre></div>
+</div>
+</section>
+<section id="pertanyaan-6">
+<h2>Pertanyaan 6<a class="headerlink" href="#pertanyaan-6" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Apakah terdapat nilai ekstrim?</p>
+</div></blockquote>
+<p>Bandingkan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Minimum
+Maximum
+Mean
+Median
+Standard deviation
+</pre></div>
+</div>
+<p>dan lanjutkan dengan visualisasi/histogram jika diperlukan.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="contoh-analisis-pm2-5">
+<h1>3.14 Contoh Analisis PM2.5<a class="headerlink" href="#contoh-analisis-pm2-5" title="Link to this heading">#</a></h1>
+<p>Misalkan Statistics menghasilkan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Min      = 10.248
+Max      = 204.640
+Mean     = 62.028
+Std Dev  = 35.869
+Variance = 1,286.600
+Skewness = 0.968
+</pre></div>
+</div>
+<section id="langkah-1-hitung-range">
+<h2>Langkah 1 — Hitung range<a class="headerlink" href="#langkah-1-hitung-range" title="Link to this heading">#</a></h2>
+<p>[ Range = Max - Min ]</p>
+<p>[ Range = 204.640 - 10.248 ]</p>
+<p>[ Range = 194.392 ]</p>
+<p>Range cukup besar sehingga konsentrasi PM2.5 memiliki variasi yang cukup
+tinggi.</p>
+</section>
+<section id="langkah-2-bandingkan-mean-dengan-median">
+<h2>Langkah 2 — Bandingkan mean dengan median<a class="headerlink" href="#langkah-2-bandingkan-mean-dengan-median" title="Link to this heading">#</a></h2>
+<p>Jika median tersedia, bandingkan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Mean &gt; Median
+</pre></div>
+</div>
+<p>Jika mean lebih besar daripada median dan skewness positif, hal tersebut
+konsisten dengan distribusi yang memiliki ekor ke kanan.</p>
+</section>
+<section id="langkah-3-evaluasi-standar-deviasi">
+<h2>Langkah 3 — Evaluasi standar deviasi<a class="headerlink" href="#langkah-3-evaluasi-standar-deviasi" title="Link to this heading">#</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Mean ≈ 62.028
+Std Dev ≈ 35.869
+</pre></div>
+</div>
+<p>Standar deviasi cukup besar dibanding mean, sehingga data menunjukkan
+penyebaran yang cukup besar di sekitar rata-rata.</p>
+</section>
+<section id="langkah-4-evaluasi-skewness">
+<h2>Langkah 4 — Evaluasi skewness<a class="headerlink" href="#langkah-4-evaluasi-skewness" title="Link to this heading">#</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Skewness ≈ 0.968
+</pre></div>
+</div>
+<p>Distribusi cenderung positif skewed.</p>
+<section id="kesimpulan-contoh">
+<h3>Kesimpulan contoh<a class="headerlink" href="#kesimpulan-contoh" title="Link to this heading">#</a></h3>
+<p>Data PM2.5 memiliki rentang yang luas, variasi yang cukup besar, dan
+distribusi yang cenderung miring ke kanan. Oleh karena itu, analisis
+lanjutan sebaiknya mempertimbangkan keberadaan nilai tinggi/outlier dan
+tidak hanya mengandalkan mean.</p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="missing-values">
+<h1>3.15 Missing Values<a class="headerlink" href="#missing-values" title="Link to this heading">#</a></h1>
+<p>Salah satu fungsi penting Statistics adalah membantu memeriksa kualitas
+data.</p>
+<p>Missing value dapat terjadi karena:</p>
+<ul class="simple">
+<li><p>sensor tidak membaca data;</p></li>
+<li><p>koneksi terputus;</p></li>
+<li><p>kesalahan input;</p></li>
+<li><p>data tidak tersedia;</p></li>
+<li><p>proses pengumpulan data gagal.</p></li>
+</ul>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM2.5
+
+10.2
+12.3
+?
+15.8
+?
+20.1
+</pre></div>
+</div>
+<p>Jika terdapat missing value, statistik harus diinterpretasikan dengan
+memperhatikan jumlah data yang benar-benar tersedia.</p>
+<section id="tindakan-lanjutan">
+<h2>Tindakan lanjutan<a class="headerlink" href="#tindakan-lanjutan" title="Link to this heading">#</a></h2>
+<p>Setelah menemukan missing value, beberapa pilihan adalah:</p>
+<ol class="arabic simple">
+<li><p>menghapus baris;</p></li>
+<li><p>mengganti dengan mean;</p></li>
+<li><p>mengganti dengan median;</p></li>
+<li><p>menggunakan metode imputasi;</p></li>
+<li><p>mempertahankan missing value jika secara analitis memang bermakna.</p></li>
+</ol>
+<p>Untuk data sensor, <strong>jangan langsung mengganti semua missing value
+dengan mean</strong>. Pertimbangkan pola waktu, lokasi, dan karakteristik
+sensor terlebih dahulu.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="statistics-dan-outlier">
+<h1>3.16 Statistics dan Outlier<a class="headerlink" href="#statistics-dan-outlier" title="Link to this heading">#</a></h1>
+<p>Statistics dapat menjadi langkah awal untuk mendeteksi outlier, tetapi
+Statistics saja tidak selalu cukup untuk menentukan apakah suatu nilai
+benar-benar outlier.</p>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Mean = 50
+Std Dev = 10
+Max = 200
+</pre></div>
+</div>
+<p>Nilai 200 terlihat jauh dari rata-rata.</p>
+<p>Namun, nilai tersebut belum tentu salah.</p>
+<p>Kemungkinan:</p>
+<ul class="simple">
+<li><p>sensor error;</p></li>
+<li><p>kejadian polusi ekstrem;</p></li>
+<li><p>kebakaran;</p></li>
+<li><p>aktivitas industri;</p></li>
+<li><p>kondisi meteorologis tertentu.</p></li>
+</ul>
+<p>Karena itu, lakukan validasi menggunakan:</p>
+<ul class="simple">
+<li><p>histogram;</p></li>
+<li><p>box plot;</p></li>
+<li><p>line chart berdasarkan waktu;</p></li>
+<li><p>informasi lokasi;</p></li>
+<li><p>data sensor lainnya.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="perbedaan-statistics-node-dan-statistics-view">
+<h1>3.17 Perbedaan Statistics Node dan Statistics View<a class="headerlink" href="#perbedaan-statistics-node-dan-statistics-view" title="Link to this heading">#</a></h1>
+<p>KNIME memiliki node yang namanya mirip, sehingga penting membedakannya.</p>
+<section id="statistics">
+<h2>Statistics<a class="headerlink" href="#statistics" title="Link to this heading">#</a></h2>
+<p>Node <strong>Statistics</strong> digunakan untuk menghitung dan menghasilkan
+ringkasan statistik sebagai output table, termasuk statistik numerik dan
+informasi nominal pada versi yang mendukungnya.</p>
+</section>
+<section id="statistics-view">
+<h2>Statistics View<a class="headerlink" href="#statistics-view" title="Link to this heading">#</a></h2>
+<p><strong>Statistics View</strong> lebih berorientasi pada penyajian statistik sebagai
+visualisasi/view.</p>
+<p>Dengan kata lain:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Statistics
+    -&gt; fokus pada perhitungan dan output data
+
+Statistics View
+    -&gt; fokus pada tampilan/view statistik
+</pre></div>
+</div>
+<p>Pastikan node yang digunakan sesuai dengan kebutuhan workflow.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="kesalahan-umum">
+<h1>3.18 Kesalahan Umum<a class="headerlink" href="#kesalahan-umum" title="Link to this heading">#</a></h1>
+<section id="kesalahan-1-menganggap-id-sebagai-variabel-numerik">
+<h2>Kesalahan 1 — Menganggap ID sebagai variabel numerik<a class="headerlink" href="#kesalahan-1-menganggap-id-sebagai-variabel-numerik" title="Link to this heading">#</a></h2>
+<p>ID memang sering berupa angka, tetapi angka tersebut belum tentu
+memiliki makna matematis.</p>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>id = 1, 2, 3, 4, ...
+</pre></div>
+</div>
+<p>Jangan menyimpulkan bahwa ID memiliki hubungan linear dengan kualitas
+udara.</p>
+<section id="solusi">
+<h3>Solusi<a class="headerlink" href="#solusi" title="Link to this heading">#</a></h3>
+<p>Gunakan ID sebagai identifier, bukan sebagai variabel analisis.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="kesalahan-2-menganggap-mean-sebagai-kondisi-tipikal">
+<h2>Kesalahan 2 — Menganggap mean sebagai kondisi tipikal<a class="headerlink" href="#kesalahan-2-menganggap-mean-sebagai-kondisi-tipikal" title="Link to this heading">#</a></h2>
+<p>Mean dapat terpengaruh oleh outlier.</p>
+<p>Jika distribusi sangat skewed, median dapat memberikan gambaran pusat
+data yang lebih representatif.</p>
+</section>
+<hr class="docutils" />
+<section id="kesalahan-3-menganggap-nilai-maksimum-pasti-error">
+<h2>Kesalahan 3 — Menganggap nilai maksimum pasti error<a class="headerlink" href="#kesalahan-3-menganggap-nilai-maksimum-pasti-error" title="Link to this heading">#</a></h2>
+<p>Nilai maksimum yang tinggi belum tentu kesalahan.</p>
+<p>Perlu dilakukan validasi terhadap:</p>
+<ul class="simple">
+<li><p>waktu;</p></li>
+<li><p>lokasi;</p></li>
+<li><p>sensor;</p></li>
+<li><p>kondisi lingkungan;</p></li>
+<li><p>variabel lain.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="kesalahan-4-mengabaikan-satuan">
+<h2>Kesalahan 4 — Mengabaikan satuan<a class="headerlink" href="#kesalahan-4-mengabaikan-satuan" title="Link to this heading">#</a></h2>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PM2.5 = 62.028
+</pre></div>
+</div>
+<p>Angka tersebut tidak cukup informatif tanpa mengetahui satuannya,
+misalnya:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>µg/m³
+</pre></div>
+</div>
+<p>Nama kolom pada screenshot menggunakan pola:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pm2p5_ug_m3
+</pre></div>
+</div>
+<p>yang mengindikasikan konsentrasi PM2.5 dalam satuan mikrogram per meter
+kubik.</p>
+</section>
+<hr class="docutils" />
+<section id="kesalahan-5-membandingkan-variance-tanpa-memperhatikan-satuan">
+<h2>Kesalahan 5 — Membandingkan variance tanpa memperhatikan satuan<a class="headerlink" href="#kesalahan-5-membandingkan-variance-tanpa-memperhatikan-satuan" title="Link to this heading">#</a></h2>
+<p>Variance memiliki satuan kuadrat.</p>
+<p>Jika PM2.5 menggunakan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>µg/m³
+</pre></div>
+</div>
+<p>maka variance secara konseptual menggunakan satuan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(µg/m³)²
+</pre></div>
+</div>
+<p>Untuk interpretasi praktis, standard deviation sering lebih mudah
+dipahami.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="rekomendasi-workflow-untuk-dataset-air-quality">
+<h1>3.19 Rekomendasi Workflow untuk Dataset Air Quality<a class="headerlink" href="#rekomendasi-workflow-untuk-dataset-air-quality" title="Link to this heading">#</a></h1>
+<p>Workflow yang disarankan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>                 +----------------+
+                 |   Data Reader  |
+                 +-------+--------+
+                         |
+                         v
+                 +----------------+
+                 | Type Conversion|
+                 +-------+--------+
+                         |
+                         v
+                 +----------------+
+                 | Missing Value  |
+                 +-------+--------+
+                         |
+                         v
+                 +----------------+
+                 |   Statistics   |
+                 +-------+--------+
+                         |
+          +--------------+--------------+
+          |              |              |
+          v              v              v
+   Statistics Table  Histogram      Occurrences
+          |              |              |
+          +--------------+--------------+
+                         |
+                         v
+                 +----------------+
+                 | Visualization  |
+                 +-------+--------+
+                         |
+                         v
+                 +----------------+
+                 | Analysis / ML  |
+                 +----------------+
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="checklist-setelah-menjalankan-statistics">
+<h1>3.20 Checklist Setelah Menjalankan Statistics<a class="headerlink" href="#checklist-setelah-menjalankan-statistics" title="Link to this heading">#</a></h1>
+<p>Gunakan checklist berikut:</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Apakah jumlah baris sudah sesuai?</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Apakah semua kolom memiliki tipe data yang benar?</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Apakah terdapat missing value?</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Apakah terdapat nilai minimum yang tidak masuk akal?</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Apakah terdapat nilai maksimum yang tidak masuk akal?</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Apakah mean dan median berbeda jauh?</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Apakah standar deviasi besar?</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Apakah variance besar?</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Apakah skewness positif atau negatif?</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Apakah ada kolom dengan variance = 0?</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Apakah ada kolom ID yang sebaiknya tidak dianalisis sebagai
+numerik?</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Apakah ada kolom kategorikal dengan terlalu banyak nilai unik?</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Apakah diperlukan histogram atau box plot untuk pemeriksaan
+lebih lanjut?</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="ringkasan">
+<h1>3.21 Ringkasan<a class="headerlink" href="#ringkasan" title="Link to this heading">#</a></h1>
+<p><strong>Statistics Node</strong> merupakan salah satu node penting untuk tahap awal
+analisis data di KNIME.</p>
+<p>Node ini membantu memperoleh gambaran statistik secara cepat sebelum
+masuk ke analisis yang lebih kompleks.</p>
+<p>Statistik utama yang perlu diperhatikan:</p>
+<p>Statistik        Fungsi utama</p>
+<hr class="docutils" />
+<p>Min              Nilai terkecil
+Max              Nilai terbesar
+Mean             Nilai rata-rata
+Median           Nilai tengah
+Std. deviation   Tingkat penyebaran data
+Variance         Kuadrat standar deviasi
+Skewness         Kemencengan distribusi
+Missing values   Data yang tidak tersedia
+Occurrences      Frekuensi nilai nominal
+Histogram        Gambaran distribusi nilai</p>
+<p>Pada contoh data kualitas udara dalam screenshot, PM1, PM2.5, dan PM10
+memiliki <strong>skewness positif sekitar 0.96</strong>, yang menunjukkan distribusi
+cenderung miring ke kanan. Sementara latitude dan longitude pada contoh
+memiliki <strong>standar deviasi dan variance sebesar 0</strong>, yang menunjukkan
+tidak terdapat variasi lokasi pada nilai tersebut.</p>
+<p>Dengan demikian, Statistics dapat digunakan sebagai dasar untuk
+menentukan langkah berikutnya, misalnya:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Statistics
+    ↓
+Pemeriksaan missing value
+    ↓
+Pemeriksaan distribusi
+    ↓
+Deteksi/validasi outlier
+    ↓
+Transformasi / preprocessing
+    ↓
+Visualisasi
+    ↓
+Analisis lanjutan / Machine Learning
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="kesimpulan">
+<h1>3.22 Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h1>
+<p>Node <strong>Statistics</strong> digunakan untuk melakukan <strong>deskripsi statistik dan
+pemeriksaan awal terhadap data</strong>.</p>
+<p>Untuk dataset kualitas udara, node ini sangat berguna untuk memahami:</p>
+<ol class="arabic simple">
+<li><p>rentang konsentrasi polutan;</p></li>
+<li><p>nilai rata-rata;</p></li>
+<li><p>tingkat variasi;</p></li>
+<li><p>kemencengan distribusi;</p></li>
+<li><p>keberadaan missing value;</p></li>
+<li><p>frekuensi kategori;</p></li>
+<li><p>kemungkinan nilai ekstrem;</p></li>
+<li><p>kolom yang tidak memiliki variasi.</p></li>
+</ol>
+<p>Namun, output Statistics sebaiknya tidak langsung dianggap sebagai
+kesimpulan akhir. Statistik deskriptif perlu dikombinasikan dengan
+visualisasi dan pengetahuan domain agar interpretasi data kualitas udara
+menjadi lebih valid.</p>
+<hr class="docutils" />
+<section id="referensi">
+<h2>Referensi<a class="headerlink" href="#referensi" title="Link to this heading">#</a></h2>
+<p>Dokumentasi dan informasi node yang digunakan sebagai acuan:</p>
+<ul class="simple">
+<li><p>KNIME Analytics Platform User Guide — pembahasan data table,
+column types, node monitor, dan statistics.</p></li>
+<li><p>Dokumentasi node <strong>Statistics</strong> KNIME/KNIME Base.</p></li>
+<li><p>NodePit — dokumentasi teknis Statistics Node untuk versi KNIME
+yang lebih baru.</p></li>
+<li><p>KNIME Analytics Platform — dokumentasi resmi mengenai data table
+dan node workflow.</p></li>
+</ul>
+<blockquote>
+<div><p><strong>Catatan:</strong> Nama opsi, jumlah output port, dan tampilan dialog dapat
+berubah mengikuti versi KNIME Analytics Platform yang digunakan.
+Screenshot pada materi ini menunjukkan konfigurasi/tampilan Statistics
+pada workflow analisis kualitas udara.</p>
+</div></blockquote>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./minggu-2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3. Statistics Node</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian">3.1 Pengertian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-penggunaan">3.2 Tujuan Penggunaan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#posisi-statistics-dalam-workflow">3.3 Posisi Statistics dalam Workflow</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#input-dan-output">3.4 Input dan Output</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-port">Input Port</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output">Output</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics-table">1. Statistics Table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nominal-histogram-table">2. Nominal Histogram Table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#occurrences-table">3. Occurrences Table</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cara-menambahkan-statistics-node">3.5 Cara Menambahkan Statistics Node</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-siapkan-data">Langkah 1 — Siapkan Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-2-cari-node-statistics">Langkah 2 — Cari Node Statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-3-hubungkan-data">Langkah 3 — Hubungkan Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-4-buka-konfigurasi">Langkah 4 — Buka Konfigurasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-5-execute">Langkah 5 — Execute</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#konfigurasi-statistics">3.6 Konfigurasi Statistics</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-median-values">3.6.1 Calculate Median Values</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengapa-median-bersifat-computationally-expensive">Mengapa median bersifat computationally expensive?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kapan-median-perlu-diaktifkan">Kapan median perlu diaktifkan?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#column-filter-pada-nominal-values">3.7 Column Filter pada Nominal Values</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#max-number-of-most-frequent-and-infrequent-values">3.8 Max Number of Most Frequent and Infrequent Values</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#max-number-of-possible-values-per-column">3.9 Max Number of Possible Values per Column</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-pada-output-table">3.10 Statistik pada Output Table</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-statistik-pada-screenshot">3.11 Interpretasi Statistik pada Screenshot</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id">3.11.1 ID</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latitude">3.11.2 Latitude</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#longitude">3.11.3 Longitude</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pm1">3.11.4 PM1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pm2-5">3.11.5 PM2.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pm10">3.11.6 PM10</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-setiap-statistik">3.12 Penjelasan Setiap Statistik</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimum">Minimum</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kegunaan">Kegunaan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum">Maximum</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Kegunaan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean">Mean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#median">Median</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">Standard Deviation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variance">Variance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skewness">Skewness</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengapa-statistik-penting-untuk-data-kualitas-udara">3.13 Mengapa Statistik Penting untuk Data Kualitas Udara?</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-1">Pertanyaan 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-2">Pertanyaan 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-3">Pertanyaan 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-4">Pertanyaan 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-5">Pertanyaan 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-6">Pertanyaan 6</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-analisis-pm2-5">3.14 Contoh Analisis PM2.5</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-hitung-range">Langkah 1 — Hitung range</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-2-bandingkan-mean-dengan-median">Langkah 2 — Bandingkan mean dengan median</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-3-evaluasi-standar-deviasi">Langkah 3 — Evaluasi standar deviasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-4-evaluasi-skewness">Langkah 4 — Evaluasi skewness</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan-contoh">Kesimpulan contoh</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-values">3.15 Missing Values</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tindakan-lanjutan">Tindakan lanjutan</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics-dan-outlier">3.16 Statistics dan Outlier</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perbedaan-statistics-node-dan-statistics-view">3.17 Perbedaan Statistics Node dan Statistics View</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics">Statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics-view">Statistics View</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesalahan-umum">3.18 Kesalahan Umum</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesalahan-1-menganggap-id-sebagai-variabel-numerik">Kesalahan 1 — Menganggap ID sebagai variabel numerik</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solusi">Solusi</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesalahan-2-menganggap-mean-sebagai-kondisi-tipikal">Kesalahan 2 — Menganggap mean sebagai kondisi tipikal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesalahan-3-menganggap-nilai-maksimum-pasti-error">Kesalahan 3 — Menganggap nilai maksimum pasti error</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesalahan-4-mengabaikan-satuan">Kesalahan 4 — Mengabaikan satuan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesalahan-5-membandingkan-variance-tanpa-memperhatikan-satuan">Kesalahan 5 — Membandingkan variance tanpa memperhatikan satuan</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rekomendasi-workflow-untuk-dataset-air-quality">3.19 Rekomendasi Workflow untuk Dataset Air Quality</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#checklist-setelah-menjalankan-statistics">3.20 Checklist Setelah Menjalankan Statistics</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan">3.21 Ringkasan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">3.22 Kesimpulan</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referensi">Referensi</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ahmad Dafi Zidni Alfarisi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
