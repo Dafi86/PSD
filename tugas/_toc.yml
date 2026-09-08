@@ -1,0 +1,21 @@
+format: jb-book
+
+root: intro
+
+parts:
+  - caption: "Minggu 1 — Analisis Kualitas Udara"
+    chapters:
+      - file: minggu-1/business-understanding-kalitengah
+        title: "1. Business Understanding"
+
+      - file: minggu-1/data-understanding
+        title: "2. Data Understanding"
+
+      - file: minggu-1/deskripsi-fitur-kalitengah
+        title: "3. Deskripsi Fitur"
+
+      - file: minggu-1/Sumber-Polutan-Kalitengah
+        title: "4. Sumber Polutan"
+
+      - file: minggu-1/Eksplorasi-Data-Kalitengah
+        title: "5. Eksplorasi Data"

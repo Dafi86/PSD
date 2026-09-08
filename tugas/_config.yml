@@ -1,0 +1,16 @@
+title: "Penambangan Sains Data"
+author: "Ahmad Dafi Zidni Alfarisi"
+
+repository:
+  url: https://github.com/Dafi86/PSD
+  path_to_book: "tugas"
+  branch: main
+
+execute:
+  execute_notebooks: "off"
+
+html:
+  home_page_in_navbar: true
+  use_issues_button: true
+  use_repository_button: true
+  use_download_button: true
