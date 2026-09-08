@@ -1,4 +1,4 @@
-# 2. Data Understanding — Kecamatan Kalitengah
+# 2. Data Understanding 
 
 ## Cell 1 — Markdown
 
