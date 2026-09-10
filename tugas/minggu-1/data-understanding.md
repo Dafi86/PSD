@@ -1,7 +1,5 @@
 # 2. Data Understanding 
 
-## Cell 1 — Markdown
-
 # Data Understanding
 
 ## Analisis dan Pemantauan Kualitas Udara Kecamatan Kalitengah

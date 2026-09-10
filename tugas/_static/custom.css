@@ -14,8 +14,15 @@
 
 
 /*
-   Membuat area foto di bagian paling atas sidebar.
-   Foto berada sebelum Search.
+   Foto profil di bagian atas sidebar.
+   Lokasi file:
+   tugas/images/dapi.jpeg
+
+   CSS berada di:
+   tugas/_static/custom.css
+
+   Maka path:
+   ../images/dapi.jpeg
 */
 
 .bd-sidebar-primary::before {
@@ -23,14 +30,16 @@
     display: block;
 
     width: 100%;
-    height: 320px;
+    height: 280px;
 
-    margin-bottom: 10px;
+    margin: 0 0 15px 0;
 
     background-image: url("../images/dapi.jpeg");
     background-repeat: no-repeat;
-    background-position: center bottom;
+    background-position: center center;
     background-size: contain;
+
+    flex-shrink: 0;
 }
 
 
@@ -52,7 +61,7 @@
 }
 
 
-/* Judul halaman aktif */
+/* Link navigasi */
 
 .bd-sidebar-primary .nav-link {
     font-size: 0.98rem;
@@ -117,10 +126,10 @@
     */
 
     .bd-sidebar-primary::before {
-        height: 220px;
+        height: 200px;
 
         background-size: contain;
-        background-position: center bottom;
+        background-position: center center;
     }
 
 }
