@@ -5,7 +5,7 @@
 
 
 /* =========================================================
-   FOTO DAPI DI SIDEBAR
+   SIDEBAR
    ========================================================= */
 
 .bd-sidebar-primary {
@@ -13,31 +13,39 @@
 }
 
 
+/* =========================================================
+   FOTO PROFIL
+   ========================================================= */
+
 /*
-   Foto profil di bagian atas sidebar.
-   Lokasi file:
+   Foto:
    tugas/images/dapi.jpeg
 
-   CSS berada di:
+   CSS:
    tugas/_static/custom.css
-
-   Maka path:
-   ../images/dapi.jpeg
 */
 
 .bd-sidebar-primary::before {
     content: "";
+
     display: block;
 
-    width: 100%;
-    height: 280px;
+    width: 150px;
+    height: 150px;
 
-    margin: 0 0 15px 0;
+    margin: 20px auto 18px auto;
 
     background-image: url("../images/dapi.jpeg");
     background-repeat: no-repeat;
-    background-position: center center;
-    background-size: contain;
+    background-position: center;
+    background-size: cover;
+
+    border-radius: 50%;
+
+    border: 4px solid rgba(255, 255, 255, 0.95);
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.12);
 
     flex-shrink: 0;
 }
@@ -53,15 +61,12 @@
 
 
 /* =========================================================
-   JUDUL / NAVIGASI SIDEBAR
+   NAVIGASI SIDEBAR
    ========================================================= */
 
 .bd-sidebar-primary .sidebar-primary-items {
     padding-top: 0;
 }
-
-
-/* Link navigasi */
 
 .bd-sidebar-primary .nav-link {
     font-size: 0.98rem;
@@ -120,16 +125,14 @@
 
 @media (max-width: 768px) {
 
-    /*
-       Sidebar mobile dibuat lebih pendek
-       supaya foto tidak memenuhi layar.
-    */
-
     .bd-sidebar-primary::before {
-        height: 200px;
+        width: 120px;
+        height: 120px;
 
-        background-size: contain;
-        background-position: center center;
+        margin-top: 15px;
+        margin-bottom: 15px;
+
+        border-width: 3px;
     }
 
 }
@@ -138,6 +141,13 @@
 /* =========================================================
    DARK MODE
    ========================================================= */
+
+html[data-theme="dark"] .bd-sidebar-primary::before {
+    border-color: rgba(255, 255, 255, 0.9);
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.35);
+}
 
 html[data-theme="dark"] .psd-footer {
     border-color: rgba(255, 255, 255, 0.1);
