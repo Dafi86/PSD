@@ -1,0 +1,196 @@
+pollutant,feature_name,domain,tsfel_config_name,value
+NO2,0_Absolute energy,statistical,Absolute energy,7.048256945069819e-07
+NO2,0_Average power,statistical,Average power,1.9310293000191284e-09
+NO2,0_ECDF_0,statistical,ECDF,0.00273224043715847
+NO2,0_ECDF_1,statistical,ECDF,0.00546448087431694
+NO2,0_ECDF_2,statistical,ECDF,0.00819672131147541
+NO2,0_ECDF_3,statistical,ECDF,0.01092896174863388
+NO2,0_ECDF_4,statistical,ECDF,0.01366120218579235
+NO2,0_ECDF_5,statistical,ECDF,0.01639344262295082
+NO2,0_ECDF_6,statistical,ECDF,0.01912568306010929
+NO2,0_ECDF_7,statistical,ECDF,0.02185792349726776
+NO2,0_ECDF_8,statistical,ECDF,0.02459016393442623
+NO2,0_ECDF_9,statistical,ECDF,0.0273224043715847
+NO2,0_ECDF Percentile_0,statistical,ECDF Percentile,2.282e-05
+NO2,0_ECDF Percentile_1,statistical,ECDF Percentile,5.236363636363636e-05
+NO2,0_ECDF Percentile Count_0,statistical,ECDF Percentile Count,73.0
+NO2,0_ECDF Percentile Count_1,statistical,ECDF Percentile Count,292.0
+NO2,0_Entropy,statistical,Entropy,0.99807491539929
+NO2,0_Histogram mode,statistical,Histogram mode,2.8000000000000003e-05
+NO2,0_Interquartile range,statistical,Interquartile range,2.4455000000000002e-05
+NO2,0_Kurtosis,statistical,Kurtosis,1.1419816760392463
+NO2,0_Max,statistical,Max,0.00011149
+NO2,0_Mean,statistical,Mean,3.888994535519125e-05
+NO2,0_Mean absolute deviation,statistical,Mean absolute deviation,1.6046861405547778e-05
+NO2,0_Median,statistical,Median,3.1755e-05
+NO2,0_Median absolute deviation,statistical,Median absolute deviation,1.0373749999999995e-05
+NO2,0_Min,statistical,Min,1.7e-07
+NO2,0_Peak to peak distance,statistical,Peak to peak distance,0.00011132000000000001
+NO2,0_Root mean square,statistical,Root mean square,4.388340533368255e-05
+NO2,0_Skewness,statistical,Skewness,1.1668520245506262
+NO2,0_Standard deviation,statistical,Standard deviation,2.033040614327505e-05
+NO2,0_Variance,statistical,Variance,4.133254139505159e-10
+NO2,0_Area under the curve,temporal,Area under the curve,0.01419018
+NO2,0_Autocorrelation,temporal,Autocorrelation,3.0
+NO2,0_Centroid,temporal,Centroid,226.0440675097513
+NO2,0_Mean absolute diff,temporal,Mean absolute diff,1.190268493150685e-05
+NO2,0_Mean diff,temporal,Mean diff,3.1780821917808146e-08
+NO2,0_Median absolute diff,temporal,Median absolute diff,5.7050000000000004e-06
+NO2,0_Median diff,temporal,Median diff,-6.64545454545452e-07
+NO2,0_Negative turning points,temporal,Negative turning points,71.0
+NO2,0_Neighbourhood peaks,temporal,Neighbourhood peaks,17.0
+NO2,0_Positive turning points,temporal,Positive turning points,70.0
+NO2,0_Signal distance,temporal,Signal distance,365.0000000635314
+NO2,0_Slope,temporal,Slope,7.366046872032917e-08
+NO2,0_Sum absolute diff,temporal,Sum absolute diff,0.00434448
+NO2,0_Zero crossing rate,temporal,Zero crossing rate,0.0
+NO2,0_Spectrogram mean coefficient_0.02Hz,spectral,Spectrogram mean coefficient,9.202758005949652e-10
+NO2,0_Spectrogram mean coefficient_0.03Hz,spectral,Spectrogram mean coefficient,1.8093452082267395e-09
+NO2,0_Spectrogram mean coefficient_0.05Hz,spectral,Spectrogram mean coefficient,4.504614895655676e-10
+NO2,0_Spectrogram mean coefficient_0.06Hz,spectral,Spectrogram mean coefficient,6.069296674183334e-10
+NO2,0_Spectrogram mean coefficient_0.08Hz,spectral,Spectrogram mean coefficient,7.405196530371308e-10
+NO2,0_Spectrogram mean coefficient_0.0Hz,spectral,Spectrogram mean coefficient,8.848068869229057e-11
+NO2,0_Spectrogram mean coefficient_0.11Hz,spectral,Spectrogram mean coefficient,1.5738825878748786e-09
+NO2,0_Spectrogram mean coefficient_0.13Hz,spectral,Spectrogram mean coefficient,1.1622718156056729e-09
+NO2,0_Spectrogram mean coefficient_0.15Hz,spectral,Spectrogram mean coefficient,4.28204379979892e-10
+NO2,0_Spectrogram mean coefficient_0.16Hz,spectral,Spectrogram mean coefficient,5.422162670197473e-10
+NO2,0_Spectrogram mean coefficient_0.18Hz,spectral,Spectrogram mean coefficient,4.419370666895824e-10
+NO2,0_Spectrogram mean coefficient_0.19Hz,spectral,Spectrogram mean coefficient,2.1817384894035077e-10
+NO2,0_Spectrogram mean coefficient_0.1Hz,spectral,Spectrogram mean coefficient,1.3186118843102357e-09
+NO2,0_Spectrogram mean coefficient_0.21Hz,spectral,Spectrogram mean coefficient,3.664162125089068e-10
+NO2,0_Spectrogram mean coefficient_0.23Hz,spectral,Spectrogram mean coefficient,5.343698934741968e-10
+NO2,0_Spectrogram mean coefficient_0.24Hz,spectral,Spectrogram mean coefficient,4.693628310475215e-10
+NO2,0_Spectrogram mean coefficient_0.26Hz,spectral,Spectrogram mean coefficient,2.3953777141677425e-10
+NO2,0_Spectrogram mean coefficient_0.27Hz,spectral,Spectrogram mean coefficient,3.978116483165712e-10
+NO2,0_Spectrogram mean coefficient_0.29Hz,spectral,Spectrogram mean coefficient,4.657401836010024e-10
+NO2,0_Spectrogram mean coefficient_0.31Hz,spectral,Spectrogram mean coefficient,2.2452316216449106e-10
+CO,0_Absolute energy,statistical,Absolute energy,0.32278047202835936
+CO,0_Average power,statistical,Average power,0.0008843300603516694
+CO,0_ECDF_0,statistical,ECDF,0.00273224043715847
+CO,0_ECDF_1,statistical,ECDF,0.00546448087431694
+CO,0_ECDF_2,statistical,ECDF,0.00819672131147541
+CO,0_ECDF_3,statistical,ECDF,0.01092896174863388
+CO,0_ECDF_4,statistical,ECDF,0.01366120218579235
+CO,0_ECDF_5,statistical,ECDF,0.01639344262295082
+CO,0_ECDF_6,statistical,ECDF,0.01912568306010929
+CO,0_ECDF_7,statistical,ECDF,0.02185792349726776
+CO,0_ECDF_8,statistical,ECDF,0.02459016393442623
+CO,0_ECDF_9,statistical,ECDF,0.0273224043715847
+CO,0_ECDF Percentile_0,statistical,ECDF Percentile,0.02646773
+CO,0_ECDF Percentile_1,statistical,ECDF Percentile,0.03248593
+CO,0_ECDF Percentile Count_0,statistical,ECDF Percentile Count,73.0
+CO,0_ECDF Percentile Count_1,statistical,ECDF Percentile Count,292.0
+CO,0_Entropy,statistical,Entropy,1.0000000000000002
+CO,0_Histogram mode,statistical,Histogram mode,0.0292625405
+CO,0_Interquartile range,statistical,Interquartile range,0.004911871538461541
+CO,0_Kurtosis,statistical,Kurtosis,-0.2080622739120206
+CO,0_Max,statistical,Max,0.03886229
+CO,0_Mean,statistical,Mean,0.02949328833333333
+CO,0_Mean absolute deviation,statistical,Mean absolute deviation,0.0027903588030685155
+CO,0_Median,statistical,Median,0.02917436
+CO,0_Median absolute deviation,statistical,Median absolute deviation,0.0024442433333333336
+CO,0_Min,statistical,Min,0.0214082
+CO,0_Peak to peak distance,statistical,Peak to peak distance,0.017454090000000002
+CO,0_Root mean square,statistical,Root mean square,0.029697034498430676
+CO,0_Skewness,statistical,Skewness,0.332888557184955
+CO,0_Standard deviation,statistical,Standard deviation,0.003472722460526562
+CO,0_Variance,statistical,Variance,1.2059801287845658e-05
+CO,0_Area under the curve,temporal,Area under the curve,10.763923725
+CO,0_Autocorrelation,temporal,Autocorrelation,4.0
+CO,0_Centroid,temporal,Centroid,182.67494286087995
+CO,0_Mean absolute diff,temporal,Mean absolute diff,0.0018477094520547943
+CO,0_Mean diff,temporal,Mean diff,2.8064520547945187e-05
+CO,0_Median absolute diff,temporal,Median absolute diff,0.0011208350000000006
+CO,0_Median diff,temporal,Median diff,-0.00014003500000000016
+CO,0_Negative turning points,temporal,Negative turning points,61.0
+CO,0_Neighbourhood peaks,temporal,Neighbourhood peaks,14.0
+CO,0_Positive turning points,temporal,Positive turning points,61.0
+CO,0_Signal distance,temporal,Signal distance,365.001358384961
+CO,0_Slope,temporal,Slope,1.4495501568199249e-07
+CO,0_Sum absolute diff,temporal,Sum absolute diff,0.6744139499999999
+CO,0_Zero crossing rate,temporal,Zero crossing rate,0.0
+CO,0_Spectrogram mean coefficient_0.02Hz,spectral,Spectrogram mean coefficient,0.00011204325518332952
+CO,0_Spectrogram mean coefficient_0.03Hz,spectral,Spectrogram mean coefficient,4.660300416605344e-05
+CO,0_Spectrogram mean coefficient_0.05Hz,spectral,Spectrogram mean coefficient,5.595436909998806e-05
+CO,0_Spectrogram mean coefficient_0.06Hz,spectral,Spectrogram mean coefficient,5.3280068031166995e-05
+CO,0_Spectrogram mean coefficient_0.08Hz,spectral,Spectrogram mean coefficient,3.221360345939898e-05
+CO,0_Spectrogram mean coefficient_0.0Hz,spectral,Spectrogram mean coefficient,6.382322150999595e-06
+CO,0_Spectrogram mean coefficient_0.11Hz,spectral,Spectrogram mean coefficient,2.884372569951649e-05
+CO,0_Spectrogram mean coefficient_0.13Hz,spectral,Spectrogram mean coefficient,1.552395895624684e-05
+CO,0_Spectrogram mean coefficient_0.15Hz,spectral,Spectrogram mean coefficient,1.6086418697983387e-05
+CO,0_Spectrogram mean coefficient_0.16Hz,spectral,Spectrogram mean coefficient,1.0011588661988652e-05
+CO,0_Spectrogram mean coefficient_0.18Hz,spectral,Spectrogram mean coefficient,1.561949195183266e-05
+CO,0_Spectrogram mean coefficient_0.19Hz,spectral,Spectrogram mean coefficient,1.1521039893754966e-05
+CO,0_Spectrogram mean coefficient_0.1Hz,spectral,Spectrogram mean coefficient,2.196140828838847e-05
+CO,0_Spectrogram mean coefficient_0.21Hz,spectral,Spectrogram mean coefficient,8.73018024374512e-06
+CO,0_Spectrogram mean coefficient_0.23Hz,spectral,Spectrogram mean coefficient,5.41857273011125e-06
+CO,0_Spectrogram mean coefficient_0.24Hz,spectral,Spectrogram mean coefficient,8.104838967154924e-06
+CO,0_Spectrogram mean coefficient_0.26Hz,spectral,Spectrogram mean coefficient,9.376524028981667e-06
+CO,0_Spectrogram mean coefficient_0.27Hz,spectral,Spectrogram mean coefficient,1.0317193886824067e-05
+CO,0_Spectrogram mean coefficient_0.29Hz,spectral,Spectrogram mean coefficient,9.621067476383987e-06
+CO,0_Spectrogram mean coefficient_0.31Hz,spectral,Spectrogram mean coefficient,2.897057406972728e-06
+SO2,0_Absolute energy,statistical,Absolute energy,1.0280143498506097e-05
+SO2,0_Average power,statistical,Average power,2.816477670823588e-08
+SO2,0_ECDF_0,statistical,ECDF,0.00273224043715847
+SO2,0_ECDF_1,statistical,ECDF,0.00546448087431694
+SO2,0_ECDF_2,statistical,ECDF,0.00819672131147541
+SO2,0_ECDF_3,statistical,ECDF,0.01092896174863388
+SO2,0_ECDF_4,statistical,ECDF,0.01366120218579235
+SO2,0_ECDF_5,statistical,ECDF,0.01639344262295082
+SO2,0_ECDF_6,statistical,ECDF,0.01912568306010929
+SO2,0_ECDF_7,statistical,ECDF,0.02185792349726776
+SO2,0_ECDF_8,statistical,ECDF,0.02459016393442623
+SO2,0_ECDF_9,statistical,ECDF,0.0273224043715847
+SO2,0_ECDF Percentile_0,statistical,ECDF Percentile,-7.665e-05
+SO2,0_ECDF Percentile_1,statistical,ECDF Percentile,0.00017239
+SO2,0_ECDF Percentile Count_0,statistical,ECDF Percentile Count,73.0
+SO2,0_ECDF Percentile Count_1,statistical,ECDF Percentile Count,292.0
+SO2,0_Entropy,statistical,Entropy,1.0000000000000002
+SO2,0_Histogram mode,statistical,Histogram mode,1.0515999999999965e-05
+SO2,0_Interquartile range,statistical,Interquartile range,0.00019009270833333334
+SO2,0_Kurtosis,statistical,Kurtosis,0.20422505748844433
+SO2,0_Max,statistical,Max,0.00052536
+SO2,0_Mean,statistical,Mean,4.4447937158469944e-05
+SO2,0_Mean absolute deviation,statistical,Mean absolute deviation,0.0001256895692914091
+SO2,0_Median,statistical,Median,2.166e-05
+SO2,0_Median absolute deviation,statistical,Median absolute deviation,9.091666666666668e-05
+SO2,0_Min,statistical,Min,-0.00041072
+SO2,0_Peak to peak distance,statistical,Peak to peak distance,0.0009360799999999999
+SO2,0_Root mean square,statistical,Root mean square,0.0001675942235472634
+SO2,0_Skewness,statistical,Skewness,0.4105129799287647
+SO2,0_Standard deviation,statistical,Standard deviation,0.00016159271223903262
+SO2,0_Variance,statistical,Variance,2.611220464876681e-08
+SO2,0_Area under the curve,temporal,Area under the curve,0.038791865023809526
+SO2,0_Autocorrelation,temporal,Autocorrelation,1.0
+SO2,0_Centroid,temporal,Centroid,212.1737210547208
+SO2,0_Mean absolute diff,temporal,Mean absolute diff,0.00012921657534246576
+SO2,0_Mean diff,temporal,Mean diff,-1.2139726027397228e-07
+SO2,0_Median absolute diff,temporal,Median absolute diff,8.638500000000001e-05
+SO2,0_Median diff,temporal,Median diff,-7.940833333333337e-06
+SO2,0_Negative turning points,temporal,Negative turning points,85.0
+SO2,0_Neighbourhood peaks,temporal,Neighbourhood peaks,18.0
+SO2,0_Positive turning points,temporal,Positive turning points,84.0
+SO2,0_Signal distance,temporal,Signal distance,365.00000624110777
+SO2,0_Slope,temporal,Slope,3.8241777731817203e-07
+SO2,0_Sum absolute diff,temporal,Sum absolute diff,0.047164050000000006
+SO2,0_Zero crossing rate,temporal,Zero crossing rate,112.0
+SO2,0_Spectrogram mean coefficient_0.02Hz,spectral,Spectrogram mean coefficient,5.494365690156e-08
+SO2,0_Spectrogram mean coefficient_0.03Hz,spectral,Spectrogram mean coefficient,7.078284907416062e-08
+SO2,0_Spectrogram mean coefficient_0.05Hz,spectral,Spectrogram mean coefficient,6.365566873379156e-08
+SO2,0_Spectrogram mean coefficient_0.06Hz,spectral,Spectrogram mean coefficient,9.601428642274217e-08
+SO2,0_Spectrogram mean coefficient_0.08Hz,spectral,Spectrogram mean coefficient,7.127755153507563e-08
+SO2,0_Spectrogram mean coefficient_0.0Hz,spectral,Spectrogram mean coefficient,2.169756391913753e-09
+SO2,0_Spectrogram mean coefficient_0.11Hz,spectral,Spectrogram mean coefficient,6.711607651912302e-08
+SO2,0_Spectrogram mean coefficient_0.13Hz,spectral,Spectrogram mean coefficient,7.3341034651436e-08
+SO2,0_Spectrogram mean coefficient_0.15Hz,spectral,Spectrogram mean coefficient,1.1701444396265495e-07
+SO2,0_Spectrogram mean coefficient_0.16Hz,spectral,Spectrogram mean coefficient,5.717491814499132e-08
+SO2,0_Spectrogram mean coefficient_0.18Hz,spectral,Spectrogram mean coefficient,4.662225289654125e-08
+SO2,0_Spectrogram mean coefficient_0.19Hz,spectral,Spectrogram mean coefficient,1.0234162552459839e-07
+SO2,0_Spectrogram mean coefficient_0.1Hz,spectral,Spectrogram mean coefficient,8.251741789975002e-08
+SO2,0_Spectrogram mean coefficient_0.21Hz,spectral,Spectrogram mean coefficient,2.551414869337091e-08
+SO2,0_Spectrogram mean coefficient_0.23Hz,spectral,Spectrogram mean coefficient,4.594049001077996e-08
+SO2,0_Spectrogram mean coefficient_0.24Hz,spectral,Spectrogram mean coefficient,2.4913694797636347e-08
+SO2,0_Spectrogram mean coefficient_0.26Hz,spectral,Spectrogram mean coefficient,3.1421077465687473e-08
+SO2,0_Spectrogram mean coefficient_0.27Hz,spectral,Spectrogram mean coefficient,2.5257174753969846e-08
+SO2,0_Spectrogram mean coefficient_0.29Hz,spectral,Spectrogram mean coefficient,2.8565623537950484e-08
+SO2,0_Spectrogram mean coefficient_0.31Hz,spectral,Spectrogram mean coefficient,2.6983766011136177e-08

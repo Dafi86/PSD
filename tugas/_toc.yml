@@ -39,3 +39,8 @@ parts:
 
       - file: minggu-2/Analisis_Time_Series_Kalitengah
         title: "6. Analisis Time Series dan Kesimpulan"
+
+  - caption: "Minggu 3 — Preprocessing dan Ekstraksi Fitur"
+    chapters:
+      - file: minggu-3/preprocessing-ekstraksi-fitur-kalitengah
+        title: "1. Preprocessing dan Ekstraksi Fitur"

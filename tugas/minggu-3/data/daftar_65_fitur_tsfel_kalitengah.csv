@@ -1,0 +1,66 @@
+no,feature_name,feature_name_tsfel,domain,tsfel_config_name
+1,0_Absolute energy,0_Absolute energy,statistical,Absolute energy
+2,0_Average power,0_Average power,statistical,Average power
+3,0_ECDF_0,0_ECDF_0,statistical,ECDF
+4,0_ECDF_1,0_ECDF_1,statistical,ECDF
+5,0_ECDF_2,0_ECDF_2,statistical,ECDF
+6,0_ECDF_3,0_ECDF_3,statistical,ECDF
+7,0_ECDF_4,0_ECDF_4,statistical,ECDF
+8,0_ECDF_5,0_ECDF_5,statistical,ECDF
+9,0_ECDF_6,0_ECDF_6,statistical,ECDF
+10,0_ECDF_7,0_ECDF_7,statistical,ECDF
+11,0_ECDF_8,0_ECDF_8,statistical,ECDF
+12,0_ECDF_9,0_ECDF_9,statistical,ECDF
+13,0_ECDF Percentile_0,0_ECDF Percentile_0,statistical,ECDF Percentile
+14,0_ECDF Percentile_1,0_ECDF Percentile_1,statistical,ECDF Percentile
+15,0_ECDF Percentile Count_0,0_ECDF Percentile Count_0,statistical,ECDF Percentile Count
+16,0_ECDF Percentile Count_1,0_ECDF Percentile Count_1,statistical,ECDF Percentile Count
+17,0_Entropy,0_Entropy,statistical,Entropy
+18,0_Histogram mode,0_Histogram mode,statistical,Histogram mode
+19,0_Interquartile range,0_Interquartile range,statistical,Interquartile range
+20,0_Kurtosis,0_Kurtosis,statistical,Kurtosis
+21,0_Max,0_Max,statistical,Max
+22,0_Mean,0_Mean,statistical,Mean
+23,0_Mean absolute deviation,0_Mean absolute deviation,statistical,Mean absolute deviation
+24,0_Median,0_Median,statistical,Median
+25,0_Median absolute deviation,0_Median absolute deviation,statistical,Median absolute deviation
+26,0_Min,0_Min,statistical,Min
+27,0_Peak to peak distance,0_Peak to peak distance,statistical,Peak to peak distance
+28,0_Root mean square,0_Root mean square,statistical,Root mean square
+29,0_Skewness,0_Skewness,statistical,Skewness
+30,0_Standard deviation,0_Standard deviation,statistical,Standard deviation
+31,0_Variance,0_Variance,statistical,Variance
+32,0_Area under the curve,0_Area under the curve,temporal,Area under the curve
+33,0_Autocorrelation,0_Autocorrelation,temporal,Autocorrelation
+34,0_Centroid,0_Centroid,temporal,Centroid
+35,0_Mean absolute diff,0_Mean absolute diff,temporal,Mean absolute diff
+36,0_Mean diff,0_Mean diff,temporal,Mean diff
+37,0_Median absolute diff,0_Median absolute diff,temporal,Median absolute diff
+38,0_Median diff,0_Median diff,temporal,Median diff
+39,0_Negative turning points,0_Negative turning points,temporal,Negative turning points
+40,0_Neighbourhood peaks,0_Neighbourhood peaks,temporal,Neighbourhood peaks
+41,0_Positive turning points,0_Positive turning points,temporal,Positive turning points
+42,0_Signal distance,0_Signal distance,temporal,Signal distance
+43,0_Slope,0_Slope,temporal,Slope
+44,0_Sum absolute diff,0_Sum absolute diff,temporal,Sum absolute diff
+45,0_Zero crossing rate,0_Zero crossing rate,temporal,Zero crossing rate
+46,0_Spectrogram mean coefficient_0.02Hz,0_Spectrogram mean coefficient_0.02Hz,spectral,Spectrogram mean coefficient
+47,0_Spectrogram mean coefficient_0.03Hz,0_Spectrogram mean coefficient_0.03Hz,spectral,Spectrogram mean coefficient
+48,0_Spectrogram mean coefficient_0.05Hz,0_Spectrogram mean coefficient_0.05Hz,spectral,Spectrogram mean coefficient
+49,0_Spectrogram mean coefficient_0.06Hz,0_Spectrogram mean coefficient_0.06Hz,spectral,Spectrogram mean coefficient
+50,0_Spectrogram mean coefficient_0.08Hz,0_Spectrogram mean coefficient_0.08Hz,spectral,Spectrogram mean coefficient
+51,0_Spectrogram mean coefficient_0.0Hz,0_Spectrogram mean coefficient_0.0Hz,spectral,Spectrogram mean coefficient
+52,0_Spectrogram mean coefficient_0.11Hz,0_Spectrogram mean coefficient_0.11Hz,spectral,Spectrogram mean coefficient
+53,0_Spectrogram mean coefficient_0.13Hz,0_Spectrogram mean coefficient_0.13Hz,spectral,Spectrogram mean coefficient
+54,0_Spectrogram mean coefficient_0.15Hz,0_Spectrogram mean coefficient_0.15Hz,spectral,Spectrogram mean coefficient
+55,0_Spectrogram mean coefficient_0.16Hz,0_Spectrogram mean coefficient_0.16Hz,spectral,Spectrogram mean coefficient
+56,0_Spectrogram mean coefficient_0.18Hz,0_Spectrogram mean coefficient_0.18Hz,spectral,Spectrogram mean coefficient
+57,0_Spectrogram mean coefficient_0.19Hz,0_Spectrogram mean coefficient_0.19Hz,spectral,Spectrogram mean coefficient
+58,0_Spectrogram mean coefficient_0.1Hz,0_Spectrogram mean coefficient_0.1Hz,spectral,Spectrogram mean coefficient
+59,0_Spectrogram mean coefficient_0.21Hz,0_Spectrogram mean coefficient_0.21Hz,spectral,Spectrogram mean coefficient
+60,0_Spectrogram mean coefficient_0.23Hz,0_Spectrogram mean coefficient_0.23Hz,spectral,Spectrogram mean coefficient
+61,0_Spectrogram mean coefficient_0.24Hz,0_Spectrogram mean coefficient_0.24Hz,spectral,Spectrogram mean coefficient
+62,0_Spectrogram mean coefficient_0.26Hz,0_Spectrogram mean coefficient_0.26Hz,spectral,Spectrogram mean coefficient
+63,0_Spectrogram mean coefficient_0.27Hz,0_Spectrogram mean coefficient_0.27Hz,spectral,Spectrogram mean coefficient
+64,0_Spectrogram mean coefficient_0.29Hz,0_Spectrogram mean coefficient_0.29Hz,spectral,Spectrogram mean coefficient
+65,0_Spectrogram mean coefficient_0.31Hz,0_Spectrogram mean coefficient_0.31Hz,spectral,Spectrogram mean coefficient
