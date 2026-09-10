@@ -1,0 +1,2 @@
+nama,daerah,polutan,tanggal_awal,tanggal_akhir,jumlah_data,missing_awal,outlier_iqr,missing_setelah_outlier,missing_setelah_imputasi,jumlah_fitur_tsfel
+Ahmad Dafi Zidni Alfarisi,Kalitengah,NO2,2025-08-31,2026-08-31,366,148,3,151,0,68

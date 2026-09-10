@@ -3,7 +3,7 @@ format: jb-book
 root: intro
 
 parts:
-  - caption: "Minggu 1 Analisis Kualitas Udara"
+  - caption: "Minggu 1 — Analisis Kualitas Udara"
     chapters:
       - file: minggu-1/business-understanding-kalitengah
         title: "1. Business Understanding"
@@ -19,6 +19,7 @@ parts:
 
       - file: minggu-1/Eksplorasi-Data-Kalitengah
         title: "5. Eksplorasi Data"
+
 
   - caption: "Minggu 2 — PostgreSQL Aiven dan KNIME"
     chapters:
@@ -40,7 +41,8 @@ parts:
       - file: minggu-2/Analisis_Time_Series_Kalitengah
         title: "6. Analisis Time Series dan Kesimpulan"
 
+
   - caption: "Minggu 3 — Preprocessing dan Ekstraksi Fitur"
     chapters:
       - file: minggu-3/preprocessing-ekstraksi-fitur-kalitengah
-        title: "1. Preprocessing dan Ekstraksi Fitur"
+        title: "1. Preprocessing dan Ekstraksi 68 Fitur TSFEL"
