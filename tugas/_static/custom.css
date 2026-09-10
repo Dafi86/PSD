@@ -1,116 +1,101 @@
 /* =========================================================
    PENAMBANGAN SAINS DATA
-   Custom Theme - Ahmad Dafi Zidni Alfarisi
+   Custom Jupyter Book Theme
    ========================================================= */
 
 
-/* ---------------------------------------------------------
-   HERO / HEADER
-   --------------------------------------------------------- */
+/* =========================================================
+   FOTO DAPI DI SIDEBAR
+   ========================================================= */
+
+.bd-sidebar-primary {
+    position: relative;
+}
+
+
+/*
+   Membuat area foto di bagian paling atas sidebar.
+   Foto berada sebelum Search.
+*/
+
+.bd-sidebar-primary::before {
+    content: "";
+    display: block;
+
+    width: 100%;
+    height: 320px;
+
+    margin-bottom: 10px;
+
+    background-image: url("../images/dapi.jpeg");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: contain;
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.bd-sidebar-primary .bd-search {
+    margin-top: 0;
+}
+
+
+/* =========================================================
+   JUDUL / NAVIGASI SIDEBAR
+   ========================================================= */
+
+.bd-sidebar-primary .sidebar-primary-items {
+    padding-top: 0;
+}
+
+
+/* Judul halaman aktif */
+
+.bd-sidebar-primary .nav-link {
+    font-size: 0.98rem;
+}
+
+
+/* =========================================================
+   KONTEN UTAMA
+   ========================================================= */
+
+.bd-main .bd-content {
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   HERO INTRO
+   ========================================================= */
 
 .psd-hero {
-    width: 100%;
-    margin: 0 auto 2rem auto;
-    text-align: center;
-    overflow: hidden;
+    margin-bottom: 2rem;
 }
 
-.psd-header-image {
-    display: block;
-    width: 100%;
-    max-height: 360px;
-    object-fit: cover;
-    border-radius: 0 0 24px 24px;
-    margin: 0 auto;
-}
-
-.psd-hero-content {
-    padding: 2rem 1rem 1rem 1rem;
-}
-
-.psd-hero-content h1 {
+.psd-hero h1 {
     font-size: 2.7rem;
     font-weight: 800;
-    margin-bottom: 0.5rem;
     letter-spacing: -0.03em;
-}
-
-.psd-hero-content h2 {
-    font-size: 1.45rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.psd-subtitle {
-    max-width: 780px;
-    margin: auto;
-    font-size: 1.05rem;
-    line-height: 1.8;
-    opacity: 0.8;
-}
-
-
-/* ---------------------------------------------------------
-   PROFILE CARD
-   --------------------------------------------------------- */
-
-.profile-card {
-    max-width: 850px;
-    margin: 2rem auto 3rem auto;
-    padding: 2rem;
-
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-
-    border-radius: 24px;
-
-    background: rgba(255, 255, 255, 0.65);
-    backdrop-filter: blur(14px);
-
-    box-shadow:
-        0 10px 35px rgba(0, 0, 0, 0.08);
-
-    border: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-.profile-photo {
-    width: 145px;
-    height: 145px;
-
-    object-fit: cover;
-
-    border-radius: 50%;
-
-    border: 5px solid white;
-
-    box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-.profile-info {
-    text-align: left;
-}
-
-.profile-info h2 {
-    margin-top: 0;
     margin-bottom: 0.5rem;
-    font-size: 1.7rem;
 }
 
-.profile-info p {
-    margin: 0.4rem 0;
-    line-height: 1.6;
+.psd-hero h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
 }
 
 
-/* ---------------------------------------------------------
-   FOOTER
-   --------------------------------------------------------- */
+/* =========================================================
+   FOOTER INTRO
+   ========================================================= */
 
 .psd-footer {
     margin-top: 4rem;
-    padding: 2rem;
+    padding: 2rem 1rem;
 
     text-align: center;
 
@@ -120,58 +105,30 @@
 }
 
 
-/* ---------------------------------------------------------
-   RESPONSIVE MOBILE
-   --------------------------------------------------------- */
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 768px) {
 
-    .psd-header-image {
-        max-height: 220px;
-        border-radius: 0 0 18px 18px;
+    /*
+       Sidebar mobile dibuat lebih pendek
+       supaya foto tidak memenuhi layar.
+    */
+
+    .bd-sidebar-primary::before {
+        height: 220px;
+
+        background-size: contain;
+        background-position: center bottom;
     }
 
-    .psd-hero-content h1 {
-        font-size: 2rem;
-    }
-
-    .psd-hero-content h2 {
-        font-size: 1.15rem;
-    }
-
-    .psd-subtitle {
-        font-size: 0.95rem;
-    }
-
-    .profile-card {
-        flex-direction: column;
-        text-align: center;
-        padding: 1.5rem;
-    }
-
-    .profile-info {
-        text-align: center;
-    }
-
-    .profile-photo {
-        width: 125px;
-        height: 125px;
-    }
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    DARK MODE
-   --------------------------------------------------------- */
-
-html[data-theme="dark"] .profile-card {
-    background: rgba(30, 30, 30, 0.65);
-    border-color: rgba(255, 255, 255, 0.08);
-}
-
-html[data-theme="dark"] .profile-photo {
-    border-color: #202020;
-}
+   ========================================================= */
 
 html[data-theme="dark"] .psd-footer {
     border-color: rgba(255, 255, 255, 0.1);

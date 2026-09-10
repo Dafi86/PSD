@@ -14,3 +14,5 @@ html:
   use_issues_button: true
   use_repository_button: true
   use_download_button: true
+  extra_css:
+    - _static/custom.css

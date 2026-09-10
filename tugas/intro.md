@@ -1,75 +1,40 @@
-<div class="psd-hero">
+# Penambangan Sains Data
 
-  <img
-    src="images/header-psd.png"
-    alt="Penambangan Sains Data"
-    class="psd-header-image"
-  >
+## Analisis Kualitas Udara Kecamatan Kalitengah
 
-  <div class="psd-hero-content">
+Selamat datang di dokumentasi proyek **Penambangan Sains Data**.
 
-    <h1>Penambangan Sains Data</h1>
+Proyek ini membahas proses pengumpulan, pemahaman, pengolahan, dan
+eksplorasi data kualitas udara di Kecamatan Kalitengah, Kabupaten Lamongan,
+Jawa Timur.
 
-    <h2>Analisis Kualitas Udara Kecamatan Kalitengah</h2>
+### Identitas
 
-    <p class="psd-subtitle">
-      Analisis dan eksplorasi data polutan udara menggunakan pendekatan
-      data science untuk memahami kondisi lingkungan di Kecamatan Kalitengah,
-      Kabupaten Lamongan.
-    </p>
+**Nama:** Ahmad Dafi Zidni Alfarisi
 
-  </div>
+**Program Studi:** Teknik Informatika
 
-</div>
+**Universitas:** Universitas Trunojoyo Madura
 
-<div class="profile-card">
-
-  <img
-    src="images/dapi.jpeg"
-    alt="Foto Ahmad Dafi Zidni Alfarisi"
-    class="profile-photo"
-  >
-
-  <div class="profile-info">
-    <h2>Ahmad Dafi Zidni Alfarisi</h2>
-
-    <p>
-      <strong>Teknik Informatika</strong><br>
-      Universitas Trunojoyo Madura
-    </p>
-
-    <p>
-      Mata Kuliah <strong>Penambangan Sains Data</strong>
-    </p>
-  </div>
-
-</div>
+**Mata Kuliah:** Penambangan Sains Data
 
 ---
 
-# Analisis Kualitas Udara Kecamatan Kalitengah
-
 ## Tentang Proyek
 
-Proyek ini merupakan bagian dari kegiatan pembelajaran pada mata kuliah
-**Penambangan Sains Data (PSD)**.
+Proyek ini berfokus pada analisis data kualitas udara dengan menggunakan
+beberapa parameter polutan, yaitu:
 
-Fokus utama proyek adalah melakukan proses pengumpulan, pemahaman,
-pengolahan, dan eksplorasi data kualitas udara di **Kecamatan Kalitengah,
-Kabupaten Lamongan, Jawa Timur**.
+- NO₂ (Nitrogen Dioksida)
+- CO (Karbon Monoksida)
+- SO₂ (Sulfur Dioksida)
 
-Data yang dianalisis mencakup beberapa parameter polutan udara, yaitu:
-
-- **NO₂ (Nitrogen Dioksida)**
-- **CO (Karbon Monoksida)**
-- **SO₂ (Sulfur Dioksida)**
-
-Periode data yang digunakan adalah:
+Data yang digunakan mencakup periode:
 
 **31 Agustus 2025 – 31 Agustus 2026**
 
-Dataset memiliki **366 tanggal kalender**, dengan jumlah observasi valid
-yang berbeda pada masing-masing parameter karena adanya missing value.
+Dataset memiliki 366 tanggal kalender dengan jumlah observasi valid yang
+berbeda pada setiap parameter karena adanya missing value.
 
 | Parameter | Observasi Valid | Missing |
 |---|---:|---:|
@@ -83,83 +48,46 @@ yang berbeda pada masing-masing parameter karena adanya missing value.
 
 Proyek ini bertujuan untuk:
 
-1. Mengumpulkan data polutan udara pada wilayah Kecamatan Kalitengah.
-2. Memahami karakteristik data kualitas udara.
-3. Mengidentifikasi pola dan perubahan konsentrasi polutan.
-4. Melakukan eksplorasi data menggunakan visualisasi.
-5. Melakukan analisis statistik terhadap data.
+1. Mengumpulkan data polutan udara Kecamatan Kalitengah.
+2. Memahami karakteristik data.
+3. Mengidentifikasi pola perubahan polutan.
+4. Melakukan eksplorasi dan visualisasi data.
+5. Melakukan analisis statistik.
 6. Mengolah data menggunakan PostgreSQL dan Aiven.
-7. Melakukan pengolahan lanjutan menggunakan KNIME.
+7. Melakukan pengolahan menggunakan KNIME.
 8. Melakukan analisis time series.
-9. Menyusun hasil analisis dalam bentuk dokumentasi Jupyter Book.
-
----
-
-## Wilayah Studi
-
-Wilayah yang menjadi objek penelitian adalah:
-
-**Kecamatan Kalitengah, Kabupaten Lamongan, Jawa Timur.**
-
-Area pengambilan data menggunakan batas wilayah Kecamatan Kalitengah
-sebagai Area of Interest (AOI).
+9. Mendokumentasikan seluruh proses menggunakan Jupyter Book.
 
 ---
 
 ## Tahapan Proyek
 
-Proyek Penambangan Sains Data ini dilakukan secara bertahap.
-
 ### Minggu 1 — Analisis Kualitas Udara
 
-Tahapan pertama meliputi:
+Tahapan yang dilakukan:
 
-1. **Business Understanding**
-2. **Data Understanding**
-3. **Deskripsi Fitur**
-4. **Sumber Polutan**
-5. **Eksplorasi Data**
-
-Pada tahap ini dilakukan proses memahami tujuan analisis, sumber data,
-karakteristik setiap fitur, sumber polutan, serta pola data melalui
-visualisasi.
+1. Business Understanding
+2. Data Understanding
+3. Deskripsi Fitur
+4. Sumber Polutan
+5. Eksplorasi Data
 
 ### Minggu 2 — PostgreSQL Aiven dan KNIME
 
-Tahapan berikutnya meliputi:
+Tahapan yang dilakukan:
 
-1. Pemindahan data ke PostgreSQL Aiven
-2. Pengolahan data menggunakan KNIME
+1. Pemindahan Data ke PostgreSQL Aiven
+2. Pengolahan Data dengan KNIME
 3. Statistics Node
-4. Perhitungan statistik
-5. Analisis parameter polutan
-6. Analisis time series
+4. Rumus dan Contoh Perhitungan Statistik
+5. Analisis Parameter Polutan
+6. Analisis Time Series
 
 ---
 
-## Dataset
+## Teknologi
 
-Data hasil crawling disimpan dalam format CSV:
-
-`polutan_kalitengah_timeseries.csv`
-
-Struktur utama dataset:
-
-| Kolom | Keterangan |
-|---|---|
-| `date` | Tanggal pengamatan |
-| `NO2` | Konsentrasi nitrogen dioksida |
-| `CO` | Konsentrasi karbon monoksida |
-| `SO2` | Konsentrasi sulfur dioksida |
-
-Data kemudian digunakan sebagai dasar untuk proses eksplorasi,
-visualisasi, analisis statistik, dan analisis time series.
-
----
-
-## Teknologi yang Digunakan
-
-Beberapa teknologi yang digunakan dalam proyek ini antara lain:
+Teknologi yang digunakan dalam proyek ini antara lain:
 
 - Python
 - Pandas
@@ -175,26 +103,28 @@ Beberapa teknologi yang digunakan dalam proyek ini antara lain:
 
 ---
 
-## Hasil yang Diharapkan
+## Wilayah Studi
 
-Melalui proyek ini diharapkan dapat diperoleh pemahaman mengenai:
+Wilayah penelitian adalah:
 
-- karakteristik data polutan udara,
-- distribusi masing-masing parameter,
-- perubahan konsentrasi polutan dari waktu ke waktu,
-- pola temporal data,
-- kondisi missing value,
-- kemungkinan adanya outlier,
-- serta hasil analisis statistik dari data kualitas udara.
+**Kecamatan Kalitengah, Kabupaten Lamongan, Jawa Timur.**
+
+Area pengambilan data menggunakan batas wilayah Kecamatan Kalitengah
+sebagai Area of Interest (AOI).
 
 ---
 
-## Dokumentasi Proyek
+## Hasil yang Diharapkan
 
-Seluruh proses analisis disusun secara bertahap dalam dokumentasi ini,
-mulai dari **Business Understanding** hingga analisis data dan time series.
+Hasil dari proyek ini diharapkan dapat memberikan gambaran mengenai:
 
-Gunakan menu navigasi di sebelah kiri untuk melihat setiap tahap proyek.
+- karakteristik data polutan,
+- perubahan konsentrasi polutan,
+- pola data berdasarkan waktu,
+- kondisi missing value,
+- distribusi data,
+- statistik data,
+- dan hasil analisis time series.
 
 ---
 
@@ -204,8 +134,8 @@ Gunakan menu navigasi di sebelah kiri untuk melihat setiap tahap proyek.
 
 Analisis Kualitas Udara Kecamatan Kalitengah
 
-<br>
+**Ahmad Dafi Zidni Alfarisi**
 
-*Data • Science • Technology*
+Teknik Informatika — Universitas Trunojoyo Madura
 
 </div>
