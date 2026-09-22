@@ -1,0 +1,2 @@
+Polutan,K_Silhouette,Silhouette_Tertinggi,K_Davies_Bouldin,Davies_Bouldin_Terendah,K_Calinski_Harabasz,Calinski_Harabasz_Tertinggi,K_Final,Alasan
+SO2,2,0.7893659610759114,2,0.12786387771197932,3,43.022138479485676,2,Silhouette maksimum dan Davies-Bouldin minimum menunjukkan K yang sama.
