@@ -1,32 +1,25 @@
 ---
-title: "Week 4 — Clustering Data Fitur TSFEL"
-description: "Persiapan data, standardisasi, PCA, Elbow Method, K-Means, evaluasi clustering, visualisasi, dan profiling."
+title: "K-Means Clustering Polutan"
+description: "Clustering data fitur TSFEL untuk polutan NO₂, CO, dan SO₂ menggunakan Python."
 ---
 
-# Week 4 — Clustering Data Fitur TSFEL
+# K-Means Clustering Polutan
 
-## Tujuan
+Dokumen ini menjelaskan proses clustering terhadap data hasil ekstraksi fitur **TSFEL** untuk tiga polutan, yaitu **NO₂, CO, dan SO₂**.
 
-Pada Week 4 dilakukan proses **clustering** terhadap data hasil ekstraksi fitur **TSFEL** untuk tiga polutan, yaitu **NO₂, CO, dan SO₂**.
+Materi, kode, output, hasil evaluasi, visualisasi, profiling, dan kesimpulan tetap menggunakan isi dari dokumen **Week 4 — Clustering Data Fitur TSFEL**. Perubahan pada dokumen ini hanya dilakukan pada **struktur penyusunan materi** agar mengikuti struktur file referensi yang digunakan.
 
-Tahapan analisis pada dokumen ini dibatasi pada:
+## 1. Implementasi K-Means dengan Python (Scikit-Learn)
 
-1. Persiapan dan validasi data.
-2. Pengambilan 68 fitur TSFEL.
-3. Standardisasi menggunakan `StandardScaler`.
-4. Analisis PCA dan cumulative explained variance.
-5. Elbow Method untuk K=2–10.
-6. Evaluasi K-Means menggunakan Silhouette, Davies-Bouldin, dan Calinski-Harabasz.
-7. Pengujian PCA 1–36 terhadap K=2–10.
-8. Clustering menggunakan seluruh 68 fitur.
-9. Perbandingan PCA dan seluruh 68 fitur.
-10. Visualisasi dan profiling cluster.
-11. Implementasi Python serta output terminal.
+Tahapan implementasi, persiapan data, standardisasi, PCA, Elbow Method, evaluasi K-Means, pengujian PCA 1–36, clustering menggunakan 68 fitur, dan perbandingan hasil disusun pada bagian ini.
 
+### 1.1 Evaluasi Jumlah Cluster (Elbow Method)
 
-## 1. Persiapan Data untuk Clustering
+Materi berikut mempertahankan seluruh pembahasan analisis dari file Week 4, tetapi ditempatkan di bawah struktur **Implementasi K-Means → Evaluasi Jumlah Cluster**.
 
-### 1.1 Tujuan
+#### 1. Persiapan Data untuk Clustering
+
+##### 1.1 Tujuan
 
 Pada tahap ini data hasil ekstraksi fitur TSFEL dipersiapkan sebelum digunakan untuk proses clustering. Data yang digunakan terdiri dari tiga jenis polutan, yaitu **NO₂, CO, dan SO₂**.
 
@@ -58,7 +51,7 @@ Pada proses ini seluruh data tetap digunakan. Tidak ada data yang dihapus, terma
 
 ---
 
-### 1.2 Pemeriksaan Data
+##### 1.2 Pemeriksaan Data
 
 ```
 ```
@@ -96,7 +89,7 @@ for nama_polutan, file in files.items():
     print("Jumlah fitur :", len(fitur))
 ```
 
-### 1.3 Output
+##### 1.3 Output
 
 Output pemeriksaan menunjukkan:
 
@@ -129,7 +122,7 @@ Duplikat : 0
 Jumlah fitur : 68
 ```
 
-### 1.4 Mengambil 68 Fitur
+##### 1.4 Mengambil 68 Fitur
 
 ```
 ```
@@ -158,7 +151,7 @@ Jumlah fitur : 68
 Ukuran X : (37, 68)
 ```
 
-### 1.5 Pembahasan
+##### 1.5 Pembahasan
 
 Data sudah memiliki 68 fitur hasil ekstraksi TSFEL. Kolom identitas tidak digunakan sebagai variabel clustering karena kolom tersebut hanya berfungsi sebagai informasi mengenai data.
 
@@ -171,15 +164,15 @@ Dengan demikian, input utama untuk clustering adalah matriks:
 37 observasi × 68 fitur
 ```
 
-### Kesimpulan
+##### Kesimpulan
 
 Data sudah siap digunakan untuk proses standardisasi. Seluruh 37 observasi tetap dipertahankan dan 68 fitur digunakan sebagai variabel clustering.
 
 ---
 
-## 2. Standardisasi Data dengan StandardScaler
+#### 2. Standardisasi Data dengan StandardScaler
 
-## 2.1 Konsep
+#### 2.1 Konsep
 
 Standardisasi dilakukan agar setiap fitur memiliki skala yang relatif sama. Hal ini penting karena K-Means menggunakan jarak antar data dalam menentukan cluster.
 
@@ -198,7 +191,7 @@ Keterangan:
 
 ---
 
-## 2.2 Code
+#### 2.2 Code
 
 ```
 ```
@@ -248,7 +241,7 @@ for polutan, file in files.items():
     print("Std :", round(df_scaled.std().mean(), 6))
 ```
 
-## 2.3 Output
+#### 2.3 Output
 
 Hasil standardisasi mempertahankan ukuran data:
 
@@ -271,21 +264,21 @@ Data setelah standardisasi : (37, 68)
 
 Rata-rata hasil standardisasi berada sangat dekat dengan 0.
 
-### 2.4 Pembahasan
+##### 2.4 Pembahasan
 
 Standardisasi tidak mengubah jumlah data maupun jumlah fitur. Perubahan hanya terjadi pada skala nilai setiap fitur.
 
 Tahap ini diperlukan sebelum PCA dan K-Means karena beberapa fitur TSFEL memiliki skala yang berbeda.
 
-### Kesimpulan
+##### Kesimpulan
 
 Ketiga data polutan telah distandardisasi dan siap digunakan untuk reduksi dimensi menggunakan PCA.
 
 ---
 
-## 3. Reduksi Dimensi dengan PCA
+#### 3. Reduksi Dimensi dengan PCA
 
-## 3.1 Konsep PCA
+#### 3.1 Konsep PCA
 
 **Principal Component Analysis (PCA)** digunakan untuk mengurangi jumlah dimensi data dengan membentuk komponen baru yang mewakili variasi data.
 
@@ -312,7 +305,7 @@ Jadi pada penelitian ini jumlah maksimum komponen PCA adalah **36**, bukan 37.
 
 ---
 
-## 3.2 Code PCA
+#### 3.2 Code PCA
 
 ```
 ```
@@ -404,9 +397,9 @@ for polutan, file in files.items():
     print("PCA 36 :", round(cumulative[35], 6))
 ```
 
-## 3.3 Output PCA
+#### 3.3 Output PCA
 
-### NO₂
+##### NO₂
 
 ```
 ```
@@ -420,7 +413,7 @@ PCA 20 : 0.996338
 PCA 36 : 1.000000
 ```
 
-### CO
+##### CO
 
 ```
 ```
@@ -434,7 +427,7 @@ PCA 20 : 0.998887
 PCA 36 : 1.000000
 ```
 
-### SO₂
+##### SO₂
 
 ```
 ```
@@ -448,9 +441,9 @@ PCA 20 : 0.998543
 PCA 36 : 1.000000
 ```
 
-## 3.4 Gambar PCA
+#### 3.4 Gambar PCA
 
-### NO₂
+##### NO₂
 
 
 
@@ -472,7 +465,7 @@ Markdown:
 ![Cumulative Variance PCA NO2](../clustering/hasil/NO2/NO2_pca_variance.png)
 ```
 
-### CO
+##### CO
 
 
 
@@ -494,7 +487,7 @@ Markdown:
 ![Cumulative Variance PCA CO](../clustering/hasil/CO/CO_pca_variance.png)
 ```
 
-### SO₂
+##### SO₂
 
 
 
@@ -516,7 +509,7 @@ Markdown:
 ![Cumulative Variance PCA SO2](../clustering/hasil/SO2/SO2_pca_variance.png)
 ```
 
-## 3.5 Pembahasan
+#### 3.5 Pembahasan
 
 PCA1 menjelaskan sekitar:
 
@@ -528,15 +521,15 @@ Sedangkan sampai PCA20, informasi yang dipertahankan sudah mendekati 100%.
 
 Karena jumlah data hanya 37 observasi, jumlah maksimum komponen PCA yang dapat digunakan adalah 36.
 
-### Kesimpulan
+##### Kesimpulan
 
 PCA dapat digunakan untuk mengurangi dimensi data dari 68 fitur menjadi maksimal 36 komponen. Selanjutnya seluruh PCA1 sampai PCA36 akan diuji terhadap K-Means.
 
 ---
 
-## 4. Analisis Jumlah Cluster dengan Elbow Method
+#### 4. Analisis Jumlah Cluster dengan Elbow Method
 
-## 4.1 Konsep
+#### 4.1 Konsep
 
 Elbow Method digunakan untuk melihat perubahan **inertia** ketika jumlah cluster `K` ditambah.
 
@@ -546,7 +539,7 @@ Semakin kecil nilai inertia, semakin dekat data dengan centroid. Namun inertia a
 
 ---
 
-## 4.2 Code
+#### 4.2 Code
 
 ```
 ```
@@ -637,7 +630,7 @@ for polutan, file in files.items():
     print(hasil_df)
 ```
 
-## 4.3 Output NO₂
+#### 4.3 Output NO₂
 
 ```
 ```
@@ -655,7 +648,7 @@ K    Inertia
 10    373.027966
 ```
 
-### Gambar
+##### Gambar
 
 
 
@@ -670,7 +663,7 @@ E:\PSD\clustering\hasil\NO2\NO2_elbow.png
 
 ---
 
-## 4.4 Output CO
+#### 4.4 Output CO
 
 ```
 ```
@@ -688,7 +681,7 @@ K    Inertia
 10    221.039012
 ```
 
-### Gambar
+##### Gambar
 
 
 
@@ -703,7 +696,7 @@ E:\PSD\clustering\hasil\CO\CO_elbow.png
 
 ---
 
-## 4.5 Output SO₂
+#### 4.5 Output SO₂
 
 ```
 ```
@@ -721,7 +714,7 @@ K    Inertia
 10    230.171524
 ```
 
-### Gambar
+##### Gambar
 
 
 
@@ -734,7 +727,7 @@ Path:
 E:\PSD\clustering\hasil\SO2\SO2_elbow.png
 ```
 
-## 4.6 Pembahasan
+#### 4.6 Pembahasan
 
 Elbow Method menunjukkan bahwa inertia terus menurun ketika jumlah cluster bertambah. Oleh karena itu, penentuan jumlah cluster tidak hanya dilakukan berdasarkan Elbow Method.
 
@@ -744,35 +737,35 @@ Untuk memastikan kualitas cluster digunakan:
 -  Davies-Bouldin Index 
 -  Calinski-Harabasz Index 
 
-### Kesimpulan
+##### Kesimpulan
 
 Elbow Method digunakan sebagai analisis awal jumlah cluster. Penentuan K selanjutnya diperkuat menggunakan beberapa metrik evaluasi clustering.
 
 ---
 
-## 5. Evaluasi K-Means Clustering
+#### 5. Evaluasi K-Means Clustering
 
-## 5.1 Metrik Evaluasi
+#### 5.1 Metrik Evaluasi
 
 Tiga metrik digunakan:
 
-### Silhouette Score
+##### Silhouette Score
 
 Nilainya berada pada rentang -1 sampai 1.
 
 Semakin mendekati 1 menunjukkan pemisahan cluster yang semakin baik.
 
-### Davies-Bouldin Index
+##### Davies-Bouldin Index
 
 Semakin kecil nilainya semakin baik.
 
-### Calinski-Harabasz Index
+##### Calinski-Harabasz Index
 
 Semakin besar nilainya semakin baik.
 
 ---
 
-## 5.2 Code
+#### 5.2 Code
 
 ```
 ```
@@ -860,7 +853,7 @@ for polutan, file in files.items():
 
 ---
 
-## 5.3 Hasil NO₂
+#### 5.3 Hasil NO₂
 
 | K | Silhouette | Davies-Bouldin | Calinski-Harabasz |
 |---:|---:|---:|---:|
@@ -878,7 +871,7 @@ Pada 68 fitur, K=2 mempunyai Silhouette tertinggi dan Davies-Bouldin terendah.
 
 ---
 
-## 5.4 Hasil CO
+#### 5.4 Hasil CO
 
 | K | Silhouette | Davies-Bouldin | Calinski-Harabasz |
 |---:|---:|---:|---:|
@@ -896,7 +889,7 @@ Silhouette dan Davies-Bouldin menunjukkan K=2, sedangkan Calinski-Harabasz memil
 
 ---
 
-## 5.5 Hasil SO₂
+#### 5.5 Hasil SO₂
 
 | K | Silhouette | Davies-Bouldin | Calinski-Harabasz |
 |---:|---:|---:|---:|
@@ -912,7 +905,7 @@ Silhouette dan Davies-Bouldin menunjukkan K=2, sedangkan Calinski-Harabasz memil
 
 Silhouette dan Davies-Bouldin menunjukkan K=2, sedangkan Calinski-Harabasz memiliki nilai tertinggi pada K=3.
 
-## 5.6 Pembahasan
+#### 5.6 Pembahasan
 
 Berdasarkan 68 fitur:
 
@@ -924,9 +917,9 @@ Karena tidak semua metrik selalu memberikan nilai K yang sama, hasil clustering 
 
 ---
 
-## 6. Analisis PCA 1–36 dan K-Means
+#### 6. Analisis PCA 1–36 dan K-Means
 
-## 6.1 Tujuan
+#### 6.1 Tujuan
 
 Tahap ini digunakan untuk mengetahui bagaimana perubahan jumlah komponen PCA memengaruhi hasil clustering.
 
@@ -954,7 +947,7 @@ K = 2 sampai 10
 
 ---
 
-## 6.2 Code
+#### 6.2 Code
 
 ```
 ```
@@ -1053,9 +1046,9 @@ for polutan, file in files.items():
     print(f"{polutan} selesai.")
 ```
 
-## 6.3 Hasil Terbaik Berdasarkan Silhouette
+#### 6.3 Hasil Terbaik Berdasarkan Silhouette
 
-### NO₂
+##### NO₂
 
 ```
 ```
@@ -1069,7 +1062,7 @@ CH        : 8857.149772
 Variance  : 0.458151
 ```
 
-### CO
+##### CO
 
 ```
 ```
@@ -1083,7 +1076,7 @@ CH        : 1749.430762
 Variance  : 0.539550
 ```
 
-### SO₂
+##### SO₂
 
 ```
 ```
@@ -1097,7 +1090,7 @@ CH        : 366.002229
 Variance  : 0.530483
 ```
 
-## 6.4 Pembahasan
+#### 6.4 Pembahasan
 
 Hasil evaluasi menunjukkan PCA1 dengan K=2 menghasilkan Silhouette paling tinggi untuk ketiga polutan.
 
@@ -1109,15 +1102,15 @@ Namun PCA1 hanya menjelaskan:
 
 Sehingga nilai Silhouette yang tinggi pada PCA1 perlu dipahami sebagai kualitas pemisahan pada ruang satu dimensi tersebut, bukan berarti seluruh informasi 68 fitur hanya terdiri dari satu komponen.
 
-### Kesimpulan
+##### Kesimpulan
 
 PCA1-K2 menghasilkan pemisahan cluster yang sangat jelas berdasarkan Silhouette, tetapi analisis tetap dibandingkan dengan hasil 68 fitur agar tidak hanya bergantung pada satu representasi data.
 
 ---
 
-## 7. Clustering Menggunakan 68 Fitur
+#### 7. Clustering Menggunakan 68 Fitur
 
-## 7.1 Konsep
+#### 7.1 Konsep
 
 Selain menggunakan PCA, clustering juga dilakukan langsung menggunakan seluruh 68 fitur TSFEL yang telah distandardisasi.
 
@@ -1138,7 +1131,7 @@ Evaluasi Cluster
 
 ---
 
-## 7.2 Code
+#### 7.2 Code
 
 ```
 ```
@@ -1207,9 +1200,9 @@ for polutan, file in files.items():
         )
 ```
 
-## 7.3 Output
+#### 7.3 Output
 
-### NO₂
+##### NO₂
 
 ```
 ```
@@ -1222,7 +1215,7 @@ Davies-Bouldin : 0.163103
 Calinski-Harabasz : 29.428895
 ```
 
-### CO
+##### CO
 
 ```
 ```
@@ -1235,7 +1228,7 @@ Davies-Bouldin : 0.124689
 Calinski-Harabasz : 39.902098
 ```
 
-### SO₂
+##### SO₂
 
 ```
 ```
@@ -1248,15 +1241,15 @@ Davies-Bouldin : 0.127864
 Calinski-Harabasz : 35.609528
 ```
 
-### Kesimpulan
+##### Kesimpulan
 
 Clustering menggunakan 68 fitur menghasilkan pemisahan cluster yang cukup jelas berdasarkan nilai Silhouette, dengan K=2 menjadi konfigurasi yang menghasilkan Silhouette tertinggi pada ketiga polutan.
 
 ---
 
-## 8. Perbandingan PCA dan 68 Fitur
+#### 8. Perbandingan PCA dan 68 Fitur
 
-## 8.1 Hasil Perbandingan
+#### 8.1 Hasil Perbandingan
 
 | Polutan | Metode | K | Silhouette | Davies-Bouldin |
 |---|---|---:|---:|---:|
@@ -1267,7 +1260,7 @@ Clustering menggunakan 68 fitur menghasilkan pemisahan cluster yang cukup jelas 
 | SO₂                                    | PCA1     | 2 | 0.925296 | 0.030963 |
 | SO₂                                    | 68 Fitur | 2 | 0.789366 | 0.127864 |
 
-## 8.2 Code Perbandingan
+#### 8.2 Code Perbandingan
 
 ```
 ```
@@ -1300,7 +1293,7 @@ df = pd.DataFrame(
 print(df)
 ```
 
-## 8.3 Pembahasan
+#### 8.3 Pembahasan
 
 Dari hasil pengujian, nilai Silhouette pada PCA1 lebih tinggi dibandingkan penggunaan langsung 68 fitur.
 
@@ -1308,7 +1301,7 @@ Namun, PCA1 hanya mempertahankan sekitar 46–54% variasi data. Oleh karena itu 
 
 PCA digunakan untuk melihat struktur data pada ruang yang lebih sederhana, sedangkan 68 fitur digunakan untuk mempertahankan seluruh fitur hasil ekstraksi.
 
-### Kesimpulan
+##### Kesimpulan
 
 Kedua pendekatan digunakan sebagai pembanding:
 
@@ -1322,9 +1315,13 @@ PCA → melihat struktur data setelah reduksi dimensi
 
 ---
 
-## 9. Scatter Plot dan Persebaran Cluster
+### 1.2 Visualisasi Scatter Plot PCA dan Profiling
 
-## 9.1 Tujuan
+Bagian berikut mempertahankan materi scatter plot dan profiling dari file Week 4.
+
+#### 9. Scatter Plot dan Persebaran Cluster
+
+#### 9.1 Tujuan
 
 Scatter plot digunakan untuk melihat persebaran data berdasarkan cluster yang telah terbentuk.
 
@@ -1340,7 +1337,7 @@ Untuk visualisasi/profiling digunakan:
 
 ---
 
-## 9.2 Code
+#### 9.2 Code
 
 ```
 ```
@@ -1431,96 +1428,9 @@ for polutan, file in files.items():
 
 ---
 
-## 9.3 Hasil NO₂
+#### 10. Profiling Hasil Cluster
 
-Cluster yang terbentuk:
-
-```
-```
-
-```
-Cluster 0 : 1 data
-Cluster 1 : 13 data
-Cluster 2 : 1 data
-Cluster 3 : 2 data
-Cluster 4 : 4 data
-Cluster 5 : 16 data
-```
-
-Gambar:
-
-
-
-Path:
-
-```
-```
-
-```
-E:\PSD\clustering\hasil\NO2\NO2_scatter_cluster_K6.png
-```
-
----
-
-## 9.4 Hasil CO
-
-```
-```
-
-```
-Cluster 0 : 31 data
-Cluster 1 : 1 data
-Cluster 2 : 1 data
-Cluster 3 : 4 data
-```
-
-Gambar:
-
-
-
-Path:
-
-```
-```
-
-```
-E:\PSD\clustering\hasil\CO\CO_scatter_cluster_K4.png
-```
-
----
-
-## 9.5 Hasil SO₂
-
-```
-```
-
-```
-Cluster 0 : 3 data
-Cluster 1 : 14 data
-Cluster 2 : 1 data
-Cluster 3 : 1 data
-Cluster 4 : 17 data
-Cluster 5 : 1 data
-```
-
-Gambar:
-
-
-
-Path:
-
-```
-```
-
-```
-E:\PSD\clustering\hasil\SO2/SO2_scatter_cluster_K6.png
-```
-
----
-
-## 10. Profiling Hasil Cluster
-
-## 10.1 Tujuan
+#### 10.1 Tujuan
 
 Profiling dilakukan untuk mengetahui daerah yang berada pada masing-masing cluster.
 
@@ -1535,7 +1445,7 @@ Cluster + daerah
 
 ---
 
-## 10.2 Code
+#### 10.2 Code
 
 ```
 ```
@@ -1595,103 +1505,13 @@ for polutan, filename in files.items():
 
 ---
 
-## 10.3 Contoh Hasil NO₂
+## 2. Alur Kerja (Workflow) Clustering
 
-```
-```
+Bagian ini berisi alur Python, cara menjalankan program, output terminal, dan file hasil sebagaimana terdapat pada materi sumber.
 
-```
-Cluster 0
-Warudoyong, Kota Sukabumi
+#### 11. Implementasi Clustering dengan Python
 
-Cluster 1
-Bangkalan Kota, Bangkalan
-Gresik Kota, Gresik
-Kamal, Bangkalan
-
-Cluster 2
-Kamal, Banyuajuh
-
-Cluster 3
-Cerme, Gresik
-Kec Kalianget, Sumenep
-
-Cluster 4
-Kota Sumenep
-Labang, Bangkalan
-Sreseh, Sampang
-
-Cluster 5
-Kwanyar, Bangkalan
-Asemrowo, Surabaya
-Bandung, Jogoroto, Jombang
-```
-
-## 10.4 Contoh Hasil CO
-
-```
-```
-
-```
-Cluster 0
-Kwanyar, Bangkalan
-Asemrowo, Surabaya
-Bandung, Jogoroto, Jombang
-
-Cluster 1
-Kamal, Banyuajuh
-
-Cluster 2
-Kamal, Bangkalan
-
-Cluster 3
-Cerme, Gresik
-Kec Kalianget, Sumenep
-Wonoayu
-```
-
-## 10.5 Contoh Hasil SO₂
-
-```
-```
-
-```
-Cluster 0
-Kec Bangkalan, Kab Bangkalan
-Tanah Merah, Bangkalan
-Warudoyong, Kota Sukabumi
-
-Cluster 1
-Asemrowo, Surabaya
-Bandung, Jogoroto, Jombang
-Baron Nganjuk
-
-Cluster 2
-Kamal, Banyuajuh
-
-Cluster 3
-Kamal, Bangkalan
-
-Cluster 4
-Banyu Ajuh, Perumnas, Kamal
-Cerme, Gresik
-Gresik Kota, Gresik
-
-Cluster 5
-Wonoayu
-```
-
-### Pembahasan
-
-Profiling menunjukkan bahwa beberapa daerah muncul sebagai anggota cluster tertentu berdasarkan karakteristik 68 fitur TSFEL.
-
-Data dengan karakteristik yang berbeda dapat membentuk cluster yang lebih kecil. Hal tersebut tidak langsung berarti data tersebut salah, tetapi menunjukkan adanya perbedaan karakteristik pada ruang fitur.
-
----
-
-## 11. Implementasi Clustering dengan Python
-
-## 11.1 Alur Python
+#### 11.1 Alur Python
 
 Seluruh proses clustering menggunakan Python dilakukan melalui tahapan:
 
@@ -1729,7 +1549,7 @@ E:\PSD\clustering\clustering_final.py
 
 ---
 
-## 11.2 Menjalankan Program
+#### 11.2 Menjalankan Program
 
 ```
 ```
@@ -1740,7 +1560,7 @@ cd E:\PSD
 python clustering\clustering_final.py
 ```
 
-## 11.3 Output Terminal
+#### 11.3 Output Terminal
 
 Program menghasilkan informasi seperti:
 
@@ -1788,7 +1608,7 @@ Evaluasi K-Means selesai.
 Hasil clustering disimpan.
 ```
 
-## 11.4 File Hasil
+#### 11.4 File Hasil
 
 Contoh hasil:
 
@@ -1825,9 +1645,194 @@ clustering/
 
 ---
 
-## 14. Kesimpulan Clustering
+## 3. Interpretasi Hasil Clustering
 
-## 14.1 Kesimpulan Data
+Bagian ini memuat hasil scatter plot, profiling tiap polutan, pembahasan, kesimpulan clustering, serta daftar path gambar dari materi sumber.
+
+#### 9.3 Hasil NO₂
+
+Cluster yang terbentuk:
+
+```
+```
+
+```
+Cluster 0 : 1 data
+Cluster 1 : 13 data
+Cluster 2 : 1 data
+Cluster 3 : 2 data
+Cluster 4 : 4 data
+Cluster 5 : 16 data
+```
+
+Gambar:
+
+
+
+Path:
+
+```
+```
+
+```
+E:\PSD\clustering\hasil\NO2\NO2_scatter_cluster_K6.png
+```
+
+---
+
+#### 9.4 Hasil CO
+
+```
+```
+
+```
+Cluster 0 : 31 data
+Cluster 1 : 1 data
+Cluster 2 : 1 data
+Cluster 3 : 4 data
+```
+
+Gambar:
+
+
+
+Path:
+
+```
+```
+
+```
+E:\PSD\clustering\hasil\CO\CO_scatter_cluster_K4.png
+```
+
+---
+
+#### 9.5 Hasil SO₂
+
+```
+```
+
+```
+Cluster 0 : 3 data
+Cluster 1 : 14 data
+Cluster 2 : 1 data
+Cluster 3 : 1 data
+Cluster 4 : 17 data
+Cluster 5 : 1 data
+```
+
+Gambar:
+
+
+
+Path:
+
+```
+```
+
+```
+E:\PSD\clustering\hasil\SO2/SO2_scatter_cluster_K6.png
+```
+
+---
+
+#### 10.3 Contoh Hasil NO₂
+
+```
+```
+
+```
+Cluster 0
+Warudoyong, Kota Sukabumi
+
+Cluster 1
+Bangkalan Kota, Bangkalan
+Gresik Kota, Gresik
+Kamal, Bangkalan
+
+Cluster 2
+Kamal, Banyuajuh
+
+Cluster 3
+Cerme, Gresik
+Kec Kalianget, Sumenep
+
+Cluster 4
+Kota Sumenep
+Labang, Bangkalan
+Sreseh, Sampang
+
+Cluster 5
+Kwanyar, Bangkalan
+Asemrowo, Surabaya
+Bandung, Jogoroto, Jombang
+```
+
+#### 10.4 Contoh Hasil CO
+
+```
+```
+
+```
+Cluster 0
+Kwanyar, Bangkalan
+Asemrowo, Surabaya
+Bandung, Jogoroto, Jombang
+
+Cluster 1
+Kamal, Banyuajuh
+
+Cluster 2
+Kamal, Bangkalan
+
+Cluster 3
+Cerme, Gresik
+Kec Kalianget, Sumenep
+Wonoayu
+```
+
+#### 10.5 Contoh Hasil SO₂
+
+```
+```
+
+```
+Cluster 0
+Kec Bangkalan, Kab Bangkalan
+Tanah Merah, Bangkalan
+Warudoyong, Kota Sukabumi
+
+Cluster 1
+Asemrowo, Surabaya
+Bandung, Jogoroto, Jombang
+Baron Nganjuk
+
+Cluster 2
+Kamal, Banyuajuh
+
+Cluster 3
+Kamal, Bangkalan
+
+Cluster 4
+Banyu Ajuh, Perumnas, Kamal
+Cerme, Gresik
+Gresik Kota, Gresik
+
+Cluster 5
+Wonoayu
+```
+
+##### Pembahasan
+
+Profiling menunjukkan bahwa beberapa daerah muncul sebagai anggota cluster tertentu berdasarkan karakteristik 68 fitur TSFEL.
+
+Data dengan karakteristik yang berbeda dapat membentuk cluster yang lebih kecil. Hal tersebut tidak langsung berarti data tersebut salah, tetapi menunjukkan adanya perbedaan karakteristik pada ruang fitur.
+
+---
+
+#### 14. Kesimpulan Clustering
+
+#### 14.1 Kesimpulan Data
 
 Data yang digunakan terdiri dari 37 observasi untuk masing-masing polutan dengan 68 fitur TSFEL.
 
@@ -1844,7 +1849,7 @@ Tidak terdapat missing value, infinity, maupun duplikasi yang mengganggu proses 
 
 ---
 
-## 14.2 Kesimpulan PCA
+#### 14.2 Kesimpulan PCA
 
 Jumlah maksimum komponen PCA adalah 36 karena jumlah observasi hanya 37.
 
@@ -1858,7 +1863,7 @@ Hasil cumulative variance:
 
 ---
 
-## 14.3 Kesimpulan K-Means 68 Fitur
+#### 14.3 Kesimpulan K-Means 68 Fitur
 
 Pada penggunaan seluruh 68 fitur, hasil evaluasi menunjukkan:
 
@@ -1874,7 +1879,7 @@ Untuk CO dan SO₂, Calinski-Harabasz memiliki nilai tertinggi pada K=3, sehingg
 
 ---
 
-## 14.4 Kesimpulan PCA + K-Means
+#### 14.4 Kesimpulan PCA + K-Means
 
 Pada pengujian PCA1 sampai PCA36 dan K=2 sampai K=10, konfigurasi dengan Silhouette tertinggi adalah:
 
@@ -1888,7 +1893,7 @@ Namun PCA1 hanya mempertahankan sekitar 46–54% variasi data. Oleh karena itu, 
 
 ---
 
-## 14.5 Kesimpulan Akhir
+#### 14.5 Kesimpulan Akhir
 
 Berdasarkan seluruh proses, tahapan clustering yang dilakukan adalah:
 
@@ -1926,11 +1931,11 @@ Seluruh observasi tetap digunakan dalam proses analisis. Data dengan karakterist
 
 ---
 
-# Daftar Path Gambar Week 4
+### Daftar Path Gambar Week 4
 
 Supaya nanti kamu gampang memasukkan gambar ke materi, ini kumpulan path-nya:
 
-### NO₂
+##### NO₂
 
 ```
 ```
@@ -1944,7 +1949,7 @@ E:\PSD\clustering\hasil\NO2\NO2_scatter_PCA_K2_final.png
 E:\PSD\clustering\hasil\NO2\NO2_scatter_cluster_K6.png
 ```
 
-### CO
+##### CO
 
 ```
 ```
@@ -1958,7 +1963,7 @@ E:\PSD\clustering\hasil\CO\CO_scatter_PCA_K2_final.png
 E:\PSD\clustering\hasil\CO\CO_scatter_cluster_K4.png
 ```
 
-### SO₂
+##### SO₂
 
 ```
 ```
@@ -1972,7 +1977,7 @@ E:\PSD\clustering\hasil\SO2\SO2_scatter_PCA_K2_final.png
 E:\PSD\clustering\hasil\SO2\SO2_scatter_cluster_K6.png
 ```
 
-### Untuk Markdown Jupyter Book
+##### Untuk Markdown Jupyter Book
 
 Format umumnya:
 
@@ -1986,7 +1991,7 @@ Format umumnya:
 
 
 
-### 11.4 Output Terminal
+##### 11.4 Output Terminal
 
 Contoh output terminal yang tercantum pada materi:
 
@@ -2029,48 +2034,6 @@ Output tersebut menunjukkan bahwa ketiga dataset berhasil diproses dengan **37 o
 
 > **Catatan:** Jika output terminal asli memiliki format/baris tambahan, gunakan output asli tersebut pada dokumentasi final. Jangan menambahkan angka yang tidak benar-benar dihasilkan program.
 
-## 12. Kesimpulan
+#### 12. Kesimpulan
 
 Data yang dianalisis terdiri dari tiga polutan, yaitu **NO₂, CO, dan SO₂**. Masing-masing dataset memiliki **37 observasi dan 68 fitur TSFEL** yang digunakan untuk proses clustering. Hasil validasi menunjukkan tidak terdapat missing value, infinity, maupun duplicate.
-
-Sebelum clustering, seluruh fitur distandardisasi menggunakan `StandardScaler`. Setelah itu dilakukan PCA dengan maksimum **36 komponen**, sesuai dengan:
-
-\[
-\min(n-1,p)=\min(37-1,68)=36
-\]
-
-Cumulative explained variance menunjukkan bahwa pada PCA20 variasi yang dipertahankan mencapai sekitar **99,63% untuk NO₂, 99,89% untuk CO, dan 99,85% untuk SO₂**.
-
-Pada evaluasi K-Means menggunakan seluruh 68 fitur, **K=2** memiliki Silhouette tertinggi dan Davies-Bouldin terendah untuk ketiga polutan pada hasil yang terdokumentasi. Untuk CO dan SO₂, Calinski-Harabasz memiliki nilai tertinggi pada K=3, sehingga hasil clustering perlu dibaca menggunakan ketiga metrik secara bersama-sama.
-
-Pengujian PCA1–PCA36 dengan K=2–K=10 menunjukkan bahwa kombinasi **PCA1 dan K=2** menghasilkan Silhouette tertinggi untuk masing-masing polutan. Namun, PCA1 hanya menjelaskan sekitar **45,82% NO₂, 53,96% CO, dan 53,05% SO₂**, sehingga hasil PCA1 dipahami sebagai evaluasi pada representasi satu dimensi dan tetap dibandingkan dengan hasil clustering menggunakan seluruh 68 fitur.
-
-Visualisasi dan profiling digunakan untuk melihat distribusi cluster dan daerah yang berada di dalam cluster. Konfigurasi visualisasi yang digunakan pada materi adalah **K=6 untuk NO₂, K=4 untuk CO, dan K=6 untuk SO₂** sebagai referensi visualisasi/profiling.
-
-Alur utama Week 4:
-
-```text
-Data NO₂ / CO / SO₂
-        ↓
-Validasi Data
-        ↓
-68 Fitur TSFEL
-        ↓
-StandardScaler
-        ↓
-PCA 1–36
-        ↓
-Elbow Method K=2–10
-        ↓
-K-Means K=2–10
-        ↓
-Silhouette + Davies-Bouldin + Calinski-Harabasz
-        ↓
-Perbandingan PCA dan 68 Fitur
-        ↓
-Visualisasi
-        ↓
-Profiling Cluster
-```
-
-> **Batas pembahasan:** Penerapan menggunakan KNIME tidak termasuk dalam dokumen ini dan akan dibuat pada patch/dokumentasi tersendiri.
