@@ -52,6 +52,3 @@ parts:
     chapters:
       - file: minggu-4/clustering-data-fitur-tsfel
         title: "1. Clustering Data Fitur TSFEL"
-
-      - file: minggu-4/penerapan-knime
-        title: "2. Penerapan Clustering Menggunakan KNIME"
