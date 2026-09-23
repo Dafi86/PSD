@@ -50,5 +50,5 @@ parts:
 
   - caption: "Minggu 4 — Clustering K-Means dan KNIME"
     chapters:
-      - file: minggu-4/clustering-data-fitur-tsfel
-        title: "1. Clustering Data Fitur TSFEL"
+      - file: minggu-4/Implementasi_KMeans_Python_ScikitLearn
+        title: "1. Implementasi K-Means dengan Python (Scikit-Learn)"
