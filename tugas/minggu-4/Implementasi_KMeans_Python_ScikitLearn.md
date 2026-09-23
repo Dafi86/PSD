@@ -181,15 +181,15 @@ Grafik variance masing-masing polutan:
 
 ### NO₂
 
-[PCA Variance NO2](image/NO2_pca_variance.png)
+![PCA Variance NO2](image/image/NO2_pca_variance.png)
 
 ### CO
 
-[PCA Variance CO](image/CO_pca_variance.png)
+![PCA Variance CO](image/image/CO_pca_variance.png)
 
 ### SO₂
 
-[PCA Variance SO2](image/SO2_pca_variance.png)
+![PCA Variance SO2](image/image/SO2_pca_variance.png)
 
 
 
@@ -225,15 +225,15 @@ Pada PCA 37, cumulative variance untuk ketiga polutan mencapai **1.0**.
 
 ### NO₂
 
-[Cumulative Variance PCA NO2](image/NO2_cumulative_variance_PCA1_37.png)
+![Cumulative Variance PCA NO2](image/image/NO2_cumulative_variance_PCA1_37.png)
 
 ### CO
 
-[Cumulative Variance PCA CO](image/CO_cumulative_variance_PCA1_37.png)
+![Cumulative Variance PCA CO](image/image/CO_cumulative_variance_PCA1_37.png)
 
 ### SO₂
 
-[Cumulative Variance PCA SO2](image/SO2_cumulative_variance_PCA1_37.png)
+![Cumulative Variance PCA SO2](image/image/SO2_cumulative_variance_PCA1_37.png)
 
 
 
@@ -388,15 +388,15 @@ Nilai inertia tersebut digunakan untuk membuat grafik Elbow.
 
 ### NO₂
 
-[Elbow Method NO2](image/NO2_elbow.png)
+![Elbow Method NO2](image/image/NO2_elbow.png)
 
 ### CO
 
-[Elbow Method CO](image/CO_elbow.png)
+![Elbow Method CO](image/image/CO_elbow.png)
 
 ### SO₂
 
-[Elbow Method SO2](image/SO2_elbow.png)
+![Elbow Method SO2](image/image/SO2_elbow.png)
 
 ### Pembahasan
 
@@ -669,15 +669,15 @@ plt.show()
 
 ### Grafik NO₂
 
-[Silhouette PCA 1–37 NO2](image/NO2_silhouette_PCA1_37.png)
+![Silhouette PCA 1–37 NO2](image/image/NO2_silhouette_PCA1_37.png)
 
 ### Grafik CO
 
-[Silhouette PCA 1–37 CO](image/CO_silhouette_PCA1_37.png)
+![Silhouette PCA 1–37 CO](image/image/CO_silhouette_PCA1_37.png)
 
 ### Grafik SO₂
 
-[Silhouette PCA 1–37 SO2](image/SO2_silhouette_PCA1_37.png)
+![Silhouette PCA 1–37 SO2](image/image/SO2_silhouette_PCA1_37.png)
 
 ### Pembahasan
 
@@ -753,15 +753,15 @@ plt.show()
 
 ### NO₂
 
-[Scatter PCA K2 NO2](image/NO2_scatter_PCA_K2_final.png)
+![Scatter PCA K2 NO2](image/image/NO2_scatter_PCA_K2_final.png)
 
 ### CO
 
-[Scatter PCA K2 CO](image/CO_scatter_PCA_K2_final.png)
+![Scatter PCA K2 CO](image/image/CO_scatter_PCA_K2_final.png)
 
 ### SO₂
 
-[Scatter PCA K2 SO2](image/SO2_scatter_PCA_K2_final.png)
+![Scatter PCA K2 SO2](image/image/SO2_scatter_PCA_K2_final.png)
 
 Visualisasi tersebut digunakan untuk melihat pemisahan data berdasarkan hasil clustering K=2.
 
@@ -775,15 +775,15 @@ File gambar hasil visualisasi yang tersedia:
 
 ### NO₂
 
-[Scatter Cluster NO2](image/NO2_scatter_cluster_K6.png)
+![Scatter Cluster NO2](image/image/NO2_scatter_cluster_K6.png)
 
 ### CO
 
-[Scatter Cluster CO](image/CO_scatter_cluster_K6.png)
+![Scatter Cluster CO](image/image/CO_scatter_cluster_K6.png)
 
 ### SO₂
 
-[Scatter Cluster SO2](image/SO2_scatter_cluster_K6.png)
+![Scatter Cluster SO2](image/image/SO2_scatter_cluster_K6.png)
 
 Gambar tersebut digunakan sebagai bukti visual hasil pembagian data ke dalam cluster.
 
@@ -797,15 +797,15 @@ Untuk melihat persebaran hasil clustering berdasarkan daerah, digunakan scatter 
 
 ### NO₂
 
-[Scatter Daerah Cluster NO2](image/NO2_scatter_daerah_cluster.png)
+![Scatter Daerah Cluster NO2](image/image/NO2_scatter_daerah_cluster.png)
 
 ### CO
 
-[Scatter Daerah Cluster CO](image/CO_scatter_daerah_cluster.png)
+![Scatter Daerah Cluster CO](image/image/CO_scatter_daerah_cluster.png)
 
 ### SO₂
 
-[Scatter Daerah Cluster SO2](image/SO2_scatter_daerah_cluster.png)
+![Scatter Daerah Cluster SO2](image/image/SO2_scatter_daerah_cluster.png)
 
 Visualisasi ini membantu melihat apakah data dari daerah tertentu berada pada cluster yang sama atau tersebar pada beberapa cluster.
 
@@ -817,15 +817,15 @@ Selain scatter plot hasil K-Means, tersedia juga visualisasi PCA untuk melihat p
 
 ### NO₂
 
-[Scatter PCA NO2](image/NO2_scatter_pca.png)
+![Scatter PCA NO2](image/image/NO2_scatter_pca.png)
 
 ### CO
 
-[Scatter PCA CO](image/CO_scatter_pca.png)
+![Scatter PCA CO](image/image/CO_scatter_pca.png)
 
 ### SO₂
 
-[Scatter PCA SO2](image/SO2_scatter_pca.png)
+![Scatter PCA SO2](image/image/SO2_scatter_pca.png)
 
 Visualisasi ini digunakan sebagai tambahan untuk melihat struktur persebaran data setelah dilakukan reduksi dimensi.
 
