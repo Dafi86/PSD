@@ -1,7 +1,3 @@
-```
-```
-
-````
 # Klasifikasi Tutupan Lahan Sawah dengan Sentinel-2A
 
 ## 1. Pendahuluan
@@ -32,16 +28,10 @@ Area penelitian ditentukan menggunakan bounding box:
 Pencarian citra utama dilakukan pada periode:
 
 ```
-```
-
-```
 1 Juli 2023 – 30 September 2023
 ```
 
 dengan kriteria tutupan awan:
-
-```
-```
 
 ```
 < 15%
@@ -50,16 +40,10 @@ dengan kriteria tutupan awan:
 Apabila citra dengan kriteria tersebut tidak ditemukan, kode menyediakan pencarian alternatif pada periode:
 
 ```
-```
-
-```
 1 Mei 2024 – 30 September 2024
 ```
 
 dengan kriteria tutupan awan:
-
-```
-```
 
 ```
 < 20%
@@ -85,16 +69,10 @@ Keempat band tersebut dipilih karena menyediakan informasi spektral yang digunak
 Setiap band kemudian dipotong berdasarkan area penelitian dan digabungkan menjadi satu raster komposit:
 
 ```
-```
-
-```
 sentinel2_paciran_composite.tif
 ```
 
 Urutan band pada raster komposit adalah:
-
-```
-```
 
 ```
 B02, B03, B04, B08
@@ -117,8 +95,8 @@ Dua kelas yang digunakan adalah:
 
 Jumlah polygon ground truth yang digunakan adalah **100 polygon**, dengan distribusi:
 
--  50 polygon Sawah 
--  50 polygon Non-Sawah 
+- 50 polygon Sawah 
+- 50 polygon Non-Sawah 
 
 ### Kelas Sawah
 
@@ -128,12 +106,12 @@ Kelas Sawah mencakup area persawahan yang menunjukkan vegetasi hijau dan area pe
 
 Kelas Non-Sawah mencakup objek yang bukan merupakan persawahan, seperti:
 
--  permukiman atau atap bangunan, 
--  jalan, 
--  perairan laut, 
--  tambak pesisir, 
--  tanah terbuka, 
--  dan objek non-sawah lainnya. 
+- permukiman atau atap bangunan, 
+- jalan, 
+- perairan laut, 
+- tambak pesisir, 
+- tanah terbuka, 
+- dan objek non-sawah lainnya. 
 
 ---
 
@@ -142,9 +120,6 @@ Kelas Non-Sawah mencakup objek yang bukan merupakan persawahan, seperti:
 Data polygon ground truth disesuaikan dengan sistem koordinat raster Sentinel-2A.
 
 Dalam proses Python, sistem koordinat raster dibaca terlebih dahulu, kemudian polygon ground truth diubah menggunakan:
-
-```
-```
 
 ```
 gdf_samples = gdf_samples.to_crs(raster_crs)
@@ -159,9 +134,6 @@ Langkah ini dilakukan agar posisi polygon sesuai dengan posisi pixel pada raster
 Setelah polygon ground truth disesuaikan dengan raster, dilakukan ekstraksi nilai pixel dari setiap polygon.
 
 Empat band digunakan sebagai fitur:
-
-```
-```
 
 ```
 B02
@@ -187,16 +159,10 @@ dengan distribusi:
 Dengan empat band sebagai fitur, bentuk dataset adalah:
 
 ```
-```
-
-```
 X = 8512 × 4
 ```
 
 sedangkan label memiliki bentuk:
-
-```
-```
 
 ```
 y = 8512 × 1
@@ -218,9 +184,6 @@ Pembagian dilakukan secara **stratified** sehingga distribusi kelas tetap dipert
 Parameter yang digunakan:
 
 ```
-```
-
-```
 test_size=0.3
 random_state=42
 stratify=y
@@ -239,9 +202,6 @@ Algoritma yang digunakan untuk klasifikasi adalah **Random Forest Classifier**.
 Model dibangun menggunakan konfigurasi:
 
 ```
-```
-
-```
 RandomForestClassifier(
     n_estimators=100,
     random_state=42
@@ -253,16 +213,10 @@ Parameter tersebut berarti model menggunakan **100 decision tree**.
 Model kemudian dilatih menggunakan data training:
 
 ```
-```
-
-```
 rf_model.fit(X_train, y_train)
 ```
 
 Setelah proses training selesai, model digunakan untuk memprediksi data testing.
-
-```
-```
 
 ```
 y_pred = rf_model.predict(X_test)
@@ -302,9 +256,9 @@ Hasil evaluasi untuk masing-masing kelas adalah:
 
 Kelas Non-Sawah menghasilkan:
 
--  Precision = **0.98** 
--  Recall = **0.99** 
--  F1-Score = **0.99** 
+- Precision = **0.98** 
+- Recall = **0.99** 
+- F1-Score = **0.99** 
 
 Hasil tersebut menunjukkan bahwa model memiliki kemampuan yang sangat baik dalam mengenali pixel Non-Sawah.
 
@@ -312,9 +266,9 @@ Hasil tersebut menunjukkan bahwa model memiliki kemampuan yang sangat baik dalam
 
 Kelas Sawah menghasilkan:
 
--  Precision = **0.75** 
--  Recall = **0.46** 
--  F1-Score = **0.57** 
+- Precision = **0.75** 
+- Recall = **0.46** 
+- F1-Score = **0.57** 
 
 Nilai recall kelas Sawah yang lebih rendah menunjukkan bahwa masih terdapat pixel Sawah yang diprediksi sebagai Non-Sawah.
 
@@ -327,16 +281,10 @@ Setelah model Random Forest selesai dilatih dan dievaluasi, model diterapkan pad
 Raster dengan empat band diubah menjadi bentuk matriks pixel sehingga setiap pixel memiliki empat fitur:
 
 ```
-```
-
-```
 B02, B03, B04, B08
 ```
 
 Seluruh pixel kemudian diprediksi menggunakan model:
-
-```
-```
 
 ```
 classified_pixels = rf_model.predict(reshaped_image)
@@ -349,9 +297,6 @@ Hasil prediksi dikembalikan ke bentuk raster sehingga membentuk peta klasifikasi
 ## 12. Penyimpanan Hasil Klasifikasi
 
 Hasil klasifikasi disimpan dalam format **GeoTIFF** dengan nama:
-
-```
-```
 
 ```
 peta_klasifikasi_sawah_paciran.tif
@@ -381,6 +326,12 @@ Visualisasi menggunakan dua kelas:
 
 Hasil visualisasi digunakan untuk melihat kesesuaian spasial antara hasil klasifikasi dengan kondisi permukaan yang terlihat pada citra satelit.
 
+### Gambar Hasil Klasifikasi
+
+![Hasil klasifikasi tutupan lahan sawah](Hasil-Klasifikasi.png)
+
+### Gambar Hasil Klasifikasi
+
 ---
 
 ## 14. Analisis Hasil
@@ -400,9 +351,6 @@ Hal tersebut menunjukkan bahwa nilai akurasi keseluruhan yang tinggi perlu dilih
 Hasil akhir dari proses klasifikasi adalah raster:
 
 ```
-```
-
-```
 peta_klasifikasi_sawah_paciran.tif
 ```
 
@@ -410,43 +358,17 @@ Raster tersebut berisi hasil prediksi kelas Sawah dan Non-Sawah untuk seluruh pi
 
 Hasil klasifikasi kemudian ditampilkan pada QGIS untuk melihat distribusi spasial kedua kelas.
 
----
-
 ## 16. Kesimpulan
 
 Berdasarkan proses yang telah dilakukan, dapat disimpulkan bahwa:
 
-1.  Citra **Sentinel-2A Level-2A** digunakan sebagai sumber data klasifikasi. 
-2.  Empat band dengan resolusi 10 meter digunakan sebagai fitur, yaitu **B02, B03, B04, dan B08**. 
-3.  Ground truth terdiri dari **100 polygon**, yaitu 50 Sawah dan 50 Non-Sawah. 
-4.  Ekstraksi menghasilkan **8.512 pixel**, terdiri dari 339 pixel Sawah dan 8.173 pixel Non-Sawah. 
-5.  Data dibagi menjadi 70% training dan 30% testing secara stratified. 
-6.  Model yang digunakan adalah **Random Forest dengan 100 tree dan `random_state=42`**. 
-7.  Model menghasilkan akurasi keseluruhan sebesar **97,2%**. 
-8.  Kelas Non-Sawah memiliki performa klasifikasi lebih baik dibandingkan kelas Sawah. 
-9.  Model diterapkan pada seluruh pixel citra untuk menghasilkan peta klasifikasi. 
-10.  Hasil akhir disimpan sebagai **`peta_klasifikasi_sawah_paciran.tif`** dan divisualisasikan menggunakan QGIS. 
-
-```
-```
-
-````
-
-### Nama file dan gambar
-
-Simpan sebagai:
-
-```text
-klasifikasi-tutupan-lahan-sawah.md
-````
-
-Kalau gambar QGIS kamu memang bernama **`Hasil-Klasifikasi.png`** dan berada satu folder dengan MD, bagian:
-
-```
-```
-
-```
-![Hasil klasifikasi tutupan lahan sawah](Hasil-Klasifikasi.png)
-```
-
-sudah langsung benar.
+1. Citra **Sentinel-2A Level-2A** digunakan sebagai sumber data klasifikasi.
+2. Empat band dengan resolusi 10 meter digunakan sebagai fitur, yaitu **B02, B03, B04, dan B08**.
+3. Ground truth terdiri dari **100 polygon**, yaitu 50 Sawah dan 50 Non-Sawah.
+4. Ekstraksi menghasilkan **8.512 pixel**, terdiri dari 339 pixel Sawah dan 8.173 pixel Non-Sawah.
+5. Data dibagi menjadi 70% training dan 30% testing secara stratified.
+6. Model yang digunakan adalah **Random Forest dengan 100 tree dan `random_state=42`**.
+7. Model menghasilkan akurasi keseluruhan sebesar **97,2%**.
+8. Kelas Non-Sawah memiliki performa klasifikasi lebih baik dibandingkan kelas Sawah.
+9. Model diterapkan pada seluruh pixel citra untuk menghasilkan peta klasifikasi.
+10. Hasil akhir disimpan sebagai **`peta_klasifikasi_sawah_paciran.tif`** dan divisualisasikan menggunakan QGIS.
