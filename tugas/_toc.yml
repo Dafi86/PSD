@@ -3,7 +3,7 @@ format: jb-book
 root: intro
 
 parts:
-  - caption: "Minggu 1 — Analisis Kualitas Udara"
+  - caption: "Materi 1 — Analisis Kualitas Udara"
     chapters:
       - file: minggu-1/business-understanding-kalitengah
         title: "1. Business Understanding"
@@ -21,7 +21,7 @@ parts:
         title: "5. Eksplorasi Data"
 
 
-  - caption: "Minggu 2 — PostgreSQL Aiven dan KNIME"
+  - caption: "Materi 2 — PostgreSQL Aiven dan KNIME"
     chapters:
       - file: minggu-2/pemindahan-data-postgresql-aiven
         title: "1. Pemindahan Data ke PostgreSQL Aiven"
@@ -42,13 +42,22 @@ parts:
         title: "6. Analisis Time Series dan Kesimpulan"
 
 
-  - caption: "Minggu 3 — Preprocessing dan Ekstraksi Fitur"
+  - caption: "Materi 3 — Preprocessing dan Ekstraksi Fitur"
     chapters:
       - file: minggu-3/preprocessing-ekstraksi-fitur-kalitengah-tabel
         title: "1. Preprocessing dan Ekstraksi 68 Fitur TSFEL"
 
 
-  - caption: "Minggu 4 — Clustering K-Means dan KNIME"
+  - caption: "Materi 4 — Clustering K-Means dan KNIME"
     chapters:
       - file: minggu-4/Implementasi_KMeans_Python_ScikitLearn
         title: "1. Implementasi K-Means dengan Python (Scikit-Learn)"
+
+
+  - caption: "Materi 5 — Pemrosesan Sinyal dan Data Spasial"
+    chapters:
+      - file: materi-5/clustering-kualitas-udara
+        title: "1. Clustering Kualitas Udara dengan K-Means"
+
+      - file: materi-5/klasifikasi-tutupan-lahan-sawah
+        title: "2. Klasifikasi Tutupan Lahan Sawah dengan Sentinel-2A"
