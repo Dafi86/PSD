@@ -1,10 +1,4 @@
-  - caption: "Materi 5 — Pemrosesan Sinyal dan Data Spasial"
-    chapters:
-      - file: minggu-5/Clustering_Kualitas_Udara_KMeans
-        title: "1. Clustering Kualitas Udara dengan K-Means"
-
-      - file: minggu-5/klasifikasi-tutupan-lahan-sawah
-        title: "2. Klasifikasi Tutupan Lahan Sawah dengan Sentinel-2A"format: jb-book
+format: jb-book
 
 root: intro
 
@@ -62,8 +56,8 @@ parts:
 
   - caption: "Materi 5 — Pemrosesan Sinyal dan Data Spasial"
     chapters:
-      - file: materi-5/clustering-kualitas-udara
+      - file: minggu-5/Clustering_Kualitas_Udara_KMeans
         title: "1. Clustering Kualitas Udara dengan K-Means"
 
-      - file: materi-5/klasifikasi-tutupan-lahan-sawah
+      - file: minggu-5/klasifikasi-tutupan-lahan-sawah
         title: "2. Klasifikasi Tutupan Lahan Sawah dengan Sentinel-2A"
