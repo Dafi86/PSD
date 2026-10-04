@@ -328,7 +328,7 @@ Hasil visualisasi digunakan untuk melihat kesesuaian spasial antara hasil klasif
 
 ### Gambar Hasil Klasifikasi
 
-![Hasil klasifikasi tutupan lahan sawah](Hasil-Klasifikasi.png)
+![Hasil klasifikasi tutupan lahan sawah](Klasifikasi.png)
 
 ### Gambar Hasil Klasifikasi
 
