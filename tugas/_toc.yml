@@ -63,3 +63,6 @@ parts:
     chapters:
       - file: minggu-5/klasifikasi-tutupan-lahan-sentinel2a
         title: "1. Klasifikasi Tutupan Lahan Jawa Timur dengan Sentinel-2A"
+
+      - file: minggu-6/dokumentasi_klasifikasi_tutupan_lahan_jawa_timur
+        title: "2. Dokumentasi Klasifikasi Tutupan Lahan Jawa Timur"
